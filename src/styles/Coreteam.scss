@@ -1,0 +1,126 @@
+/*========coreteam=========*/
+.coreteam_container {
+    padding: 10vw 8.5vw 12vw 8.5vw;
+    background-color: white;
+}
+.coreteam_container h1 {
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 2.8vw;
+    color: #eb2c7d;
+    border: none;
+    width: fit-content;
+    margin: 0;
+}
+.coreteam_container h1::after {
+    content: "";
+    display: block;
+    width: 7vw;
+    height: 0.4vw;
+    background: #1481ba;
+    position: relative;
+    left: 0;
+    top: 0.8vw;
+}
+#coreteam_cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap:5.0625vw 2.5vw;
+  margin-top: 5.9375vw;
+}
+#coreteam_card1 {
+  display: flex;
+  flex-direction: row;
+  column-gap: 1.9375vw;
+}
+#coreteam_card_svg {
+  width: 9.875vw;
+  border-radius: 1vw;
+  height: fit-content;
+}
+#coreteamimg1 {
+  width: 100%;
+  margin: 0;
+}
+#coreteam_h1 {
+  font-family: Segoe UI;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.25vw;
+  line-height: 2vw;
+  color: black;
+  margin: 0;
+}
+#coreteam_h2 {
+  font-family: Segoe UI;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.125vw;
+  line-height: 2vw;
+  color: #111111;
+  margin: 0;
+}
+#coreteam_h3 {
+  font-family: Segoe UI;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 0.875vw;
+  line-height: 1.5vw;
+  color: #555555;
+  margin: 0;
+}
+#coreteam_button {
+  width: 8.1875vw;
+  height: 2.5vw;
+  background: rgba(235, 44, 125, 0.1);
+  border-radius: 0.5vw;
+  border: none;
+  font-family: Segoe UI;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.75vw;
+  color: #eb2c7d;
+  position: relative;
+  margin: 0;
+  padding-right: 2.6vw;
+  margin-top: 1.1875vw;
+}
+#coreteam_button:hover {
+  transition: 0.5s ease-in-out;
+  width: 9vw;
+}
+#cbutton_img{
+  position: absolute;
+  margin: 0;
+  right: 1vw;
+  width: 1.25vw;
+}
+@media (max-width:600px){
+  #coreteam_button {
+    margin-top: 0vw;
+    position: relative;
+    top:-1.7vw;
+  }
+}
+@media (max-width:410px){
+  #coreteam_button {
+    margin-top: 0vw;
+    position: relative;
+    top:-2vw;
+  }
+}
+@media (max-width:360px){
+  #coreteam_button {
+    margin-top: 0vw;
+    position: relative;
+    top:-2.8vw;
+  }
+}
+@media (max-width:275px){
+  #coreteam_button {
+    margin-top: 0vw;
+    position: relative;
+    top:-5vw;
+  }
+}

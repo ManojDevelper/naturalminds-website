@@ -1,0 +1,76 @@
+/*===========Patner============*/
+.patner {
+    background: white;
+    padding: 12vw 0;
+}
+.patner_container {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
+    max-width: calc(100% - 18%);
+    margin: auto;
+}
+.conten1_title h1 {
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.75vw;
+    text-align: center;
+    color: #000000;
+}
+.patner_container_content1 .conten1_img {
+    width: fit-content;
+    margin: auto;
+    margin-top: 4.8125vw;
+}
+#overlapimg {
+    width: auto;
+    max-width: 27.6875vw;
+}
+
+.patner_container_conten2 .conten1_img {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3vw;
+}
+#startup {
+    width: auto;
+    max-width: 13.1vw;
+}
+#msme {
+    width: auto;
+    max-width: 10.5vw;
+}
+#gem {
+    width: auto;
+    max-width: 11vw;
+}
+/*=======mediaquaries=========*/
+@media (max-width:1079px){
+    .patner{
+        padding: 7.5vw 0;
+    }
+    .patner_container_content1 .conten1_img {
+        margin: auto;
+        width: fit-content;
+        margin-top: 0;
+    }
+    .patner h1{
+        font-size: 3vw;
+        margin: 0;
+    }
+    #overlapimg{
+        width: 40vw;
+        margin: 0;
+        height: auto;
+        margin-top: 10vw;
+    }
+    .conten1_img img{
+        width: 20vw;
+        height: fit-content;
+    }
+}

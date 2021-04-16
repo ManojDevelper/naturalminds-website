@@ -1,0 +1,100 @@
+/*==========Finddoctors==========*/
+.finddoctors {
+    background: white;
+    height: 100vh;
+}
+.finddoctors_container {
+    max-width: calc(100% - 25%);
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+.finddoctors_container_matter {
+    padding-top: 2vw;
+}
+.finddoctors_container_matter h1 {
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    color: #000000;
+}
+.finddoctors_container_matter p {
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 24px;
+    color: #000000;
+    opacity: 0.7;
+    max-width: 445px;
+}
+#search_bar {
+    width: 25vw;
+    height: 3vw;
+    background-color: white;
+    border: 1px solid #088bff;
+    box-sizing: border-box;
+    border-radius: 3vw;
+    position: relative;
+    padding-left: 2.5vw;
+    margin-top: 2.25vw;
+    overflow: hidden;
+}
+#search_bar input {
+    position: absolute;
+    height: 100%;
+    outline: none;
+    border: none;
+    width: 85%;
+    margin: 0;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 0.9375vw;
+    line-height: 1.5vw;
+    color: #000000;
+    opacity: 0.4;
+}
+#search_bar .searchicon {
+    position: absolute;
+    left: 0.625vw;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0;
+    width: 0.875vw;
+    cursor: pointer;
+}
+
+.finddoctors_container_matter {
+    height: fit-content;
+    transform: translateY(90%);
+}
+#finddoctors_img {
+    transform: translateY(15%);
+    max-width: 458px;
+}
+@media (max-width: 1300px) {
+    .finddoctors {
+        background: white;
+        height: auto;
+        padding: 9vw 0;
+    }
+    #finddoctors_img {
+        width: 40vw;
+    }
+    .finddoctors_container_matter {
+        height: fit-content;
+        transform: translateY(20vw);
+    }
+    .finddoctors_container_matter h1 {
+        font-size: 3.3vw;
+        margin: 0;
+    }
+    .finddoctors_container_matter p {
+        font-size: 1.5vw;
+        line-height: 2.4vw;
+        margin: 0;
+        margin-top: 1.5vw;
+    }
+}

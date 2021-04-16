@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;1,400&display=swap');
+.nav-co {
+    padding: 1vw 6vw 1vw 5.5vw;
+}
+.nav-co .navbar {
+    padding: 0;
+}
+.nav_active{
+    outline: none;
+    text-decoration: none;
+    list-style-type: none;
+}
+#navbarResponsive #nav_img{
+    display: none;
+}
+#navbarResponsive .toggle{
+    display: none;
+}
+#nav_items {
+    margin-left: auto;
+    display: flex;
+    column-gap: 2.5vw;
+    justify-content: center;
+    align-items: center;
+}
+#navbtn2 {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    color: #212e34;
+    margin: 0;
+}
+#navbtn2{
+    list-style-type: none;
+    text-decoration: none;
+}
+.navbtn1 {
+    width: 180px;
+    height: 48px;
+    left: 1177px;
+    top: 30px;
+    border: 1px solid #db2874;
+    box-sizing: border-box;
+    border-radius: 8px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    margin: 0;
+    text-align: center;
+    color: #212e34;
+    background: transparent;
+    outline: none;
+}
+#nav_img {
+width: 60px;
+margin: 0;
+}
+#nav_img img{
+    width: 100%;
+}
+.nav_active{
+    border:none;
+    border-bottom: 4px solid #00B3DB;
+    transition: 0.5s ease;
+}
+.Navbar{
+    padding: 0 4vw 0 5vw;
+    margin: auto;
+}
+#nav_img img {
+    margin: 0;
+}
+.nav-co .navbar-light .navbar-toggler {
+    border: none;
+}
+@media (max-width:1202px){
+    #nav_img {
+        width: 30px;
+        margin: 0;
+        position: relative;
+        left: 2vw;
+        }
+    .nav-co {
+        padding: 0;
+    }
+    #navbarResponsive{
+        height: 100vh;
+        background-color: white;
+        z-index: 14;
+        position: fixed;
+        top:0;
+        width: 100%;
+    }
+
+    #nav_items{
+        display: flex;
+        flex-direction: column;
+        row-gap:30px;
+        margin-top: 150px;
+    } 
+    #navbarResponsive #nav_img{
+        z-index: 15;
+        position: absolute;
+        display: block;
+    }
+    #navbarResponsive .toggle{
+        z-index: 15;
+        position: absolute;
+        right: 0;
+        display: block;
+    }
+    #navbtn2{
+        font-size: 20px;
+    }
+}
+@media (max-width:600px){
+    #nav_img img {
+        width: 60px;
+    }
+    .toggle{
+        position: relative;
+    }
+}

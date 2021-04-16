@@ -1,0 +1,163 @@
+.cards{
+    padding: 3.9375vw 0;
+  }
+  .cards h1 {
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 2.5vw;
+    line-height: 0;
+    color: #000000;
+    text-align:center;
+  }
+  .card_container {
+    width: 100%;
+  }
+  .slidecards {
+    width: 100%;
+    height: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .slidecards2{
+      background: white;
+  }
+  .slidecards_content {
+    width: calc(100% - 17.222222%);
+    display: grid;
+    grid-template-columns: auto auto;
+    margin: auto;
+    gap: 1vw;
+  }
+  .slidecards_content2 .slidecards_svg{
+    grid-column: 2/3;
+    grid-row: 1/2;
+  }
+  .slidecards_svg {
+    width: 32vw;
+    height: 27.125vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .slidecards_svg_container img {
+    width: 100%;
+    margin: 0;
+  }
+  .slidecards_matter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 41.8125vw;
+  }
+  
+  .slicards_matter_container h2 {
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 2.5vw;
+    line-height: 3.3125vw;
+    color: #ff4081;
+    margin: 0;
+  }
+  .slicards_matter_container p {
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1vw;
+    line-height: 1.5vw;
+    margin: 0;
+    margin-top: 0.3125vw;
+  }
+  .slicards_matter_container button {
+    width: 12.75vw;
+    height: 3.375vw;
+    background: #ff4081;
+    border-radius: 0.5vw;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.125vw;
+    line-height: 2vw;
+    color: #ffffff;
+    border: none;
+    outline: none;
+    margin-top: 1.875vw;
+  }
+  .slicards_matter_container button:hover {
+    width: 14vw;
+    transition: 0.5s ease-in-out;
+  }
+  /*=======slidecards=======*/
+  #slide_cards_container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75vw;
+    margin-top: 1.875vw;
+  }
+  #slide_cards_card1 {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 3.125vw 4.5vw;
+    background: #ffffff;
+    border: 1px solid #5fd4ff;
+    box-shadow: 0px 0px 10px rgba(8, 40, 67, 0.15);
+    border-radius: 0.75vw;
+    padding:0.2vw;
+  }
+  #slide_cards_logo {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+  #slide_cards_logo_container {
+    width: 2vw;
+  }
+  #slide_cards_logo_container img {
+    width: 100%;
+    margin: 0;
+    height: 100%;
+  }
+  #slide_cards_matter_container h6 {
+    margin: 0;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 0.75vw;
+    line-height: 1.375vw;
+    text-align: center;
+    color: #000000;
+    opacity: 0.85;
+  }
+  #slide_cards_matter_container p {
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 0.75vw;
+    line-height: 1vw;
+    text-align: center;
+    color: #000000;
+    opacity: 0.85;
+    margin: 0;
+  }
+@media (max-width:1083px){
+  .slidecards_content2 #lap1 {
+    width: 20vw;
+  }
+}
+@media (max-width:800px){
+  #slide_cards_card1 {
+    gap: 1vw;
+  }
+  #slide_cards_logo_container {
+    width: 2vw;
+    height: fit-content;
+  }
+  #slide_cards_logo_container img {
+    width: 100%;
+    margin: 0;
+    height:auto;
+  }
+}

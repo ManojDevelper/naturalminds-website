@@ -1,0 +1,163 @@
+/*========Banner========*/
+.banner {
+    width: 100%;
+    height: 100vh;
+    background-image: url("../data/assets/banner.png");
+    background-repeat: no-repeat;
+    background-size: 626px auto;
+    background-position: bottom -60px right;
+}
+.banner_container {
+    padding-top: 160px;
+    max-width: calc(100% - 13%);
+    margin: auto;
+}
+.banner_container h1 {
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 56px;
+    color: #212e34;
+}
+.banner_container p {
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    color: #585858;
+    max-width: 500px;
+}
+.banner_buttons {
+    display: flex;
+    flex-direction: row;
+    column-gap: 32px;
+}
+.banner_buttons button {
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    color: #ffffff;
+    width: 188px;
+    height: 54px;
+    border-radius: 8px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+}
+.banner_buttons button:hover {
+    width: 195px;
+}
+.banner_buttons .banner_buttons1 {
+    background: #ff4081;
+}
+.banner_buttons .banner_buttons2 {
+    background: #00b3db;
+}
+.watchvideo .playbutton{
+    margin: 0;
+}
+.watchvideo span{
+    margin: 0;
+}
+.watchvideo div{
+    width: fit-content;
+    height: fit-content;
+}
+.watchvideo{
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    justify-content:flex-start;
+    align-items:center;
+    column-gap: 1vw;
+    margin-top: 2.5vw;
+}
+/*====mediaquaries========*/
+@media (max-width: 1300px) {
+    .banner {
+        background-position: bottom -5vw right;
+        background-size: 55vw;
+    }
+    .banner_container h1 {
+        font-size: 4vw;
+        line-height: 1vw;
+        margin: 0;
+    }
+    .banner_container p {
+        font-size: 1.5vw;
+        width: 43vw;
+        margin: 0;
+        margin-top: 3vw;
+    }
+    .banner_buttons {
+        column-gap: 2vw;
+    }
+    .banner_buttons button {
+        font-size: 1.5vw;
+        width: 15vw;
+        height: 4.5vw;
+        border-radius: 0.8vw;
+        margin-top: 2.5vw;
+    }
+    .banner_buttons button:hover {
+        width: 16vw;
+        height: auto;
+    }
+}
+@media (max-width: 650px) {
+    .banner {
+        background-position: center bottom;
+        background-position: center bottom -6vw;
+        background-size: 70vw auto;
+        padding: 1vw 0;
+    }
+    .banner_content_wrapper{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+    .banner_container {
+        text-align: center;
+        height: fit-content;
+        width: fit-content;
+        padding-top: 0;
+        margin-top: auto;
+    }
+    .banner_container h1 {
+        font-size: 6vw;
+    }
+    .banner_container p {
+        width: 92%;
+        margin: auto;
+        font-size: 2vw;
+        margin-top: 4vw;
+    }
+    .banner_buttons {
+        width: 100%;
+        justify-content: center;
+    }
+    .watchvideo .playbutton{
+        margin: 0;
+        width: 4vw;
+    }
+    .watchvideo span{
+        margin: 0;
+        font-size: 3.8vw;
+    }
+    .watchvideo div{
+        width: fit-content;
+        height: fit-content;
+    }
+    .watchvideo{
+        margin: auto;
+        margin-top: 1vw;
+    }
+}
+@media (max-width: 450px) {
+    .banner {
+        background-size: 70vw auto;
+    }
+}

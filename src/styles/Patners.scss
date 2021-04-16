@@ -1,0 +1,46 @@
+#patners h1 {
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 2.5vw;
+    line-height: 5.625vw;
+    color: #000000;
+    text-align: center;
+  }
+  #patners {
+    padding: 7.8125vw 8.125vw;
+  }
+  #patners_container {
+    width: calc(100% - 18.05555%);
+    margin: auto;
+    margin-top: 4.625vw;
+  }
+  #patners_container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 4vw;
+    grid-template-rows: 10vw;
+  }
+  #patners_image_card {
+    background: #ffffff;
+    box-shadow: 0px 0px 18.3631px rgba(79, 10, 39, 0.1);
+    border-radius: 0.91815625vw;
+    padding: 1vw 0.875vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #patners_image_container {
+      width: fit-content;
+      height: fit-content;
+  }
+  #patners_image_container img{
+      margin: 0;
+      width: auto;
+      max-width:6vw;
+  }
+  @media (max-width:1237px){
+    #patners_image_container img{
+        width:5.2vw;
+    }
+  }

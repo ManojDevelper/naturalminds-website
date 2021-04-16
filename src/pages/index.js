@@ -1,14 +1,10 @@
-import React, { Fragment } from "react"
+import React from 'react'
+import Landing from "./landing"
 
-import SEO from "../components/seo"
-
-const IndexPage = () => {
+export default function Home() {
   return (
-    <Fragment>
-      <SEO title="Home" description="Gatsby is a React-based open source framework with performance, scalability and security built-in." keywords={['gatsby', 'react']} />
-      <div>Home</div>
-    </Fragment>
+    <>
+    <Landing/>
+    </>
   )
 }
-
-export default IndexPage

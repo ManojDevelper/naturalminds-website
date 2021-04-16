@@ -1,0 +1,117 @@
+/*=========Commingsoon==========*/
+.commingsoon {
+    padding: 138px 0;
+}
+.commingsoon h1 {
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 90px;
+    text-align: center;
+    color: #000000;
+    margin: 0;
+}
+.commingsoon_container {
+    max-width: calc(100% - 15.2%);
+    margin: auto;
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: repeat(3, auto);
+    gap: 64px;
+    margin-top: 83px;
+}
+.commingsoon_cards {
+    text-align: left;
+    background-color: white;
+    box-shadow: 0px 10px 20px rgba(41, 41, 42, 0.07);
+    border-radius: 8px;
+    padding: 25px;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 6vw auto;
+}
+.commingsoon_cards_img_container{
+    width: fit-content;
+    height: fit-content;
+}
+.commingsoon_cards_content_matter{
+    width: fit-content;
+    height: fit-content;
+}
+.commingsoon_cards img {
+    grid-row: 1/2;
+}
+#cs_img1 {
+    width: 2.5625vw;
+}
+#cs_img2 {
+    width: 3.8vw;
+}
+#cs_img3 {
+    width: 3vw;
+}
+.commingsoon_cards h2 {
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    color: #ff4081;
+    margin: 0;
+}
+.commingsoon_cards p {
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    color: #000000;
+    margin: 0;
+    line-height: 1.5vw;
+    margin-top: 1vw;
+}
+.commingsoon_cards h3 {
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    color: #000000;
+    opacity: 0.7;
+    line-height: 21px;
+    margin: 0;
+    margin-top: 1vw;
+}
+.commingsoon img{
+    margin: 0;
+}
+@media (max-width:1300px){
+    .commingsoon h1{
+        font-size: 4vw;
+        line-height: 3vw;
+    }
+    .commingsoon_container {
+        max-width: calc(100% - 8%);
+        gap: 3vw;
+        margin-top: 8vw;
+    }
+    .commingsoon_cards {
+        padding: 1.5vw;
+        grid-template-rows: 8vw auto;
+        border-radius: 1vw;
+    }
+    .commingsoon_cards h2 {
+        font-size: 1.3vw;
+    }
+    .commingsoon_cards p{
+        margin-top: 1vw;
+        font-size: 1vw;
+    }
+    .commingsoon_cards h3{
+        font-size: 1vw;
+        line-height: 1.8vw;
+    }
+}
+@media (max-width:300px){
+    .commingsoon_cards {
+        grid-template-rows: 10vw auto;
+    }
+}

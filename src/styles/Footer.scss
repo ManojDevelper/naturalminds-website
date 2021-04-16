@@ -1,0 +1,117 @@
+.footer {
+    width: 100%;
+    background: linear-gradient(135deg, #12c5e7 0%, #0385b1 100%);
+    padding: 54px 90px 40px 90px;
+}
+.footer_container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 50px;
+}
+.footer_b1_title p {
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 21.3442px;
+    color: #ffffff;
+    margin: 0;
+}
+#footer_content {
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 32px;
+    color: #ffffff;
+    margin: 0;
+}
+.footer_icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 34px;
+    margin-top: 5vw;
+}
+.footer_icons img {
+    margin: 0;
+    width: 1.5vw;
+    cursor: pointer;
+}
+#footer_footer {
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    letter-spacing: 0.06em;
+    color: #ffffff;
+    margin: 0;
+    text-align: center;
+    margin-top: 40px;
+}
+@media (max-width: 1156px) {
+    .footer {
+        padding: 5.4vw 8%;
+    }
+    .footer_container {
+        gap: 4vw;
+    }
+    .footer_b1_title p {
+        font-size: 2vw;
+        line-height: 3vw;
+    }
+    #footer_content {
+        font-size: 1.6vw;
+        line-height: 2.9vw;
+    }
+    .footer_icons {
+        column-gap: 3.4vw;
+    }
+    #footer_footer {
+        font-family: Segoe UI;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 2vw;
+        color: #ffffff;
+        margin: 0;
+        text-align: center;
+        margin-top: 4vw;
+    }
+    .footer_img img {
+        margin: 0;
+    }
+    .footer_icons {
+        column-gap: 3vw;
+        margin-top: 3.5vw;
+    }
+    .footer_icons img {
+        width: 2.5vw;
+    }
+}
+@media (max-width: 600px) {
+    .footer_img {
+        display: flex;
+        flex-direction: row;
+        column-gap: 3.5vw;
+        margin: 0;
+    }
+    .footer_img img {
+        margin: 0;
+    }
+    .footer_container {
+        grid-template-rows: auto auto;
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .footer_img {
+        grid-row: 2/3;
+        grid-column: 2/4;
+    }
+}
+@media (max-width: 401px) {
+    .footer_container {
+        gap: 20px;
+    }
+    .footer_b1_title p {
+        font-size: 2vw;
+    }
+}

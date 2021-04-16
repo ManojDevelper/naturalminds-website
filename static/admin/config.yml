@@ -1,18 +1,467 @@
 backend:
-  name: test-repo
+  name: git-gateway
+  branch: Doctor
 
 publish_mode: editorial_workflow
 
-media_folder: 'assets'
-public_folder: '/'
+media_folder: "src/data/assets"
+public_folder: "src/data"
 
 collections:
-  - label: Home
-    name: home
+  - label: "Title-Heading-Description"
+    name: "pages"
+    folder: "src/data"
+    create: true
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Heading", name: "headding", widget: "string" }
+      - { label: "Description", name: "description", widget: "string" }
+
+  - label: "Markdown"
+    name: "markdown"
     files:
-      - label: Home
-        name: home
-        file: 'home.md'
+      - file: "src/data/nav.md"
+        label: "Navigation"
+        name: "nav"
         fields:
-          - { label: Title, name: title }
-          - { label: Description, name: description }
+          - {
+              label: "Register/Login",
+              name: "navigation_button",
+              widget: "string",
+            }
+          - {
+              label: "Navbutton Link",
+              name: "navigation_button_link",
+              widget: "string",
+            }
+          - { label: "Company Logo", name: "nav_logo", widget: "image" }
+          - {
+              label: "Navbar",
+              name: "navbar",
+              widget: "list",
+              fields:
+                [
+                  { label: "LinkButton", name: "link", widget: "string" },
+                  { label: "PageLink", name: "page_link", widget: "string" },
+                ],
+            }
+      - file: "src/data/banner.md"
+        label: "Connected Health"
+        name: "banner"
+        fields:
+          - {
+              label: "Title",
+              name: "title",
+              widget: "string",
+              default: "Connected Health",
+            }
+          - {
+              label: "Description",
+              name: "description",
+              widget: "string",
+              default: "Adding value to the lives of patients, doctors, health workers, pharmacies, diagnostics and healthcare institutions with the help of new-age technology",
+            }
+          - {
+              label: "Button1",
+              name: "button1",
+              widget: "string",
+              default: "Patient App",
+            }
+          - {
+              label: "Button2",
+              name: "button2",
+              widget: "string",
+              default: "Doctor App",
+            }
+          - {
+              label: "Video Button",
+              name: "video",
+              widget: "string",
+              default: "Watch Video",
+            }
+      - file: "src/data/status.md"
+        label: "Status"
+        name: "status"
+        fields:
+          - {
+              label: "Status",
+              name: "status",
+              widget: "list",
+              fields:
+                [
+                  { label: "ID", name: "id", widget: "number" },
+                  { label: "Title", name: "content", widget: "string" },
+                  { label: "Logo", name: "image", widget: "image" },
+                ],
+            }
+      - file: "src/data/patner.md"
+        label: "Approved"
+        name: "patner"
+        fields:
+          - {
+              label: "Title",
+              name: "title",
+              widget: "string",
+              default: "The perfect intersection",
+            }
+          - {
+              label: "Title2",
+              name: "title2",
+              widget: "string",
+              default: "Proudly Recognized by",
+            }
+          - { label: "Health & Technology", name: "image1", widget: "image" }
+          - { label: "Logo1", name: "image2", widget: "image" }
+          - { label: "Logo2", name: "image3", widget: "image" }
+          - { label: "Logo3", name: "image4", widget: "image" }
+      - file: "src/data/commingsoon.md"
+        label: "COMING SOON"
+        name: "commingsoon"
+        fields:
+          - {
+              label: "commingsoon",
+              name: "commingsoon",
+              widget: "list",
+              fields:
+                [
+                  { label: "ID", name: "id", widget: "number" },
+                  { label: "Title", name: "title", widget: "string" },
+                  { label: "Content", name: "content", widget: "string" },
+                  { label: "Content2", name: "contant2", widget: "string" },
+                  { label: "ImageId", name: "imageid", widget: "string" },
+                  { label: "Logo", name: "logo", widget: "image" },
+                ],
+            }
+      - file: "src/data/cards.md"
+        label: "OUR PRODUCTS"
+        name: "cards"
+        fields:
+          - {
+              label: "Title",
+              name: "title",
+              widget: "string",
+              default: "OUR PRODUCTS",
+            }
+          - {
+              label: "ProductCards",
+              name: "cards",
+              widget: "list",
+              fields:
+                [
+                  { label: "Id", name: "id", widget: "number" },
+                  { label: "Title", name: "title", widget: "string" },
+                  { label: "Class1", name: "class1", widget: "string" },
+                  { label: "Class2", name: "class2", widget: "string" },
+                  {
+                    label: "Button",
+                    name: "button",
+                    widget: "string",
+                    default: "Get The App",
+                  },
+                  { label: "Image", name: "image", widget: "image" },
+                  { label: "Content", name: "content", widget: "string" },
+                  {
+                    label: "BlockCards",
+                    name: "minicards",
+                    widget: "string",
+                    fields:
+                      [
+                        { label: "Id", name: "id", widget: "number" },
+                        { label: "Title", name: "title", widget: "string" },
+                        {
+                          label: "Content",
+                          name: "blockcontent",
+                          widget: "string",
+                        },
+                        { label: "Icon", name: "logo", widget: "image" },
+                      ],
+                  },
+                ],
+            }
+      - file: "src/data/finddoctor.md"
+        label: "Find Doctor"
+        name: "finddoctor"
+        fields:
+          - {
+              label: "Title",
+              name: "title",
+              widget: "string",
+              default: "Find Doctor",
+            }
+          - {
+              label: "Content",
+              name: "content",
+              widget: "string",
+              default: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id magna aliquam quis elementum cursus. Et nec tristique lorem fames Lorem ipsum dolor.",
+            }
+          - { label: "SearchBar", name: "search_content", widget: "string" }
+          - { label: "Image", name: "image", widget: "image" }
+      - file: "src/data/about.md"
+        label: "About"
+        name: "about"
+        fields:
+          - {
+              label: "Title1",
+              name: "title1",
+              widget: "string",
+              default: "About",
+            }
+          - { label: "Title2", name: "title2", widget: "string", default: "US" }
+          - { label: "Content", name: "content", widget: "string" }
+      - file: "src/data/coreteam.md"
+        label: "CoreTeam"
+        name: "coreteam"
+        fields:
+          - {
+              label: "Title1",
+              name: "title1",
+              widget: "string",
+              default: "CORE",
+            }
+          - {
+              label: "Title2",
+              name: "title2",
+              widget: "string",
+              default: "TEAM",
+            }
+          - {
+              label: "Coreteam",
+              name: "coreteam",
+              widget: "list",
+              fields:
+                [
+                  { label: "Name", name: "name", widget: "string" },
+                  {
+                    label: "Designation",
+                    name: "designation",
+                    widget: "string",
+                  },
+                  {
+                    label: "Qualification1",
+                    name: "qualification1",
+                    widget: "string",
+                  },
+                  {
+                    label: "Qualification2",
+                    name: "qualification2",
+                    widget: "string",
+                  },
+                  { label: "Profile", name: "image", widget: "image" },
+                  { label: "Button", name: "button", widget: "string" },
+                ],
+            }
+      - file: "src/data/ourcustomers.md"
+        label: "What Our Customers Are Saying"
+        name: "ourcustomers"
+        fields:
+          - {
+              label: "Title",
+              name: "title",
+              widget: "string",
+              default: "What our customers are saying",
+            }
+          - {
+              label: "Ourcustomers",
+              name: "ourcustomers",
+              widget: "list",
+              fields:
+                [
+                  { label: "ID", name: "id", widget: "number" },
+                  { label: "Title", name: "title", widget: "string" },
+                  { label: "Review", name: "review", widget: "string" },
+                  { label: "Name", name: "name", widget: "string" },
+                  { label: "Location", name: "location", widget: "string" },
+                  { label: "Video_Tumbnail", name: "image", widget: "image" },
+                ],
+            }
+      - file: "src/data/patners.md"
+        label: "Our Patners"
+        name: "ourpatners"
+        fields:
+          - {
+              label: "Title",
+              name: "title",
+              widget: "string",
+              default: "Our Partners",
+            }
+          - {
+              label: "Our Partners",
+              name: "ourpatners",
+              widget: "list",
+              fields: [{ label: "Logo", name: "image", widget: "image" }],
+            }
+      - file: "src/data/blogs.md"
+        label: "Blogs & Articles"
+        name: "blogs"
+        fields:
+          - {
+              label: "Title",
+              name: "title",
+              widget: "string",
+              default: "Blogs & Articles",
+            }
+          - {
+              label: "Blogs",
+              name: "blogs",
+              widget: "list",
+              fields:
+                [
+                  { label: "Title", name: "title", widget: "string" },
+                  {
+                    label: "Description",
+                    name: "description",
+                    widget: "string",
+                  },
+                  { label: "Date", name: "date", widget: "string" },
+                  { label: "Image", name: "image", widget: "image" },
+                ],
+            }
+      - file: "src/data/contact.md"
+        label: "Get in Touch"
+        name: "contact"
+        fields:
+          - {
+              label: "Title",
+              name: "title",
+              widget: "string",
+              default: "Get in Touch",
+            }
+          - {
+              label: "BackgroundImage",
+              name: "background_image",
+              widget: "image",
+            }
+          - {
+              label: "Name",
+              name: "name",
+              widget: "string",
+              default: "Your Name",
+            }
+          - {
+              label: "Name_Placeholder",
+              name: "name_place_holder",
+              widget: "string",
+              default: "name",
+            }
+          - {
+              label: "Mobile",
+              name: "mobile",
+              widget: "string",
+              default: "Mobile Number",
+            }
+          - {
+              label: "Mobile_Placeholder",
+              name: "mobile_placeholder",
+              widget: "string",
+              default: "Mobile Number",
+            }
+          - {
+              label: "Mail",
+              name: "mail",
+              widget: "string",
+              default: "Email ID",
+            }
+          - {
+              label: "Mail_Placeholder",
+              name: "mail_placeholder",
+              widget: "string",
+              default: "chrisdo@gmail.com",
+            }
+          - {
+              label: "Message",
+              name: "message",
+              widget: "string",
+              default: "Message",
+            }
+          - {
+              label: "Message_Placeholder",
+              name: "message_placeholder",
+              widget: "string",
+              default: "type Here",
+            }
+          - {
+              label: "Button",
+              name: "button",
+              widget: "string",
+              default: "SEND MESSAGE",
+            }
+      - file: "src/data/footer.md"
+        label: "Footer"
+        name: "footer"
+        fields:
+          - {
+              label: "Footer",
+              name: "footer",
+              widget: "list",
+              fields:
+                [
+                  { label: "ID", name: "id", widget: "number" },
+                  { label: "Title", name: "title", widget: "string" },
+                  { label: "List1", name: "list1", widget: "string" },
+                  { label: "List2", name: "list2", widget: "string" },
+                  { label: "List3", name: "list3", widget: "string" },
+                  { label: "List4", name: "list4", widget: "string" },
+                ],
+            }
+          - {
+              label: "FooterIcons",
+              name: "footericons",
+              widget: "list",
+              fields:
+                [
+                  { label: "ID", name: "id", widget: "number" },
+                  { label: "Image", name: "image", widget: "image" },
+                ],
+            }
+          - { label: "Image1", name: "image1", widget: "image" }
+          - { label: "Image2", name: "image2", widget: "image" }
+          - { label: "CopyRight", name: "copyright", widget: "string" }
+      - file: "src/data/doctors.md"
+        label: "Doctors"
+        name: "doctors"
+        fields:
+          - {
+              label: "Doctorcards",
+              name: "doctorcards",
+              widget: "list",
+              fields:
+                [
+                  { label: "ID", name: "id", widget: "number" },
+                  { label: "Name", name: "name", widget: "string" },
+                  {
+                    label: "Designation",
+                    name: "designation",
+                    widget: "string",
+                  },
+                  {
+                    label: "RegistationNumber",
+                    name: "registation",
+                    widget: "string",
+                  },
+                  { label: "Mail", name: "mail", widget: "string" },
+                  { label: "Location", name: "location", widget: "string" },
+                  {
+                    label: "Button1",
+                    name: "button",
+                    widget: "string",
+                    default: "View Full profile",
+                  },
+                  { label: "Button2", name: "Button2", widget: "Get App" },
+                  { label: "Profile", name: "image", widget: "image" },
+                ],
+            }
+          - {
+              label: "Number Of Doctors",
+              name: "no_of_doctors",
+              widget: "string",
+              default: "122 Doctors found",
+            }
+          - { label: "Note", name: "note", widget: "string", default: "Note" }
+          - {
+              label: "NoteDescription",
+              name: "note_description",
+              widget: "string",
+              default: "We have designed best user experience and value through our Mobile App. Dowload theapp and book appointment directly.",
+            }
+          - { label: "Playstore_logo", name: "playstore", widget: "image" }
+          - { label: "Appstore_logo", name: "Appstore", widget: "App" }
