@@ -6,8 +6,9 @@
     font-family: Segoe UI;
     font-style: normal;
     font-weight: bold;
-    font-size: 48px;
-    color: #000000;
+    font-size: 3vw;
+    color: black;
+    line-height:4vw;
     margin: 0;
 }
 .blog_container {
@@ -16,6 +17,7 @@
     display: grid;
     grid-template-columns: auto;
     gap: 106px;
+    margin-top: 4.9375vw;
 }
 .blog_card {
     width: 100%;
