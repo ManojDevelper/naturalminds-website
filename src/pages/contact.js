@@ -32,7 +32,7 @@ function Contact() {
   `)
     return (
         <>
-            <div className="contact">
+            <div className="contact" id="contact">
                 <h1>{data.contact.childMarkdownRemark.frontmatter.title}</h1>
                 <div className="contact_contrainer">
                     <div className="contact_img_block">

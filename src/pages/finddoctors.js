@@ -15,7 +15,7 @@ function Finddoctors() {
               search_content
               image {
                 childImageSharp {
-                  fluid(quality: 1) {
+                  fluid(quality: 25) {
                     src
                   }
                 }
@@ -27,7 +27,7 @@ function Finddoctors() {
   `)
   return (
     <>
-      <div className="finddoctors">
+      <div className="finddoctors" id="finddoctors">
         <div className="finddoctors_container">
           <div className="finddoctors_container_matter">
             <h1>{data.finddoctors.childMarkdownRemark.frontmatter.title}</h1>

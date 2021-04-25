@@ -1,6 +1,6 @@
 ---
 navigation_button: "REGISTER/LOGIN"
-navigation_button_link: ""
+navigation_button_link: "/login"
 nav_logo: "./assets/logo.png"
 navbar: 
   [
@@ -10,11 +10,11 @@ navbar:
       },
       {
           link: "ABOUT",
-          page_link: "",
+          page_link: "#about",
       },
       {
           link: "PRODUCTS",
-          page_link: "",
+          page_link: "#cards_main_container",
       },
       {
           link: "FIND DOCTOR",
@@ -22,7 +22,7 @@ navbar:
       },
       {
           link: "CONTACT US",
-          page_link: "",
+          page_link: "#contact",
       },
   ]
 ---

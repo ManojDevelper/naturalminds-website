@@ -1,6 +1,8 @@
 ---
-image1: "./assets/playstore.png"
-image2: "./assets/appstore.png"
+store1: "./assets/main_play_store.png"
+store2: "./assets/main_app_store.png"
+app1: "Doctor App"
+app2: "Patient App"
 copyright: "Copyright © 2020 NaturalMinds Digital Systems"
 footer: 
   [

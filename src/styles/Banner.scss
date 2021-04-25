@@ -1,14 +1,14 @@
 /*========Banner========*/
 .banner {
     width: 100%;
-    height: 100vh;
+    height: 99.8vh;
     background-image: url("../data/assets/banner.png");
     background-repeat: no-repeat;
-    background-size: 626px auto;
-    background-position: bottom -60px right;
+    background-size: 45vw auto;
+    background-position: bottom -4.5vw right 5.5vw;
 }
 .banner_container {
-    padding-top: 160px;
+    padding-top: 10vw;
     max-width: calc(100% - 13%);
     margin: auto;
 }
@@ -16,38 +16,38 @@
     font-family: Segoe UI;
     font-style: normal;
     font-weight: bold;
-    font-size: 56px;
+    font-size: 3.5vw;
     color: #212e34;
 }
 .banner_container p {
     font-family: Segoe UI;
     font-style: normal;
     font-weight: normal;
-    font-size: 18px;
+    font-size: 1.125vw;
     color: #585858;
-    max-width: 500px;
+    max-width: 31.25vw;
 }
 .banner_buttons {
     display: flex;
     flex-direction: row;
-    column-gap: 32px;
+    column-gap: 2vw;
 }
 .banner_buttons button {
     font-family: Segoe UI;
     font-style: normal;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 1.125vw;
     color: #ffffff;
-    width: 188px;
-    height: 54px;
-    border-radius: 8px;
+    width: 11.75vw;
+    height: 3.375vw;
+    border-radius: 0.5vw;
     outline: none;
     border: none;
     cursor: pointer;
     transition: 0.5s ease-in-out;
 }
 .banner_buttons button:hover {
-    width: 195px;
+    width: 12.1875vw;
 }
 .banner_buttons .banner_buttons1 {
     background: #ff4081;
@@ -72,8 +72,42 @@
     justify-content:flex-start;
     align-items:center;
     column-gap: 1vw;
-    margin-top: 2.5vw;
+    margin-top: 0.8vw;
+    cursor: pointer;
 }
+/*============video=============*/
+#banner_popup{
+    width: 100%;
+    height: 100vh;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    right: 0;
+  }
+  #banner_pop_video{
+    width: 64.875vw;
+    height: 31.3125vw;
+    box-shadow: 0px 0px 0.75vw rgba(15, 36, 44, 0.15);
+    border-radius: 0.9375vw;
+    background: white;
+    position: relative;
+  }
+  #banner_pop_close img{
+    position: absolute;
+    right: 0vw;
+    cursor: pointer;
+    z-index: 1;
+  }
+  #banner_pop_video video{
+    width: 100%;
+    height: 100%;
+    outline: none;
+    margin: 0;
+  }
 /*====mediaquaries========*/
 @media (max-width: 1300px) {
     .banner {
@@ -130,10 +164,11 @@
         font-size: 6vw;
     }
     .banner_container p {
-        width: 92%;
+        width: 100%;
         margin: auto;
         font-size: 2vw;
         margin-top: 4vw;
+        max-width: 70%;
     }
     .banner_buttons {
         width: 100%;

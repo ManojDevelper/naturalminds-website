@@ -16,7 +16,7 @@ function Blogs() {
                 date
                 image {
                   childImageSharp {
-                    fluid(quality: 10) {
+                    fluid(quality: 30) {
                       src
                     }
                   }

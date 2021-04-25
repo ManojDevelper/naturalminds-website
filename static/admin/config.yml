@@ -246,6 +246,19 @@ collections:
                     name: "qualification2",
                     widget: "string",
                   },
+                  {
+                    label: "Description1",
+                    name: "description",
+                    widget: "string",
+                  },
+                  {
+                    label: "Description2",
+                    name: "description2",
+                    widget: "string",
+                  },
+                  { label: "List1", name: "list1", widget: "string" },
+                  { label: "List2", name: "list2", widget: "string" },
+                  { label: "List3", name: "list3", widget: "string" },
                   { label: "Profile", name: "image", widget: "image" },
                   { label: "Button", name: "button", widget: "string" },
                 ],
@@ -413,8 +426,10 @@ collections:
                   { label: "Image", name: "image", widget: "image" },
                 ],
             }
-          - { label: "Image1", name: "image1", widget: "image" }
-          - { label: "Image2", name: "image2", widget: "image" }
+          - { label: "Playstore Logo", name: "store1", widget: "image" }
+          - { label: "Appstore Logo", name: "store2", widget: "image" }
+          - { label: "DoctorApp Title", name: "app1", widget: "image" }
+          - { label: "Patient Title", name: "app2", widget: "image" }
           - { label: "CopyRight", name: "copyright", widget: "string" }
       - file: "src/data/doctors.md"
         label: "Doctors"
@@ -465,3 +480,112 @@ collections:
             }
           - { label: "Playstore_logo", name: "playstore", widget: "image" }
           - { label: "Appstore_logo", name: "Appstore", widget: "App" }
+
+      - file: "src/data/login.md"
+        label: "Login & register"
+        name: "login"
+        fields:
+          - {
+              label: "Login Form",
+              name: "login",
+              widget: "list",
+              fields:
+                [
+                  { label: "User Name", name: "inputtitle", widget: "string" },
+                  {
+                    label: "Input placeholder",
+                    name: "placeholder",
+                    widget: "string",
+                  },
+                ],
+            }
+          - {
+              label: "Register Form",
+              name: "register",
+              widget: "list",
+              fields:
+                [
+                  {
+                    label: "Input Title",
+                    name: "inputtitle",
+                    widget: "string",
+                  },
+                  {
+                    label: "Input placeHolder",
+                    name: "placeholder",
+                    widget: "string",
+                  },
+                ],
+            }
+          - {
+              label: "Login Title",
+              name: "logintitle",
+              widget: "string",
+              default: "Log In",
+            }
+          - {
+              label: "User Title",
+              name: "loginuser",
+              widget: "string",
+              default: "New User?",
+            }
+          - {
+              label: "Login Register",
+              name: "loginregister",
+              widget: "string",
+              default: "Register",
+            }
+          - {
+              label: "Login Button",
+              name: "loginbutton",
+              widget: "string",
+              default: "LOG IN",
+            }
+          - {
+              label: "Login Note",
+              name: "loginnote",
+              widget: "string",
+              default: "Note",
+            }
+          - {
+              label: "Login Description",
+              name: "logindescription",
+              widget: "string",
+              default: "Register/Login is only for Doctors, Pharmacies and Labs",
+            }
+          - {
+              label: "Login Get App",
+              name: "logingetapp",
+              widget: "string",
+              default: "Get Patient App",
+            }
+          - {
+              label: "Register Title",
+              name: "registertitle",
+              widget: "string",
+              default: "Register",
+            }
+          - {
+              label: "Register Member",
+              name: "registermember",
+              widget: "string",
+              default: "Already a member?",
+            }
+          - {
+              label: "Register Term Description1",
+              name: "registertermdescription1",
+              widget: "string",
+              default: "By signing up, I accept NaturalMinds’s",
+            }
+          - {
+              label: "Register Term Description2",
+              name: "registertermdescription2",
+              widget: "string",
+              default: "Terms and conditions",
+            }
+          - {
+              label: "Register Button",
+              name: "registermember",
+              widget: "string",
+              default: "Sign Up",
+            }

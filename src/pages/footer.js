@@ -10,6 +10,8 @@ function Footer() {
         childMarkdownRemark {
           frontmatter {
             copyright
+            app1
+            app2
             footer {
               id
               title
@@ -27,14 +29,14 @@ function Footer() {
                 }
               }
             }
-            image1 {
+            store1 {
               childImageSharp {
                 fluid {
                   src
                 }
               }
             }
-            image2 {
+            store2 {
               childImageSharp {
                 fluid {
                   src
@@ -64,11 +66,12 @@ function Footer() {
             </div>
           )}
           <div className="footer_img">
-            <div className="playstore">
-              <img src={data.footer.childMarkdownRemark.frontmatter.image1.childImageSharp.fluid.src} alt="img1" />
+            <p id="footer_app_content"></p>
+            <div id="store">
+              <p>{data.footer.childMarkdownRemark.frontmatter.app1}<img src={data.footer.childMarkdownRemark.frontmatter.store1.childImageSharp.fluid.src} alt="img1" /><img src={data.footer.childMarkdownRemark.frontmatter.store2.childImageSharp.fluid.src} alt="img1" /></p>
             </div>
-            <div className="appstore">
-              <img src={data.footer.childMarkdownRemark.frontmatter.image2.childImageSharp.fluid.src} alt="img1" />
+            <div id="store">
+              <p>{data.footer.childMarkdownRemark.frontmatter.app2}<img src={data.footer.childMarkdownRemark.frontmatter.store1.childImageSharp.fluid.src} alt="img1" /><img src={data.footer.childMarkdownRemark.frontmatter.store2.childImageSharp.fluid.src} alt="img1" /></p>
             </div>
           </div>
         </div>

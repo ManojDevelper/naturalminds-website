@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import "../styles/ham.scss"
 import '../styles/Nav.scss'
 import { Navbar, Nav } from "react-bootstrap"
-import { Link } from "gatsby"
+import { Link } from "gatsby";
 import { graphql, useStaticQuery } from "gatsby"
 
 function Top() {
@@ -59,7 +59,7 @@ function Top() {
               {data.nav.childMarkdownRemark.frontmatter.navbar.map(navbar =>
                 <Link to={navbar.page_link} id="navbtn2" activeClassName="nav_active">{navbar.link}</Link>
               )}
-              <Link to={data.nav.childMarkdownRemark.frontmatter.navigation_button_link} ><button activeClassName="nav_active2" className="navbtn1">{data.nav.childMarkdownRemark.frontmatter.navigation_button}</button></Link>
+              <Link to={data.nav.childMarkdownRemark.frontmatter.navigation_button_link} smooth={true} duration={1000}><button activeClassName="nav_active2" className="navbtn1">{data.nav.childMarkdownRemark.frontmatter.navigation_button}</button></Link>
             </Nav>
           </Navbar.Collapse>
         </Navbar>

@@ -35,42 +35,21 @@
     margin: auto;
     justify-content: center;
     align-items: center;
-    margin-top: 3vw;
+    margin-top: 1vw;
+    row-gap: 2vw;
 }
 #startup {
     width: auto;
-    max-width: 13.1vw;
+    max-width: 13.0625vw;
+    margin: 0;
 }
 #msme {
     width: auto;
     max-width: 10.5vw;
+    margin: 0;
 }
 #gem {
     width: auto;
     max-width: 11vw;
-}
-/*=======mediaquaries=========*/
-@media (max-width:1079px){
-    .patner{
-        padding: 7.5vw 0;
-    }
-    .patner_container_content1 .conten1_img {
-        margin: auto;
-        width: fit-content;
-        margin-top: 0;
-    }
-    .patner h1{
-        font-size: 3vw;
-        margin: 0;
-    }
-    #overlapimg{
-        width: 40vw;
-        margin: 0;
-        height: auto;
-        margin-top: 10vw;
-    }
-    .conten1_img img{
-        width: 20vw;
-        height: fit-content;
-    }
+    margin: 0;
 }

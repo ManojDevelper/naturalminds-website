@@ -37,7 +37,7 @@ function Commingsoon() {
           {data.commingsoon.childMarkdownRemark.frontmatter.commingsoon.map(commingsoon =>
             <div className="commingsoon_cards">
               <div className="commingsoon_cards_img_container">
-                <img src={commingsoon.logo.childImageSharp.fluid.src} alt="img1" id={commingsoon.imageid} />
+                <img src={commingsoon.logo.childImageSharp.fluid.src} alt="img1" id="cs_img" />
               </div>
               <div className="commingsoon_cards_content">
                 <div className="commingsoon_cards_content_matter">

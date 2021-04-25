@@ -42,14 +42,8 @@
 .commingsoon_cards img {
     grid-row: 1/2;
 }
-#cs_img1 {
-    width: 2.5625vw;
-}
-#cs_img2 {
-    width: 3.8vw;
-}
-#cs_img3 {
-    width: 3vw;
+#cs_img {
+    width: 4.5vw;
 }
 .commingsoon_cards h2 {
     font-family: Segoe UI;
@@ -79,6 +73,7 @@
     line-height: 21px;
     margin: 0;
     margin-top: 1vw;
+    text-align: justify;
 }
 .commingsoon img{
     margin: 0;

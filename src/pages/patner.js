@@ -13,28 +13,28 @@ function Patner() {
               title2
               image1 {
                 childImageSharp {
-                  fluid(quality: 1) {
+                  fluid(quality: 30) {
                     src
                 }
               }
             }
             image2 {
                 childImageSharp {
-                  fluid {
+                  fluid(quality: 1) {
                     src
                 }
               }
             }
             image3 {
                 childImageSharp {
-                  fluid {
+                  fluid(quality: 1) {
                     src
                 }
               }
             }
             image4 {
                 childImageSharp {
-                  fluid {
+                  fluid(quality: 1) {
                     src
                 }
               }

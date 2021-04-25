@@ -1,87 +1,70 @@
 /*========Status========*/
 .status {
     background: linear-gradient(135deg, #00bde1 0%, #0093c6 100%);
-    padding: 180px 0;
+    padding: 11.25vw 0;
 }
 .status_container {
     display: grid;
     width: calc(100% - 23.1%);
     margin: auto;
-    grid-template-rows: repeat(1, 258px);
+    grid-template-rows: repeat(1, 16.125vw);
     grid-template-columns: repeat(4, auto);
-    gap: 76px;
+    gap: 4.75vw;
 }
 .status_cards {
     background-color: white;
-    border-radius: 16px;
+    border-radius: 1vw;
     width: 100%;
 }
 .status_cards:hover {
-    box-shadow: 0px 0px 20px rgba(248, 248, 248, 0.5);
+    box-shadow: 0px 0px 1.25vw rgba(248, 248, 248, 0.5);
     transition: 0.5s ease-in-out;
 }
 .card_content {
-    text-align: center;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 8.5625vw 1fr;
     height: fit-content;
-    padding: 45px 0 30px 0;
+    padding: 4.0625vw 0 1.875vw 0;
     display: flex;
     flex-direction: column;
-    row-gap: 1vw;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
 }
-.card_content_img{
-    width: 4.5vw;
-    height: 4.5vw;
-}
-.card_content_matter{
+.card_content_img {
     width: fit-content;
     height: fit-content;
 }
+.card_content_matter {
+    width: fit-content;
+    height: fit-content;
+    margin-top: 1.125vw;
+}
 .card_svg {
-    width: 100%;
-    height: 100%;
+    margin: 0;
+    width: 4.5vw;
 }
 .card_matter {
     font-family: Segoe UI;
     font-style: normal;
     font-weight: normal;
-    font-size: 18px;
+    font-size: 1.125vw;
     color: #000000;
     text-align: center;
-    max-width: 155px;
+    max-width: 9.6875vw;
     margin: auto;
 }
 /*==========mediaquaries=========*/
-@media (max-width:1282px){
-    .status_container {
-        display: grid;
-        width: calc(100% - 23.1%);
-        margin: auto;
-        grid-template-rows: repeat(1, auto);
-        grid-template-columns: repeat(4, auto);
-        gap: 2vw;
-    }
-    .status_cards{
-        padding: 0 2vw;
-        border-radius: 2vw;
-    }
-    .card_matter{
-        font-size: 1.6vw;
-    }
-    .card_content {
-        padding: 4vw 0 3vw 0;
-    }
-}
-@media (max-width:650px){
+@media (max-width: 650px) {
     .status {
         padding: 9vw 0;
     }
-    .card_content_img{
-        width:8vw;
-        height: 8vw;
+    .card_svg {
+        margin: 0;
+        width: 8vw;
     }
-    .status_cards{
+    .status_cards {
         padding: 4vw 20px;
     }
     .status_container {
@@ -91,11 +74,11 @@
     }
     .card_content {
         flex-direction: row;
-        justify-content:flex-start;
+        justify-content: flex-start;
         padding: 0;
         column-gap: 4vw;
     }
-    .card_matter{
+    .card_matter {
         font-size: 4vw;
         line-height: 5vw;
         margin: 0;
@@ -103,7 +86,7 @@
         width: fit-content;
         text-align: left;
     }
-    .card_content_matter{
+    .card_content_matter {
         padding: 0;
         width: 100%;
     }

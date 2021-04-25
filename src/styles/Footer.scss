@@ -49,6 +49,19 @@
     text-align: center;
     margin-top: 40px;
 }
+#store img {
+    width: 1.8125vw;
+    margin: 0;
+    margin-left: 1.25vw;
+}
+#store p {
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.125vw;
+    line-height: 1.5vw;
+    color: #ffffff;
+}
 @media (max-width: 1156px) {
     .footer {
         padding: 5.4vw 8%;
