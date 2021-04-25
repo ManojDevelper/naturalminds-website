@@ -91,7 +91,7 @@ function Coreteam() {
                         <h1 id="doc_name">{coreteam.name}</h1>
                         <p id="doc_designation">{coreteam.designation}</p>
                         <p id="doc_qualification">{coreteam.qualification1}</p>
-                        <p id="doc_qualification">{coreteam.qualification2}</p>
+                        <p id="doc_qualification2">{coreteam.qualification2}</p>
                       </div>
                     </div>
                     <div id="core_team_info_matter">
