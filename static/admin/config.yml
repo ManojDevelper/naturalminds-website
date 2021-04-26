@@ -79,6 +79,26 @@ collections:
               widget: "string",
               default: "Watch Video",
             }
+          - {
+              label: "App Download Popup For Banner page",
+              name: "bannerqr",
+              widget: "list",
+              fields:
+                [
+                  {
+                    label: "PatentApp Title",
+                    name: "popuptitle",
+                    widget: "string",
+                  },
+                  {
+                    label: "Popup Description",
+                    name: "popupdescription",
+                    widget: "string",
+                  },
+                  { label: "Playstore Qr", name: "Playstore", widget: "image" },
+                  { label: "Appstore Qr", name: "Appstore", widget: "image" },
+                ],
+            }
       - file: "src/data/status.md"
         label: "Status"
         name: "status"
@@ -424,7 +444,11 @@ collections:
                 [
                   { label: "ID", name: "id", widget: "number" },
                   { label: "Image", name: "image", widget: "image" },
-                  { label: "Social Media Links", name: "link", widget: "string" },
+                  {
+                    label: "Social Media Links",
+                    name: "link",
+                    widget: "string",
+                  },
                 ],
             }
           - { label: "Playstore Logo", name: "store1", widget: "image" }
@@ -517,63 +541,35 @@ collections:
                   },
                 ],
             }
-          - {
-              label: "Login Title",
-              name: "logintitle",
-              widget: "string"
-            }
-          - {
-              label: "User Title",
-              name: "loginuser",
-              widget: "string"
-            }
-          - {
-              label: "Login Register",
-              name: "loginregister",
-              widget: "string"
-            }
-          - {
-              label: "Login Button",
-              name: "loginbutton",
-              widget: "string"
-            }
-          - {
-              label: "Login Note",
-              name: "loginnote",
-              widget: "string"
-            }
+          - { label: "Login Title", name: "logintitle", widget: "string" }
+          - { label: "User Title", name: "loginuser", widget: "string" }
+          - { label: "Login Register", name: "loginregister", widget: "string" }
+          - { label: "Login Button", name: "loginbutton", widget: "string" }
+          - { label: "Login Note", name: "loginnote", widget: "string" }
           - {
               label: "Login Description",
               name: "logindescription",
-              widget: "string"
+              widget: "string",
             }
-          - {
-              label: "Login Get App",
-              name: "logingetapp",
-              widget: "string"
-            }
-          - {
-              label: "Register Title",
-              name: "registertitle",
-              widget: "string"
-            }
+          - { label: "Login Get App", name: "logingetapp", widget: "string" }
+          - { label: "Register Title", name: "registertitle", widget: "string" }
           - {
               label: "Register Member",
               name: "registermember",
-              widget: "string"
+              widget: "string",
             }
           - {
               label: "Register Term Description1",
               name: "registertermdescription1",
-              widget: "string"
+              widget: "string",
             }
           - {
               label: "Register Term Description2",
               name: "registertermdescription2",
-              widget: "string"
+              widget: "string",
             }
           - {
               label: "Register Button",
               name: "registerbutton",
-              widget: "string"
+              widget: "string",
             }
