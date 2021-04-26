@@ -498,3 +498,81 @@ collections:
                   },
                 ],
             }
+          - {
+              label: "Register Form",
+              name: "register",
+              widget: "list",
+              fields:
+                [
+                  {
+                    label: "Input Title",
+                    name: "registerinputtitle",
+                    widget: "string",
+                  },
+                  {
+                    label: "Input placeHolder",
+                    name: "registerplaceholder",
+                    widget: "string",
+                  },
+                ],
+            }
+          - {
+              label: "Login Title",
+              name: "logintitle",
+              widget: "string"
+            }
+          - {
+              label: "User Title",
+              name: "loginuser",
+              widget: "string"
+            }
+          - {
+              label: "Login Register",
+              name: "loginregister",
+              widget: "string"
+            }
+          - {
+              label: "Login Button",
+              name: "loginbutton",
+              widget: "string"
+            }
+          - {
+              label: "Login Note",
+              name: "loginnote",
+              widget: "string"
+            }
+          - {
+              label: "Login Description",
+              name: "logindescription",
+              widget: "string"
+            }
+          - {
+              label: "Login Get App",
+              name: "logingetapp",
+              widget: "string"
+            }
+          - {
+              label: "Register Title",
+              name: "registertitle",
+              widget: "string"
+            }
+          - {
+              label: "Register Member",
+              name: "registermember",
+              widget: "string"
+            }
+          - {
+              label: "Register Term Description1",
+              name: "registertermdescription1",
+              widget: "string"
+            }
+          - {
+              label: "Register Term Description2",
+              name: "registertermdescription2",
+              widget: "string"
+            }
+          - {
+              label: "Register Button",
+              name: "registerbutton",
+              widget: "string"
+            }
