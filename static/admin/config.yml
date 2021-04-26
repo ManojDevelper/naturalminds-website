@@ -424,6 +424,7 @@ collections:
                 [
                   { label: "ID", name: "id", widget: "number" },
                   { label: "Image", name: "image", widget: "image" },
+                  { label: "Social Media Links", name: "link", widget: "string" },
                 ],
             }
           - { label: "Playstore Logo", name: "store1", widget: "image" }

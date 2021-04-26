@@ -21,6 +21,7 @@ function Footer() {
               list4
             }
             footericons {
+              link
               image {
                 childImageSharp {
                   fluid {
@@ -77,7 +78,7 @@ function Footer() {
         </div>
         <div className="footer_icons">
           {data.footer.childMarkdownRemark.frontmatter.footericons.map(footericons =>
-            <img src={footericons.image.childImageSharp.fluid.src} alt="img1" />
+            <a href={footericons.link} target="_blank"><img src={footericons.image.childImageSharp.fluid.src} alt="img1" /></a>
           )}
         </div>
         <p id="footer_footer">{data.footer.childMarkdownRemark.frontmatter.copyright}</p>

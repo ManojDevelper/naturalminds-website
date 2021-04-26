@@ -41,26 +41,32 @@ footericons:
       {
           id: 1,
           image: "./assets/linkdin.png",
+          link: "https://in.linkedin.com/company/natural-minds-india",
       },
       {
           id: 2,
           image: "./assets/facebook.png",
+          link: "https://www.facebook.com/NaturalMindsInd/",
       },
       {
           id: 3,
           image: "./assets/instagram.png",
+          link: "https://www.instagram.com/naturalminds_in/?hl=en",
       },
       {
           id: 4,
           image: "./assets/twitter.png",
+          link: "https://twitter.com/naturalminds_in",
       },
       {
           id: 5,
           image: "./assets/youtube.png",
+          link: "https://in.linkedin.com/company/natural-minds-india",
       },
       {
           id: 6,
           image: "./assets/medium.png",
+          link: "https://in.linkedin.com/company/natural-minds-india",
       },
   ]
 ---
