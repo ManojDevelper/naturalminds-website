@@ -428,8 +428,8 @@ collections:
             }
           - { label: "Playstore Logo", name: "store1", widget: "image" }
           - { label: "Appstore Logo", name: "store2", widget: "image" }
-          - { label: "DoctorApp Title", name: "app1", widget: "image" }
-          - { label: "Patient Title", name: "app2", widget: "image" }
+          - { label: "DoctorApp Title", name: "app1", widget: "string" }
+          - { label: "Patient Title", name: "app2", widget: "string" }
           - { label: "CopyRight", name: "copyright", widget: "string" }
       - file: "src/data/doctors.md"
         label: "Doctors"
@@ -479,8 +479,7 @@ collections:
               default: "We have designed best user experience and value through our Mobile App. Dowload theapp and book appointment directly.",
             }
           - { label: "Playstore_logo", name: "playstore", widget: "image" }
-          - { label: "Appstore_logo", name: "Appstore", widget: "App" }
-
+          - { label: "Appstore_logo", name: "appstore", widget: "image" }
       - file: "src/data/login.md"
         label: "Login & register"
         name: "login"
@@ -507,12 +506,12 @@ collections:
                 [
                   {
                     label: "Input Title",
-                    name: "inputtitle",
+                    name: "registerinputtitle",
                     widget: "string",
                   },
                   {
                     label: "Input placeHolder",
-                    name: "placeholder",
+                    name: "registerplaceholder",
                     widget: "string",
                   },
                 ],

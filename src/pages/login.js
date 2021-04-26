@@ -31,8 +31,8 @@ function Login() {
                   placeholder
                 }
                 register {
-                  inputtitle
-                  placeholder
+                  registerinputtitle
+                  registerplaceholder
                 }
               }
             }
@@ -92,8 +92,8 @@ function Login() {
                                 {data.login.childMarkdownRemark.frontmatter.register.map(register =>
                                     <div id="register_input_block1">
                                         <div id="register_input_block_input1">
-                                            <h1>{register.inputtitle}</h1>
-                                            <input type="text" placeholder={register.placeholder} />
+                                            <h1>{register.registerinputtitle}</h1>
+                                            <input type="text" placeholder={register.registerplaceholder} />
                                         </div>
                                     </div>
                                     )}

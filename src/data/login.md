@@ -26,56 +26,56 @@ login:
 register: 
   [
       {
-          inputtitle: "Full Name*",
-          placeholder: "name",
+          registerinputtitle: "Full Name*",
+          registerplaceholder: "name",
       },
       {
-          inputtitle: "Email ID**",
-          placeholder: "mail",
+          registerinputtitle: "Email ID**",
+          registerplaceholder: "mail",
       },
       {
-          inputtitle: "Gender*",
-          placeholder: "gender",
+          registerinputtitle: "Gender*",
+          registerplaceholder: "gender",
       },
       {
-          inputtitle: "Contact Number*",
-          placeholder: "+91",
+          registerinputtitle: "Contact Number*",
+          registerplaceholder: "+91",
       },
       {
-          inputtitle: "License Number*",
-          placeholder: "license number",
+          registerinputtitle: "License Number*",
+          registerplaceholder: "license number",
       },
       {
-          inputtitle: "Speciality*",
-          placeholder: "speciality",
+          registerinputtitle: "Speciality*",
+          registerplaceholder: "speciality",
       },
       {
-          inputtitle: "Provider Organization*",
-          placeholder: "provider organization",
+          registerinputtitle: "Provider Organization*",
+          registerplaceholder: "provider organization",
       },
       {
-          inputtitle: "Provider Organization Phone Number*",
-          placeholder: "provider organization phone number",
+          registerinputtitle: "Provider Organization Phone Number*",
+          registerplaceholder: "provider organization phone number",
       },
       {
-          inputtitle: "Provider Address*",
-          placeholder: "provider address",
+          registerinputtitle: "Provider Address*",
+          registerplaceholder: "provider address",
       },
       {
-          inputtitle: "City*",
-          placeholder: "city",
+          registerinputtitle: "City*",
+          registerplaceholder: "city",
       },
       {
-          inputtitle: "State*",
-          placeholder: "state",
+          registerinputtitle: "State*",
+          registerplaceholder: "state",
       },
       {
-          inputtitle: "PinCode*",
-          placeholder: "pincode",
+          registerinputtitle: "PinCode*",
+          registerplaceholder: "pincode",
       },
       {
-          inputtitle: "Referral (if any)",
-          placeholder: "Referral (if any)",
+          registerinputtitle: "Referral (if any)",
+          registerplaceholder: "Referral (if any)",
       },
   ]
 ---
