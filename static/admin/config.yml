@@ -163,7 +163,7 @@ collections:
                   {
                     label: "BlockCards",
                     name: "minicards",
-                    widget: "string",
+                    widget: "list",
                     fields:
                       [
                         { label: "Id", name: "id", widget: "number" },
