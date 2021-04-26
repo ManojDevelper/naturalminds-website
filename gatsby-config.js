@@ -95,6 +95,16 @@ module.exports = {
             },
         },
         {
+            resolve: `gatsby-plugin-google-fonts`,
+            options: {
+                fonts: [
+                    `roboto mono`,
+                    `muli\:400,400i,700,700i`,
+                ],
+                display: "swap",
+            },
+        },
+        {
           resolve: `gatsby-plugin-netlify-cms`,
           options: {
             modulePath: `${__dirname}/src/cms/cms.js`,
