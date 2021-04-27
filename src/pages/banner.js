@@ -79,10 +79,9 @@ function Banner() {
                                 <img src={playbutton} alt="playbutton" className="playbutton" />
                             </div>
                             <div>
-                                <span>{data.banner.childMarkdownRemark.frontmatter.video}</span>
+                                <span onClick={showImage} role="presentation">{data.banner.childMarkdownRemark.frontmatter.video}</span>
                             </div>
                         </div>
-
                         <div id="banner_popup" style={dispImgStyle}>
                             <div id="banner_pop_close">
                                 <div id="banner_pop_video">
