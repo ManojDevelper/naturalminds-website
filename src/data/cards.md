@@ -143,7 +143,8 @@ cards:
                 logo: "./assets/b4_c4.png"
             },
         ],
-      button: "Get the app",
+      button: "Doctor App",
+      button2: "Patient App",
       image: "./assets/card4.png",
     },
   ]

@@ -79,26 +79,6 @@ collections:
               widget: "string",
               default: "Watch Video",
             }
-          - {
-              label: "App Download Popup For Banner page",
-              name: "bannerqr",
-              widget: "list",
-              fields:
-                [
-                  {
-                    label: "PatentApp Title",
-                    name: "popuptitle",
-                    widget: "string",
-                  },
-                  {
-                    label: "Popup Description",
-                    name: "popupdescription",
-                    widget: "string",
-                  },
-                  { label: "Playstore Qr", name: "Playstore", widget: "image" },
-                  { label: "Appstore Qr", name: "Appstore", widget: "image" },
-                ],
-            }
       - file: "src/data/status.md"
         label: "Status"
         name: "status"
@@ -176,7 +156,11 @@ collections:
                     label: "Button",
                     name: "button",
                     widget: "string",
-                    default: "Get The App",
+                  },
+                  {
+                    label: "Button2",
+                    name: "button2",
+                    widget: "string",
                   },
                   { label: "Image", name: "image", widget: "image" },
                   { label: "Content", name: "content", widget: "string" },

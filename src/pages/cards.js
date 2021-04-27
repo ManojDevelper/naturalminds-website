@@ -32,6 +32,7 @@ function Cards() {
                 class2
                 content
                 button
+                button2
                 minicards {
                   id
                   title
@@ -47,6 +48,25 @@ function Cards() {
                 image {
                   childImageSharp {
                     fluid(quality: 30) {
+                      src
+                    }
+                  }
+                } 
+              }
+            }
+          }
+        }
+        cardqr: file(relativePath: {eq: "qr.md"}) {
+          id
+          childMarkdownRemark {
+            frontmatter {
+              qr {
+                id
+                title
+                description
+                storeqr {
+                  childImageSharp {
+                    fluid {
                       src
                     }
                   }
@@ -90,8 +110,12 @@ function Cards() {
                           </div>
                         )}
                       </div>
-                      <tab className={toggleState === (cards.id) ? "show_btn active-show_btn" : "show_btn"}
-                        onClick={() => toggleTab(cards.id)}><button>{cards.button}</button></tab>
+                      <div id="card_btns">
+                        <tab className={toggleState === 2 ? "show_btn active-show_btn" : "show_btn"}
+                          onClick={() => toggleTab(2)}><button>Doctor App</button></tab>
+                        <tab className={toggleState === 1 ? "show_btn active-show_btn" : "show_btn"}
+                          onClick={() => toggleTab(1)}><button id="cardbtn2">Patient App</button></tab>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -99,57 +123,49 @@ function Cards() {
             )}
           </div>
         </div>
-        {data.cards.childMarkdownRemark.frontmatter.cards.map(cards =>
-        <div id="qr" className={toggleState === (cards.id) ? "cardqr  active-cardqr" : "cardqr"}>
-        {
+        {data.cardqr.childMarkdownRemark.frontmatter.qr.map(qr =>
+          <div id="qr" className={toggleState === (qr.id) ? "cardqr  active-cardqr" : "cardqr"}>
+            {
               show ?
-          <div id="qr_conatiner">
-            <img src={close} alt="close" id="close2" onClick={() => toggleTab(setShow)} role="presentation"/>
-            <div id="qr_conatiner_block1">
-              <div id="ql_container_matter_container">
-                <div id="ql_container_matter">
-                <h1>{cards.title}<img src={rate} alt="img1" id="rate2" /></h1>
-                      <p>{cards.content}</p>
-                </div>
-                <div id="qr_container_input_block">
-                  <h1>Get the link to Download the App</h1>
-                  <div id="qr_container_input_block_container">
-                    <div id="qr_container_input_block_container_container">
-                      <p>+91</p>
-                      <input type="text" placeholder="Enter Mobile Number" />
+                <div id="qr_conatiner">
+                  <img src={close} alt="close" id="close2" onClick={() => toggleTab(setShow)} role="presentation" />
+                  <div id="qr_conatiner_block1">
+                    <div id="ql_container_matter_container">
+                      <div id="ql_container_matter">
+                        <h1>{qr.title}</h1>
+                        <p>{qr.description}</p>
+                      </div>
+                      <div id="qr_container_input_block">
+                        <h1>Get the link to Download the App</h1>
+                        <div id="qr_container_input_block_container">
+                          <div id="qr_container_input_block_container_container">
+                            <p>+91</p>
+                            <input type="text" placeholder="Enter Mobile Number" />
+                          </div>
+                          <button>Get App Link</button>
+                        </div>
+                      </div>
                     </div>
-                    <button>Get App Link</button>
+                  </div>
+                  <div id="qr_conatiner_block2">
+                    <div id="qrs">
+                      <div id="qu_image_container">
+                        <img src={qr1} alt="qr" />
+                      </div>
+                      <div id="qr_image_button">
+                        <button><img src={playstorebtn} alt="btn" />Google Play</button>
+                        <button><img src={appstorebtn} alt="btn" />App Store</button>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-            <div id="qr_conatiner_block2">
-              <div id="qrs">
-                <div id="qu_image_container">
-                  <img src={qr1} alt="qr" />
-                </div>
-                <div id="qr_image_button">
-                  <button><img src={playstorebtn} alt="btn" />Google Play</button>
-                </div>
-              </div>
-
-              <div id="qrs">
-                <div id="qu_image_container">
-                  <img src={qr2} alt="qr" />
-                </div>
-                <div id="qr_image_button">
-                  <button><img src={appstorebtn} alt="btn" />App Store</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          : null
+                : null
             }
-        </div>
+          </div>
         )}
       </div>
 
     </>
   );
 };
-export default Cards; 
+export default Cards;
