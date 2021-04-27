@@ -45,7 +45,7 @@
 }
 #login_block1_block1 h1 {
     margin: 0;
-    font-family: Segoe UI;
+    font-family: Noto Sans;
     font-style: normal;
     font-weight: bold;
     font-size: 2.25vw;
@@ -57,7 +57,7 @@
     margin: auto 0 0 0;
 }
 #login_block1_block2 p {
-    font-family: Segoe UI;
+    font-family: Source Sans Pro;
     font-style: normal;
     font-weight: normal;
     font-size: 1vw;
@@ -67,7 +67,7 @@
 }
 #login_block1_block2 p span {
     color: #4285f4;
-    font-family: Segoe UI;
+    font-family: Source Sans Pro;
     font-style: normal;
     font-weight: 600;
     font-size: 1vw;
@@ -96,7 +96,7 @@
     border: 0.125vw solid rgba(255, 64, 129, 1);
 }
 #input_block_input1 h1 {
-    font-family: Segoe UI;
+    font-family: Source Sans Pro;
     font-style: normal;
     font-weight: normal;
     font-size: 0.75vw;
@@ -111,7 +111,7 @@
 #input_block_input1 input {
     height: 100%;
     width: 100%;
-    font-family: Segoe UI;
+    font-family: Source Sans Pro;
     font-style: normal;
     font-weight: normal;
     font-size: 1vw;
@@ -131,7 +131,7 @@
     border-radius: 0.5vw;
     border: none;
     outline: none;
-    font-family: Segoe UI;
+    font-family: Source Sans Pro;
     font-style: normal;
     font-weight: 600;
     font-size: 1.125vw;
@@ -152,7 +152,7 @@
     justify-content: space-between;
 }
 #login_note1 {
-    font-family: Segoe UI;
+    font-family: Source Sans Pro;
     font-style: normal;
     font-weight: 500;
     font-size: 0.875vw;
@@ -168,7 +168,7 @@
     margin-bottom: 0.3125vw;
 }
 #login_note2 {
-    font-family: Segoe UI;
+    font-family: Source Sans Pro;
     font-style: normal;
     font-weight: 500;
     font-size: 0.875vw;
@@ -178,7 +178,7 @@
     margin: 0;
 }
 #login_note3 {
-    font-family: Segoe UI;
+    font-family: Source Sans Pro;
     font-style: normal;
     font-weight: 600;
     font-size: 0.875vw;
@@ -213,7 +213,7 @@
     height: fit-content;
 }
 #register_container_head_block1 h1 {
-    font-family: Segoe UI;
+    font-family: Noto Sans;
     font-style: normal;
     font-weight: bold;
     font-size: 2.25vw;
@@ -227,7 +227,7 @@
 }
 #register_container_head_block2 p {
     margin: 0;
-    font-family: Segoe UI;
+    font-family: Source Sans Pro;
     font-style: normal;
     font-weight: normal;
     font-size: 1vw;
@@ -236,7 +236,7 @@
     color: #333333;
 }
 #register_container_head_block2 span {
-    font-family: Segoe UI;
+    font-family: Source Sans Pro;
     font-style: normal;
     font-weight: 600;
     font-size: 1vw;
@@ -272,7 +272,7 @@
     border: 0.125vw solid rgba(255, 64, 129, 1);
 }
 #register_input_block_input1 h1 {
-    font-family: Segoe UI;
+    font-family: Source Sans Pro;
     font-style: normal;
     font-weight: normal;
     font-size: 0.75vw;
@@ -287,7 +287,7 @@
 #register_input_block_input1 input {
     height: 100%;
     width: 100%;
-    font-family: Segoe UI;
+    font-family: Source Sans Pro;
     font-style: normal;
     font-weight: normal;
     font-size: 1vw;
@@ -316,13 +316,18 @@
     margin-top: auto;
 }
 #register_checkbox p {
-    font-family: Segoe UI;
+    font-family: Source Sans Pro;
     font-style: normal;
     font-weight: normal;
     font-size: 1vw;
     line-height: 1.3125vw;
     margin: 0;
     color: #222222;
+}
+#register_checkbox p span{
+    text-decoration: underline;
+    color: #4285f4;
+    cursor: pointer;
 }
 #register_button {
     width: 100%;
@@ -336,10 +341,42 @@
     border-radius: 0.5vw;
     border: none;
     outline: none;
-    font-family: Segoe UI;
+    font-family: Source Sans Pro;
     font-style: normal;
     font-weight: 600;
     font-size: 1.125vw;
     color: #ffffff;
     cursor: pointer;
+}
+#register_inputs .register_input_block1 #gender_options{
+    display: none;
+}
+#register_inputs .gender #gender_options{
+    position: absolute;
+    width: 100%;
+    top:3px;
+    height: 80%;
+    margin: 0;
+    background: white;
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1vw;
+    line-height: 1.3125vw;
+    letter-spacing: 0.0125vw;
+    color: rgba(0, 0, 0, 0.5);
+    padding: 0 1.875vw 0 0.625vw;
+    border: none;
+    outline: none;
+    border: 1px solid transparent;
+    display: block;
+}
+#register_inputs #option{
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1vw;
+    line-height: 1.3125vw;
+    letter-spacing: 0.0125vw;
+    color: rgba(0, 0, 0, 0.8);
 }

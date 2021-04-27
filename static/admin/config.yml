@@ -539,6 +539,11 @@ collections:
                     name: "registerplaceholder",
                     widget: "string",
                   },
+                  {
+                    label: "Gender classname",
+                    name: "class",
+                    widget: "string",
+                  },
                 ],
             }
           - { label: "Login Title", name: "logintitle", widget: "string" }

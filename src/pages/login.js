@@ -31,6 +31,7 @@ function Login() {
                   placeholder
                 }
                 register {
+                    class
                   registerinputtitle
                   registerplaceholder
                 }
@@ -57,14 +58,14 @@ function Login() {
                                         </div>
                                     </div>
                                     <div id="inputs">
-                                    {data.login.childMarkdownRemark.frontmatter.login.map(login =>
-                                        <div id="input_block2">
-                                            <div id="input_block_input1" active-class="input_block_input1">
-                                                <h1>{login.inputtitle}</h1>
-                                                <input type="text" placeholder={login.placeholder} />
+                                        {data.login.childMarkdownRemark.frontmatter.login.map(login =>
+                                            <div id="input_block2">
+                                                <div id="input_block_input1" active-class="input_block_input1">
+                                                    <h1>{login.inputtitle}</h1>
+                                                    <input type="text" placeholder={login.placeholder} />
+                                                </div>
                                             </div>
-                                        </div>
-                                    )}
+                                        )}
                                         <div id="input_block3">
                                             <button>{data.login.childMarkdownRemark.frontmatter.loginbutton}</button>
                                         </div>
@@ -89,15 +90,21 @@ function Login() {
                                     </div>
                                 </div>
                                 <div id="register_inputs">
-                                {data.login.childMarkdownRemark.frontmatter.register.map(register =>
-                                    <div id="register_input_block1">
-                                        <div id="register_input_block_input1">
-                                            <h1>{register.registerinputtitle}</h1>
-                                            <input type="text" placeholder={register.registerplaceholder} />
+                                    {data.login.childMarkdownRemark.frontmatter.register.map(register =>
+                                        <div className={register.class}>
+                                            <div id="register_input_block_input1">
+                                                <h1>{register.registerinputtitle}</h1>
+                                                <input type="text" placeholder={register.registerplaceholder} />
+                                                <select id="gender_options" defaultValue="Choose...">
+                                                <option value="" id="option">gender</option>
+                                                <option value="male" id="option">Male</option>
+                                                <option value="female" id="option">Female</option>
+                                                <option value="Other" id="option">Other</option>
+                                            </select>
+                                            </div>
                                         </div>
-                                    </div>
                                     )}
-                                  </div>
+                                </div>
                                 <div id="register_checkbox">
                                     <input type="checkbox" />
                                     <p>{data.login.childMarkdownRemark.frontmatter.registertermdescription1} <span>{data.login.childMarkdownRemark.frontmatter.registertermdescription2}</span></p>

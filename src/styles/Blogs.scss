@@ -1,12 +1,12 @@
 .blog {
     padding: 140px 0;
 }
-.blog h1 {
+.blog #blog_h1 {
     text-align: center;
-    font-family: Segoe UI;
+    font-family: Noto Sans;
     font-style: normal;
     font-weight: bold;
-    font-size: 3vw;
+    font-size: 2.5vw;
     color: black;
     line-height:4vw;
     margin: 0;
@@ -39,7 +39,7 @@
     margin: 0;
 }
 #blog_card_title {
-    font-family: Segoe UI;
+    font-family: Source Sans Pro;
     font-style: normal;
     font-weight: 600;
     font-size: 24px;
@@ -47,7 +47,7 @@
     color: #111111;
 }
 #blog_card_description {
-    font-family: Segoe UI;
+    font-family: Source Sans Pro;
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
@@ -56,7 +56,7 @@
     margin-top: 15px;
 }
 #blog_card_date {
-    font-family: Segoe UI;
+    font-family: Source Sans Pro;
     font-style: normal;
     font-weight: normal;
     font-size: 16px;

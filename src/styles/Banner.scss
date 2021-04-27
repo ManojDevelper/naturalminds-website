@@ -1,113 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap");
 /*========Banner========*/
 .banner {
-    width: 100%;
-    height: 99.8vh;
-    background-image: url("../data/assets/banner.png");
-    background-repeat: no-repeat;
-    background-size: 45vw auto;
-    background-position: bottom -4.5vw right 5.5vw;
+  width: 100%;
+  height: 99.8vh;
+  background-image: url("../data/assets/banner.png");
+  background-repeat: no-repeat;
+  background-size: 45vw auto;
+  background-position: bottom -4.5vw right 5.5vw;
 }
 .banner_container {
-    padding-top: 10vw;
-    max-width: calc(100% - 13%);
-    margin: auto;
+  padding-top: 10vw;
+  max-width: calc(100% - 13%);
+  margin: auto;
 }
 .banner_container h1 {
-  font-family: Segoe UI;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 3.5vw;
-    color: #212e34;
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 3.5vw;
+  color: #212e34;
 }
 .banner_container p {
-    font-family: Segoe UI;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 1.125vw;
-    color: #585858;
-    max-width: 31.25vw;
+  font-family: Source Sans Pro;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.125vw;
+  color: #585858;
+  max-width: 31.25vw;
 }
 .banner_buttons {
-    display: flex;
-    flex-direction: row;
-    column-gap: 2vw;
+  display: flex;
+  flex-direction: row;
+  column-gap: 2vw;
 }
 .banner_buttons button {
-    font-family: Segoe UI;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 1.125vw;
-    color: #ffffff;
-    width: 11.75vw;
-    height: 3.375vw;
-    border-radius: 0.5vw;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    transition: 0.5s ease-in-out;
+  font-family: Source Sans Pro;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.125vw;
+  color: #ffffff;
+  width: 11.75vw;
+  height: 3.375vw;
+  border-radius: 0.5vw;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
 }
 .banner_buttons button:hover {
-    width: 12.1875vw;
+  width: 12.1875vw;
 }
 .banner_buttons .banner_buttons1 {
-    background: #ff4081;
+  background: #ff4081;
 }
 .banner_buttons .banner_buttons2 {
-    background: #00b3db;
+  background: #00b3db;
 }
-.watchvideo .playbutton{
-    margin: 0;
+.watchvideo .playbutton {
+  margin: 0;
 }
-.watchvideo span{
-    margin: 0;
+.watchvideo span {
+  margin: 0;
 }
-.watchvideo div{
-    width: fit-content;
-    height: fit-content;
+.watchvideo div {
+  width: fit-content;
+  height: fit-content;
 }
-.watchvideo{
-    width: fit-content;
-    height: fit-content;
-    display: flex;
-    justify-content:flex-start;
-    align-items:center;
-    column-gap: 1vw;
-    margin-top: 0.8vw;
-    cursor: pointer;
+.watchvideo {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 1vw;
+  margin-top: 0.8vw;
+  cursor: pointer;
 }
 /*============video=============*/
-#banner_popup{
-    width: 100%;
-    height: 100vh;
-    background: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    z-index: 10;
-    right: 0;
-  }
-  #banner_pop_video{
-    width: 64.875vw;
-    height: 31.3125vw;
-    box-shadow: 0px 0px 0.75vw rgba(15, 36, 44, 0.15);
-    border-radius: 0.9375vw;
-    background: white;
-    position: relative;
-  }
-  #banner_pop_close img{
-    position: absolute;
-    right: 0vw;
-    cursor: pointer;
-    z-index: 1;
-  }
-  #banner_pop_video video{
-    width: 100%;
-    height: 100%;
-    outline: none;
-    margin: 0;
-  }
+#banner_popup {
+  width: 100%;
+  height: 100vh;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  right: 0;
+}
+#banner_pop_video {
+  width: 64.875vw;
+  height: 31.3125vw;
+  box-shadow: 0px 0px 0.75vw rgba(15, 36, 44, 0.15);
+  border-radius: 0.9375vw;
+  background: white;
+  position: relative;
+}
+#banner_pop_close img {
+  position: absolute;
+  right: 0vw;
+  cursor: pointer;
+  z-index: 1;
+}
+#banner_pop_video video {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  margin: 0;
+}
 /*========qrpopup============*/
 #banner_qr {
   width: 100%;
@@ -121,10 +122,10 @@
   top: 0;
   left: 0;
 }
-#cards_main_container .cardqr{
+#cards_main_container .cardqr {
   display: none;
 }
-#cards_main_container .active-cardqr{
+#cards_main_container .active-cardqr {
   display: flex;
 }
 #banner_qr_conatiner {
@@ -156,7 +157,7 @@
   margin-top: auto;
 }
 #ql_container_matter h1 {
-  font-family: Segoe UI;
+  font-family: Source Sans Pro;
   font-style: normal;
   font-weight: bold;
   font-size: 2.5vw;
@@ -173,7 +174,7 @@
   top: 0.5vw;
 }
 #ql_container_matter p {
-  font-family: Segoe UI;
+  font-family: Source Sans Pro;
   font-style: normal;
   font-weight: normal;
   font-size: 0.9375vw;
@@ -189,7 +190,7 @@
   margin-top: 3.75vw;
 }
 #banner_qr_container_input_block h1 {
-  font-family: Segoe UI;
+  font-family: Source Sans Pro;
   font-style: normal;
   font-weight: normal;
   font-size: 1.25vw;
@@ -220,7 +221,7 @@
   border: none;
   outline: none;
   background: transparent;
-  font-family: Segoe UI;
+  font-family: Source Sans Pro;
   font-style: normal;
   font-weight: normal;
   font-size: 1vw;
@@ -229,7 +230,7 @@
 }
 #banner_qr_container_input_block_container_container #banner_no_start {
   margin: 0;
-  font-family: Segoe UI;
+  font-family: Source Sans Pro;
   font-style: normal;
   font-weight: normal;
   font-size: 1vw;
@@ -248,7 +249,7 @@
   border-radius: 0.5vw;
   border: none;
   outline: none;
-  font-family: Segoe UI;
+  font-family: Source Sans Pro;
   font-style: normal;
   font-weight: 600;
   font-size: 1vw;
@@ -282,7 +283,7 @@
   background: #212e34;
   border-radius: 0.5vw;
   margin: 0;
-  font-family: Segoe UI;
+  font-family: Source Sans Pro;
   font-style: normal;
   font-weight: 600;
   font-size: 1.125vw;
@@ -303,89 +304,89 @@
 }
 /*====mediaquaries========*/
 @media (max-width: 1300px) {
-    .banner {
-        background-position: bottom -5vw right;
-        background-size: 55vw;
-    }
-    .banner_container h1 {
-        font-size: 4vw;
-        line-height: 1vw;
-        margin: 0;
-    }
-    .banner_container p {
-        font-size: 1.5vw;
-        width: 43vw;
-        margin: 0;
-        margin-top: 3vw;
-    }
-    .banner_buttons {
-        column-gap: 2vw;
-    }
-    .banner_buttons button {
-        font-size: 1.5vw;
-        width: 15vw;
-        height: 4.5vw;
-        border-radius: 0.8vw;
-        margin-top: 2.5vw;
-    }
-    .banner_buttons button:hover {
-        width: 16vw;
-        height: auto;
-    }
+  .banner {
+    background-position: bottom -5vw right;
+    background-size: 55vw;
+  }
+  .banner_container h1 {
+    font-size: 4vw;
+    line-height: 1vw;
+    margin: 0;
+  }
+  .banner_container p {
+    font-size: 1.5vw;
+    width: 43vw;
+    margin: 0;
+    margin-top: 3vw;
+  }
+  .banner_buttons {
+    column-gap: 2vw;
+  }
+  .banner_buttons button {
+    font-size: 1.5vw;
+    width: 15vw;
+    height: 4.5vw;
+    border-radius: 0.8vw;
+    margin-top: 2.5vw;
+  }
+  .banner_buttons button:hover {
+    width: 16vw;
+    height: auto;
+  }
 }
 @media (max-width: 650px) {
-    .banner {
-        background-position: center bottom;
-        background-position: center bottom -6vw;
-        background-size: 70vw auto;
-        padding: 1vw 0;
-    }
-    .banner_content_wrapper{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-    }
-    .banner_container {
-        text-align: center;
-        height: fit-content;
-        width: fit-content;
-        padding-top: 0;
-        margin-top: auto;
-    }
-    .banner_container h1 {
-        font-size: 6vw;
-    }
-    .banner_container p {
-        width: 100%;
-        margin: auto;
-        font-size: 2vw;
-        margin-top: 4vw;
-        max-width: 70%;
-    }
-    .banner_buttons {
-        width: 100%;
-        justify-content: center;
-    }
-    .watchvideo .playbutton{
-        margin: 0;
-        width: 4vw;
-    }
-    .watchvideo span{
-        margin: 0;
-        font-size: 3.8vw;
-    }
-    .watchvideo div{
-        width: fit-content;
-        height: fit-content;
-    }
-    .watchvideo{
-        margin: auto;
-        margin-top: 1vw;
-    }
+  .banner {
+    background-position: center bottom;
+    background-position: center bottom -6vw;
+    background-size: 70vw auto;
+    padding: 1vw 0;
+  }
+  .banner_content_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  .banner_container {
+    text-align: center;
+    height: fit-content;
+    width: fit-content;
+    padding-top: 0;
+    margin-top: auto;
+  }
+  .banner_container h1 {
+    font-size: 6vw;
+  }
+  .banner_container p {
+    width: 100%;
+    margin: auto;
+    font-size: 2vw;
+    margin-top: 4vw;
+    max-width: 70%;
+  }
+  .banner_buttons {
+    width: 100%;
+    justify-content: center;
+  }
+  .watchvideo .playbutton {
+    margin: 0;
+    width: 4vw;
+  }
+  .watchvideo span {
+    margin: 0;
+    font-size: 3.8vw;
+  }
+  .watchvideo div {
+    width: fit-content;
+    height: fit-content;
+  }
+  .watchvideo {
+    margin: auto;
+    margin-top: 1vw;
+  }
 }
 @media (max-width: 450px) {
-    .banner {
-        background-size: 70vw auto;
-    }
+  .banner {
+    background-size: 70vw auto;
+  }
 }

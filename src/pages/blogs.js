@@ -30,7 +30,7 @@ function Blogs() {
   return (
     <>
       <div className="blog">
-        <h1>{data.blogs.childMarkdownRemark.frontmatter.title}</h1>
+        <h1 id="blog_h1">{data.blogs.childMarkdownRemark.frontmatter.title}</h1>
         <div className="blog_container">
           {data.blogs.childMarkdownRemark.frontmatter.blogs.map(blogs =>
             <div className="blog_card">
