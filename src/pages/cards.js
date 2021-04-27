@@ -3,7 +3,6 @@ import { graphql, useStaticQuery } from "gatsby"
 import close from "../data/assets/close.svg";
 import qr1 from "../data/assets/googleplay_qr.png"
 import playstorebtn from "../data/assets/playstore_btn.svg"
-import qr2 from "../data/assets/appstore_qr.png"
 import appstorebtn from "../data/assets/appstore_btn.svg"
 import rate from "../data/assets/rate.svg"
 import "../styles/Cards.scss";
@@ -64,6 +63,8 @@ function Cards() {
                 id
                 title
                 description
+                link1
+                link2
                 storeqr {
                   childImageSharp {
                     fluid {
@@ -153,8 +154,8 @@ function Cards() {
                         <img src={qr1} alt="qr" />
                       </div>
                       <div id="qr_image_button">
-                        <button><img src={playstorebtn} alt="btn" />Google Play</button>
-                        <button><img src={appstorebtn} alt="btn" />App Store</button>
+                      <a href={qr.link1} target="_blank" rel="noopener noreferrer"><button><img src={playstorebtn} alt="btn" />Google Play</button></a>
+                      <a href={qr.link2} target="_blank" rel="noopener noreferrer"><button><img src={appstorebtn} alt="btn" />App Store</button></a>
                       </div>
                     </div>
                   </div>

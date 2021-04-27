@@ -132,6 +132,28 @@ collections:
                   { label: "Logo", name: "logo", widget: "image" },
                 ],
             }
+      - file: "src/data/qr.md"
+        label: "Qr popup"
+        name: "qrpopup"
+        fields:
+          - {
+              label: "QR",
+              name: "qr",
+              widget: "list",
+              fields:
+                [
+                  { label: "ID", name: "id", widget: "number" },
+                  { label: "Title", name: "title", widget: "string" },
+                  {
+                    label: "Description",
+                    name: "description",
+                    widget: "string",
+                  },
+                  { label: "Store QR", name: "storeqr", widget: "image" },
+                  { label: "playstorelink", name: "link1", widget: "string" },
+                  { label: "App store Link", name: "link2", widget: "string" },
+                ],
+            }
       - file: "src/data/cards.md"
         label: "OUR PRODUCTS"
         name: "cards"
@@ -152,16 +174,8 @@ collections:
                   { label: "Title", name: "title", widget: "string" },
                   { label: "Class1", name: "class1", widget: "string" },
                   { label: "Class2", name: "class2", widget: "string" },
-                  {
-                    label: "Button",
-                    name: "button",
-                    widget: "string",
-                  },
-                  {
-                    label: "Button2",
-                    name: "button2",
-                    widget: "string",
-                  },
+                  { label: "Button", name: "button", widget: "string" },
+                  { label: "Button2", name: "button2", widget: "string" },
                   { label: "Image", name: "image", widget: "image" },
                   { label: "Content", name: "content", widget: "string" },
                   {

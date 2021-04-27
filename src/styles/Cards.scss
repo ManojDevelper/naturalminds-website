@@ -322,12 +322,12 @@
   width: 12vw;
 }
 #qr_image_button{
-  display: grid;
-  width: 100%;
-  grid-template-columns: 1fr 1fr;
-  gap: 1vw;
+  display: flex;
+  flex-direction: row;
+  column-gap: 1vw;
 }
 #qr_image_button button {
+  width: 10.125vw;
   height: 3vw;
   background: #212e34;
   border-radius: 0.5vw;

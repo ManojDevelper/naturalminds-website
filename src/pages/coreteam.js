@@ -7,14 +7,13 @@ import close from "../data/assets/close.svg";
 
 
 function Coreteam() {
+  
   const [toggleState, setToggleState] = useState(0);
 
   const toggleTab = (index) => {
     setToggleState(index);
   };
-
   const [show, setShow] = useState(true)
-
   const data = useStaticQuery(graphql`
       query {
         coreteam: file(relativePath: {eq: "coreteam.md"}) {

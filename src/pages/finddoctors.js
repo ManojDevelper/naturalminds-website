@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useEffect } from 'react';
 import search from "../data/assets/search.svg";
 import { graphql, useStaticQuery } from "gatsby"
 import "../styles/Finddoctors.scss";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 function Finddoctors() {
+  useEffect(() => {
+    Aos.init();
+  }, [])
   const data = useStaticQuery(graphql`
     query {
       finddoctors: file(relativePath: {eq: "finddoctor.md"}) {
@@ -27,7 +32,7 @@ function Finddoctors() {
   `)
   return (
     <>
-      <div className="finddoctors" id="finddoctors">
+      <div className="finddoctors" id="finddoctors" data-aos="fade-down">
         <div className="finddoctors_container">
           <div className="finddoctors_container_matter">
             <h1>{data.finddoctors.childMarkdownRemark.frontmatter.title}</h1>

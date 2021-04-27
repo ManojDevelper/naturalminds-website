@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from 'react';
 import qr1 from "../data/assets/googleplay_qr.png"
 import playstorebtn from "../data/assets/playstore_btn.svg"
 import appstorebtn from "../data/assets/appstore_btn.svg"
@@ -23,10 +22,16 @@ function Banner() {
     const toggleTab = (index) => {
         setToggleState(index);
     };
-
     const [show, setShow] = useState(true)
     const data = useStaticQuery(graphql`
       query {
+        desktop: file(relativePath: { eq: "banner.png" }) {
+            childImageSharp {
+              fluid(quality: 90, maxWidth: 1920) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
         banner: file(relativePath: {eq: "banner.md"}) {
             id
             childMarkdownRemark {
@@ -47,6 +52,8 @@ function Banner() {
                   id
                   title
                   description
+                  link1
+                  link2
                   storeqr {
                     childImageSharp {
                       fluid {
@@ -66,8 +73,8 @@ function Banner() {
                 <Top />
                 <div className="banner_content_wrapper">
                     <div className="banner_container">
-                        <h1>{data.banner.childMarkdownRemark.frontmatter.title}</h1>
-                        <p>{data.banner.childMarkdownRemark.frontmatter.description}</p>
+                        <h1 id="banner_h1">{data.banner.childMarkdownRemark.frontmatter.title}</h1>
+                        <p id="banner_p">{data.banner.childMarkdownRemark.frontmatter.description}</p>
                         <div className="banner_buttons">
                             <bannerbtn className={toggleState === 1 ? "show_btn active-show_btn" : "show_btn"}
                                 onClick={() => toggleTab(1)}><button className="banner_buttons1">{data.banner.childMarkdownRemark.frontmatter.button1}</button></bannerbtn>
@@ -93,7 +100,9 @@ function Banner() {
                             </div>
                         </div>
                         {data.cardqr.childMarkdownRemark.frontmatter.qr.map(qr =>
-                            <div id="bannerqr" className={toggleState === (qr.id) ? "cardqr  active-cardqr" : "cardqr"}>
+                            <div id="bannerqr" className={toggleState === (qr.id) ? "cardqr  active-cardqr" : "cardqr"} >
+                            {
+                                show ?
                                 <div id="qr_conatiner">
                                     <img src={close} alt="close" id="close2" onClick={() => toggleTab(setShow)} role="presentation" />
                                     <div id="qr_conatiner_block1">
@@ -120,12 +129,14 @@ function Banner() {
                                                 <img src={qr1} alt="qr" />
                                             </div>
                                             <div id="qr_image_button">
-                                                <button><img src={playstorebtn} alt="btn" />Google Play</button>
-                                                <button><img src={appstorebtn} alt="btn" />App Store</button>
+                                                <a href={qr.link1} target="_blank" rel="noopener noreferrer"><button><img src={playstorebtn} alt="btn" />Google Play</button></a>
+                                                <a href={qr.link2} target="_blank" rel="noopener noreferrer"><button><img src={appstorebtn} alt="btn" />App Store</button></a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                : null
+                             }
                             </div>
                         )}
                     </div>
