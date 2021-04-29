@@ -35,7 +35,7 @@ function Commingsoon() {
         <h1>{data.commingsoon.childMarkdownRemark.frontmatter.title}</h1>
         <div className="commingsoon_container">
           {data.commingsoon.childMarkdownRemark.frontmatter.commingsoon.map(commingsoon =>
-            <div className="commingsoon_cards">
+            <div className="commingsoon_cards" key={commingsoon.id}>
               <div className="commingsoon_cards_img_container">
                 <img src={commingsoon.logo.childImageSharp.fluid.src} alt="img1" id="cs_img" />
               </div>

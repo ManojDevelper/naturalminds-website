@@ -280,9 +280,10 @@
     letter-spacing: 0.025vw;
     color: rgba(0, 0, 0, 0.6);
     position: absolute;
-    background: white;
+    background-color: white;
     transform: translateY(-0.625vw);
     left: 0.625vw;
+    z-index: 1;
 }
 #register_input_block_input1 input {
     height: 100%;

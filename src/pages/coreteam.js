@@ -55,7 +55,7 @@ function Coreteam() {
             <h1>{data.coreteam.childMarkdownRemark.frontmatter.title1} <span style={{ color: `#1481BA` }}>{data.coreteam.childMarkdownRemark.frontmatter.title2}</span></h1>
             <div id="coreteam_cards">
               {data.coreteam.childMarkdownRemark.frontmatter.coreteam.map(coreteam =>
-                <div id="coreteam_card1">
+                <div id="coreteam_card1" key={coreteam.id}>
                   <div id="coreteam_card_svg">
                     <img src={coreteam.image.childImageSharp.fluid.src} alt="img1" id="coreteamimg1" />
                   </div>

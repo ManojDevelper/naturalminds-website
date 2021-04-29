@@ -85,7 +85,7 @@ function Cards() {
           <h1>{data.cards.childMarkdownRemark.frontmatter.title}</h1>
           <div className="card_container">
             {data.cards.childMarkdownRemark.frontmatter.cards.map(cards =>
-              <div className={cards.class1}>
+              <div className={cards.class1} key={cards.id}>
                 <div className={cards.class2}>
                   <div className="slidecards_svg">
                     <div className="slidecards_svg_container">
@@ -98,7 +98,7 @@ function Cards() {
                       <p>{cards.content}</p>
                       <div id="slide_cards_container">
                         {cards.minicards.map(minicards =>
-                          <div id="slide_cards_card1">
+                          <div id="slide_cards_card1" key={minicards.id}>
                             <div id="slide_cards_logo">
                               <div id="slide_cards_logo_container">
                                 <img src={minicards.logo.childImageSharp.fluid.src} alt="img1" />

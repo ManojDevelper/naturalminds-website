@@ -1,5 +1,5 @@
 backend:
-  name: git-gateway
+  name: bitbucket
   branch: website
 
 publish_mode: editorial_workflow
@@ -519,28 +519,10 @@ collections:
                     name: "placeholder",
                     widget: "string",
                   },
-                ],
-            }
-          - {
-              label: "Register Form",
-              name: "register",
-              widget: "list",
-              fields:
-                [
                   {
-                    label: "Input Title",
-                    name: "registerinputtitle",
-                    widget: "string",
-                  },
-                  {
-                    label: "Input placeHolder",
-                    name: "registerplaceholder",
-                    widget: "string",
-                  },
-                  {
-                    label: "Gender classname",
-                    name: "class",
-                    widget: "string",
+                    label: "ID",
+                    name: "id",
+                    widget: "number",
                   },
                 ],
             }

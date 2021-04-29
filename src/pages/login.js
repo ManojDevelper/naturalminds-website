@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import "../styles/Login.scss";
 import bulb from "../data/assets/bulb.svg";
@@ -27,19 +27,45 @@ function Login() {
                 registertermdescription2
                 registerbutton
                 login {
+                    id
                   inputtitle
                   placeholder
                 }
-                register {
-                    class
-                  registerinputtitle
-                  registerplaceholder
-                }
+                
               }
             }
           }
          }
     `)
+    const [name, setName] = useState("")
+    const [email, setEmail] = useState("")
+    const [gender, setGender] = useState("")
+    const [phone, setPhone] = useState("")
+    const [licenseNo, setLicenseno] = useState("")
+    const [docType, setDocType] = useState("")
+    const [orgName, setOrgname] = useState("")
+    const [orgPhone, setOrgphone] = useState("")
+    const [address, setAddress] = useState("")
+    const [city, setCity] = useState("")
+    const [state, setState] = useState("")
+    const [pincode, setPincode] = useState("")
+    const [refferalCode, setRefferalcode] = useState("")
+
+
+    async function signUp() {
+        let item = { name, email, gender, phone, licenseNo, docType, orgName, orgPhone, address, city, state, pincode, refferalCode }
+
+        let result = await fetch("https://stag.spotcare.in/api/SpotCare/signup", {
+            method: 'POST',
+            body: JSON.stringify(item),
+            headers: {
+                "Content-Type": 'application/json',
+                "Accept": 'application/json'
+            }
+        })
+        result = await result.json()
+        console.warn("result", result)
+    }
     return (
         <>
             <div id="login_main">
@@ -59,7 +85,7 @@ function Login() {
                                     </div>
                                     <div id="inputs">
                                         {data.login.childMarkdownRemark.frontmatter.login.map(login =>
-                                            <div id="input_block2">
+                                            <div id="input_block2" key={login.id}>
                                                 <div id="input_block_input1" active-class="input_block_input1">
                                                     <h1>{login.inputtitle}</h1>
                                                     <input type="text" placeholder={login.placeholder} />
@@ -90,27 +116,91 @@ function Login() {
                                     </div>
                                 </div>
                                 <div id="register_inputs">
-                                    {data.login.childMarkdownRemark.frontmatter.register.map(register =>
-                                        <div className={register.class}>
-                                            <div id="register_input_block_input1">
-                                                <h1>{register.registerinputtitle}</h1>
-                                                <input type="text" placeholder={register.registerplaceholder} />
-                                                <select id="gender_options" defaultValue="Choose...">
-                                                <option value="" id="option">gender</option>
-                                                <option value="male" id="option">Male</option>
-                                                <option value="female" id="option">Female</option>
-                                                <option value="Other" id="option">Other</option>
-                                            </select>
-                                            </div>
+                                    <div className="register_input_block1">
+                                        <div id="register_input_block_input1">
+                                            <h1>Full Name*</h1>
+                                            <input type="text" placeholder="name" value={name} onChange={(e) => setName(e.target.value)} required />
                                         </div>
-                                    )}
+                                    </div>
+                                    <div className="register_input_block1">
+                                        <div id="register_input_block_input1">
+                                            <h1>Email ID**</h1>
+                                            <input type="Email" placeholder="mail" value={email} onChange={(e) => setEmail(e.target.value)} />
+                                        </div>
+                                    </div>
+                                    <div className="register_input_block1">
+                                        <div id="register_input_block_input1">
+                                            <h1>Gender*</h1>
+                                            <input type="text" placeholder="gender" value={gender} onChange={(e) => setGender(e.target.value)} />
+                                        </div>
+                                    </div>
+                                    <div className="register_input_block1">
+                                        <div id="register_input_block_input1">
+                                            <h1>Contact Number*</h1>
+                                            <input type="value" placeholder="+91" value={phone} onChange={(e) => setPhone(e.target.value)} />
+                                        </div>
+                                    </div>
+                                    <div className="register_input_block1">
+                                        <div id="register_input_block_input1">
+                                            <h1>License Number*</h1>
+                                            <input type="text" placeholder="license number" value={licenseNo} onChange={(e) => setLicenseno(e.target.value)} />
+                                        </div>
+                                    </div>
+                                    <div className="register_input_block1">
+                                        <div id="register_input_block_input1">
+                                            <h1>Speciality</h1>
+                                            <input type="text" placeholder="speciality" value={docType} onChange={(e) => setDocType(e.target.value)} />
+                                        </div>
+                                    </div>
+                                    <div className="register_input_block1">
+                                        <div id="register_input_block_input1">
+                                            <h1>Provider Organization*</h1>
+                                            <input type="text" placeholder="provider organization" value={orgName} onChange={(e) => setOrgname(e.target.value)} />
+                                        </div>
+                                    </div>
+                                    <div className="register_input_block1">
+                                        <div id="register_input_block_input1">
+                                            <h1>Provider Organization Phone Number*</h1>
+                                            <input type="text" placeholder="provider organization phone number" value={orgPhone} onChange={(e) => setOrgphone(e.target.value)} />
+                                        </div>
+                                    </div>
+                                    <div className="register_input_block1">
+                                        <div id="register_input_block_input1">
+                                            <h1>Provider Address*</h1>
+                                            <input type="text" placeholder="provider address" value={address} onChange={(e) => setAddress(e.target.value)} />
+                                        </div>
+                                    </div>
+                                    <div className="register_input_block1">
+                                        <div id="register_input_block_input1">
+                                            <h1>City*</h1>
+                                            <input type="text" placeholder="city" value={city} onChange={(e) => setCity(e.target.value)} />
+                                        </div>
+                                    </div>
+                                    <div className="register_input_block1">
+                                        <div id="register_input_block_input1">
+                                            <h1>State</h1>
+                                            <input type="text" placeholder="state" value={state} onChange={(e) => setState(e.target.value)} />
+                                        </div>
+                                    </div>
+                                    <div className="register_input_block1">
+                                        <div id="register_input_block_input1">
+                                            <h1>PinCode</h1>
+                                            <input type="text" placeholder="pincode" value={pincode} onChange={(e) => setPincode(e.target.value)} />
+                                        </div>
+                                    </div>
+                                    <div className="register_input_block1">
+                                        <div id="register_input_block_input1">
+                                            <h1>Referral (if any)</h1>
+                                            <input type="text" placeholder="Referral (if any)" value={refferalCode} onChange={(e) => setRefferalcode(e.target.value)} />
+                                        </div>
+                                    </div>
                                 </div>
                                 <div id="register_checkbox">
                                     <input type="checkbox" />
                                     <p>{data.login.childMarkdownRemark.frontmatter.registertermdescription1} <span>{data.login.childMarkdownRemark.frontmatter.registertermdescription2}</span></p>
                                 </div>
                                 <div id="register_button">
-                                    <button>{data.login.childMarkdownRemark.frontmatter.registerbutton}</button>
+                                    <button onClick={signUp}>{data.login.childMarkdownRemark.frontmatter.registerbutton}</button>
                                 </div>
                             </div>
                         </div>
