@@ -20,7 +20,7 @@ import "../styles/index.scss"
 const Landing = () => {
   return (
     <>
-      <Banner />
+      {/* <Banner />
       <Status />
       <Patner />
       <Cards />
@@ -32,7 +32,7 @@ const Landing = () => {
       <Patners />
       <Blogs />
       <Contact />
-      <Footer />
+      <Footer /> */}
       <L/>
     </>
   )
