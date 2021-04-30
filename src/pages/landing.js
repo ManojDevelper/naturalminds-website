@@ -12,15 +12,13 @@ import Patners from "./patners"
 import Blogs from "./blogs";
 import Contact from "./contact";
 import Footer from "./footer";
-import L from "../components/l"
-import Login from "./login"
 import "../styles/index.scss"
 
 
 const Landing = () => {
   return (
     <>
-      {/* <Banner />
+      <Banner />
       <Status />
       <Patner />
       <Cards />
@@ -32,8 +30,7 @@ const Landing = () => {
       <Patners />
       <Blogs />
       <Contact />
-      <Footer /> */}
-      <L/>
+      <Footer />
     </>
   )
 }
