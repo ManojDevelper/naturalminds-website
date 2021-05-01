@@ -19,7 +19,6 @@
 #nav_items {
     margin-left: auto;
     display: flex;
-    column-gap: 2.5vw;
     justify-content: center;
     align-items: center;
 }
@@ -52,6 +51,9 @@
     color: #212e34;
     background: transparent;
     outline: none;
+}
+#navbtn2{
+    margin-right: 2.2vw;
 }
 #nav_img {
 width: 60px;
@@ -92,7 +94,6 @@ margin: 0;
     #nav_items{
         display: flex;
         flex-direction: column;
-        row-gap:30px;
         margin-top: 150px;
     } 
     #navbarResponsive #nav_img{
@@ -108,6 +109,10 @@ margin: 0;
     }
     #navbtn2{
         font-size: 20px;
+        margin-top: 30px;
+    }
+    .navbtn1{
+        margin-top: 30px;
     }
 }
 @media (max-width:600px){

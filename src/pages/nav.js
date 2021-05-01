@@ -28,7 +28,7 @@ function Top() {
             }
           }
         } 
-      }
+        }
     `)
   const [status, setStatus] = useState('close');
   return (

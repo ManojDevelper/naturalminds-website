@@ -30,7 +30,7 @@ function Status() {
       <div className="status">
         <div className="status_container">
           {data.status.childMarkdownRemark.frontmatter.status.map(status =>
-            <div className="status_cards">
+            <div className="status_cards" key={status.id}>
               <div className="card_content">
                 <div className="card_content_img">
                   <img src={status.image.childImageSharp.fluid.src} alt="img1" className="card_svg" />

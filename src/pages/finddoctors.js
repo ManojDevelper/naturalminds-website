@@ -37,17 +37,17 @@ function Finddoctors() {
         <div className="finddoctors_container">
           <div className="finddoctors_container_matter">
           <div id="finddoctors_container_matter_container">
-            <h1>{data.finddoctors.childMarkdownRemark.frontmatter.title}</h1>
-            <p>{data.finddoctors.childMarkdownRemark.frontmatter.content}</p>
+            <h1 key="35">{data.finddoctors.childMarkdownRemark.frontmatter.title}</h1>
+            <p key="36">{data.finddoctors.childMarkdownRemark.frontmatter.content}</p>
             <div id="search_bar">
               <img src={search} alt="img" class="searchicon" />
-              <Link to="/doctor/"><input type="search" placeholder={data.finddoctors.childMarkdownRemark.frontmatter.search_content} className="search" /></Link>
+              <Link to="/doctor/"><input type="search" placeholder={data.finddoctors.childMarkdownRemark.frontmatter.search_content} className="search" key="37"/></Link>
             </div>
             </div>
           </div>
           <div id="finddocbannerimg">
           <div>
-          <img src={data.finddoctors.childMarkdownRemark.frontmatter.image.childImageSharp.fluid.src} alt="img1" id="finddoctors_img" />
+          <img src={data.finddoctors.childMarkdownRemark.frontmatter.image.childImageSharp.fluid.src} alt="img1" id="finddoctors_img" key="38"/>
           </div>
           </div>
         </div>

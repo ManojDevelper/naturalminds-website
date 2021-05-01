@@ -54,7 +54,7 @@ function Footer() {
       <div className="footer">
         <div className="footer_container">
           {data.footer.childMarkdownRemark.frontmatter.footer.map(footer =>
-            <div className="footer_block1">
+            <div className="footer_block1" key={footer.id}>
               <div className="footer_b1_title">
                 <p id="f_b_t">{footer.title}</p>
               </div>
@@ -78,10 +78,10 @@ function Footer() {
         </div>
         <div className="footer_icons">
           {data.footer.childMarkdownRemark.frontmatter.footericons.map(footericons =>
-            <a href={footericons.link} target="_blank" without rel="noopener noreferrer"><img src={footericons.image.childImageSharp.fluid.src} alt="img1" /></a>
+            <a href={footericons.link} target="_blank" without rel="noopener noreferrer"><img src={footericons.image.childImageSharp.fluid.src} alt="img1" key={footericons.id}/></a>
           )}
         </div>
-        <p id="footer_footer">{data.footer.childMarkdownRemark.frontmatter.copyright}</p>
+        <p id="footer_footer" key="40">{data.footer.childMarkdownRemark.frontmatter.copyright}</p>
       </div>
     </>
   );

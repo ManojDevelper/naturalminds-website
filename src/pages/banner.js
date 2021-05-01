@@ -76,9 +76,9 @@ function Banner() {
                         <h1 id="banner_h1">{data.banner.childMarkdownRemark.frontmatter.title}</h1>
                         <p id="banner_p">{data.banner.childMarkdownRemark.frontmatter.description}</p>
                         <div className="banner_buttons">
-                            <bannerbtn className={toggleState === 1 ? "show_btn active-show_btn" : "show_btn"}
+                            <bannerbtn key="1" className={toggleState === 1 ? "show_btn active-show_btn" : "show_btn"}
                                 onClick={() => toggleTab(1)}><button className="banner_buttons1">{data.banner.childMarkdownRemark.frontmatter.button1}</button></bannerbtn>
-                            <bannerbtn className={toggleState === 2 ? "show_btn active-show_btn" : "show_btn"}
+                            <bannerbtn key="2"className={toggleState === 2 ? "show_btn active-show_btn" : "show_btn"}
                                 onClick={() => toggleTab(2)}><button className="banner_buttons2">{data.banner.childMarkdownRemark.frontmatter.button2}</button></bannerbtn>
                         </div>
                         <div className="watchvideo">
@@ -129,8 +129,8 @@ function Banner() {
                                                 <img src={qr1} alt="qr" />
                                             </div>
                                             <div id="qr_image_button">
-                                                <a href={qr.link1} target="_blank" rel="noopener noreferrer"><button><img src={playstorebtn} alt="btn" />Google Play</button></a>
-                                                <a href={qr.link2} target="_blank" rel="noopener noreferrer"><button><img src={appstorebtn} alt="btn" />App Store</button></a>
+                                                <a href={qr.link1} target="_blank" rel="noopener noreferrer" key="3"><button><img src={playstorebtn} alt="btn" />Google Play</button></a>
+                                                <a href={qr.link2} target="_blank" rel="noopener noreferrer" key="4"><button><img src={appstorebtn} alt="btn" />App Store</button></a>
                                             </div>
                                         </div>
                                     </div>
