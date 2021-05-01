@@ -36,14 +36,20 @@ function Finddoctors() {
       <div className="finddoctors" id="finddoctors" data-aos="fade-down">
         <div className="finddoctors_container">
           <div className="finddoctors_container_matter">
+          <div id="finddoctors_container_matter_container">
             <h1>{data.finddoctors.childMarkdownRemark.frontmatter.title}</h1>
             <p>{data.finddoctors.childMarkdownRemark.frontmatter.content}</p>
             <div id="search_bar">
               <img src={search} alt="img" class="searchicon" />
               <Link to="/doctor/"><input type="search" placeholder={data.finddoctors.childMarkdownRemark.frontmatter.search_content} className="search" /></Link>
             </div>
+            </div>
           </div>
+          <div id="finddocbannerimg">
+          <div>
           <img src={data.finddoctors.childMarkdownRemark.frontmatter.image.childImageSharp.fluid.src} alt="img1" id="finddoctors_img" />
+          </div>
+          </div>
         </div>
       </div>
     </>

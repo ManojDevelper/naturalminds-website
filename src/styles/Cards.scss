@@ -22,7 +22,9 @@
   width: 100%;
   display: flex;
   flex-direction: row;
-  column-gap: 2vw;
+}
+#card_btns tab:last-child{
+  margin-left: 2vw;
 }
 .card_container {
   width: 100%;
@@ -187,8 +189,10 @@
   flex-direction: row;
   justify-content: space-between;
   position: relative;
-  column-gap: 7.4375vw;
   padding: 7.1875vw 3.5vw;
+}
+#cards_main_container #qr_conatiner #qr_conatiner_block2{
+  margin-left: 7.5vw;
 }
 #close2 {
   position: absolute;
@@ -326,9 +330,16 @@
   flex-direction: row;
   column-gap: 1vw;
 }
-#qr_image_button button {
+#qr_image_button a{
+  width: fit-content;
+  height: fit-content;
+  padding: 0;
   width: 10.125vw;
   height: 3vw;
+}
+#qr_image_button button {
+  width: 100%;
+  height: 100%;
   background: #212e34;
   border-radius: 0.5vw;
   margin: 0;
@@ -341,7 +352,6 @@
   padding-left: 1.875vw;
   border: none;
   outline: none;
-  cursor: pointer;
 }
 #qr_image_button button img {
   margin: 0;

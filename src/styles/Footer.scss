@@ -30,8 +30,13 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    column-gap: 34px;
     margin-top: 5vw;
+}
+.footer_icons a{
+    margin-left: 3vw;
+}
+.footer_icons a:first-child{
+    margin-left: 0;
 }
 .footer_icons img {
     margin: 0;
@@ -105,8 +110,8 @@
     .footer_img {
         display: flex;
         flex-direction: row;
-        column-gap: 3.5vw;
         margin: 0;
+        justify-content: center;
     }
     .footer_img img {
         margin: 0;
@@ -118,6 +123,12 @@
     .footer_img {
         grid-row: 2/3;
         grid-column: 2/4;
+    }
+    #store{
+        margin-left: 3.5px;
+    }
+    #store:first-child{
+        margin-left: 0;
     }
 }
 @media (max-width: 401px) {

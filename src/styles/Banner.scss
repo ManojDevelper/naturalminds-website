@@ -12,6 +12,7 @@
   padding-top: 10vw;
   max-width: calc(100% - 13%);
   margin: auto;
+  margin-top: 1.5vw;
 }
 .banner_container #banner_h1 {
   font-family: Noto Sans;
@@ -31,7 +32,15 @@
 .banner_buttons {
   display: flex;
   flex-direction: row;
-  column-gap: 2vw;
+}
+.banner_buttons bannerbtn{
+  width: fit-content;
+  height: fit-content;
+  padding: 0;
+  margin: 0;
+}
+.banner_buttons bannerbtn:last-child{
+  margin-left: 2vw;
 }
 .banner_buttons button {
   font-family: Source Sans Pro;
@@ -62,7 +71,7 @@
 .watchvideo span {
   margin: 0;
 }
-.watchvideo div {
+.watchvideo #videodiv {
   width: fit-content;
   height: fit-content;
 }
@@ -72,9 +81,11 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  column-gap: 1vw;
   margin-top: 0.8vw;
   cursor: pointer;
+}
+.watchvideo #videodiv:last-child{
+  margin-left: 1vw;
 }
 /*============video=============*/
 #banner_popup {
@@ -147,8 +158,8 @@
   flex-direction: row;
   justify-content: space-between;
   position: relative;
-  column-gap: 7.4375vw;
   padding: 7.1875vw 3.5vw;
+  border: 1px solid red;
 }
 #bannerqr #close2 {
   position: absolute;
@@ -267,14 +278,9 @@
   color: #ffffff;
   cursor: pointer;
 }
-#bannerqr #qr_conatiner_block2 {
-  width: 100%;
-  display: flex;
-}
 #bannerqr #qrs {
   display: flex;
   flex-direction: column;
-  row-gap: 5vw;
   justify-content: center;
   align-items: center;
   width: fit-content;
@@ -288,7 +294,6 @@
 #bannerqr #qr_image_button {
   display: flex;
   flex-direction: row;
-  column-gap: 1vw;
 }
 #bannerqr #qr_image_button button {
   width: 10.125vw;
@@ -329,9 +334,6 @@
     font-size: 1.125vw;
     margin: 0;
     margin-top: 3vw;
-  }
-  .banner_buttons {
-    column-gap: 2vw;
   }
   .banner_buttons button {
     font-size: 1.5vw;

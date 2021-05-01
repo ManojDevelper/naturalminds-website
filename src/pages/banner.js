@@ -82,10 +82,10 @@ function Banner() {
                                 onClick={() => toggleTab(2)}><button className="banner_buttons2">{data.banner.childMarkdownRemark.frontmatter.button2}</button></bannerbtn>
                         </div>
                         <div className="watchvideo">
-                            <div>
+                            <div id="videodiv">
                                 <img src={playbutton} alt="playbutton" className="playbutton" />
                             </div>
-                            <div>
+                            <div id="videodiv">
                                 <span onClick={showImage} role="presentation">{data.banner.childMarkdownRemark.frontmatter.video}</span>
                             </div>
                         </div>

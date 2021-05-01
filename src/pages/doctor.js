@@ -1,4 +1,4 @@
-import React, { useState }  from "react";
+import React, { useState , useEffect}  from "react";
 import "../styles/Doctor.scss";
 import icon1 from "../data/assets/find_doc1.svg";
 import icon2 from "../data/assets/find_doc2.svg";
@@ -61,8 +61,6 @@ function Doctor() {
         console.log(data);
         setFilterValue(data);
     }
-
-
     async function search() {
         let item = { filterValue }
 
@@ -78,6 +76,9 @@ function Doctor() {
         setFinal(result)
         console.log(final)
     }
+    useEffect(() => {
+    search();
+  }, []);
   return (
     <>
       <div id="doctors">
@@ -106,7 +107,7 @@ function Doctor() {
               <div id="doc_card1" key={i}>
                 <div id="doc_card1_block1">
                   <div id="doc_card1_block1_image_container">
-                    <img src={key.profile_image} alt="No Pic Avalible" />
+                    <img src={key.profile_image} alt="Img" />
                   </div>
                   <div id="doc_card1_block1_matter_container">
                     <p id="doc_card_title">{key.name}</p>

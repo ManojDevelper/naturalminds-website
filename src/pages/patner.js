@@ -61,9 +61,9 @@ function Patner() {
               <h1>{data.patner.childMarkdownRemark.frontmatter.title2}</h1>
             </div>
             <div className="conten1_img">
-              <img src={data.patner.childMarkdownRemark.frontmatter.image2.childImageSharp.fluid.src} alt="img1" id="startup" />
-              <img src={data.patner.childMarkdownRemark.frontmatter.image3.childImageSharp.fluid.src} alt="img1" id="msme" />
-              <img src={data.patner.childMarkdownRemark.frontmatter.image4.childImageSharp.fluid.src} alt="img1" id="gem" />
+              <img src={data.patner.childMarkdownRemark.frontmatter.image2.childImageSharp.fluid.src} alt="img1" id="img"/>
+              <img src={data.patner.childMarkdownRemark.frontmatter.image3.childImageSharp.fluid.src} alt="img1"  id="img"/>
+              <img src={data.patner.childMarkdownRemark.frontmatter.image4.childImageSharp.fluid.src} alt="img1"  id="img"/>
             </div>
           </div>
         </div>

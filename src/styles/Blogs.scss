@@ -22,7 +22,6 @@
 .blog_card {
     width: 100%;
     display: flex;
-    column-gap: 40px;
 }
 .blog_card_img {
     width: 25%;
@@ -34,6 +33,7 @@
 }
 .blog_card_matter {
     width: 75%;
+    margin-left: 2.5vw;
 }
 .blog_card_matter p {
     margin: 0;
@@ -74,9 +74,6 @@
     .blog_container {
         margin-top: 5vw;
         gap: 5vw;
-    }
-    .blog_card {
-        column-gap: 4vw;
     }
     .blog_card_img img {
         border-radius: 1vw;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import "../styles/Login.scss";
 import bulb from "../data/assets/bulb.svg";
@@ -40,20 +40,20 @@ function Login() {
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [gender, setGender] = useState("")
-    const [phone, setPhone] = useState("")
+    const [phone, setPhone] = useState()
     const [licenseNo, setLicenseno] = useState("")
     const [docType, setDocType] = useState("")
     const [orgName, setOrgname] = useState("")
-    const [orgPhone, setOrgphone] = useState("")
+    const [orgPhone, setOrgphone] = useState()
     const [address, setAddress] = useState("")
     const [city, setCity] = useState("")
     const [state, setState] = useState("")
     const [pincode, setPincode] = useState("")
     const [refferalCode, setRefferalcode] = useState("")
-
+    console.log(name)
 
     async function signUp() {
-        let item = { name, email, gender, phone, licenseNo, docType, orgName, orgPhone, address, city, state, pincode, refferalCode }
+        let item = { name, email, phone }
 
         let result = await fetch("https://stag.spotcare.in/api/SpotCare/signup", {
             method: 'POST',
@@ -66,6 +66,26 @@ function Login() {
         result = await result.json()
         console.warn("result", result)
     }
+         /*====================for Specelist======================*/
+         const [docResult, setDocResult] = useState("")
+         async function getDoctor() {
+            let docitem = { name }
+    
+            let DocTypeResult = await fetch("https://dev.spotcare.in/api/SpotCare/doctorType", {
+                method: 'POST',
+                body: JSON.stringify(docitem),
+                headers: {
+                    "Content-Type": 'application/json',
+                    "Accept": 'application/json'
+                }
+            })
+            DocTypeResult = await DocTypeResult.json()
+            setDocResult(DocTypeResult)
+            console.log(docResult)
+        }
+        useEffect(() => {
+            getDoctor();
+          }, []);
     return (
         <>
             <div id="login_main">
@@ -128,11 +148,16 @@ function Login() {
                                             <input type="Email" placeholder="mail" value={email} onChange={(e) => setEmail(e.target.value)} />
                                         </div>
                                     </div>
-                                    <div className="register_input_block1">
-                                        <div id="register_input_block_input1">
-                                            <h1>Gender*</h1>
-                                            <input type="text" placeholder="gender" value={gender} onChange={(e) => setGender(e.target.value)} />
-                                        </div>
+                                    <div id="docselectorbox">
+                                        <h1>Gender*</h1>
+                                        <select className="custom-select" value={gender} onChange={(e) => {
+                                            const selectedDoctor = e.target.value;
+                                            setGender(selectedDoctor)
+                                        }}>
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                            <option value="other">Other</option>
+                                        </select>
                                     </div>
                                     <div className="register_input_block1">
                                         <div id="register_input_block_input1">
@@ -146,11 +171,18 @@ function Login() {
                                             <input type="text" placeholder="license number" value={licenseNo} onChange={(e) => setLicenseno(e.target.value)} />
                                         </div>
                                     </div>
-                                    <div className="register_input_block1">
-                                        <div id="register_input_block_input1">
-                                            <h1>Speciality</h1>
-                                            <input type="text" placeholder="speciality" value={docType} onChange={(e) => setDocType(e.target.value)} />
-                                        </div>
+                                    <div id="docselectorbox">
+                                        <h1>Speciality</h1>
+                                        <select className="custom-select" value={docType} onChange={(e) => {
+                                            const selectedDoctor = e.target.value;
+                                            setDocType(selectedDoctor)
+                                        }}>
+                                            {docResult && docResult.data.map((Specelist, i) => (
+                                                <>
+                                            <option value={Specelist.name} key={Specelist.id}>{Specelist.name}</option>
+                                            </>
+                                            ))}
+                                        </select>
                                     </div>
                                     <div className="register_input_block1">
                                         <div id="register_input_block_input1">

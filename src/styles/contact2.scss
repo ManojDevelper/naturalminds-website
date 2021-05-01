@@ -33,7 +33,6 @@
     padding: 52px 43px;
     display: flex;
     flex-direction: column;
-    row-gap: 60px;
 }
 .contact_info_top {
     display: grid;
@@ -74,6 +73,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    margin-top: 5vw;
 }
 .contact_mail input {
     width: 100%;
@@ -83,6 +83,7 @@
 .contact_message {
     display: flex;
     flex-direction: column;
+    margin-top: 5vw;
 }
 .contact_message textarea {
     width: 100%;
@@ -97,6 +98,7 @@
 }
 .button{
     text-align: right;
+    margin-top: 5vw;
 }
 .contact_info_block .button button {
     font-family: Source Sans Pro;
@@ -156,6 +158,9 @@
         padding-left: 1vw;
         padding-bottom: 0.5vw;
     }
+    .contact_mail{
+        margin-top: 6vw;
+    }
     .contact_mail input {
         padding-left: 1vw;
         height: 8vw;
@@ -166,6 +171,12 @@
         border-bottom: 1px solid rgba(0, 0, 0, 1);
         outline: none;
         padding: 3px 1vw 1.5vw 1vw;
+    }
+    .contact_message {
+        margin-top: 6vw;
+    }
+    .button{
+        margin-top: 6vw;
     }
 }
 @media (max-width:600px){

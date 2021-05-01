@@ -14,7 +14,7 @@ function Status() {
               content
               image {
                 childImageSharp {
-                  fluid {
+                  fluid(quality: 1) {
                     src
                   }
                 }

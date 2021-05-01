@@ -38,7 +38,6 @@
 #coreteam_card1 {
   display: flex;
   flex-direction: row;
-  column-gap: 1.9375vw;
 }
 #coreteam_card_svg {
   width: 9.875vw;
@@ -48,6 +47,9 @@
 #coreteamimg1 {
   width: 100%;
   margin: 0;
+}
+#coreteam_card_matter{
+  margin-left:1.9375vw;;
 }
 #coreteam_h1 {
   font-family: Source Sans Pro;
@@ -139,7 +141,6 @@
 #coreteam_info_card {
   display: flex;
   flex-direction: row;
-  column-gap: 1.9375vw;
 }
 #core_team_info_image {
   width: fit-content;
@@ -150,7 +151,7 @@
   margin: 0;
 }
 #core_team_about_doc {
-  margin: auto 0 auto 0;
+  margin: auto 0 auto 1.9375vw;
 }
 #doc_name {
   font-family: Source Sans Pro;
