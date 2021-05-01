@@ -354,7 +354,6 @@ function Login() {
                 <button type="submit"onClick={signUp} >SignUp</button>
               </div>
             </div>
-            <p>{showData.msg}</p>
           </div>
         )}
         <Footer />
