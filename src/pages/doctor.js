@@ -10,6 +10,8 @@ import female from "../data/assets/female.jpeg"
 import { graphql, useStaticQuery } from "gatsby"
 import Top from "./nav"
 import _ from "lodash"
+import { API_ROOT } from "gatsby-env-variables"
+
 
 function Doctor() {
   const data = useStaticQuery(graphql`
@@ -40,18 +42,17 @@ function Doctor() {
       }
     }
   `)
-  const [filterValue, setFilterValue] = useState("")
+  const [searchTerm, setSearchTerm] = useState("")
   const [final, setFinal] = useState("")
   const inputValue = event => {
     const data = event.target.value
     console.log(data)
-    setFilterValue(data)
+    setSearchTerm(data)
   }
   async function search() {
-    let item = { filterValue }
-
+    let item = { searchTerm }
     let result = await fetch(
-      "https://stagpay.spotcare.in/apinm/api/searchDoctors",
+      API_ROOT+ "/api/spotcare/searchDoctors",
       {
         method: "POST",
         body: JSON.stringify(item),
@@ -66,8 +67,8 @@ function Doctor() {
     console.log(final)
   }
   useEffect(() => {
-    search()
-  })
+  //  search()
+  },[]);
   return (
     <>
       <div id="doctors">
