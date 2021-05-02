@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import axios from "axios";
+// import axios from "axios";
 import { graphql, useStaticQuery } from "gatsby"
 import "../styles/Login.scss"
 import bulb from "../data/assets/bulb.svg"
@@ -71,15 +71,15 @@ function Login() {
     })
   }
    /*================calling Api for Terms and conditions================*/
-   const [posts, setPosts] = useState([]);
+  //  const [posts, setPosts] = useState([]);
 
-   useEffect(() => {
-       const loadPosts = async () => {
-           const response = await axios.get("https://stag.spotcare.in/api/SpotCare/tnc");
-           setPosts(response.data);
-       }
-       loadPosts();
-   }, []);
+  //  useEffect(() => {
+  //      const loadPosts = async () => {
+  //          const response = await axios.get("https://stag.spotcare.in/api/SpotCare/tnc");
+  //          setPosts(response.data);
+  //      }
+  //      loadPosts();
+  //  }, []);
   /*================to clear up all the results in the register form================*/
   const [docResult, setDocResult] = useState("")
   function signUps() {
