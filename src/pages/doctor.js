@@ -67,7 +67,7 @@ function Doctor() {
   }
   useEffect(() => {
     search()
-  })
+  },[])
   return (
     <>
       <div id="doctors">
@@ -102,7 +102,7 @@ function Doctor() {
             </div>
             <div id="doc_footer_block2">
               <img
-                src={data.doctors.childMarkdownRemark.frontmatter.playstore.childImageSharp.fluid.src} alt="image1" />
+                src={data.doctors.childMarkdownRemark.frontmatter.playstore.childImageSharp.fluid.src} alt="image1" id="doc_store1"/>
               <img src={data.doctors.childMarkdownRemark.frontmatter.appstore.childImageSharp.fluid.src} alt="image2" />
             </div>
           </div>
