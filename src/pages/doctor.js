@@ -67,7 +67,7 @@ function Doctor() {
   }
   useEffect(() => {
     search()
-  }, [])
+  })
   return (
     <>
       <div id="doctors">

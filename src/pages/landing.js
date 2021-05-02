@@ -10,7 +10,7 @@ import Coreteam from "./coreteam";
 import Ourcustomers from "./ourcustomers"
 import Patners from "./patners"
 import Blogs from "./blogs";
-import Contact from "./contact";
+import Contact from "./landingpagecontact";
 import Footer from "./footer";
 import "../styles/index.scss"
 

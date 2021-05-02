@@ -389,7 +389,7 @@
     margin: 0;
     padding: 0;
 }
-.custom-select {
+#login .custom-select {
     font-size: 1vw;
     padding: 0 0 0 0.6vw;
     width: 100%;
@@ -402,11 +402,12 @@
     background-size: 0.5vw;
     border-radius: 0.2vw;
     color: black;
+    opacity: 0.6;
 }
-.custom-select:hover {
+#login .custom-select:hover {
     border: 0.125vw solid rgba(255, 64, 129, 1);
 }
-#docselectorbox h1{
+#login #docselectorbox h1{
     font-family: Source Sans Pro;
     font-style: normal;
     font-weight: normal;
@@ -419,4 +420,9 @@
     transform: translateY(-0.625vw);
     z-index: 1;
     left: 0.625vw;
+}
+#message_container{
+    border:1px solid black;
+    text-align: center;
+    background: yellowgreen;
 }

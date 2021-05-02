@@ -1,23 +1,19 @@
-.contact2{
-   padding: 0 0;
+.contact{
+    padding: 151px 0;
 }
-#contact2 .footer{
-    margin-top: 9vw;
-}
-.contact2 h1 {
+.contact h1 {
     font-family: Noto Sans;
     font-style: normal;
     font-weight: bold;
     font-size: 40px;
     text-align: center;
     color: #000000;
-    margin-top: 70px;
 }
-#contact2 .contact_contrainer2 {
+.contact_contrainer {
     max-width: calc(100% - 15.2%);
     margin: auto;
     display: flex;
-    margin-top: 40px;
+    margin-top: 73px;
 }
 .contact_img_block {
     width: 35%;
@@ -73,7 +69,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    margin-top: 5vw;
+    margin-top: 4vw;
 }
 .contact_mail input {
     width: 100%;
@@ -83,7 +79,7 @@
 .contact_message {
     display: flex;
     flex-direction: column;
-    margin-top: 5vw;
+    margin-top: 4vw;
 }
 .contact_message textarea {
     width: 100%;
@@ -98,7 +94,7 @@
 }
 .button{
     text-align: right;
-    margin-top: 5vw;
+    margin-top: 4vw;
 }
 .contact_info_block .button button {
     font-family: Source Sans Pro;
@@ -115,14 +111,14 @@
     margin: auto;
 }
 @media (max-width:1000px){
-    #contact2 .contact_contrainer2{
+    .contact_contrainer{
         max-width: calc(100% - 8%);
-        margin-top: 5vw;
+        margin-top: 7.3vw;
     }
-    #contact2{
-        padding: 1vw 0;
+    .contact{
+        padding: 10vw 0;
     }
-    .contact2 h1 {
+    .contact h1 {
         font-size: 4vw;
     }
     .contact_img_block{
@@ -136,7 +132,7 @@
     }
     .contact_info_block {
         padding: 5vw 4vw;
-        row-gap:6vw;
+        row-gap:0;
     }
     .contact_info_block input {
         font-size: 2vw;
@@ -180,7 +176,7 @@
     }
 }
 @media (max-width:600px){
-    .contact2{
+    .contact{
         padding:10vw 0;
     }
     .button{

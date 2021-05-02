@@ -1,5 +1,7 @@
 import React from "react";
-import "../styles/Contact.scss";
+import "../styles/contact.scss";
+import Top from "./nav";
+import Footer from "./footer";
 import { graphql, useStaticQuery } from "gatsby";
 
 function Contact() {
@@ -32,36 +34,38 @@ function Contact() {
   `)
     return (
         <>
-            <div className="contact" id="contact">
-                <h1>{data.contact.childMarkdownRemark.frontmatter.title}</h1>
-                <div className="contact_contrainer">
-                    <div className="contact_img_block" key="11">
-                        <img src={data.contact.childMarkdownRemark.frontmatter.background_image.childImageSharp.fluid.src} alt="img1" />
+            <div className="contact2 ContactUs" id="contact2">
+            <Top/>
+                <h1 key="23">{data.contact.childMarkdownRemark.frontmatter.title}</h1>
+                <div className="contact_contrainer2">
+                    <div className="contact_img_block">
+                        <img src={data.contact.childMarkdownRemark.frontmatter.background_image.childImageSharp.fluid.src} alt="img1" key="22"/>
                     </div>
                     <div className="contact_info_block">
                         <div className="contact_info_top">
                             <div className="contact_name">
-                                <span key="12">{data.contact.childMarkdownRemark.frontmatter.name}</span>
-                                <input type="text" placeholder={data.contact.childMarkdownRemark.frontmatter.name_place_holder} key="13"/>
+                                <span key="24">{data.contact.childMarkdownRemark.frontmatter.name}</span>
+                                <input type="text" placeholder={data.contact.childMarkdownRemark.frontmatter.name_place_holder} key="25"/>
                             </div>
                             <div className="contact_name">
-                                <span key="14">{data.contact.childMarkdownRemark.frontmatter.mobile}</span>
-                                <input type="text" placeholder={data.contact.childMarkdownRemark.frontmatter.mobile_placeholder} key="15"/>
+                                <span key="26">{data.contact.childMarkdownRemark.frontmatter.mobile}</span>
+                                <input type="text" placeholder={data.contact.childMarkdownRemark.frontmatter.mobile_placeholder} key="27"/>
                             </div>
                         </div>
                         <div className="contact_mail">
-                            <span key="16">{data.contact.childMarkdownRemark.frontmatter.mail}</span>
-                            <input type="mail" placeholder={data.contact.childMarkdownRemark.frontmatter.mail_placeholder} key="18"/>
+                            <span key="28">{data.contact.childMarkdownRemark.frontmatter.mail}</span>
+                            <input type="mail" placeholder={data.contact.childMarkdownRemark.frontmatter.mail_placeholder} key="29"/>
                         </div>
                         <div className="contact_message">
-                            <span key="19">{data.contact.childMarkdownRemark.frontmatter.message}</span>
-                            <textarea type="mail" placeholder={data.contact.childMarkdownRemark.frontmatter.message_placeholder} key="20"/>
+                            <span key="30">{data.contact.childMarkdownRemark.frontmatter.message}</span>
+                            <textarea type="mail" placeholder={data.contact.childMarkdownRemark.frontmatter.message_placeholder} key="31"/>
                         </div>
                         <div className="button">
-                            <button key="21">{data.contact.childMarkdownRemark.frontmatter.button}</button>
+                            <button key="32">{data.contact.childMarkdownRemark.frontmatter.button}</button>
                         </div>
                     </div>
                 </div>
+                <Footer />
             </div>
         </>
     );

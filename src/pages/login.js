@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react"
+import axios from "axios";
 import { graphql, useStaticQuery } from "gatsby"
 import "../styles/Login.scss"
 import bulb from "../data/assets/bulb.svg"
 import Top from "./nav"
 import Footer from "./footer"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Login() {
   const [status, setStatus] = React.useState(true)
@@ -64,14 +67,39 @@ function Login() {
     })
     result = await result.json()
     setShowData(result)
-    // if (result) {
-    //   setShowData(true)
-    // }
-    console.log(showData)
-    alert(showData.msg)
+    toast(showData.msg, {position: "top-center",hideProgressBar: true,
+    })
+  }
+   /*================calling Api for Terms and conditions================*/
+   const [posts, setPosts] = useState([]);
+
+   useEffect(() => {
+       const loadPosts = async () => {
+           const response = await axios.get("https://stag.spotcare.in/api/SpotCare/tnc");
+           setPosts(response.data);
+       }
+       loadPosts();
+   }, []);
+  /*================to clear up all the results in the register form================*/
+  const [docResult, setDocResult] = useState("")
+  function signUps() {
+    setName("")
+    setEmail("")
+    setGender("")
+    setPhone("")
+    setLicenseno("")
+    setDocType("")
+    setOrgname("")
+    setOrgphone("")
+    setAddress("")
+    setCity("")
+    setCity("")
+    setState("")
+    setPincode("")
+    setRefferalcode("")
+    setShowData("")
   }
   /*====================for Specelist======================*/
-  const [docResult, setDocResult] = useState("")
   async function getDoctor() {
     let docitem = { name }
 
@@ -99,24 +127,24 @@ function Login() {
         {status ? (
           <div id="login">
             <div id="login_container_container">
-            <form>
-              <div id="login_container">
-                <div id="login_block1">
-                  <div id="login_block1_block1">
-                    <h1>
-                      {data.login.childMarkdownRemark.frontmatter.logintitle}
-                    </h1>
+              <form>
+                <div id="login_container">
+                  <div id="login_block1">
+                    <div id="login_block1_block1">
+                      <h1>
+                        {data.login.childMarkdownRemark.frontmatter.logintitle}
+                      </h1>
+                    </div>
+                    <div id="login_block1_block2">
+                      <p>
+                        {data.login.childMarkdownRemark.frontmatter.loginuser}{" "}
+                        <span onClick={() => setStatus(false)} role="presentation">
+                          {data.login.childMarkdownRemark.frontmatter.loginregister}
+                        </span>
+                      </p>
+                    </div>
                   </div>
-                  <div id="login_block1_block2">
-                    <p>
-                      {data.login.childMarkdownRemark.frontmatter.loginuser}{" "}
-                      <span onClick={() => setStatus(false)} role="presentation">
-                        {data.login.childMarkdownRemark.frontmatter.loginregister}
-                      </span>
-                    </p>
-                  </div>
-                </div>
-                <div id="inputs">
+                  <div id="inputs">
                     <div id="input_block2">
                       <div id="input_block_input1" active-class="input_block_input1">
                         <h1>User Name**</h1>
@@ -129,13 +157,13 @@ function Login() {
                         <input type="password" placeholder="Password" />
                       </div>
                     </div>
-                  <div id="input_block3">
-                    <button>
-                      {data.login.childMarkdownRemark.frontmatter.loginbutton}
-                    </button>
+                    <div id="input_block3">
+                      <button>
+                        {data.login.childMarkdownRemark.frontmatter.loginbutton}
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
               </form>
               <div id="login_note">
                 <p id="login_note1">
@@ -145,9 +173,9 @@ function Login() {
                 <p id="login_note2">
                   {data.login.childMarkdownRemark.frontmatter.logindescription}
                 </p>
-                <p id="login_note3">
+                <a href = "https://play.google.com/store/apps/details?id=com.naturalminds"><p id="login_note3">
                   {data.login.childMarkdownRemark.frontmatter.logingetapp}
-                </p>
+                </p></a>
               </div>
             </div>
           </div>
@@ -178,6 +206,7 @@ function Login() {
                       type="text"
                       placeholder="name"
                       value={name}
+                      onBlur={""}
                       onChange={e => setName(e.target.value)}
                       required
                     />
@@ -190,6 +219,7 @@ function Login() {
                       type="Email"
                       placeholder="mail"
                       value={email}
+                      onBlur={""}
                       onChange={e => setEmail(e.target.value)}
                     />
                   </div>
@@ -199,11 +229,12 @@ function Login() {
                   <select
                     className="custom-select"
                     value={gender}
+                    onBlur={""}
                     onChange={e => {
                       const selectedDoctor = e.target.value
                       setGender(selectedDoctor)
                     }}
-                  >
+                  ><option value="gender">Gender</option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
                     <option value="other">Other</option>
@@ -214,8 +245,9 @@ function Login() {
                     <h1>Contact Number*</h1>
                     <input
                       type="text"
-                      placeholder="91"
+                      placeholder="+ 91"
                       value={phone}
+                      onBlur={""}
                       onChange={e => setPhone(parseInt(e.target.value) || "")}
                       maxLength={10}
                       minLength={10}
@@ -234,6 +266,7 @@ function Login() {
                       type="text"
                       placeholder="license number"
                       value={licenseNo}
+                      onBlur={""}
                       onChange={e => setLicenseno(e.target.value)}
                     />
                   </div>
@@ -243,6 +276,7 @@ function Login() {
                   <select
                     className="custom-select"
                     value={docType}
+                    onBlur={""}
                     onChange={e => {
                       const selectedDoctor = parseInt(e.target.value)
                       setDocType(selectedDoctor)
@@ -266,6 +300,7 @@ function Login() {
                       type="text"
                       placeholder="provider organization"
                       value={orgName}
+                      onBlur={""}
                       onChange={e => setOrgname(e.target.value)}
                     />
                   </div>
@@ -277,6 +312,7 @@ function Login() {
                       type="text"
                       placeholder="provider organization phone number"
                       value={orgPhone}
+                      onBlur={""}
                       onChange={e =>
                         setOrgphone(parseInt(e.target.value) || "")
                       }
@@ -297,6 +333,7 @@ function Login() {
                       type="text"
                       placeholder="provider address"
                       value={address}
+                      onBlur={""}
                       onChange={e => setAddress(e.target.value)}
                     />
                   </div>
@@ -308,6 +345,7 @@ function Login() {
                       type="text"
                       placeholder="city"
                       value={city}
+                      onBlur={""}
                       onChange={e => setCity(e.target.value)}
                     />
                   </div>
@@ -319,8 +357,10 @@ function Login() {
                       type="text"
                       placeholder="state"
                       value={state}
+                      onBlur={""}
                       onChange={e => setState(e.target.value)}
                     />
+
                   </div>
                 </div>
                 <div className="register_input_block1">
@@ -330,6 +370,7 @@ function Login() {
                       type="text"
                       placeholder="pincode"
                       value={pincode}
+                      onBlur={""}
                       onChange={e => setPincode(e.target.value)}
                     />
                   </div>
@@ -341,6 +382,7 @@ function Login() {
                       type="text"
                       placeholder="Referral (if any)"
                       value={refferalCode}
+                      onBlur={""}
                       onChange={e => setRefferalcode(e.target.value)}
                     />
                   </div>
@@ -351,12 +393,15 @@ function Login() {
                 <p>By signing up, I accept NaturalMinds’s <span>Terms and conditions</span></p>
               </div>
               <div id="register_button">
-                <button type="submit"onClick={signUp} >SignUp</button>
+                <button type="submit" onClick={signUp} >SignUp</button>
+                <button type="submit" onClick={signUps} style={{ background: `transparent`, color: `blue` }}>clear</button>
               </div>
             </div>
+            {/* <p>hello{posts.tnc}</p> */}
           </div>
         )}
         <Footer />
+        <ToastContainer/>
       </div>
     </>
   )
