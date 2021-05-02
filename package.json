@@ -60,10 +60,6 @@
   },
   "license": "MIT",
   "scripts": {
-    "build_dev": "BUILD_ENV=development gatsby build",
-    "build_stag": "BUILD_ENV=staging gatsby build",
-    "build_prod": "BUILD_ENV=production gatsby build",
-    "develop": "BUILD_ENV=development gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
