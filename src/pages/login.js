@@ -7,6 +7,7 @@ import Top from "./nav"
 import Footer from "./footer"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { API_ROOT } from "gatsby-env-variables"
 
 function Login() {
   const [status, setStatus] = React.useState(true)
@@ -57,7 +58,7 @@ function Login() {
   async function signUp() {
     let item = { name, email, phone, licenseNo, gender, orgName, orgPhone, docType, address, pincode, state, city, refferalCode }
 
-    let result = await fetch("https://stag.spotcare.in/api/SpotCare/signup", {
+    let result = await fetch(API_ROOT+"/api/SpotCare/signup", {
       method: "POST",
       body: JSON.stringify(item),
       headers: {
@@ -71,15 +72,14 @@ function Login() {
     })
   }
    /*================calling Api for Terms and conditions================*/
-  //  const [posts, setPosts] = useState([]);
-
-  //  useEffect(() => {
-  //      const loadPosts = async () => {
-  //          const response = await axios.get("https://stag.spotcare.in/api/SpotCare/tnc");
-  //          setPosts(response.data);
-  //      }
-  //      loadPosts();
-  //  }, []);
+   const [posts, setPosts] = useState([]);
+   useEffect(() => {
+       const loadPosts = async () => {
+           const response = await axios.get(API_ROOT+"/api/SpotCare/tnc");
+           setPosts(response.data);
+       }
+       loadPosts();
+   }, []);
   /*================to clear up all the results in the register form================*/
   const [docResult, setDocResult] = useState("")
   function signUps() {
@@ -104,7 +104,7 @@ function Login() {
     let docitem = { name }
 
     let DocTypeResult = await fetch(
-      "https://dev.spotcare.in/api/SpotCare/doctorType",
+      API_ROOT+ "/api/SpotCare/doctorType",
       {
         method: "POST",
         body: JSON.stringify(docitem),

@@ -10,6 +10,7 @@ module.exports = {
         keywords: ['gatsby', 'react']
     },
     plugins: [
+        `gatsby-env-variables`,
         `gatsby-plugin-sass`,
         `gatsby-plugin-react-helmet`,
         `gatsby-transformer-json`,
