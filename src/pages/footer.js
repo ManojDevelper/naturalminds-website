@@ -69,10 +69,10 @@ function Footer() {
           <div className="footer_img">
             <p id="footer_app_content"></p>
             <div id="store">
-              <a href=" https://apps.apple.com/in/app/spotcare-care-provider/id1528551730" style= {{cursor: `pointer`, listStyleType: `none`, textDecoration: `none`}} target="_blank"><p>{data.footer.childMarkdownRemark.frontmatter.app1}<img src={data.footer.childMarkdownRemark.frontmatter.store1.childImageSharp.fluid.src} alt="img1" /><img src={data.footer.childMarkdownRemark.frontmatter.store2.childImageSharp.fluid.src} alt="img1" /></p></a>
+              <a href=" https://apps.apple.com/in/app/spotcare-care-provider/id1528551730" rel="noopener noreferrer" style= {{cursor: `pointer`, listStyleType: `none`, textDecoration: `none`}} target="_blank"><p>{data.footer.childMarkdownRemark.frontmatter.app1}<img src={data.footer.childMarkdownRemark.frontmatter.store1.childImageSharp.fluid.src} alt="img1" /><img src={data.footer.childMarkdownRemark.frontmatter.store2.childImageSharp.fluid.src} alt="img1" /></p></a>
             </div>
             <div id="store">
-            <a href="https://apps.apple.com/in/app/spotcare-patients-public/id1535914517" style= {{cursor: `pointer`, listStyleType: `none`, textDecoration: `none`}} target="_blank"><p>{data.footer.childMarkdownRemark.frontmatter.app2}<img src={data.footer.childMarkdownRemark.frontmatter.store1.childImageSharp.fluid.src} alt="img1" /><img src={data.footer.childMarkdownRemark.frontmatter.store2.childImageSharp.fluid.src} alt="img1" /></p></a>
+            <a href="https://apps.apple.com/in/app/spotcare-patients-public/id1535914517"  rel="noopener noreferrer" style= {{cursor: `pointer`, listStyleType: `none`, textDecoration: `none`}} target="_blank"><p>{data.footer.childMarkdownRemark.frontmatter.app2}<img src={data.footer.childMarkdownRemark.frontmatter.store1.childImageSharp.fluid.src} alt="img1" /><img src={data.footer.childMarkdownRemark.frontmatter.store2.childImageSharp.fluid.src} alt="img1" /></p></a>
             </div>
           </div>
         </div>

@@ -173,7 +173,7 @@ function Login() {
                 <p id="login_note2">
                   {data.login.childMarkdownRemark.frontmatter.logindescription}
                 </p>
-                <a href = "https://play.google.com/store/apps/details?id=com.naturalminds"><p id="login_note3">
+                <a href = "https://play.google.com/store/apps/details?id=com.naturalminds" rel="noopener noreferrer" target="_blank"><p id="login_note3">
                   {data.login.childMarkdownRemark.frontmatter.logingetapp}
                 </p></a>
               </div>
