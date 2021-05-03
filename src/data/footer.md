@@ -32,8 +32,8 @@ footer:
       {
           id: 4,
           title: "Contact us",
-          list1: "Call +91-9876543210",
-          list2: "hello@spotcare.in",
+          list1: "Call +91-9886709026",
+          list2: "contact@naturalminds.co.in",
       },
   ]
 footericons: 
@@ -61,11 +61,6 @@ footericons:
       {
           id: 5,
           image: "./assets/youtube.png",
-          link: "https://in.linkedin.com/company/natural-minds-india",
-      },
-      {
-          id: 6,
-          image: "./assets/medium.png",
           link: "https://in.linkedin.com/company/natural-minds-india",
       },
   ]

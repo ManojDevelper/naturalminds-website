@@ -67,6 +67,7 @@ function Doctor() {
   }
   useEffect(() => {
     search()
+    // eslint-disable-next-line
   },[])
   return (
     <>
