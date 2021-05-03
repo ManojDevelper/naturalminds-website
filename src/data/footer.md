@@ -32,8 +32,8 @@ footer:
       {
           id: 4,
           title: "Contact us",
-          list1: "Call +91-9886709026",
-          list2: "contact@naturalminds.co.in",
+          list1: "Call +91-9876543210",
+          list2: "hello@spotcare.in",
       },
   ]
 footericons: 

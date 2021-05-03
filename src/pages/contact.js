@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/Contact.scss";
+import "../styles/contact.scss";
 import Top from "./nav";
 import Footer from "./footer";
 import { graphql, useStaticQuery } from "gatsby";

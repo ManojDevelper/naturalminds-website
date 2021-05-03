@@ -1,7 +1,7 @@
 ---
 no_of_doctors: "122 Doctors found"
 note: "Note:"
-note_description: "We have designed best user experience and value through our Mobile App. Download the app and book appointment directly."
+note_description: "We have designed best user experience and value through our Mobile App. Dowload theapp and book appointment directly."
 playstore: "./assets/playstore.png"
 appstore: "./assets/appstore.png"
 doctorcards:

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import axios from "axios";
+// import axios from "axios";
 import { graphql, useStaticQuery } from "gatsby"
 import "../styles/Login.scss"
 import bulb from "../data/assets/bulb.svg"
@@ -7,7 +7,6 @@ import Top from "./nav"
 import Footer from "./footer"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { API_ROOT } from "gatsby-env-variables"
 
 function Login() {
   const [status, setStatus] = React.useState(true)
@@ -58,7 +57,7 @@ function Login() {
   async function signUp() {
     let item = { name, email, phone, licenseNo, gender, orgName, orgPhone, docType, address, pincode, state, city, refferalCode }
 
-    let result = await fetch(API_ROOT+"/api/SpotCare/signup", {
+    let result = await fetch("https://stag.spotcare.in/api/SpotCare/signup", {
       method: "POST",
       body: JSON.stringify(item),
       headers: {
@@ -72,14 +71,15 @@ function Login() {
     })
   }
    /*================calling Api for Terms and conditions================*/
-   const [posts, setPosts] = useState([]);
-   useEffect(() => {
-       const loadPosts = async () => {
-           const response = await axios.get(API_ROOT+"/api/SpotCare/tnc");
-           setPosts(response.data);
-       }
-       loadPosts();
-   },[]);
+  //  const [posts, setPosts] = useState([]);
+
+  //  useEffect(() => {
+  //      const loadPosts = async () => {
+  //          const response = await axios.get("https://stag.spotcare.in/api/SpotCare/tnc");
+  //          setPosts(response.data);
+  //      }
+  //      loadPosts();
+  //  }, []);
   /*================to clear up all the results in the register form================*/
   const [docResult, setDocResult] = useState("")
   function signUps() {
@@ -104,7 +104,7 @@ function Login() {
     let docitem = { name }
 
     let DocTypeResult = await fetch(
-      API_ROOT+ "/api/SpotCare/doctorType",
+      "https://dev.spotcare.in/api/SpotCare/doctorType",
       {
         method: "POST",
         body: JSON.stringify(docitem),
@@ -119,7 +119,7 @@ function Login() {
   }
   useEffect(() => {
     getDoctor()
-  },[])
+  }, [])
   return (
     <>
       <div id="login_main">
@@ -390,10 +390,10 @@ function Login() {
               </div>
               <div id="register_checkbox">
                 <input type="checkbox" />
-                <p>By signing up, I accept NaturalMinds�s <span>Terms and conditions</span></p>
+                <p>By signing up, I accept NaturalMinds’s <span>Terms and conditions</span></p>
               </div>
               <div id="register_button">
-                <button type="submit" onClick={signUp} disabled>SignUp</button>
+                <button type="submit" onClick={signUp} >SignUp</button>
                 <button type="submit" onClick={signUps} style={{ background: `transparent`, color: `blue` }}>clear</button>
               </div>
             </div>
