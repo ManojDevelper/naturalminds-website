@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-// import axios from "axios";
+import axios from "axios";
 import { graphql, useStaticQuery } from "gatsby"
 import "../styles/Login.scss"
 import bulb from "../data/assets/bulb.svg"
@@ -79,7 +79,7 @@ function Login() {
            setPosts(response.data);
        }
        loadPosts();
-   }, []);
+   },[]);
   /*================to clear up all the results in the register form================*/
   const [docResult, setDocResult] = useState("")
   function signUps() {
@@ -119,7 +119,7 @@ function Login() {
   }
   useEffect(() => {
     getDoctor()
-  }, [])
+  },[])
   return (
     <>
       <div id="login_main">
@@ -393,7 +393,7 @@ function Login() {
                 <p>By signing up, I accept NaturalMinds’s <span>Terms and conditions</span></p>
               </div>
               <div id="register_button">
-                <button type="submit" onClick={signUp} >SignUp</button>
+                <button type="submit" onClick={signUp} disabled>SignUp</button>
                 <button type="submit" onClick={signUps} style={{ background: `transparent`, color: `blue` }}>clear</button>
               </div>
             </div>

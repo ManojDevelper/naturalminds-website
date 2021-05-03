@@ -1,3 +1,3 @@
 module.exports = {
-    API_ROOT: "https://www.spotcare.in"
+    API_ROOT: "https://dev.spotcare.in"
   }
