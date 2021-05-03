@@ -390,10 +390,10 @@ function Login() {
               </div>
               <div id="register_checkbox">
                 <input type="checkbox" />
-                <p>By signing up, I accept NaturalMindsâ€™s <span>Terms and conditions</span></p>
+                <p>By signing up, I accept NaturalMinds’s <span>Terms and conditions</span></p>
               </div>
               <div id="register_button">
-                <button type="submit" onClick={signUp} >SignUp</button>
+                 <button type="submit" onClick={signUp} disabled>SignUp</button>
                 <button type="submit" onClick={signUps} style={{ background: `transparent`, color: `blue` }}>clear</button>
               </div>
             </div>
