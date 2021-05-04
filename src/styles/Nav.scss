@@ -9,7 +9,7 @@
     transition: 0.10s ease;
     padding: 1vw 3vw 1vw 4.5vw;
 }
-#nav_main_div .navbar-light .navbar-toggler {
+.navbar-light .navbar-toggler {
     border: none;
 }
 #nav_main_div2 {
@@ -35,6 +35,8 @@
 }
 #navbarResponsive .toggle {
     display: none;
+    border: 0;
+    outline: 0;
 }
 #nav_items {
     margin-left: auto;
@@ -93,6 +95,15 @@
     border: none;
 }
 @media (max-width: 1202px) {
+    #nav_main_div {
+        padding: 0;
+    }
+    #nav_main_div .navbar-light .navbar-toggler {
+        border: none;
+    }
+    #nav_main_div2 {
+        padding: 0;
+    }
     #nav_img {
         width: 30px;
         margin: 0;

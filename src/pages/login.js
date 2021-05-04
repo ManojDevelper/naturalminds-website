@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect } from "react";
 // import axios from "axios";
-import { graphql, useStaticQuery } from "gatsby"
-import "../styles/Login.scss"
-import bulb from "../data/assets/bulb.svg"
-import Top from "./nav"
-import Footer from "./footer"
+import { graphql, useStaticQuery } from "gatsby";
+import "../styles/Login.scss";
+import bulb from "../data/assets/bulb.svg";
+import Top from "./nav";
+import Footer from "./footer";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { API_ROOT } from "gatsby-env-variables"
 
 function Login() {
   const [status, setStatus] = React.useState(true)
@@ -63,7 +64,7 @@ function Login() {
   async function okuser() {
     let item = { userId, password }
 
-    let loginResult = await fetch("https://stag.spotcare.in/api/SpotCare/login", {
+    let loginResult = await fetch(API_ROOT+"/api/SpotCare/login", {
       method: "POST",
       body: JSON.stringify(item),
       headers: {
@@ -161,7 +162,7 @@ function Login() {
   async function signUp() {
     let item = { name, email, phone, licenseNo, gender, orgName, orgPhone, docType, address, pincode, state, city, refferalCode }
 
-    let result = await fetch("https://stag.spotcare.in/api/SpotCare/signup", {
+    let result = await fetch(API_ROOT+"/api/SpotCare/signup", {
       method: "POST",
       body: JSON.stringify(item),
       headers: {
@@ -179,7 +180,7 @@ function Login() {
 
   //  useEffect(() => {
   //      const loadPosts = async () => {
-  //          const response = await axios.get("https://stag.spotcare.in/api/SpotCare/tnc");
+  //          const response = await axios.get(API_ROOT+"/api/SpotCare/tnc");
   //          setPosts(response.data);
   //      }
   //      loadPosts();
@@ -208,7 +209,7 @@ function Login() {
     let docitem = { name }
 
     let DocTypeResult = await fetch(
-      "https://dev.spotcare.in/api/SpotCare/doctorType",
+      API_ROOT+"/api/SpotCare/doctorType",
       {
         method: "POST",
         body: JSON.stringify(docitem),

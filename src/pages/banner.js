@@ -8,6 +8,7 @@ import "../styles/Banner.scss";
 import close from "../data/assets/close.svg";
 import video from "../data/assets/bannerpop.mp4";
 import Top from "./nav";
+import { API_ROOT } from "gatsby-env-variables"
 
 function Banner() {
     /*==================Api calling for patient form====================*/
@@ -27,7 +28,7 @@ function Banner() {
     async function sendPat() {
         let item = { mobile_no }
 
-        let patResult = await fetch("https://stag.spotcare.in/api/Spotcare/getPatientLink", {
+        let patResult = await fetch(API_ROOT+"/api/Spotcare/getPatientLink", {
             method: "POST",
             body: JSON.stringify(item),
             headers: {
@@ -58,7 +59,7 @@ function Banner() {
     async function sendDoc() {
         let item2 = { mobile_no2 }
 
-        let docResult = await fetch("https://stag.spotcare.in/api/Spotcare/getDoctorLink", {
+        let docResult = await fetch(API_ROOT+"/api/Spotcare/getDoctorLink", {
             method: "POST",
             body: JSON.stringify(item2),
             headers: {

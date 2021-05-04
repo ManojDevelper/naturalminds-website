@@ -5,6 +5,7 @@ import Footer from "./footer";
 import { graphql, useStaticQuery } from "gatsby";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { API_ROOT } from "gatsby-env-variables"
 
 function Contact() {
     const data = useStaticQuery(graphql`
@@ -64,7 +65,7 @@ function Contact() {
     async function contactSubmit() {
         let item = { name, subject, email, query }
 
-        let result = await fetch("https://stag.spotcare.in/api/contactUs", {
+        let result = await fetch(API_ROOT+"/api/contactUs", {
             method: "POST",
             body: JSON.stringify(item),
             headers: {
