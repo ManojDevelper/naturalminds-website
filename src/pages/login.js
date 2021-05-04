@@ -39,6 +39,45 @@ function Login() {
       }
     }
   `)
+  const [userId, setUserId] = useState("")
+  const [password, setPassword] = useState("")
+  const [loginFinal, setLoginFinal] = useState("")
+  /*==================Api calling for login form====================*/
+  /*=======================login validation=====================*/
+  const [errors, setErrors] = useState({});
+  const uservalidation = () => {
+
+    let errors = {};
+    if (!userId) {
+      toast.error("Please enter your UserID", {
+        position: "top-right", hideProgressBar: true,
+      })
+
+    } if (!password) {
+      toast.error("Please Enter Valid password", {
+        position: "top-right", hideProgressBar: true,
+      })
+    }
+    return errors;
+  }
+  async function okuser() {
+    let item = { userId, password }
+
+    let loginResult = await fetch("https://stag.spotcare.in/api/SpotCare/login", {
+      method: "POST",
+      body: JSON.stringify(item),
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+    loginResult = await loginResult.json()
+    setLoginFinal(loginResult)
+    console.log(loginFinal)
+    setErrors(uservalidation())
+    console.log(errors)
+  }
+  /*-------------------------------------------------------------------------*/
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [gender, setGender] = useState("")
@@ -54,6 +93,71 @@ function Login() {
   const [refferalCode, setRefferalcode] = useState("")
   const [showData, setShowData] = useState("")
 
+  const [signUpErrors, setSignUpErrors] = useState({});
+  const signUservalidation = () => {
+
+    let errors = {};
+    if (!name) {
+      toast.error("Please Enter Your Name", {
+        position: "top-right", hideProgressBar: true,
+      })
+
+    } if (!email) {
+      toast.error("Please Enter Your Email", {
+        position: "top-right", hideProgressBar: true,
+      })
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
+      toast.error("Please Valid Email", {
+        position: "top-right", hideProgressBar: true,
+      })
+    } if (!gender) {
+      toast.error("Select Gender", {
+        position: "top-right", hideProgressBar: true,
+      })
+    } if (!phone) {
+      toast.error("Enter Your Mobile Number", {
+        position: "top-right", hideProgressBar: true,
+      })
+    } if (!licenseNo) {
+      toast.error("Enter Your LicenseNo", {
+        position: "top-right", hideProgressBar: true,
+      })
+    } if (!docType) {
+      toast.error("Select Doctor Type", {
+        position: "top-right", hideProgressBar: true,
+      })
+    }
+    if (!orgName) {
+      toast.error("Enter Your orgName", {
+        position: "top-right", hideProgressBar: true,
+      })
+    } if (!orgPhone) {
+      toast.error("Enter Your orgPhone", {
+        position: "top-right", hideProgressBar: true,
+      })
+    } if (!address) {
+      toast.error("Enter Your address", {
+        position: "top-right", hideProgressBar: true,
+      })
+    } if (!city) {
+      toast.error("Enter Your city", {
+        position: "top-right", hideProgressBar: true,
+      })
+    } if (!state) {
+      toast.error("Enter Your state", {
+        position: "top-right", hideProgressBar: true,
+      })
+    } if (!pincode) {
+      toast.error("Enter Your pincode", {
+        position: "top-right", hideProgressBar: true,
+      })
+    } if (!refferalCode) {
+      toast.error("Enter Your refferalCode", {
+        position: "top-right", hideProgressBar: true,
+      })
+    }
+    return errors;
+  }
   async function signUp() {
     let item = { name, email, phone, licenseNo, gender, orgName, orgPhone, docType, address, pincode, state, city, refferalCode }
 
@@ -67,10 +171,10 @@ function Login() {
     })
     result = await result.json()
     setShowData(result)
-    toast(showData.msg, {position: "top-center",hideProgressBar: true,
-    })
+    setSignUpErrors(signUservalidation())
+    console.log(signUpErrors)
   }
-   /*================calling Api for Terms and conditions================*/
+  /*================calling Api for Terms and conditions================*/
   //  const [posts, setPosts] = useState([]);
 
   //  useEffect(() => {
@@ -118,7 +222,7 @@ function Login() {
     setDocResult(DocTypeResult)
   }
   useEffect(() => {
-    getDoctor()
+    getDoctor();
     // eslint-disable-next-line
   }, [])
   return (
@@ -128,44 +232,43 @@ function Login() {
         {status ? (
           <div id="login">
             <div id="login_container_container">
-              <form>
-                <div id="login_container">
-                  <div id="login_block1">
-                    <div id="login_block1_block1">
-                      <h1>
-                        {data.login.childMarkdownRemark.frontmatter.logintitle}
-                      </h1>
-                    </div>
-                    <div id="login_block1_block2">
-                      <p>
-                        {data.login.childMarkdownRemark.frontmatter.loginuser}{" "}
-                        <span onClick={() => setStatus(false)} role="presentation">
-                          {data.login.childMarkdownRemark.frontmatter.loginregister}
-                        </span>
-                      </p>
-                    </div>
+              <div id="login_container">
+                <div id="login_block1">
+                  <div id="login_block1_block1">
+                    <h1>
+                      {data.login.childMarkdownRemark.frontmatter.logintitle}
+                    </h1>
                   </div>
-                  <div id="inputs">
-                    <div id="input_block2">
-                      <div id="input_block_input1" active-class="input_block_input1">
-                        <h1>User Name**</h1>
-                        <input type="text" placeholder="E-mail" />
-                      </div>
-                    </div>
-                    <div id="input_block2">
-                      <div id="input_block_input1" active-class="input_block_input1">
-                        <h1>Password**</h1>
-                        <input type="password" placeholder="Password" />
-                      </div>
-                    </div>
-                    <div id="input_block3">
-                      <button>
-                        {data.login.childMarkdownRemark.frontmatter.loginbutton}
-                      </button>
-                    </div>
+                  <div id="login_block1_block2">
+                    <p>
+                      {data.login.childMarkdownRemark.frontmatter.loginuser}{" "}
+                      <span onClick={() => setStatus(false)} role="presentation">
+                        {data.login.childMarkdownRemark.frontmatter.loginregister}
+                      </span>
+                    </p>
                   </div>
                 </div>
-              </form>
+                <div id="inputs" style={{ position: `relative` }}>
+                  <div id="input_block2">
+                    <div id="input_block_input1" active-class="input_block_input1">
+                      <h1>User Name**</h1>
+                      <input type="text" placeholder="E-mail" value={userId} onBlur={""} onChange={(e) => setUserId(e.target.value)} />
+                    </div>
+                  </div>
+                  <div id="input_block2" style={{ position: `relative` }}>
+                    <div id="input_block_input1" active-class="input_block_input1">
+                      <h1>Password**</h1>
+                      <input type="password" placeholder="Password" value={password} onBlur={""} onChange={(e) => setPassword(e.target.value)} />
+                    </div>
+                  </div>
+                  <div id="input_block3">
+                    <button onClick={okuser}>
+                      {data.login.childMarkdownRemark.frontmatter.loginbutton}
+                    </button>
+                    {(loginFinal.status === true) ? (toast.success(loginFinal.msg, { position: `top-center` })) : ("")}
+                  </div>
+                </div>
+              </div>
               <div id="login_note">
                 <p id="login_note1">
                   <img src={bulb} alt="bulb" />
@@ -174,7 +277,7 @@ function Login() {
                 <p id="login_note2">
                   {data.login.childMarkdownRemark.frontmatter.logindescription}
                 </p>
-                <a href = "https://play.google.com/store/apps/details?id=com.naturalminds" rel="noopener noreferrer" target="_blank"><p id="login_note3">
+                <a href="https://apps.apple.com/in/app/spotcare-patients-public/id1535914517" rel="noopener noreferrer" target="_blank"><p id="login_note3">
                   {data.login.childMarkdownRemark.frontmatter.logingetapp}
                 </p></a>
               </div>
@@ -394,15 +497,16 @@ function Login() {
                 <p>By signing up, I accept NaturalMinds’s <span>Terms and conditions</span></p>
               </div>
               <div id="register_button">
-                <button type="submit" onClick={signUp} disabled>SignUp</button>
+                <button type="submit" onClick={signUp}>SignUp</button>
                 <button type="submit" onClick={signUps} style={{ background: `transparent`, color: `blue` }}>clear</button>
               </div>
             </div>
+            {(showData.status === "true") ? (toast.success(showData.msg, { position: `top-center` })) : ("")}
             {/* <p>hello{posts.tnc}</p> */}
           </div>
         )}
         <Footer />
-        <ToastContainer/>
+        <ToastContainer Limit={1} />
       </div>
     </>
   )

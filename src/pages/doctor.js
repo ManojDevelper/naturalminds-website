@@ -5,7 +5,7 @@ import icon2 from "../data/assets/find_doc2.svg"
 import icon3 from "../data/assets/find_doc3.svg"
 import icon4 from "../data/assets/find_doc4.svg"
 import icon from "../data/assets/searchwhite.svg"
-import male from "../data/assets/male.jpeg"
+import male from "../data/assets/male.png"
 import female from "../data/assets/female.jpeg"
 import { graphql, useStaticQuery } from "gatsby"
 import Top from "./nav"
@@ -73,6 +73,7 @@ function Doctor() {
     <>
       <div id="doctors">
         <Top />
+        <div id="doctor_container_main">
         <div id="doctor_container">
           <div id="doctor_search">
             <input
@@ -117,7 +118,7 @@ function Doctor() {
                         <img src={key.profile_image} alt={key.name} />
                       ) : (
                         <>
-                          {key.gender.toLowerCase() === "male" || key.gender.toLowerCase() === "m" ? (<img src={male} alt="male" />) : (
+                          {key.gender.toLowerCase() === "male" || key.gender.toLowerCase() === "m" || !_.isEmpty(key.gender) ? (<img src={male} alt="male" />) : (
                             <img src={female} alt="female" />
                           )}
                         </>
@@ -179,6 +180,7 @@ function Doctor() {
               ))}
           </div>
         </div>
+      </div>
       </div>
     </>
   )

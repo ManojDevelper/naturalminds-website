@@ -11,6 +11,7 @@ function Patners() {
           frontmatter {
               title
             ourpatners {
+              id
                 image {
                 childImageSharp {
                   fluid(quality: 1) {
@@ -28,14 +29,16 @@ function Patners() {
     <>
       <div id="patners">
         <h1>{data.ourpatners.childMarkdownRemark.frontmatter.title}</h1>
+        <div id="patner_container_main">
         <div id="patners_container">
           {data.ourpatners.childMarkdownRemark.frontmatter.ourpatners.map(ourpatners =>
-            <div id="patners_image_card">
+            <div id="patners_image_card" key={ourpatners.id}>
               <div id="patners_image_container">
                 <img src={ourpatners.image.childImageSharp.fluid.src} alt="img1" />
               </div>
             </div>
           )}
+        </div>
         </div>
       </div>
     </>

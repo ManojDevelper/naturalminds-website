@@ -40,7 +40,7 @@ function Finddoctors() {
             <h1 key="35">{data.finddoctors.childMarkdownRemark.frontmatter.title}</h1>
             <p key="36">{data.finddoctors.childMarkdownRemark.frontmatter.content}</p>
             <div id="search_bar">
-              <img src={search} alt="img" class="searchicon" />
+              <img src={search} alt="img" className="searchicon" />
               <Link to="/doctor/"><input type="search" placeholder={data.finddoctors.childMarkdownRemark.frontmatter.search_content} className="search" key="37"/></Link>
             </div>
             </div>

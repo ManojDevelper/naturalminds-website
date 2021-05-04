@@ -5,7 +5,7 @@ require("dotenv").config({
 
 module.exports = {
     siteMetadata: {
-        title: `Balaji Interior`,
+        title: `Natural Minds`,
         description: `A Static site uisng React and Gatsby.`,
         keywords: ['gatsby', 'react']
     },

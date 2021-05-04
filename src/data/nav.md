@@ -14,7 +14,7 @@ navbar:
       },
       {
           link: "PRODUCTS",
-          page_link: "#cards_main_container",
+          page_link: "#Ourproducts",
       },
       {
           link: "FIND DOCTOR",
