@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import axios from "axios";
 import { graphql, useStaticQuery } from "gatsby";
 import "../styles/Login.scss";
 import Top from "./nav";
@@ -135,16 +134,6 @@ function Login() {
       })
     }
   }
-  /*================calling Api for Terms and conditions================*/
-  // const [posts, setPosts] = useState([]);
-
-  // useEffect(() => {
-  //   const loadPosts = async () => {
-  //     const response = await axios.get("https://stag.spotcare.in/api/SpotCare/tnc");
-  //     setPosts(response.data);
-  //   }
-  //   loadPosts();
-  // }, []);
   /*================to clear up all the results in the register form================*/
   const [docResult, setDocResult] = useState("")
   function signUps() {
@@ -410,9 +399,6 @@ function Login() {
         <Footer />
         <ToastContainer />
       </div>
-      {/* <div id="termsandconditions_container">
-      <textarea id="termsandconditions">{posts.tnc}</textarea>
-      </div> */}
     </>
   )
 }

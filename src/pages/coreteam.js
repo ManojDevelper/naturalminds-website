@@ -109,7 +109,6 @@ function Coreteam() {
             }
           </div>
         )}
-
       </div>
     </>
   );

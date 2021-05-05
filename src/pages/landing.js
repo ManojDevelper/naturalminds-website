@@ -9,8 +9,7 @@ import About from "./about"
 import Coreteam from "./coreteam";
 import Ourcustomers from "./ourcustomers"
 import Patners from "./patners"
-// import Blogs from "./blogs";
-import Contact from "./landingpagecontact";
+import Contact from "./contact";
 import Footer from "./footer";
 import "../styles/index.scss"
 
@@ -28,7 +27,6 @@ const Landing = () => {
       <Coreteam />
       <Ourcustomers />
       <Patners />
-      {/* <Blogs /> */}
       <Contact />
       <Footer />
     </>

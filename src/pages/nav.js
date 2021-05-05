@@ -7,8 +7,6 @@ import { graphql, useStaticQuery } from "gatsby"
 
 function Top() {
 
-  
-
   useEffect(() => {
     window.addEventListener('resize', showButton);
 
@@ -18,7 +16,7 @@ function Top() {
 
       window.removeEventListener('scroll', changeBackground);
     }
-}, [])
+  }, [])
 
 
   const [navbar, setNavbar] = useState(false);
@@ -66,16 +64,12 @@ function Top() {
       setNavbar(false);
     }
   };
-  
-
-  
-
 
   const [status, setStatus] = useState('close');
   return (
     <>
       <div id={navbar ? 'nav_main_div' : 'nav_main_div2'}>
-        <div ClassName="nav-co">
+        <div className="nav-co">
           <Navbar expand="xl" collapseOnSelect={true} className="Navbar">
             <div id="nav_img">
               <Link to="/landing"><img src={data.nav.childMarkdownRemark.frontmatter.nav_logo.childImageSharp.fluid.src} alt="img1" /></Link>
@@ -104,7 +98,7 @@ function Top() {
                 <Link to="/doctor" id="navbtn2" activeclassname="nav_active">FIND DOCTOR</Link>
                 <Link to="/landing/#contact" id="navbtn2" activeclassname="nav_active">CONTACT US</Link>
                 <Link to="/login"><button activeclassname="nav_active2" className="navbtn1">REGISTER</button></Link>
-                <a href= "https://www.spotcare.in/auth/login" target="_blank" without rel="noreferrer"><button activeclassname="nav_active2" className="navbtn2">LOGIN</button></a>
+                <a href="https://www.spotcare.in/auth/login" target="_blank" without rel="noreferrer"><button activeclassname="nav_active2" className="navbtn2">LOGIN</button></a>
               </Nav>
             </Navbar.Collapse>
           </Navbar>
