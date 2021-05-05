@@ -51,8 +51,8 @@ coreteam:
       {
           id: 5,
           name: "Dhanendra Singh",
-          designation: "Co-founder & Chief Architect",
-          qualification1: "Former Global Managing Director, Healthcare and",
+          designation: "Chief Technology Architect",
+          qualification1: "Co-Founder, Chief Architect ",
           qualification2: "Epic Knowledge Society",
           description: "Having vast  IT experience of architecting applications in accounting, travel, healthcare and ERP domains with use of Microsoft technologies, Java based enterprise frameworks, Mobility (J2me,Windows mobile, Android, iPhone, blackberry), Blockchain platforms, Data science and cutting edge communication protocols.",
           description2: "Proven competency on Digital Enterprise Architectures, New Platform Innovation, Creating high performing teams with vertical development Competencies. Some of the architected next generation solution includes -",

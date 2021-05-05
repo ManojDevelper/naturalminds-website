@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from "react"
-import "../styles/Doctor.scss"
-import icon1 from "../data/assets/find_doc1.svg"
-import icon2 from "../data/assets/find_doc2.svg"
-import icon3 from "../data/assets/find_doc3.svg"
-import icon4 from "../data/assets/find_doc4.svg"
-import icon from "../data/assets/searchwhite.svg"
+import React, { useState, useEffect } from "react";
+import "../styles/Doctor.scss";
+import icon1 from "../data/assets/find_doc1.svg";
+import icon2 from "../data/assets/find_doc2.svg";
+import icon3 from "../data/assets/find_doc3.svg";
+import icon4 from "../data/assets/find_doc4.svg";
+import icon from "../data/assets/searchwhite.svg";
 import male from "../data/assets/male.png";
-import female from "../data/assets/female.jpeg"
-import { graphql, useStaticQuery } from "gatsby"
-import Top from "./nav"
-import { API_ROOT } from "gatsby-env-variables"
+import female from "../data/assets/female.jpeg";
+import { graphql, useStaticQuery } from "gatsby";
+import Top from "./nav";
+import { API_ROOT } from "gatsby-env-variables";
+import Footer from "./footer";
 
 
 function Doctor() {
@@ -71,8 +72,9 @@ function Doctor() {
 
   return (
     <>
-<Top />
       <div id="doctors">
+      <Top />
+      <div id="doctor_container_main">
         <div id="doctor_container">
           <div id="doctor_search">
             <input
@@ -179,6 +181,8 @@ function Doctor() {
               ))}
           </div>
         </div>
+        <Footer />
+      </div>
       </div>
     </>
   )

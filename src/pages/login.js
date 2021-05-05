@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+// import axios from "axios";
 import { graphql, useStaticQuery } from "gatsby";
 import "../styles/Login.scss";
-import bulb from "../data/assets/bulb.svg";
 import Top from "./nav";
 import Footer from "./footer";
 import { ToastContainer, toast } from 'react-toastify';
@@ -10,7 +9,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import { API_ROOT } from "gatsby-env-variables"
 
 function Login() {
-  const [status, setStatus] = React.useState(true)
   const data = useStaticQuery(graphql`
     query {
       login: file(relativePath: { eq: "login.md" }) {
@@ -30,58 +28,11 @@ function Login() {
             registertermdescription1
             registertermdescription2
             registerbutton
-            login {
-              id
-              inputtitle
-              placeholder
-            }
           }
         }
       }
     }
   `)
-  const [userId, setUserId] = useState("")
-  const [password, setPassword] = useState("")
-  const [loginFinal, setLoginFinal] = useState("")
-  /*==================Api calling for login form====================*/
-  /*=======================login validation=====================*/
-  const [errors, setErrors] = useState({});
-  const uservalidation = () => {
-
-    let errors = {};
-    if (!userId) {
-      toast.error("Please enter your UserID", {
-        position: "top-right", hideProgressBar: true,
-      })
-
-    } else if (!password) {
-      toast.error("Please Enter Valid password", {
-        position: "top-right", hideProgressBar: true,
-      })
-    } else if (loginFinal.status === false) {
-      toast.error(loginFinal.msg, {
-        position: "top-right", hideProgressBar: true,
-      })
-    } else if (loginFinal.status === true)
-      return errors;
-  }
-  async function okuser() {
-    let item = { userId, password }
-
-    let loginResult = await fetch(API_ROOT + "/api/SpotCare/login", {
-      method: "POST",
-      body: JSON.stringify(item),
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    })
-    loginResult = await loginResult.json()
-    setErrors(uservalidation())
-    setLoginFinal(loginResult)
-    console.log(loginFinal)
-    console.log(errors)
-  }
   /*-------------------------------------------------------------------------*/
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
@@ -174,14 +125,22 @@ function Login() {
     setShowData(result)
     setSignUpErrors(signUservalidation())
     console.log(signUpErrors)
-    toast.error(showData.msg, { position: `top-right` })
+    if (showData.status === true) {
+      toast.success(showData.msg, {
+        position: "top-right", hideProgressBar: true,
+      })
+    } else {
+      toast.error(showData.msg, {
+        position: "top-right", hideProgressBar: true,
+      })
+    }
   }
   /*================calling Api for Terms and conditions================*/
   // const [posts, setPosts] = useState([]);
 
   // useEffect(() => {
   //   const loadPosts = async () => {
-  //     const response = await axios.get(API_ROOT + "/api/SpotCare/tnc");
+  //     const response = await axios.get("https://stag.spotcare.in/api/SpotCare/tnc");
   //     setPosts(response.data);
   //   }
   //   loadPosts();
@@ -231,284 +190,229 @@ function Login() {
     <>
       <div id="login_main">
         <Top />
-        {status ? (
-          <div id="login">
-            <div id="login_container_container">
-              <div id="login_container">
-                <div id="login_block1">
-                  <div id="login_block1_block1">
-                    <h1>
-                      {data.login.childMarkdownRemark.frontmatter.logintitle}
-                    </h1>
-                  </div>
-                  <div id="login_block1_block2">
-                    <p>
-                      {data.login.childMarkdownRemark.frontmatter.loginuser}{" "}
-                      <span onClick={() => setStatus(false)} role="presentation">
-                        {data.login.childMarkdownRemark.frontmatter.loginregister}
-                      </span>
-                    </p>
-                  </div>
-                </div>
-                <div id="inputs" style={{ position: `relative` }}>
-                  <div id="input_block2">
-                    <div id="input_block_input1" active-class="input_block_input1">
-                      <h1>User Name**</h1>
-                      <input type="text" placeholder="E-mail" value={userId} onBlur={""} onChange={(e) => setUserId(e.target.value)} />
-                    </div>
-                  </div>
-                  <div id="input_block2" style={{ position: `relative` }}>
-                    <div id="input_block_input1" active-class="input_block_input1">
-                      <h1>Password**</h1>
-                      <input type="password" placeholder="Password" value={password} onBlur={""} onChange={(e) => setPassword(e.target.value)} />
-                    </div>
-                  </div>
-                  <div id="input_block3">
-                    <button onClick={okuser}>
-                      {data.login.childMarkdownRemark.frontmatter.loginbutton}
-                    </button>
-                    {/* {(loginFinal.status === true) ? (toast.success(loginFinal.msg, { position: `top-center` })) : ("")} */}
-                  </div>
-                </div>
+        <div id="login">
+          <div id="register_container">
+            <div id="register_container_head">
+              <div id="register_container_head_block1">
+                <h1>
+                  {data.login.childMarkdownRemark.frontmatter.registertitle}
+                </h1>
               </div>
-              <div id="login_note">
-                <p id="login_note1">
-                  <img src={bulb} alt="bulb" />
-                  {data.login.childMarkdownRemark.frontmatter.loginnote}
+              <div id="register_container_head_block2">
+                <p>
+                  {data.login.childMarkdownRemark.frontmatter.registermember}
+                  <a href="https://www.spotcare.in/auth/login" target="_blank" rel="noreferrer"><span>
+                    {data.login.childMarkdownRemark.frontmatter.registerlogin}
+                  </span></a>
                 </p>
-                <p id="login_note2">
-                  {data.login.childMarkdownRemark.frontmatter.logindescription}
-                </p>
-                <a href="https://apps.apple.com/in/app/spotcare-patients-public/id1535914517" rel="noopener noreferrer" target="_blank"><p id="login_note3">
-                  {data.login.childMarkdownRemark.frontmatter.logingetapp}
-                </p></a>
               </div>
             </div>
-          </div>
-        ) : (
-          /*==========================register form===================*/
-          <div id="login">
-            <div id="register_container">
-              <div id="register_container_head">
-                <div id="register_container_head_block1">
-                  <h1>
-                    {data.login.childMarkdownRemark.frontmatter.registertitle}
-                  </h1>
-                </div>
-                <div id="register_container_head_block2">
-                  <p>
-                    {data.login.childMarkdownRemark.frontmatter.registermember}{" "}
-                    <span onClick={() => setStatus(true)} role="presentation">
-                      {data.login.childMarkdownRemark.frontmatter.registerlogin}
-                    </span>
-                  </p>
+            <div id="register_inputs">
+              <div className="register_input_block1">
+                <div id="register_input_block_input1">
+                  <h1>Full Name*</h1>
+                  <input
+                    type="text"
+                    placeholder="name"
+                    value={name}
+                    onBlur={""}
+                    onChange={e => setName(e.target.value)}
+                    required
+                  />
                 </div>
               </div>
-              <div id="register_inputs">
-                <div className="register_input_block1">
-                  <div id="register_input_block_input1">
-                    <h1>Full Name*</h1>
-                    <input
-                      type="text"
-                      placeholder="name"
-                      value={name}
-                      onBlur={""}
-                      onChange={e => setName(e.target.value)}
-                      required
-                    />
-                  </div>
-                </div>
-                <div className="register_input_block1">
-                  <div id="register_input_block_input1">
-                    <h1>Email ID**</h1>
-                    <input
-                      type="Email"
-                      placeholder="mail"
-                      value={email}
-                      onBlur={""}
-                      onChange={e => setEmail(e.target.value)}
-                    />
-                  </div>
-                </div>
-                <div id="docselectorbox">
-                  <h1>Gender*</h1>
-                  <select
-                    className="custom-select"
-                    value={gender}
+              <div className="register_input_block1">
+                <div id="register_input_block_input1">
+                  <h1>Email ID**</h1>
+                  <input
+                    type="Email"
+                    placeholder="mail"
+                    value={email}
                     onBlur={""}
-                    onChange={e => {
-                      const selectedDoctor = e.target.value
-                      setGender(selectedDoctor)
-                    }}
-                  ><option value="gender">Gender</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="other">Other</option>
-                  </select>
+                    onChange={e => setEmail(e.target.value)}
+                  />
                 </div>
-                <div className="register_input_block1">
-                  <div id="register_input_block_input1">
-                    <h1>Contact Number*</h1>
-                    <input
-                      type="text"
-                      placeholder="+ 91"
-                      value={phone}
-                      onBlur={""}
-                      onChange={e => setPhone(parseInt(e.target.value) || "")}
-                      maxLength={10}
-                      minLength={10}
-                      onKeyPress={event => {
-                        if (!/[0-9]/.test(event.key)) {
-                          event.preventDefault()
-                        }
-                      }}
-                    />
-                  </div>
-                </div>
-                <div className="register_input_block1">
-                  <div id="register_input_block_input1">
-                    <h1>License Number*</h1>
-                    <input
-                      type="text"
-                      placeholder="license number"
-                      value={licenseNo}
-                      onBlur={""}
-                      onChange={e => setLicenseno(e.target.value)}
-                    />
-                  </div>
-                </div>
-                <div id="docselectorbox">
-                  <h1>Speciality</h1>
-                  <select
-                    className="custom-select"
-                    value={docType}
+              </div>
+              <div id="docselectorbox">
+                <h1>Gender*</h1>
+                <select
+                  className="custom-select"
+                  value={gender}
+                  onBlur={""}
+                  onChange={e => {
+                    const selectedDoctor = e.target.value
+                    setGender(selectedDoctor)
+                  }}
+                ><option value="gender">Gender</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div className="register_input_block1">
+                <div id="register_input_block_input1">
+                  <h1>Contact Number*</h1>
+                  <input
+                    type="text"
+                    placeholder="+ 91"
+                    value={phone}
                     onBlur={""}
-                    onChange={e => {
-                      const selectedDoctor = parseInt(e.target.value)
-                      setDocType(selectedDoctor)
-                    }}
-                  >
-                    <option value="">Select Speciality</option>
-                    {docResult &&
-                      docResult.data.map((Specelist, i) => (
-                        <>
-                          <option value={Specelist.id} key={Specelist.id}>
-                            {Specelist.name}
-                          </option>
-                        </>
-                      ))}
-                  </select>
-                </div>
-                <div className="register_input_block1">
-                  <div id="register_input_block_input1">
-                    <h1>Provider Organization*</h1>
-                    <input
-                      type="text"
-                      placeholder="provider organization"
-                      value={orgName}
-                      onBlur={""}
-                      onChange={e => setOrgname(e.target.value)}
-                    />
-                  </div>
-                </div>
-                <div className="register_input_block1">
-                  <div id="register_input_block_input1">
-                    <h1>Provider Organization Phone Number*</h1>
-                    <input
-                      type="text"
-                      placeholder="provider organization phone number"
-                      value={orgPhone}
-                      onBlur={""}
-                      onChange={e =>
-                        setOrgphone(parseInt(e.target.value) || "")
+                    onChange={e => setPhone(parseInt(e.target.value) || "")}
+                    maxLength={10}
+                    minLength={10}
+                    onKeyPress={event => {
+                      if (!/[0-9]/.test(event.key)) {
+                        event.preventDefault()
                       }
-                      maxLength={10}
-                      minLength={10}
-                      onKeyPress={event => {
-                        if (!/[0-9]/.test(event.key)) {
-                          event.preventDefault()
-                        }
-                      }}
-                    />
-                  </div>
+                    }}
+                  />
                 </div>
-                <div className="register_input_block1">
-                  <div id="register_input_block_input1">
-                    <h1>Provider Address*</h1>
-                    <input
-                      type="text"
-                      placeholder="provider address"
-                      value={address}
-                      onBlur={""}
-                      onChange={e => setAddress(e.target.value)}
-                    />
-                  </div>
+              </div>
+              <div className="register_input_block1">
+                <div id="register_input_block_input1">
+                  <h1>License Number*</h1>
+                  <input
+                    type="text"
+                    placeholder="license number"
+                    value={licenseNo}
+                    onBlur={""}
+                    onChange={e => setLicenseno(e.target.value)}
+                  />
                 </div>
-                <div className="register_input_block1">
-                  <div id="register_input_block_input1">
-                    <h1>City*</h1>
-                    <input
-                      type="text"
-                      placeholder="city"
-                      value={city}
-                      onBlur={""}
-                      onChange={e => setCity(e.target.value)}
-                    />
-                  </div>
+              </div>
+              <div id="docselectorbox">
+                <h1>Speciality</h1>
+                <select
+                  className="custom-select"
+                  value={docType}
+                  onBlur={""}
+                  onChange={e => {
+                    const selectedDoctor = parseInt(e.target.value)
+                    setDocType(selectedDoctor)
+                  }}
+                >
+                  <option value="">Select Speciality</option>
+                  {docResult &&
+                    docResult.data.map((Specelist, i) => (
+                      <>
+                        <option value={Specelist.id} key={Specelist.id}>
+                          {Specelist.name}
+                        </option>
+                      </>
+                    ))}
+                </select>
+              </div>
+              <div className="register_input_block1">
+                <div id="register_input_block_input1">
+                  <h1>Provider Organization*</h1>
+                  <input
+                    type="text"
+                    placeholder="provider organization"
+                    value={orgName}
+                    onBlur={""}
+                    onChange={e => setOrgname(e.target.value)}
+                  />
                 </div>
-                <div className="register_input_block1">
-                  <div id="register_input_block_input1">
-                    <h1>State</h1>
-                    <input
-                      type="text"
-                      placeholder="state"
-                      value={state}
-                      onBlur={""}
-                      onChange={e => setState(e.target.value)}
-                    />
+              </div>
+              <div className="register_input_block1">
+                <div id="register_input_block_input1">
+                  <h1>Provider Organization Phone Number*</h1>
+                  <input
+                    type="text"
+                    placeholder="provider organization phone number"
+                    value={orgPhone}
+                    onBlur={""}
+                    onChange={e =>
+                      setOrgphone(parseInt(e.target.value) || "")
+                    }
+                    maxLength={10}
+                    minLength={10}
+                    onKeyPress={event => {
+                      if (!/[0-9]/.test(event.key)) {
+                        event.preventDefault()
+                      }
+                    }}
+                  />
+                </div>
+              </div>
+              <div className="register_input_block1">
+                <div id="register_input_block_input1">
+                  <h1>Provider Address*</h1>
+                  <input
+                    type="text"
+                    placeholder="provider address"
+                    value={address}
+                    onBlur={""}
+                    onChange={e => setAddress(e.target.value)}
+                  />
+                </div>
+              </div>
+              <div className="register_input_block1">
+                <div id="register_input_block_input1">
+                  <h1>City*</h1>
+                  <input
+                    type="text"
+                    placeholder="city"
+                    value={city}
+                    onBlur={""}
+                    onChange={e => setCity(e.target.value)}
+                  />
+                </div>
+              </div>
+              <div className="register_input_block1">
+                <div id="register_input_block_input1">
+                  <h1>State</h1>
+                  <input
+                    type="text"
+                    placeholder="state"
+                    value={state}
+                    onBlur={""}
+                    onChange={e => setState(e.target.value)}
+                  />
 
-                  </div>
-                </div>
-                <div className="register_input_block1">
-                  <div id="register_input_block_input1">
-                    <h1>PinCode</h1>
-                    <input
-                      type="text"
-                      placeholder="pincode"
-                      value={pincode}
-                      onBlur={""}
-                      onChange={e => setPincode(e.target.value)}
-                    />
-                  </div>
-                </div>
-                <div className="register_input_block1">
-                  <div id="register_input_block_input1">
-                    <h1>Referral (if any)</h1>
-                    <input
-                      type="text"
-                      placeholder="Referral (if any)"
-                      value={refferalCode}
-                      onBlur={""}
-                      onChange={e => setRefferalcode(e.target.value)}
-                    />
-                  </div>
                 </div>
               </div>
-              <div id="register_checkbox">
-                <input type="checkbox" />
-                <p>By signing up, I accept NaturalMinds’s <span>Terms and conditions</span></p>
+              <div className="register_input_block1">
+                <div id="register_input_block_input1">
+                  <h1>PinCode</h1>
+                  <input
+                    type="text"
+                    placeholder="pincode"
+                    value={pincode}
+                    onBlur={""}
+                    onChange={e => setPincode(e.target.value)}
+                  />
+                </div>
               </div>
-              <div id="register_button">
-                <button type="submit" onClick={signUp}>SignUp</button>
-                <button type="submit" onClick={signUps} style={{ background: `transparent`, color: `blue` }}>clear</button>
+              <div className="register_input_block1">
+                <div id="register_input_block_input1">
+                  <h1>Referral (if any)</h1>
+                  <input
+                    type="text"
+                    placeholder="Referral (if any)"
+                    value={refferalCode}
+                    onBlur={""}
+                    onChange={e => setRefferalcode(e.target.value)}
+                  />
+                </div>
               </div>
             </div>
+            <div id="register_checkbox">
+              <input type="checkbox" />
+              <p>By signing up, I accept NaturalMinds’s <span>Terms and conditions</span></p>
+            </div>
+            <div id="register_button">
+              <button type="submit" onClick={signUp}>SignUp</button>
+              <button type="submit" onClick={signUps} style={{ background: `transparent`, color: `blue` }}>clear</button>
+            </div>
           </div>
-        )}
+        </div>
         <Footer />
         <ToastContainer />
       </div>
-      {/* <p>hello{posts.tnc}</p> */}
+      {/* <div id="termsandconditions_container">
+      <textarea id="termsandconditions">{posts.tnc}</textarea>
+      </div> */}
     </>
   )
 }

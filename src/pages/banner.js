@@ -9,6 +9,8 @@ import close from "../data/assets/close.svg";
 import video from "../data/assets/bannerpop.mp4";
 import Top from "./nav";
 import { API_ROOT } from "gatsby-env-variables"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Banner() {
     /*==================Api calling for patient form====================*/
@@ -20,6 +22,10 @@ function Banner() {
             errors.mobile_no = "**Enter your Mobile Number"
         } else if (mobile_no.length < 9) {
             errors.mobile_no = "Please enter valid mobile number"
+        } if (patFinal.status === true) {
+            toast.success(patFinal.msg)
+        } else {
+            toast.error(patFinal.msg)
         }
         return errors;
     }
@@ -28,7 +34,7 @@ function Banner() {
     async function sendPat() {
         let item = { mobile_no }
 
-        let patResult = await fetch(API_ROOT+"/api/Spotcare/getPatientLink", {
+        let patResult = await fetch(API_ROOT + "/api/Spotcare/getPatientLink", {
             method: "POST",
             body: JSON.stringify(item),
             headers: {
@@ -51,6 +57,10 @@ function Banner() {
             errors2.mobile_no2 = "**Enter your Mobile Number"
         } else if (mobile_no.length < 9) {
             errors2.mobile_no2 = "**Please Enter Valid Mobile Number"
+        } if (docFinal.status === true) {
+            toast.success(docFinal.msg)
+        } else {
+            toast.error(docFinal.msg)
         }
         return errors2;
     }
@@ -59,7 +69,7 @@ function Banner() {
     async function sendDoc() {
         let item2 = { mobile_no2 }
 
-        let docResult = await fetch(API_ROOT+"/api/Spotcare/getDoctorLink", {
+        let docResult = await fetch(API_ROOT + "/api/Spotcare/getDoctorLink", {
             method: "POST",
             body: JSON.stringify(item2),
             headers: {
@@ -221,6 +231,7 @@ function Banner() {
                         </div>
                     </div>
                 </div>
+                <ToastContainer />
             </div>
         </>
     );

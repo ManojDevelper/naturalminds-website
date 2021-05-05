@@ -22,7 +22,7 @@ navbar:
       },
       {
           link: "CONTACT US",
-          page_link: "/contact",
+          page_link: "/landing/#contact",
       },
   ]
 ---

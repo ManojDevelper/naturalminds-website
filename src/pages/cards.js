@@ -1,13 +1,15 @@
 import React from "react";
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby";
 import close from "../data/assets/close.svg";
-import qr1 from "../data/assets/googleplay_qr.png"
-import playstorebtn from "../data/assets/playstore_btn.svg"
-import appstorebtn from "../data/assets/appstore_btn.svg"
-import rate from "../data/assets/rate.svg"
+import qr1 from "../data/assets/googleplay_qr.png";
+import playstorebtn from "../data/assets/playstore_btn.svg";
+import appstorebtn from "../data/assets/appstore_btn.svg";
+import rate from "../data/assets/rate.svg";
 import "../styles/Cards.scss";
 import { useState } from "react";
-import { API_ROOT } from "gatsby-env-variables"
+import { API_ROOT } from "gatsby-env-variables";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Cards() {
   /*==================Api calling for patient form====================*/
@@ -19,6 +21,10 @@ function Cards() {
       errors.mobile_no = "**Enter your Mobile Number"
     } else if (mobile_no.length < 9) {
       errors.mobile_no = "Please enter valid mobile number"
+    } if (patFinal.status === true) {
+      toast.success(patFinal.msg)
+    } else {
+      toast.error(patFinal.msg)
     }
     return errors;
   }
@@ -50,6 +56,10 @@ function Cards() {
       errors2.mobile_no2 = "**Enter your Mobile Number"
     } else if (mobile_no.length < 9) {
       errors2.mobile_no2 = "**Please Enter Valid Mobile Number"
+    } if (docFinal.status === true) {
+      toast.success(docFinal.msg)
+    } else {
+      toast.error(docFinal.msg)
     }
     return errors2;
   }
@@ -93,6 +103,7 @@ function Cards() {
               title
               cards {
                 id
+                cardid
                 title
                 class1
                 class2
@@ -153,7 +164,7 @@ function Cards() {
             <h1>{data.cards.childMarkdownRemark.frontmatter.title}</h1>
             <div className="card_container">
               {data.cards.childMarkdownRemark.frontmatter.cards.map(cards =>
-                <div className={cards.class1} key={cards.id}>
+                <div className={cards.class1} key={cards.id} id={cards.cardid}>
                   <div className={cards.class2}>
                     <div className="slidecards_svg">
                       <div className="slidecards_svg_container">
@@ -272,6 +283,7 @@ function Cards() {
             }
           </div>
         </div>
+        <ToastContainer />
       </div>
 
     </>

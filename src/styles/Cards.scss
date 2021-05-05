@@ -18,12 +18,12 @@
   position: absolute;
   top: 0.5vw;
 }
-#card_btns{
+#card_btns {
   width: 100%;
   display: flex;
   flex-direction: row;
 }
-#card_btns tab:last-child{
+#card_btns tab:last-child {
   margin-left: 2vw;
 }
 .card_container {
@@ -104,7 +104,7 @@
   transition: 0.5s ease-in-out;
 }
 .slicards_matter_container #cardbtn2 {
-  background: #00B3DB;
+  background: #00b3db;
 }
 .slicards_matter_container button:hover {
   width: 13.3vw;
@@ -174,10 +174,10 @@
   top: 0;
   z-index: 20;
 }
-#cards_main_container .cardqr{
+#cards_main_container .cardqr {
   display: none;
 }
-#cards_main_container .active-cardqr{
+#cards_main_container .active-cardqr {
   display: flex;
 }
 #qr_conatiner {
@@ -191,7 +191,7 @@
   position: relative;
   padding: 7.1875vw 3.5vw;
 }
-#cards_main_container #qr_conatiner #qr_conatiner_block2{
+#cards_main_container #qr_conatiner #qr_conatiner_block2 {
   margin-left: 7.5vw;
 }
 #close2 {
@@ -324,12 +324,12 @@
   margin: 0;
   width: 12vw;
 }
-#qr_image_button{
+#qr_image_button {
   display: flex;
   flex-direction: row;
   column-gap: 1vw;
 }
-#qr_image_button a{
+#qr_image_button a {
   width: fit-content;
   height: fit-content;
   padding: 0;

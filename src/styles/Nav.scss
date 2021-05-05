@@ -6,8 +6,8 @@
     z-index: 15;
     background: #ffffff;
     box-shadow: 0px 4px 10px rgba(10, 48, 61, 0.06);
-    transition: 0.10s ease;
-    padding: 1vw 3vw 1vw 4.5vw;
+    transition: 0.1s ease;
+    padding: 0.5vw 3vw 0.5vw 4.5vw;
 }
 .navbar-light .navbar-toggler {
     border: none;
@@ -17,7 +17,7 @@
     position: fixed;
     width: 100%;
     z-index: 15;
-    padding: 1vw 3vw 1vw 4.5vw;
+    padding: 0.5vw 3vw 0.5vw 4.5vw;
 }
 .nav-co {
     padding: 1vw 6vw 1vw 5.5vw;
@@ -57,7 +57,7 @@
     text-decoration: none;
 }
 .navbtn1 {
-    width: 180px;
+    width: 126px;
     height: 48px;
     left: 1177px;
     top: 30px;
@@ -70,9 +70,38 @@
     font-size: 16px;
     margin: 0;
     text-align: center;
-    color: #212e34;
     background: transparent;
     outline: none;
+    color: #212e34;
+    transition: 0.5s ease;
+}
+.navbtn1:hover {
+    color: white;
+    background: #ff4081;
+}
+.navbtn2 {
+    width: 126px;
+    height: 48px;
+    left: 1177px;
+    top: 30px;
+    border: 1px solid #db2874;
+    box-sizing: border-box;
+    border-radius: 8px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    margin: 0;
+    margin-left: 1.5vw;
+    text-align: center;
+    background: #ff4081;
+    outline: none;
+    color: white;
+    transition: 0.5s ease;
+}
+.navbtn2:hover {
+    color: #212e34;
+    background: transparent;
 }
 #navbtn2 {
     margin-right: 2.2vw;
@@ -143,6 +172,9 @@
     }
     #navbtn2 {
         font-size: 20px;
+        margin-top: 30px;
+    }
+    .navbtn2 {
         margin-top: 30px;
     }
     .navbtn1 {

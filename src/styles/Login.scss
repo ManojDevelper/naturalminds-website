@@ -1,9 +1,10 @@
-#login_main .nav_main_div{
-    box-shadow: 0px 4px 10px rgba(10, 48, 61, 0.1);
-    margin-bottom: 10px;
-    position: relative;
-    background: red;
-    z-index: 5;
+#login_main #nav_main_div {
+    background: #ffffff;
+    box-shadow: 0px 4px 10px rgba(10, 48, 61, 0.06);
+}
+#login_main #nav_main_div2 {
+    background: #ffffff;
+    box-shadow: 0px 4px 10px rgba(10, 48, 61, 0.06);
 }
 #login {
     width: 100%;
@@ -12,9 +13,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 0 153px 0;
+    margin: 0 0 300px 0;
     position: relative;
-    top: 8vw;
+    top: 13vw;
 }
 #login_main {
     background-color: white;
@@ -310,7 +311,6 @@
 #register_checkbox {
     display: flex;
     flex-direction: row;
-    gap: 0.6875vw;
     margin-top: 3vw;
 }
 #register_checkbox input {
@@ -329,8 +329,9 @@
     line-height: 1.3125vw;
     margin: 0;
     color: #222222;
+    margin-left: 0.6875vw;
 }
-#register_checkbox p span{
+#register_checkbox p span {
     text-decoration: underline;
     color: #4285f4;
     cursor: pointer;
@@ -354,13 +355,13 @@
     color: #ffffff;
     cursor: pointer;
 }
-#register_inputs .register_input_block1 #gender_options{
+#register_inputs .register_input_block1 #gender_options {
     display: none;
 }
-#register_inputs .gender #gender_options{
+#register_inputs .gender #gender_options {
     position: absolute;
     width: 100%;
-    top:3px;
+    top: 3px;
     height: 80%;
     margin: 0;
     background: white;
@@ -377,7 +378,7 @@
     border: 1px solid transparent;
     display: block;
 }
-#register_inputs #option{
+#register_inputs #option {
     font-family: Source Sans Pro;
     font-style: normal;
     font-weight: normal;
@@ -386,7 +387,7 @@
     letter-spacing: 0.0125vw;
     color: rgba(0, 0, 0, 0.8);
 }
-#docselectorbox{
+#docselectorbox {
     height: fit-content;
     width: 100%;
     height: 2.875vw;
@@ -412,7 +413,7 @@
 #login .custom-select:hover {
     border: 0.125vw solid rgba(255, 64, 129, 1);
 }
-#login #docselectorbox h1{
+#login #docselectorbox h1 {
     font-family: Source Sans Pro;
     font-style: normal;
     font-weight: normal;
@@ -426,8 +427,9 @@
     z-index: 1;
     left: 0.625vw;
 }
-#message_container{
-    border:1px solid black;
+#message_container {
+    border: 1px solid black;
     text-align: center;
     background: yellowgreen;
 }
+/*===========terms and conditions====================*/

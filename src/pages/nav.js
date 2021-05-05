@@ -45,7 +45,6 @@ function Top() {
     // eslint-disable-next-line
   }, [])
 
-  window.addEventListener('resize', showButton);
   const changeBackground = () => {
     if (window.scrollY >= 80) {
       setNavbar(true)
@@ -53,9 +52,9 @@ function Top() {
       setNavbar(false);
     }
   };
-  window.addEventListener('scroll', changeBackground);
+  
 
-
+  
 
 
   const [status, setStatus] = useState('close');
@@ -89,8 +88,9 @@ function Top() {
                 <Link to="/landing/#about" id="navbtn2" activeclassname="nav_active">ABOUT</Link>
                 <Link to="/landing/#ourproducts" id="navbtn2" activeclassname="nav_active">PRODUCTS</Link>
                 <Link to="/doctor" id="navbtn2" activeclassname="nav_active">FIND DOCTOR</Link>
-                <Link to="/contact" id="navbtn2" activeclassname="nav_active">CONTACT US</Link>
-                <Link to="/login" duration={1000}><button activeclassname="nav_active2" className="navbtn1">{data.nav.childMarkdownRemark.frontmatter.navigation_button}</button></Link>
+                <Link to="/landing/#contact" id="navbtn2" activeclassname="nav_active">CONTACT US</Link>
+                <Link to="/login"><button activeclassname="nav_active2" className="navbtn1">REGISTER</button></Link>
+                <a href= "https://www.spotcare.in/auth/login" target="_blank" without rel="noreferrer"><button activeclassname="nav_active2" className="navbtn2">LOGIN</button></a>
               </Nav>
             </Navbar.Collapse>
           </Navbar>

@@ -29,7 +29,7 @@ function Blogs() {
   `)
   return (
     <>
-      <div className="blog">
+      <div className="blog" id="blog">
         <h1 id="blog_h1">{data.blogs.childMarkdownRemark.frontmatter.title}</h1>
         <div className="blog_container">
           {data.blogs.childMarkdownRemark.frontmatter.blogs.map(blogs =>

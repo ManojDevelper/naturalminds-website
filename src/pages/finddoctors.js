@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import search from "../data/assets/search.svg";
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby";
 import "../styles/Finddoctors.scss";
 import Aos from "aos";
 import { Link } from "gatsby";
@@ -47,7 +47,7 @@ function Finddoctors() {
           </div>
           <div id="finddocbannerimg">
           <div>
-          <img src={data.finddoctors.childMarkdownRemark.frontmatter.image.childImageSharp.fluid.src} alt="img1" id="finddoctors_img" key="38"/>
+          <img src={data.finddoctors.childMarkdownRemark.frontmatter.image.childImageSharp.fluid.src} alt="img1" id="finddoctors_img"/>
           </div>
           </div>
         </div>

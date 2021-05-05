@@ -4,7 +4,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import img2 from "../data/assets/quatation.svg"
 import { Carousel } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import video from "../data/assets/bannerpop.mp4";
+import video from "../data/assets/testimonial1.mp4";
 
 function Ourcustomers() {
   const data = useStaticQuery(graphql`
@@ -19,13 +19,6 @@ function Ourcustomers() {
                   location
                   title
                   review
-                  image {
-                    childImageSharp {
-                      fluid(quality: 1) {
-                        src
-                      }
-                    }
-                  }
                 }
               }
             }
@@ -34,7 +27,7 @@ function Ourcustomers() {
     `)
   return (
     <>
-      <div className="ourcustomers">
+      <div className="ourcustomers" id="ourcustomers">
         <h1>{data.ourcustomers.childMarkdownRemark.frontmatter.title}</h1>
         <Carousel>
           {data.ourcustomers.childMarkdownRemark.frontmatter.ourcustomers.map(ourcustomers =>

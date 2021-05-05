@@ -4,6 +4,7 @@ cards:
   [
     {
       id: 1,
+      cardid: "SpotCarelink",
       title: "SpotCare",
       class1: "slidecards",
       class2: "slidecards_content",
@@ -40,6 +41,7 @@ cards:
     },
     {
       id: 2,
+      cardid: "eleCarelink",
       title: "TeleCare",
       class1: "slidecards slidecards2",
       class2: "slidecards_content slidecards_content2",
@@ -76,6 +78,7 @@ cards:
     },
     {
       id: 3,
+      cardid: "Kliniclink",
       title: "Virtual Klinik",
       class1: "slidecards",
       class2: "slidecards_content",
@@ -112,6 +115,7 @@ cards:
     },
     {
       id: 4,
+      cardid: "Klinik",
       title: "Klinik in a Kiosk",
       class1: "slidecards slidecards2",
       class2: "slidecards_content slidecards_content2",
