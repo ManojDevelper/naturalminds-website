@@ -4,6 +4,23 @@
 .ourcustomers .carousel-indicators {
     display: none;
 }
+.ourcustomers  .carousel-control-next-icon {
+    background-image: url("../data/assets/rightcircle.png");
+    position: relative;
+    top:5vw;
+    width: 3vw;
+    height: 3vw;
+}
+.ourcustomers  .carousel-control-prev-icon {
+    background-image: url("../data/assets/leftcircle.png");
+    position: relative;
+    top:5vw;
+    width: 3vw;
+    height: 3vw;
+}
+.ourcustomers_carousal{
+    width: 10px;
+}
 .ourcustomers h1 {
     font-family: Noto Sans;
     font-style: normal;
@@ -45,10 +62,11 @@
     position: relative;
 }
 #quatation {
-    width: 59px;
+    width: 40px;
     position: absolute;
     right: 50px;
     opacity: 0.2;
+    top:-2.5vw;
 }
 .ourcustomers_doc_details {
     margin-top: 19px;

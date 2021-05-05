@@ -63,10 +63,5 @@ footericons:
           image: "./assets/youtube.png",
           link: "https://in.linkedin.com/company/natural-minds-india",
       },
-      {
-          id: 6,
-          image: "./assets/medium.png",
-          link: "https://in.linkedin.com/company/natural-minds-india",
-      },
   ]
 ---

@@ -76,7 +76,7 @@ function Coreteam() {
         </div>
 
         {data.coreteam.childMarkdownRemark.frontmatter.coreteam.map(coreteam =>
-          <div id="coreteam_info_main_container" className={toggleState === (coreteam.id) ? "content  active-content" : "content"}>
+          <div id="coreteam_info_main_container" className={toggleState === (coreteam.id) ? "content  active-content" : "content"} key={coreteam.id}>
             {
               show ?
                 <div id="coreteam_info">

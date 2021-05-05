@@ -1,3 +1,5 @@
+
+
 import React, { useState, useEffect } from "react"
 import "../styles/Doctor.scss"
 import icon1 from "../data/assets/find_doc1.svg"
@@ -5,7 +7,7 @@ import icon2 from "../data/assets/find_doc2.svg"
 import icon3 from "../data/assets/find_doc3.svg"
 import icon4 from "../data/assets/find_doc4.svg"
 import icon from "../data/assets/searchwhite.svg"
-import male from "../data/assets/male.jpeg"
+import male from "../data/assets/male.png";
 import female from "../data/assets/female.jpeg"
 import { graphql, useStaticQuery } from "gatsby"
 import Top from "./nav"
@@ -114,11 +116,11 @@ function Doctor() {
                 <div id="doc_card1" key={i}>
                   <div id="doc_card1_block1">
                     <div id="doc_card1_block1_image_container">
-                      {!_.isEmpty(key.profile_image) ? (
+                      {(key.profile_image === "") ? (
                         <img src={key.profile_image} alt={key.name} />
                       ) : (
                         <>
-                          {key.gender.toLowerCase() === "male" || key.gender.toLowerCase() === "m" ? (<img src={male} alt="male" />) : (
+                        {key.gender.toLowerCase() === "male" || key.gender.toLowerCase() === "m" ? (<img src={male} alt="male" />) : (
                             <img src={female} alt="female" />
                           )}
                         </>
