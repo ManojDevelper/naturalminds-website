@@ -1,16 +1,17 @@
-import React, { useState, useEffect } from "react";
-import "../styles/Doctor.scss";
-import icon1 from "../data/assets/find_doc1.svg";
-import icon2 from "../data/assets/find_doc2.svg";
-import icon3 from "../data/assets/find_doc3.svg";
-import icon4 from "../data/assets/find_doc4.svg";
-import icon from "../data/assets/searchwhite.svg";
+import React, { useState, useEffect } from "react"
+import "../styles/Doctor.scss"
+import icon1 from "../data/assets/find_doc1.svg"
+import icon2 from "../data/assets/find_doc2.svg"
+import icon3 from "../data/assets/find_doc3.svg"
+import icon4 from "../data/assets/find_doc4.svg"
+import icon from "../data/assets/searchwhite.svg"
 import male from "../data/assets/male.png";
-import female from "../data/assets/female.jpeg";
-import { graphql, useStaticQuery } from "gatsby";
-import Top from "./nav";
-import _ from "lodash";
-import { API_ROOT } from "gatsby-env-variables";
+import female from "../data/assets/female.jpeg"
+import { graphql, useStaticQuery } from "gatsby"
+import Top from "./nav"
+import _ from "lodash"
+import { API_ROOT } from "gatsby-env-variables"
+
 
 function Doctor() {
   const data = useStaticQuery(graphql`
@@ -41,18 +42,17 @@ function Doctor() {
       }
     }
   `)
-  const [filterValue, setFilterValue] = useState("")
+  const [searchTerm, setSearchTerm] = useState("")
   const [final, setFinal] = useState("")
   const inputValue = event => {
     const data = event.target.value
     console.log(data)
-    setFilterValue(data)
+    setSearchTerm(data)
   }
   async function search() {
-    let item = { filterValue }
-
+    let item = { searchTerm }
     let result = await fetch(
-      API_ROOT+"/api/searchDoctors",
+      API_ROOT+ "/api/spotcare/searchDoctors",
       {
         method: "POST",
         body: JSON.stringify(item),
@@ -68,13 +68,12 @@ function Doctor() {
   }
   useEffect(() => {
     search()
-    // eslint-disable-next-line
   },[])
+
   return (
     <>
       <div id="doctors">
         <Top />
-        <div id="doctor_container_main">
         <div id="doctor_container">
           <div id="doctor_search">
             <input
@@ -115,11 +114,11 @@ function Doctor() {
                 <div id="doc_card1" key={i}>
                   <div id="doc_card1_block1">
                     <div id="doc_card1_block1_image_container">
-                      {!_.isEmpty(key.profile_image) ? (
+                      {(key.profile_image === "") ? (
                         <img src={key.profile_image} alt={key.name} />
                       ) : (
                         <>
-                          {key.gender.toLowerCase() === "male" || key.gender.toLowerCase() === "m" || !_.isEmpty(key.gender) ? (<img src={male} alt="male" />) : (
+                        {key.gender.toLowerCase() === "male" || key.gender.toLowerCase() === "m" ? (<img src={male} alt="male" />) : (
                             <img src={female} alt="female" />
                           )}
                         </>
@@ -181,7 +180,6 @@ function Doctor() {
               ))}
           </div>
         </div>
-      </div>
       </div>
     </>
   )
