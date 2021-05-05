@@ -9,6 +9,9 @@ module.exports = {
         description: `A Static site uisng React and Gatsby.`,
         keywords: ['gatsby', 'react']
     },
+    flags: {
+        DEV_SSR: false
+      },
     plugins: [
         `gatsby-env-variables`,
         `gatsby-plugin-sass`,

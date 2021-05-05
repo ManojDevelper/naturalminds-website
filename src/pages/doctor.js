@@ -1,5 +1,3 @@
-
-
 import React, { useState, useEffect } from "react"
 import "../styles/Doctor.scss"
 import icon1 from "../data/assets/find_doc1.svg"
@@ -54,7 +52,7 @@ function Doctor() {
   async function search() {
     let item = { searchTerm }
     let result = await fetch(
-      API_ROOT+ "/api/spotcare/searchDoctors",
+      API_ROOT + "/api/spotcare/searchDoctors",
       {
         method: "POST",
         body: JSON.stringify(item),
@@ -70,12 +68,12 @@ function Doctor() {
   }
   useEffect(() => {
     search()
-  },[])
+  }, [])
 
   return (
     <>
+      <Top />
       <div id="doctors">
-        <Top />
         <div id="doctor_container">
           <div id="doctor_search">
             <input
@@ -106,7 +104,7 @@ function Doctor() {
             </div>
             <div id="doc_footer_block2">
               <img
-                src={data.doctors.childMarkdownRemark.frontmatter.playstore.childImageSharp.fluid.src} alt="image1" id="doc_store1"/>
+                src={data.doctors.childMarkdownRemark.frontmatter.playstore.childImageSharp.fluid.src} alt="image1" id="doc_store1" />
               <img src={data.doctors.childMarkdownRemark.frontmatter.appstore.childImageSharp.fluid.src} alt="image2" />
             </div>
           </div>
@@ -120,7 +118,7 @@ function Doctor() {
                         <img src={key.profile_image} alt={key.name} />
                       ) : (
                         <>
-                        {key.gender.toLowerCase() === "male" || key.gender.toLowerCase() === "m" ? (<img src={male} alt="male" />) : (
+                          {key.gender.toLowerCase() === "male" || key.gender.toLowerCase() === "m" ? (<img src={male} alt="male" />) : (
                             <img src={female} alt="female" />
                           )}
                         </>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import axios from "axios";
+import axios from "axios";
 import { graphql, useStaticQuery } from "gatsby";
 import "../styles/Login.scss";
 import bulb from "../data/assets/bulb.svg";
@@ -54,17 +54,21 @@ function Login() {
         position: "top-right", hideProgressBar: true,
       })
 
-    } if (!password) {
+    } else if (!password) {
       toast.error("Please Enter Valid password", {
         position: "top-right", hideProgressBar: true,
       })
-    }
-    return errors;
+    } else if (loginFinal.status === false) {
+      toast.error(loginFinal.msg, {
+        position: "top-right", hideProgressBar: true,
+      })
+    } else if (loginFinal.status === true)
+      return errors;
   }
   async function okuser() {
     let item = { userId, password }
 
-    let loginResult = await fetch(API_ROOT+"/api/SpotCare/login", {
+    let loginResult = await fetch(API_ROOT + "/api/SpotCare/login", {
       method: "POST",
       body: JSON.stringify(item),
       headers: {
@@ -103,7 +107,7 @@ function Login() {
         position: "top-right", hideProgressBar: true,
       })
 
-    } if (!email) {
+    } else if (!email) {
       toast.error("Please Enter Your Email", {
         position: "top-right", hideProgressBar: true,
       })
@@ -111,48 +115,48 @@ function Login() {
       toast.error("Please Valid Email", {
         position: "top-right", hideProgressBar: true,
       })
-    } if (!gender) {
+    } else if (!gender) {
       toast.error("Select Gender", {
         position: "top-right", hideProgressBar: true,
       })
-    } if (!phone) {
+    } else if (!phone) {
       toast.error("Enter Your Mobile Number", {
         position: "top-right", hideProgressBar: true,
       })
-    } if (!licenseNo) {
+    } else if (!licenseNo) {
       toast.error("Enter Your LicenseNo", {
         position: "top-right", hideProgressBar: true,
       })
-    } if (!docType) {
+    } else if (!docType) {
       toast.error("Select Doctor Type", {
         position: "top-right", hideProgressBar: true,
       })
     }
-    if (!orgName) {
+    else if (!orgName) {
       toast.error("Enter Your orgName", {
         position: "top-right", hideProgressBar: true,
       })
-    } if (!orgPhone) {
+    } else if (!orgPhone) {
       toast.error("Enter Your orgPhone", {
         position: "top-right", hideProgressBar: true,
       })
-    } if (!address) {
+    } else if (!address) {
       toast.error("Enter Your address", {
         position: "top-right", hideProgressBar: true,
       })
-    } if (!city) {
+    } else if (!city) {
       toast.error("Enter Your city", {
         position: "top-right", hideProgressBar: true,
       })
-    } if (!state) {
+    } else if (!state) {
       toast.error("Enter Your state", {
         position: "top-right", hideProgressBar: true,
       })
-    } if (!pincode) {
+    } else if (!pincode) {
       toast.error("Enter Your pincode", {
         position: "top-right", hideProgressBar: true,
       })
-    } if (!refferalCode) {
+    } else if (!refferalCode) {
       toast.error("Enter Your refferalCode", {
         position: "top-right", hideProgressBar: true,
       })
@@ -162,7 +166,7 @@ function Login() {
   async function signUp() {
     let item = { name, email, phone, licenseNo, gender, orgName, orgPhone, docType, address, pincode, state, city, refferalCode }
 
-    let result = await fetch(API_ROOT+"/api/SpotCare/signup", {
+    let result = await fetch(API_ROOT + "/api/SpotCare/signup", {
       method: "POST",
       body: JSON.stringify(item),
       headers: {
@@ -174,17 +178,18 @@ function Login() {
     setShowData(result)
     setSignUpErrors(signUservalidation())
     console.log(signUpErrors)
+    toast.error(showData.msg, { position: `top-right` })
   }
   /*================calling Api for Terms and conditions================*/
-  //  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState([]);
 
-  //  useEffect(() => {
-  //      const loadPosts = async () => {
-  //          const response = await axios.get(API_ROOT+"/api/SpotCare/tnc");
-  //          setPosts(response.data);
-  //      }
-  //      loadPosts();
-  //  }, []);
+  useEffect(() => {
+    const loadPosts = async () => {
+      const response = await axios.get(API_ROOT + "/api/SpotCare/tnc");
+      setPosts(response.data);
+    }
+    loadPosts();
+  }, []);
   /*================to clear up all the results in the register form================*/
   const [docResult, setDocResult] = useState("")
   function signUps() {
@@ -209,7 +214,7 @@ function Login() {
     let docitem = { name }
 
     let DocTypeResult = await fetch(
-      API_ROOT+"/api/SpotCare/doctorType",
+      API_ROOT + "/api/SpotCare/doctorType",
       {
         method: "POST",
         body: JSON.stringify(docitem),
@@ -502,13 +507,12 @@ function Login() {
                 <button type="submit" onClick={signUps} style={{ background: `transparent`, color: `blue` }}>clear</button>
               </div>
             </div>
-            {(showData.status === "true") ? (toast.success(showData.msg, { position: `top-center` })) : ("")}
-            {/* <p>hello{posts.tnc}</p> */}
           </div>
         )}
         <Footer />
-        <ToastContainer Limit={1} />
+        <ToastContainer />
       </div>
+      {/* <p>hello{posts.tnc}</p> */}
     </>
   )
 }

@@ -35,7 +35,7 @@ function Top() {
   const showButton = () => {
     if (window.innerWidth <= 960) {
       setButton(false);
-    }else {
+    } else {
       setButton(true);
     }
   };
@@ -46,9 +46,9 @@ function Top() {
 
   window.addEventListener('resize', showButton);
   const changeBackground = () => {
-    if(window.scrollY >= 80) {
+    if (window.scrollY >= 80) {
       setNavbar(true)
-    }else {
+    } else {
       setNavbar(false);
     }
   };
@@ -60,7 +60,7 @@ function Top() {
   const [status, setStatus] = useState('close');
   return (
     <>
-      <div id= {navbar ? 'nav_main_div' : 'nav_main_div2'}>
+      <div id={navbar ? 'nav_main_div' : 'nav_main_div2'}>
         <div ClassName="nav-co">
           <Navbar expand="xl" collapseOnSelect={true} className="Navbar">
             <div id="nav_img">

@@ -172,7 +172,7 @@
   align-items: center;
   position: fixed;
   top: 0;
-  z-index: 10;
+  z-index: 20;
 }
 #cards_main_container .cardqr{
   display: none;
@@ -277,7 +277,7 @@
   font-style: normal;
   font-weight: normal;
   font-size: 1vw;
-  color: rgba(33, 46, 52, 0.4);
+  color: rgba(33, 46, 52);
   padding-right: 0.625vw;
 }
 #qr_container_input_block_container_container p {

@@ -20,6 +20,10 @@ footer:
           list2: "TeleCare",
           list3: "Virtual Klinic",
           list4: "Klinik in a Kiosk",
+          SpotCarelink: "",
+          TeleCarelink: "",
+          Kliniclink: "",
+          Klinik: "",
       },
       {
           id: 3,
@@ -28,6 +32,10 @@ footer:
           list2: "Testimonials",
           list3: "About Team",
           list4: "Blogs & Articles",
+          FindDoctor: "",
+          Testimonials: "",
+          About: "",
+          Blogs: ""
       },
       {
           id: 4,
@@ -58,10 +66,10 @@ footericons:
           image: "./assets/twitter.png",
           link: "https://twitter.com/naturalminds_in",
       },
-      {
-          id: 5,
-          image: "./assets/youtube.png",
-          link: "https://in.linkedin.com/company/natural-minds-india",
-      },
+    #   {
+    #       id: 5,
+    #       image: "./assets/youtube.png",
+    #       link: "",
+    #   }
   ]
 ---
