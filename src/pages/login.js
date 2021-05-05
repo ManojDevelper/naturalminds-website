@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { graphql, useStaticQuery } from "gatsby";
+import axios from "axios";
 import "../styles/Login.scss";
+import close from "../data/assets/close.svg";
 import Top from "./nav";
 import Footer from "./footer";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { API_ROOT } from "gatsby-env-variables"
+import TextArea from "antd/lib/input/TextArea";
 
 function Login() {
   const data = useStaticQuery(graphql`
@@ -32,6 +35,13 @@ function Login() {
       }
     }
   `)
+  const showImage = (event) => {
+    seTStyle({ display: 'flex' });
+  }
+  const closeDisp = () => {
+    seTStyle({ display: 'none' });
+  };
+  const [dispImgStyle, seTStyle] = useState({ display: 'none' });
   /*-------------------------------------------------------------------------*/
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
@@ -46,7 +56,8 @@ function Login() {
   const [state, setState] = useState("")
   const [pincode, setPincode] = useState("")
   const [refferalCode, setRefferalcode] = useState("")
-  const [showData, setShowData] = useState("")
+  const [tnc_id, setTnc] = useState(false)
+  const [showData, setShowData] = useState(false)
 
   const [signUpErrors, setSignUpErrors] = useState({});
   const signUservalidation = () => {
@@ -106,11 +117,19 @@ function Login() {
       toast.error("Enter Your pincode", {
         position: "top-right", hideProgressBar: true,
       })
+    } if (showData === true || "") {
+      toast.success(showData.msg, {
+        position: "top-right", hideProgressBar: true,
+      })
+    } else {
+      toast.error(showData.msg, {
+        position: "top-right", hideProgressBar: true,
+      })
     }
     return errors;
   }
   async function signUp() {
-    let item = { name, email, phone, licenseNo, gender, orgName, orgPhone, docType, address, pincode, state, city, refferalCode }
+    let item = { name, email, phone, licenseNo, gender, orgName, orgPhone, docType, address, pincode, state, city, refferalCode, tnc_id }
 
     let result = await fetch(API_ROOT + "/api/SpotCare/signup", {
       method: "POST",
@@ -121,18 +140,9 @@ function Login() {
       },
     })
     result = await result.json()
-    setShowData(result)
-    setSignUpErrors(signUservalidation())
     console.log(signUpErrors)
-    if (showData.status === true) {
-      toast.success(showData.msg, {
-        position: "top-right", hideProgressBar: true,
-      })
-    } else {
-      toast.error(showData.msg, {
-        position: "top-right", hideProgressBar: true,
-      })
-    }
+    setSignUpErrors(signUservalidation())
+    setShowData(result)
   }
   /*================to clear up all the results in the register form================*/
   const [docResult, setDocResult] = useState("")
@@ -151,6 +161,7 @@ function Login() {
     setState("")
     setPincode("")
     setRefferalcode("")
+    setShowData("")
     setShowData("")
   }
   /*====================for Specelist======================*/
@@ -173,8 +184,16 @@ function Login() {
   }
   useEffect(() => {
     getDoctor();
+    loadPosts();
     // eslint-disable-next-line
   }, [])
+  /*================calling Api for Terms and conditions================*/
+  const [posts, setPosts] = useState([]);
+
+  const loadPosts = async () => {
+    const response = await axios.get("https://stag.spotcare.in/api/SpotCare/tnc");
+    setPosts(response.data);
+  }
   return (
     <>
       <div id="login_main">
@@ -387,8 +406,8 @@ function Login() {
               </div>
             </div>
             <div id="register_checkbox">
-              <input type="checkbox" />
-              <p>By signing up, I accept NaturalMinds’s <span>Terms and conditions</span></p>
+                <input type="checkbox" value={showData.tnc_id} onChange={e => setTnc(e.target.checked)}/>
+              <p>By signing up, I accept NaturalMinds’s <span onClick={showImage} role="presentation">Terms and conditions</span></p>
             </div>
             <div id="register_button">
               <button type="submit" onClick={signUp} disabled>SignUp</button>
@@ -398,9 +417,12 @@ function Login() {
         </div>
         <Footer />
         <ToastContainer />
-      </div>
-      <div id="tnc_popup_container">
-      <textarea value="m"/>
+        <div id="tnc_popup_container_main" style={dispImgStyle}>
+          <div id="tnc_popup_container">
+            <img src={close} alt="close" onClick={closeDisp} role="presentation" id="closeimg" />
+            <TextArea value={posts.tnc} id="termsandCo" />
+          </div>
+        </div>
       </div>
     </>
   )

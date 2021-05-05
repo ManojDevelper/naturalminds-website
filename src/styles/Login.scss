@@ -433,3 +433,38 @@
     background: yellowgreen;
 }
 /*===========terms and conditions====================*/
+#login_main #tnc_popup_container_main {
+    width: 100%;
+    background: #ffffff;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+    position: fixed;
+    top:0;
+}
+#login_main #tnc_popup_container {
+    width: fit-content;
+    height: fit-content;
+    width: 1038px;
+    padding: 2vw 2.5vw;
+    height: 501px;
+    border-radius: 16px;
+    box-shadow: 0px 0px 12px rgba(15, 36, 44, 0.15);
+    position: relative;
+}
+#login_main #termsandCo {
+    width: 100%;
+    height: 100%;
+    resize: none;
+    border: none;
+    color: black;
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: normal;
+}
+#closeimg{
+    position: absolute;
+    right: 0;
+}

@@ -30,6 +30,10 @@
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: 6vw auto;
+    transition: 0.7s ease;
+}
+.commingsoon_cards:hover {
+    box-shadow: 0px 10px 20px rgba(41, 41, 42, 0.2);
 }
 .commingsoon_cards_img_container{
     width: fit-content;

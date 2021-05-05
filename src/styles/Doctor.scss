@@ -244,6 +244,26 @@
   width: fit-content;
   height: fit-content;
 }
+/*===========================popups.scss================*/
+#finddr_qr_container{
+  background: rgb(20, 20, 20);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top:0;
+  z-index: 20;
+}
+#finddr_qr_container #qr_conatiner_block2{
+  display: flex;
+  justify-content: right;
+  align-items: right;
+}
+#finddr_qr_container #qrs{
+  margin-left: auto;
+}
 @media (max-width: 1202px) {
   #doctors .nav-co {
     padding: 3vw 1vw 3vw 1vw;

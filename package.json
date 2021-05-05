@@ -52,6 +52,7 @@
     "react-spring": "^9.1.2",
     "react-toastify": "^7.0.4",
     "react-typography": "^0.16.19",
+    "reactjs-popup": "^2.0.4",
     "sass": "^1.32.8",
     "styled-components": "^5.2.3",
     "typography": "^0.16.19"
