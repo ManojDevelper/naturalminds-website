@@ -7,12 +7,20 @@ import { graphql, useStaticQuery } from "gatsby"
 
 function Top() {
 
-  function componentDidMount()
-  {
+  
+
+  useEffect(() => {
     window.addEventListener('resize', showButton);
 
     window.addEventListener('scroll', changeBackground);
-  }
+    return () => {
+      window.removeEventListener('resize', showButton);
+
+      window.removeEventListener('scroll', changeBackground);
+    }
+}, [])
+
+
   const [navbar, setNavbar] = useState(false);
   const [button, setButton] = useState();
   const data = useStaticQuery(graphql`
