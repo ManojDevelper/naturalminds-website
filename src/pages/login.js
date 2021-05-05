@@ -388,7 +388,7 @@ function Login() {
             </div>
             <div id="register_checkbox">
               <input type="checkbox" />
-              <p>By signing up, I accept NaturalMindsâ€™s <span>Terms and conditions</span></p>
+              <p>By signing up, I accept NaturalMinds’s <span>Terms and conditions</span></p>
             </div>
             <div id="register_button">
               <button type="submit" onClick={signUp} disabled>SignUp</button>
@@ -398,9 +398,6 @@ function Login() {
         </div>
         <Footer />
         <ToastContainer />
-      </div>
-      <div id="tnc_popup_container">
-      <textarea value="m"/>
       </div>
     </>
   )
