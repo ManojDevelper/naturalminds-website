@@ -6,6 +6,13 @@ import { Link } from "gatsby";
 import { graphql, useStaticQuery } from "gatsby"
 
 function Top() {
+
+  function componentDidMount()
+  {
+    window.addEventListener('resize', showButton);
+
+    window.addEventListener('scroll', changeBackground);
+  }
   const [navbar, setNavbar] = useState(false);
   const [button, setButton] = useState();
   const data = useStaticQuery(graphql`
@@ -44,7 +51,6 @@ function Top() {
     // eslint-disable-next-line
   }, [])
 
-  window.addEventListener('resize', showButton);
   const changeBackground = () => {
     if(window.scrollY >= 80) {
       setNavbar(true)
@@ -52,9 +58,9 @@ function Top() {
       setNavbar(false);
     }
   };
-  window.addEventListener('scroll', changeBackground);
+  
 
-
+  
 
 
   const [status, setStatus] = useState('close');
