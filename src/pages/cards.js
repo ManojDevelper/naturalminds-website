@@ -10,68 +10,68 @@ import { useState } from "react";
 import { API_ROOT } from "gatsby-env-variables"
 
 function Cards() {
-    /*==================Api calling for patient form====================*/
-    const [errors, setErrors] = useState({});
-    const Patentvalidation = () => {
+  /*==================Api calling for patient form====================*/
+  const [errors, setErrors] = useState({});
+  const Patentvalidation = () => {
 
-        let errors = {};
-        if (!mobile_no) {
-            errors.mobile_no = "**Enter your Mobile Number"
-        } else if (mobile_no.length < 9) {
-            errors.mobile_no = "Please enter valid mobile number"
-        }
-        return errors;
+    let errors = {};
+    if (!mobile_no) {
+      errors.mobile_no = "**Enter your Mobile Number"
+    } else if (mobile_no.length < 9) {
+      errors.mobile_no = "Please enter valid mobile number"
     }
-    const [mobile_no, setMobile_no] = useState("")
-    const [patFinal, setPatFinal] = useState("")
-    async function sendPat() {
-        let item = { mobile_no }
+    return errors;
+  }
+  const [mobile_no, setMobile_no] = useState("")
+  const [patFinal, setPatFinal] = useState("")
+  async function sendPat() {
+    let item = { mobile_no }
 
-        let patResult = await fetch(API_ROOT+"/api/Spotcare/getPatientLink", {
-            method: "POST",
-            body: JSON.stringify(item),
-            headers: {
-                "Content-Type": "application/json",
-                Accept: "application/json",
-            },
-        })
-        patResult = await patResult.json()
-        setErrors(Patentvalidation())
-        setPatFinal(patResult)
-        console.log(patFinal)
-    }
-    /*=================================================================*/
-    /*==================Api calling for doctor form====================*/
-    const [errors2, setErrors2] = useState({});
-    const Doctorvalidation = () => {
+    let patResult = await fetch(API_ROOT + "/api/Spotcare/getPatientLink", {
+      method: "POST",
+      body: JSON.stringify(item),
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+    patResult = await patResult.json()
+    setErrors(Patentvalidation())
+    setPatFinal(patResult)
+    console.log(patFinal)
+  }
+  /*=================================================================*/
+  /*==================Api calling for doctor form====================*/
+  const [errors2, setErrors2] = useState({});
+  const Doctorvalidation = () => {
 
-        let errors2 = {};
-        if (!mobile_no2) {
-            errors2.mobile_no2 = "**Enter your Mobile Number"
-        } else if (mobile_no.length < 9) {
-            errors2.mobile_no2 = "**Please Enter Valid Mobile Number"
-        }
-        return errors2;
+    let errors2 = {};
+    if (!mobile_no2) {
+      errors2.mobile_no2 = "**Enter your Mobile Number"
+    } else if (mobile_no.length < 9) {
+      errors2.mobile_no2 = "**Please Enter Valid Mobile Number"
     }
-    const [mobile_no2, setMobile_no2] = useState("")
-    const [docFinal, setDocFinal] = useState("")
-    async function sendDoc() {
-        let item2 = { mobile_no2 }
+    return errors2;
+  }
+  const [mobile_no2, setMobile_no2] = useState("")
+  const [docFinal, setDocFinal] = useState("")
+  async function sendDoc() {
+    let item2 = { mobile_no2 }
 
-        let docResult = await fetch(API_ROOT+"/api/Spotcare/getDoctorLink", {
-            method: "POST",
-            body: JSON.stringify(item2),
-            headers: {
-                "Content-Type": "application/json",
-                Accept: "application/json",
-            },
-        })
-        docResult = await docResult.json()
-        setErrors2(Doctorvalidation());
-        setDocFinal(docResult);
-        console.log(docFinal)
-    }
-    /*=================================================================*/
+    let docResult = await fetch(API_ROOT + "/api/Spotcare/getDoctorLink", {
+      method: "POST",
+      body: JSON.stringify(item2),
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+    docResult = await docResult.json()
+    setErrors2(Doctorvalidation());
+    setDocFinal(docResult);
+    console.log(docFinal)
+  }
+  /*=================================================================*/
   const [toggleState, setToggleState] = useState(0);
 
   const toggleTab = (index) => {
@@ -203,16 +203,16 @@ function Cards() {
                         <h1>SpotCare® For Doctors & Health Service Providers</h1>
                         <p>Adding value to the lives of patients, doctors, health workers, pharmacies, diagnostics and healthcare institutions with the help of new-age technology</p>
                       </div>
-                      <div id="qr_container_input_block" style={{position: `relative`}}>
+                      <div id="qr_container_input_block" style={{ position: `relative` }}>
                         <h1>Get the link to Download the App</h1>
                         <div id="qr_container_input_block_container">
                           <div id="qr_container_input_block_container_container">
                             <p>+91</p>
-                            <input type="text" placeholder="Enter Mobile Number" value={mobile_no2} onChange={(e) => setMobile_no2(e.target.value || "")} maxLength={10} minLength={10} onKeyPress={event => {if (!/[0-9]/.test(event.key)) { event.preventDefault()}}}/>
+                            <input type="text" placeholder="Enter Mobile Number" value={mobile_no2} onChange={(e) => setMobile_no2(e.target.value || "")} maxLength={10} minLength={10} onKeyPress={event => { if (!/[0-9]/.test(event.key)) { event.preventDefault() } }} />
                           </div>
                           <button onClick={sendDoc}>Get App Link</button>
                         </div>
-                        {errors2.mobile_no2 && <p className="errors" style={{fontSize: `1vw`, color: `orange`, position: `absolute`, margin: `0`}}>{errors2.mobile_no2}</p>}
+                        {errors2.mobile_no2 && <p className="errors" style={{ fontSize: `1vw`, color: `orange`, position: `absolute`, margin: `0` }}>{errors2.mobile_no2}</p>}
                       </div>
                     </div>
                   </div>
@@ -243,16 +243,16 @@ function Cards() {
                         <h1>SpotCare® For Patients & General Public</h1>
                         <p>Adding value to the lives of patients, doctors, health workers, pharmacies, diagnostics and healthcare institutions with the help of new-age technology</p>
                       </div>
-                      <div id="qr_container_input_block" style={{position: `relative`}}>
+                      <div id="qr_container_input_block" style={{ position: `relative` }}>
                         <h1>Get the link to Download the App</h1>
                         <div id="qr_container_input_block_container">
                           <div id="qr_container_input_block_container_container">
                             <p>+91</p>
-                            <input type="text" placeholder="Enter Mobile Number" value={mobile_no} onChange={(e) => setMobile_no(e.target.value || "")} maxLength={10} minLength={10} onKeyPress={event => {if (!/[0-9]/.test(event.key)) { event.preventDefault()}}}/>
+                            <input type="text" placeholder="Enter Mobile Number" value={mobile_no} onChange={(e) => setMobile_no(e.target.value || "")} maxLength={10} minLength={10} onKeyPress={event => { if (!/[0-9]/.test(event.key)) { event.preventDefault() } }} />
                           </div>
                           <button onClick={sendPat}>Get App Link</button>
                         </div>
-                        {errors.mobile_no && <p className="errors" style={{fontSize: `1vw`, color: `orange`, position: `absolute`, margin: `0`}}>{errors.mobile_no}</p>}
+                        {errors.mobile_no && <p className="errors" style={{ fontSize: `1vw`, color: `orange`, position: `absolute`, margin: `0` }}>{errors.mobile_no}</p>}
                       </div>
                     </div>
                   </div>

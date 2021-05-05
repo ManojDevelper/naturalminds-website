@@ -9,7 +9,6 @@ import male from "../data/assets/male.png";
 import female from "../data/assets/female.jpeg"
 import { graphql, useStaticQuery } from "gatsby"
 import Top from "./nav"
-import _ from "lodash"
 import { API_ROOT } from "gatsby-env-variables"
 
 
@@ -72,7 +71,7 @@ function Doctor() {
 
   return (
     <>
-      <Top />
+<Top />
       <div id="doctors">
         <div id="doctor_container">
           <div id="doctor_search">

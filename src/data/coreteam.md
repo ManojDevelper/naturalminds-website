@@ -18,7 +18,7 @@ coreteam:
       {
           id: 2,
           name: "A.R.P.Raman",
-          designation: "Chief Executive Officer (CEO)",
+          designation: "Chief Marketing Officer (CMO)",
           qualification1: "C-Suite Marketing Professional,",
           qualification2: "National Award Winner for Marketing Services",
           description: "Raman, with 33+ years in sales and marketing operations, has handled varied / diverse industry segments notable among which are Real Estate and Photography. His significant assignments were with international photo giants like Agfa Gevaert and Konica in Photography and later with large Real-Estate names like  Adarsh Group, Alliance Group, Shriram Properties, Phoenix Group, Unishire Group launching various landmark projects in Bangalore, Chennai, Hyderabad and Kolkata. Known for his flamboyance and flourish he masterminded the exponential Launch of PHOENIX GROUP'S ONE BANGALORE WEST that witnessed an unprecedented 90% sale fetching Rs. 850 Cr in 15 months breaking all Launch records. Post this he has been a Marketing consultant to some select Realty players. Raman is also a certified Global Trainer in Leadership and related Management skills.",

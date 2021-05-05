@@ -6,6 +6,7 @@ import { Link } from "gatsby";
 import { graphql, useStaticQuery } from "gatsby"
 
 function Top() {
+  
   const [navbar, setNavbar] = useState(false);
   const [button, setButton] = useState();
   const data = useStaticQuery(graphql`

@@ -77,9 +77,9 @@ function Login() {
       },
     })
     loginResult = await loginResult.json()
+    setErrors(uservalidation())
     setLoginFinal(loginResult)
     console.log(loginFinal)
-    setErrors(uservalidation())
     console.log(errors)
   }
   /*-------------------------------------------------------------------------*/
@@ -156,10 +156,6 @@ function Login() {
       toast.error("Enter Your pincode", {
         position: "top-right", hideProgressBar: true,
       })
-    } else if (!refferalCode) {
-      toast.error("Enter Your refferalCode", {
-        position: "top-right", hideProgressBar: true,
-      })
     }
     return errors;
   }
@@ -181,15 +177,15 @@ function Login() {
     toast.error(showData.msg, { position: `top-right` })
   }
   /*================calling Api for Terms and conditions================*/
-  const [posts, setPosts] = useState([]);
+  // const [posts, setPosts] = useState([]);
 
-  useEffect(() => {
-    const loadPosts = async () => {
-      const response = await axios.get(API_ROOT + "/api/SpotCare/tnc");
-      setPosts(response.data);
-    }
-    loadPosts();
-  }, []);
+  // useEffect(() => {
+  //   const loadPosts = async () => {
+  //     const response = await axios.get(API_ROOT + "/api/SpotCare/tnc");
+  //     setPosts(response.data);
+  //   }
+  //   loadPosts();
+  // }, []);
   /*================to clear up all the results in the register form================*/
   const [docResult, setDocResult] = useState("")
   function signUps() {
@@ -271,7 +267,7 @@ function Login() {
                     <button onClick={okuser}>
                       {data.login.childMarkdownRemark.frontmatter.loginbutton}
                     </button>
-                    {(loginFinal.status === true) ? (toast.success(loginFinal.msg, { position: `top-center` })) : ("")}
+                    {/* {(loginFinal.status === true) ? (toast.success(loginFinal.msg, { position: `top-center` })) : ("")} */}
                   </div>
                 </div>
               </div>

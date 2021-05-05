@@ -19,7 +19,7 @@ const Landing = () => {
   return (
     <>
       <Banner />
-      {/* <Status />
+      <Status />
       <Patner />
       <Cards />
       <Commingsoon />
@@ -27,10 +27,10 @@ const Landing = () => {
       <About />
       <Coreteam />
       <Ourcustomers />
-      <Patners /> */}
+      <Patners />
       {/* <Blogs /> */}
-      {/* <Contact />
-      <Footer /> */}
+      <Contact />
+      <Footer />
     </>
   )
 }
