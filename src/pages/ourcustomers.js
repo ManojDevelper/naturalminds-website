@@ -38,7 +38,7 @@ function Ourcustomers() {
         <h1>{data.ourcustomers.childMarkdownRemark.frontmatter.title}</h1>
         <Carousel>
           {data.ourcustomers.childMarkdownRemark.frontmatter.ourcustomers.map(ourcustomers =>
-            <Carousel.Item key={ourcustomers.id}>
+            <Carousel.Item key={ourcustomers.id} className="ourcustomers_carousal">
               <div className='ourcustomers_container'>
                 <div className="ourcustomers_video">
                   <video controls id="video_img">
