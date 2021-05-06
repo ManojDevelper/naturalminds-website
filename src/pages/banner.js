@@ -11,7 +11,7 @@ import Top from "./nav";
 import { API_ROOT } from "gatsby-env-variables"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Button, Modal } from 'react-bootstrap';
+import { Modal } from 'react-bootstrap';
 
 function Banner() {
     const [lgShow, setLgShow] = useState(false);
@@ -88,9 +88,6 @@ function Banner() {
     const showImage = (event) => {
         seTStyle({ display: 'flex' });
     }
-    const closeDisp = () => {
-        seTStyle({ display: 'none' });
-    };
     const [dispImgStyle, seTStyle] = useState({ display: 'none' });
     const [toggleState, setToggleState] = useState(0);
 
