@@ -1,5 +1,6 @@
 import React, { useState } from "react"
-import qr1 from "../data/assets/googleplay_qr.png"
+import qr1 from "../data/assets/patentqr.png"
+import qr2 from "../data/assets/docqr.png"
 import playstorebtn from "../data/assets/playstore_btn.svg"
 import appstorebtn from "../data/assets/appstore_btn.svg"
 import { graphql, useStaticQuery } from "gatsby";
@@ -22,8 +23,8 @@ function Banner() {
         let errors = {};
         if (!mobile_no) {
             errors.mobile_no = "**Enter your Mobile Number"
-        } else if (mobile_no.length < 9) {
-            errors.mobile_no = "Please enter valid mobile number"
+        } else {
+            errors.mobile_no = ""
         } if (patFinal.status === true) {
             toast.success(patFinal.msg)
         } else {
@@ -48,6 +49,7 @@ function Banner() {
         setErrors(Patentvalidation())
         setPatFinal(patResult)
         console.log(patFinal)
+        setMobile_no()
     }
     /*=================================================================*/
     /*==================Api calling for doctor form====================*/
@@ -57,8 +59,8 @@ function Banner() {
         let errors2 = {};
         if (!mobile_no2) {
             errors2.mobile_no2 = "**Enter your Mobile Number"
-        } else if (mobile_no.length < 9) {
-            errors2.mobile_no2 = "**Please Enter Valid Mobile Number"
+        } else{
+            errors2.mobile_no2 = ""
         } if (docFinal.status === true) {
             toast.success(docFinal.msg)
         } else {
@@ -83,12 +85,9 @@ function Banner() {
         setErrors2(Doctorvalidation());
         setDocFinal(docResult);
         console.log(docFinal)
+        setMobile_no2("")
     }
     /*=================================================================*/
-    const showImage = (event) => {
-        seTStyle({ display: 'flex' });
-    }
-    const [dispImgStyle, seTStyle] = useState({ display: 'none' });
     const [toggleState, setToggleState] = useState(0);
 
     const toggleTab = (index) => {
@@ -134,20 +133,18 @@ function Banner() {
                                 <img src={playbutton} alt="playbutton" className="playbutton" />
                             </div>
                             <div id="videodiv">
-                                <span onClick={showImage} role="presentation" onClick={() => setLgShow(true)}>{data.banner.childMarkdownRemark.frontmatter.video}</span>
+                                <span onClick={() => setLgShow(true)} role="presentation">{data.banner.childMarkdownRemark.frontmatter.video}</span>
                             </div>
                         </div>
-            <Modal show={lgShow} onHide={() => setLgShow(false)} centered enforceFocus keyboard size="xl" bsPrefix={"modal"} id="videomodal">
-            <Modal.Header closeButton>
-                <div id="banner_pop_video">
-                        <video autoPlay>
-                            <source src={video} type="video/mp4" />
-                        </video>
-                    </div>
-            </Modal.Header>
-            </Modal>
-
-
+                        <Modal show={lgShow} onHide={() => setLgShow(false)} centered enforceFocus keyboard size="xl" bsPrefix={"modal"} id="videomodal">
+                            <Modal.Header closeButton>
+                                <div id="banner_pop_video">
+                                    <video autoPlay controls>
+                                        <source src={video} type="video/mp4" />
+                                    </video>
+                                </div>
+                            </Modal.Header>
+                        </Modal>
                         <div id="bannerqr" className={toggleState === 1 ? "cardqr  active-cardqr" : "cardqr"} >
                             {
                                 show ?
@@ -167,8 +164,10 @@ function Banner() {
                                                             <p>+91</p>
                                                             <input type="text" placeholder="Enter Mobile Number" value={mobile_no} onChange={(e) => setMobile_no(e.target.value || "")} maxLength={10} minLength={10} onKeyPress={event => { if (!/[0-9]/.test(event.key)) { event.preventDefault() } }} />
                                                         </div>
-                                                        <button onClick={sendPat}>Get App Link</button>
-
+                                                        {(!mobile_no || mobile_no.length < 10 ) ? (
+                                                            <button disabled style={{background: `gray`}}>Get App Link</button> ) :(
+                                                                <button onClick={sendPat}>Get App Link</button>
+                                                        )}
                                                     </div>
                                                     {errors.mobile_no && <p className="errors" style={{ fontSize: `1vw`, color: `orange`, position: `absolute`, margin: `0`, transition: `0.5s ease` }}>{errors.mobile_no}</p>}
                                                 </div>
@@ -208,7 +207,10 @@ function Banner() {
                                                             <p>+91</p>
                                                             <input type="text" placeholder="Enter Mobile Number" value={mobile_no2} onChange={(e) => setMobile_no2(e.target.value || "")} maxLength={10} minLength={10} onKeyPress={event => { if (!/[0-9]/.test(event.key)) { event.preventDefault() } }} />
                                                         </div>
-                                                        <button onClick={sendDoc}>Get App Link</button>
+                                                        {(!mobile_no2 || mobile_no2.length < 10 ) ? (
+                                                            <button disabled style={{background: `gray`}}>Get App Link</button> ) :(
+                                                                <button onClick={sendDoc}>Get App Link</button>
+                                                        )}
                                                     </div>
                                                     {errors2.mobile_no2 && <p className="errors" style={{ fontSize: `1vw`, color: `orange`, position: `absolute`, margin: `0`, transition: `0.5s ease` }}>{errors2.mobile_no2}</p>}
                                                 </div>
@@ -217,7 +219,7 @@ function Banner() {
                                         <div id="qr_conatiner_block2">
                                             <div id="qrs">
                                                 <div id="qu_image_container">
-                                                    <img src={qr1} alt="qr" />
+                                                    <img src={qr2} alt="qr" />
                                                 </div>
                                                 <div id="qr_image_button">
                                                     <a href="https://play.google.com/store/apps/details?id=com.naturalminds" target="_blank" rel="noopener noreferrer" ><button><img src={playstorebtn} alt="btn" />Google Play</button></a>

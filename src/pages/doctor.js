@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../styles/Doctor.scss";
-import qr1 from "../data/assets/googleplay_qr.png"
+import qr1 from "../data/assets/patentqr.png"
 import playstorebtn from "../data/assets/playstore_btn.svg"
 import appstorebtn from "../data/assets/appstore_btn.svg"
 import close from "../data/assets/close.svg";
@@ -17,6 +17,7 @@ import { graphql, useStaticQuery } from "gatsby";
 import Top from "./nav";
 import { API_ROOT } from "gatsby-env-variables";
 import Footer from "./footer";
+import _ from "lodash"
 
 
 function Doctor() {
@@ -27,8 +28,8 @@ function Doctor() {
     let errors = {};
     if (!mobile_no) {
       errors.mobile_no = "**Enter your Mobile Number"
-    } else if (mobile_no.length < 9) {
-      errors.mobile_no = "Please enter valid mobile number"
+    } else {
+      errors.mobile_no = ""
     } if (patFinal.status === true) {
       toast.success(patFinal.msg)
     } else {
@@ -117,7 +118,7 @@ function Doctor() {
     console.log(final)
   }
   useEffect(() => {
-    search()
+    search();
     // eslint-disable-next-line
   }, [])
 
@@ -166,15 +167,19 @@ function Doctor() {
                   <div id="doc_card1" key={i}>
                     <div id="doc_card1_block1">
                       <div id="doc_card1_block1_image_container">
-                        {(key.profile_image === "") ? (
-                          <img src={key.profile_image} alt={key.name} />
-                        ) : (
-                          <>
-                            {key.gender.toLowerCase() === "male" || key.gender.toLowerCase() === "m" ? (<img src={male} alt="male" />) : (
-                              <img src={female} alt="female" />
-                            )}
-                          </>
-                        )}
+                      
+                      {!_.isEmpty(key.profile_image) ? (
+                        <img src={key.profile_image} alt={key.name} />
+                      ) : (
+                        <>
+                          {(!key.gender) || key.gender.toLowerCase() === "male" ||
+                          key.gender.toLowerCase() === "m" ? (
+                            <img src={male} alt="male" />
+                          ) : (
+                            <img src={female} alt="female" />
+                          )}
+                        </>
+                      )}
                       </div>
                       <div id="doc_card1_block1_matter_container">
                         <p id="doc_card_title">{key.name}</p>
@@ -249,7 +254,10 @@ function Doctor() {
                         <p>+91</p>
                         <input type="text" placeholder="Enter Mobile Number" value={mobile_no} onChange={(e) => setMobile_no(e.target.value || "")} maxLength={10} minLength={10} onKeyPress={event => { if (!/[0-9]/.test(event.key)) { event.preventDefault() } }} />
                       </div>
-                      <button onClick={sendPat}>Get App Link</button>
+                      {(!mobile_no || mobile_no.length < 10 ) ? (
+                                                            <button disabled style={{background: `gray`}}>Get App Link</button> ) :(
+                                                                <button onClick={sendPat}>Get App Link</button>
+                                                        )}
                     </div>
                     {errors.mobile_no && <p className="errors" style={{ fontSize: `1vw`, color: `orange`, position: `absolute`, margin: `0`, transition: `0.5s ease` }}>{errors.mobile_no}</p>}
                   </div>

@@ -142,9 +142,10 @@
   background-color: white;
   box-shadow: 0px 2px 12px rgba(15, 48, 65, 0.12);
   border-radius: 1vw;
+  transition: 0.8s ease;
 }
 #doc_card1:hover {
-  box-shadow: 0px 2px 20px rgba(15, 48, 65, 0.12);
+  box-shadow: 0px 0px 1px rgba(15, 48, 65, 0.12);
 }
 #doc_card1_block1 {
   display: grid;

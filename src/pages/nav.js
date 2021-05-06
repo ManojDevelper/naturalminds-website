@@ -97,7 +97,7 @@ function Top() {
                 <Link to="/landing/#ourproducts" id="navbtn2" activeclassname="nav_active">PRODUCTS</Link>
                 <Link to="/doctor" id="navbtn2" activeclassname="nav_active">FIND DOCTOR</Link>
                 <Link to="/landing/#contact" id="navbtn2" activeclassname="nav_active">CONTACT US</Link>
-                <Link to="/login"><button activeclassname="nav_active2" className="navbtn1">REGISTER</button></Link>
+                <Link to="/register"><button activeclassname="nav_active2" className="navbtn1">REGISTER</button></Link>
                 <a href="https://www.spotcare.in/auth/login" target="_blank" without rel="noreferrer"><button activeclassname="nav_active2" className="navbtn2">LOGIN</button></a>
               </Nav>
             </Navbar.Collapse>

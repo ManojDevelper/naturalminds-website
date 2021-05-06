@@ -1,7 +1,8 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import close from "../data/assets/close.svg";
-import qr1 from "../data/assets/googleplay_qr.png";
+import qr1 from "../data/assets/patentqr.png"
+import qr2 from "../data/assets/docqr.png"
 import playstorebtn from "../data/assets/playstore_btn.svg";
 import appstorebtn from "../data/assets/appstore_btn.svg";
 import rate from "../data/assets/rate.svg";
@@ -19,8 +20,8 @@ function Cards() {
     let errors = {};
     if (!mobile_no) {
       errors.mobile_no = "**Enter your Mobile Number"
-    } else if (mobile_no.length < 9) {
-      errors.mobile_no = "Please enter valid mobile number"
+    } else {
+      errors.mobile_no = ""
     } if (patFinal.status === true) {
       toast.success(patFinal.msg)
     } else {
@@ -54,8 +55,8 @@ function Cards() {
     let errors2 = {};
     if (!mobile_no2) {
       errors2.mobile_no2 = "**Enter your Mobile Number"
-    } else if (mobile_no.length < 9) {
-      errors2.mobile_no2 = "**Please Enter Valid Mobile Number"
+    } else {
+      errors2.mobile_no2 = ""
     } if (docFinal.status === true) {
       toast.success(docFinal.msg)
     } else {
@@ -143,13 +144,6 @@ function Cards() {
                 description
                 link1
                 link2
-                storeqr {
-                  childImageSharp {
-                    fluid {
-                      src
-                    }
-                  }
-                }
               }
             }
           }
@@ -221,7 +215,10 @@ function Cards() {
                             <p>+91</p>
                             <input type="text" placeholder="Enter Mobile Number" value={mobile_no2} onChange={(e) => setMobile_no2(e.target.value || "")} maxLength={10} minLength={10} onKeyPress={event => { if (!/[0-9]/.test(event.key)) { event.preventDefault() } }} />
                           </div>
-                          <button onClick={sendDoc}>Get App Link</button>
+                          {(!mobile_no2 || mobile_no2.length < 10 ) ? (
+                                                            <button disabled style={{background: `gray`}}>Get App Link</button> ) :(
+                                                                <button onClick={sendDoc}>Get App Link</button>
+                                                        )}
                         </div>
                         {errors2.mobile_no2 && <p className="errors" style={{ fontSize: `1vw`, color: `orange`, position: `absolute`, margin: `0` }}>{errors2.mobile_no2}</p>}
                       </div>
@@ -230,7 +227,7 @@ function Cards() {
                   <div id="qr_conatiner_block2">
                     <div id="qrs">
                       <div id="qu_image_container">
-                        <img src={qr1} alt="qr" />
+                        <img src={qr2} alt="qr" />
                       </div>
                       <div id="qr_image_button">
                         <a href="https://play.google.com/store/apps/details?id=com.naturalminds" target="_blank" rel="noopener noreferrer" ><button><img src={playstorebtn} alt="btn" />Google Play</button></a>
@@ -261,7 +258,10 @@ function Cards() {
                             <p>+91</p>
                             <input type="text" placeholder="Enter Mobile Number" value={mobile_no} onChange={(e) => setMobile_no(e.target.value || "")} maxLength={10} minLength={10} onKeyPress={event => { if (!/[0-9]/.test(event.key)) { event.preventDefault() } }} />
                           </div>
-                          <button onClick={sendPat}>Get App Link</button>
+                          {(!mobile_no || mobile_no.length < 10 ) ? (
+                                                            <button disabled style={{background: `gray`}}>Get App Link</button> ) :(
+                                                                <button onClick={sendPat}>Get App Link</button>
+                                                        )}
                         </div>
                         {errors.mobile_no && <p className="errors" style={{ fontSize: `1vw`, color: `orange`, position: `absolute`, margin: `0` }}>{errors.mobile_no}</p>}
                       </div>

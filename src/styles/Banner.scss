@@ -2,11 +2,11 @@
 /*========Banner========*/
 .banner {
   width: 100%;
-  height: 49.1vw;
+  height: calc(50vw - 1px);
   background-image: url("../data/assets/banner.png");
   background-repeat: no-repeat;
-  background-size: 45vw auto;
-  background-position: bottom -4.5vw right 5.5vw;
+  background-size: 42vw auto;
+  background-position: bottom 0 right 5.5vw;
 }
 #videomodal{
   display: flex;
@@ -18,7 +18,7 @@
   max-width: calc(100% - 13%);
   margin: auto;
   position: relative;
-  top: 7vw;
+  top: 9.9vw;
 }
 .banner_container #banner_h1 {
   font-family: Noto Sans;
@@ -34,10 +34,12 @@
   font-size: 1.125vw;
   color: #585858;
   max-width: 31.25vw;
+  margin: 0;
 }
 .banner_buttons {
   display: flex;
   flex-direction: row;
+  margin-top: 1vw;
 }
 .banner_buttons bannerbtn {
   width: fit-content;
@@ -61,6 +63,7 @@
   border: none;
   cursor: pointer;
   transition: 0.5s ease-in-out;
+  margin: 0;
 }
 .banner_buttons button:hover {
   width: 12.1875vw;
@@ -326,31 +329,6 @@
   transform: translateY(-50%);
 }
 /*=========mediaquaries========*/
-@media (max-width: 1300px) {
-  .banner {
-    background-position: bottom -5vw right;
-  }
-  .banner_container #banner_h1 {
-    font-size: 4vw;
-    line-height: 1vw;
-    margin: 0;
-  }
-  .banner_container #banner_p {
-    font-size: 1.125vw;
-    margin: 0;
-    margin-top: 3vw;
-  }
-  .banner_buttons button {
-    font-size: 1.5vw;
-    width: 15vw;
-    height: 4.5vw;
-    border-radius: 0.8vw;
-    margin-top: 2.5vw;
-  }
-  .banner_buttons button:hover {
-    width: 16vw;
-  }
-}
 @media (max-width: 650px) {
   .banner {
     background-position: center bottom;

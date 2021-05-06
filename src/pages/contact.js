@@ -90,26 +90,33 @@ function Contact() {
                             <div className="contact_name" style={{ position: `relative` }}>
                                 <span key="12">{data.contact.childMarkdownRemark.frontmatter.name}</span>
                                 <input type="text" placeholder="Name" value={name} onChange={e => setName(e.target.value)} />
-                                {errors.name && <p className="errors" style={{ fontSize: `1vw`, color: `orange`, position: `absolute`, bottom: `-3vw` }}>{errors.name}</p>}
+                                <p className="errors" style={{ fontSize: `1vw`, color: `orange`, position: `absolute`, bottom: `-3vw` }}>{errors.name}</p>
                             </div>
                             <div className="contact_name" style={{ position: `relative` }}>
                                 <span key="14">{data.contact.childMarkdownRemark.frontmatter.mobile}</span>
                                 <input type="text" placeholder="Number" value={subject} onChange={e => setSubject(e.target.value)} />
-                                {errors.subject && <p className="errors" style={{ fontSize: `1vw`, color: `orange`, position: `absolute`, bottom: `-3vw` }}>{errors.subject}</p>}
+                             <p className="errors" style={{ fontSize: `1vw`, color: `orange`, position: `absolute`, bottom: `-3vw` }}>{errors.subject}</p>
                             </div>
                         </div>
                         <div className="contact_mail" style={{ position: `relative` }}>
                             <span key="16">{data.contact.childMarkdownRemark.frontmatter.mail}</span>
                             <input type="mail" placeholder="chrisdo@gmail.com" type="text" value={email} onChange={e => setEmail(e.target.value)} />
-                            {errors.email && <p className="errors" style={{ fontSize: `1vw`, color: `orange`, position: `absolute`, bottom: `-3vw` }}>{errors.email}</p>}
+                            <p className="errors" style={{ fontSize: `1vw`, color: `orange`, position: `absolute`, bottom: `-3vw` }}>{errors.email}</p>
                         </div>
                         <div className="contact_message" style={{ position: `relative` }}>
                             <span>Message</span>
                             <textarea type="mail" placeholder="Please Type Your Response" type="text" value={query} onChange={e => setQuery(e.target.value)} />
-                            {errors.query && <p className="errors" style={{ fontSize: `1vw`, color: `orange`, position: `absolute`, bottom: `-3vw` }}>{errors.query}</p>}
+                            <p className="errors" style={{ fontSize: `1vw`, color: `orange`, position: `absolute`, bottom: `-3vw` }}>{errors.query}</p>
                         </div>
                         <div className="button">
-                            <button onClick={contactSubmit}>{data.contact.childMarkdownRemark.frontmatter.button}</button>
+                        {(!name || !subject || !email || !/\S+@\S+\.\S+/.test(email) || !query) ? (
+                            <button onClick={contactSubmit} disabled style={{background: `gray`}}>{data.contact.childMarkdownRemark.frontmatter.button}</button>
+                      ) : (
+                        <>
+                        <button onClick={contactSubmit}>{data.contact.childMarkdownRemark.frontmatter.button}</button>
+                        </>
+                      )}
+                            
                         </div>
                     </div>
                 </div>

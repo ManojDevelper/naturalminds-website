@@ -1,0 +1,205 @@
+#pay * {
+    box-sizing: border-box;
+    width: 100%;
+}
+#pay {
+    position: relative;
+    top:10vw;
+}
+#pay_container_main {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+}
+#pay_container {
+    width: 49.5vw;
+    background: #ffffff;
+    border: 0.03125vw solid #00b3db;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 0.75vw rgba(15, 36, 44, 0.15);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    padding: 2.1875vw 2.75vw 4vw 2.75vw;
+}
+#pay_block1 h1 {
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 2.25vw;
+    line-height: 2.8125vw;
+    color: #ff4081;
+}
+#pay_block2 {
+    width: 100%;
+    height: 100%;
+    margin-top:1.5625vw;
+    display: grid;
+    grid-template-columns: 45% 45%;
+    gap: 10%;
+}
+#pay_block2_container1_wrapper{
+    display: grid;
+    grid-template-rows: 10.5625vw 10.5625vw;
+    gap: 1.6875vw;
+}
+#pay_block2_container1 {
+    cursor: pointer;
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: bold;
+    text-align: center;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0.03125vw solid #181b1d44;
+    transition: 0.5s ease;
+    background: #ffffff;
+    border-radius: 0.5vw;
+}
+#pay_block2_container1:hover {
+    color: white;
+    background: linear-gradient(135deg, #12c5e7 0%, #0385b1 100%);
+    border: 0.375vw solid rgba(0, 179, 219, 0.3);
+    box-shadow: 0px 0px 0.75vw rgba(15, 36, 44, 0.15);
+    border-radius: 0.5vw;
+}
+#pay_block2_container1_block1 {
+    width: fit-content;
+    height: fit-content;
+}
+#plantype {
+    font-size: 1.25vw;
+    margin: 0;
+}
+#amount {
+    font-size: 2.25vw;
+    margin: 0;
+}
+#permonth {
+    font-size: 1vw;
+    margin: 0;
+}
+/*===================paymentblock===================*/
+#pay_block2_container2 {
+    background: #ffffff;
+    border: 0.03125vw solid #181b1d44;
+    box-sizing: border-box;
+    border-radius: 0.5vw;
+    color: #0f1d46;
+    opacity: 1;
+    font-family: Source Sans Pro;
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    padding: 2.25vw 1.875vw;
+}
+#pay_block2_container2 #pay_block2_container2_block1 {
+    display: grid;
+    padding: 0 0.75vw;
+    height: 100%;
+}
+#pay_block2_mini_main{
+    display: grid;
+    grid-template-rows: auto auto;
+}
+#pay_block2_mini {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#pay_block2_container2_block1_title {
+    width: 100%;
+    border: none;
+    border-bottom: 0.0125vw solid #00000048;
+    height: 3vw;
+}
+#pay_block2_container2_block1_title h1 {
+    margin: 0;
+    font-size: 1.25vw;
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: 600;
+    color: #0f1d46;
+}
+#pay_block2_mini_container p {
+    color: #0f1d46;
+    margin: 0;
+}
+#pay_block2_mini #pay_block2_mini_container {
+    width: fit-content;
+    height: fit-content;
+}
+#prize_title {
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1vw;
+    line-height: 1.5vw;
+    color: #0f1d46;
+}
+#pay_prize {
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.25vw;
+    color: #0f1d46;
+}
+#pay_block2_cupon {
+    width: 100%;
+    height: 2.5vw;
+    border: 0.03125vw solid #00b3db;
+    box-sizing: border-box;
+    border-radius: 0.25vw;
+    position: relative;
+}
+#pay_block2_cupon input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    position: absolute;
+    color: #0f1d46;
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 0.875vw;
+    line-height: 1.5vw;
+    background: transparent;
+    position: absolute;
+    padding: 0.625vw;
+    outline: none;
+}
+#applybtn {
+    color: #ff4081;
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 0.875vw;
+    line-height: 1.5vw;
+    cursor: pointer;
+    position: absolute;
+    width: fit-content;
+    right: 0.625vw;
+    top:0.375vw;
+}
+#pay_block2_container2_block1_btn button {
+    background: #ff4081;
+    border-radius: 0.5vw;
+    width: 100%;
+    height: 3.5vw;
+    border: none;
+    outline: none;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.125vw;
+    color: white;
+}
+#login_main .footer{
+    margin-top: 10vw;
+}

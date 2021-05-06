@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import axios from "axios";
 import "../styles/Login.scss";
 import close from "../data/assets/close.svg";
 import Top from "./nav";
@@ -9,8 +8,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { API_ROOT } from "gatsby-env-variables"
 import TextArea from "antd/lib/input/TextArea";
+import { Link } from "gatsby";
 
-function Login() {
+function Register() {
   const data = useStaticQuery(graphql`
     query {
       login: file(relativePath: { eq: "login.md" }) {
@@ -35,9 +35,6 @@ function Login() {
       }
     }
   `)
-  const showImage = (event) => {
-    seTStyle({ display: 'flex' });
-  }
   const closeDisp = () => {
     seTStyle({ display: 'none' });
   };
@@ -57,8 +54,7 @@ function Login() {
   const [pincode, setPincode] = useState("")
   const [refferalCode, setRefferalcode] = useState("")
   const [tnc_id, setTnc] = useState(false)
-  const [showData, setShowData] = useState(false)
-
+  const [showData, setShowData] = useState([])
   const [signUpErrors, setSignUpErrors] = useState({});
   const signUservalidation = () => {
 
@@ -184,16 +180,18 @@ function Login() {
   }
   useEffect(() => {
     getDoctor();
-    loadPosts();
     // eslint-disable-next-line
   }, [])
   /*================calling Api for Terms and conditions================*/
   const [posts, setPosts] = useState([]);
-
-  const loadPosts = async () => {
-    const response = await axios.get("https://stag.spotcare.in/api/SpotCare/tnc");
-    setPosts(response.data);
-  }
+  useEffect(() => {
+    fetch(API_ROOT + "/api/tou/termsofuse.html").then((result) => {
+      result.json().then((resp) => {
+        setPosts(resp)
+      })
+    })
+  }, [])
+  console.warn(posts)
   return (
     <>
       <div id="login_main">
@@ -202,6 +200,7 @@ function Login() {
           <div id="register_container">
             <div id="register_container_head">
               <div id="register_container_head_block1">
+                <h1 dangerouslySetInnerHTML={{ __html: posts.tnc }} ></h1>
                 <h1>
                   {data.login.childMarkdownRemark.frontmatter.registertitle}
                 </h1>
@@ -406,11 +405,17 @@ function Login() {
               </div>
             </div>
             <div id="register_checkbox">
-                <input type="checkbox" value={showData.tnc_id} onChange={e => setTnc(e.target.checked)}/>
-              <p>By signing up, I accept NaturalMinds’s <span onClick={showImage} role="presentation">Terms and conditions</span></p>
+              <input type="checkbox" value={showData.tnc_id} onChange={e => setTnc(e.target.checked)} />
+              <p>By signing up, I accept NaturalMinds’s <span>Terms and conditions</span></p>
             </div>
             <div id="register_button">
-              <button type="submit" onClick={signUp} disabled>SignUp</button>
+              {(!name || !email || !gender || !phone || !licenseNo || !docType || !orgName || !orgPhone || !address || !city || !state || !pincode || !refferalCode || !tnc_id) ? (
+                <button type="submit" onClick={signUp} disabled style={{ background: `gray` }}>SignUp</button>
+              ) : (
+                <>
+                  <Link to="/spotPay"><button type="submit" onClick={signUp}>SignUp</button></Link>
+                </>
+              )}
               <button type="submit" onClick={signUps} style={{ background: `transparent`, color: `blue` }}>clear</button>
             </div>
           </div>
@@ -427,4 +432,4 @@ function Login() {
     </>
   )
 }
-export default Login
+export default Register;
