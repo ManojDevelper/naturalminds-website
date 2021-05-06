@@ -11,8 +11,10 @@ import Top from "./nav";
 import { API_ROOT } from "gatsby-env-variables"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Button, Modal } from 'react-bootstrap';
 
 function Banner() {
+    const [lgShow, setLgShow] = useState(false);
     /*==================Api calling for patient form====================*/
     const [errors, setErrors] = useState({});
     const Patentvalidation = () => {
@@ -135,19 +137,20 @@ function Banner() {
                                 <img src={playbutton} alt="playbutton" className="playbutton" />
                             </div>
                             <div id="videodiv">
-                                <span onClick={showImage} role="presentation">{data.banner.childMarkdownRemark.frontmatter.video}</span>
+                                <span onClick={showImage} role="presentation" onClick={() => setLgShow(true)}>{data.banner.childMarkdownRemark.frontmatter.video}</span>
                             </div>
                         </div>
-                        <div id="banner_popup" style={dispImgStyle}>
-                            <div id="banner_pop_close">
-                                <div id="banner_pop_video">
-                                    <img src={close} alt="close" onClick={closeDisp} role="presentation" />
-                                    <video controls>
-                                        <source src={video} type="video/mp4" />
-                                    </video>
-                                </div>
-                            </div>
-                        </div>
+            <Modal show={lgShow} onHide={() => setLgShow(false)} centered enforceFocus keyboard size="xl" bsPrefix={"modal"} id="videomodal">
+            <Modal.Header closeButton>
+                <div id="banner_pop_video">
+                        <video autoPlay>
+                            <source src={video} type="video/mp4" />
+                        </video>
+                    </div>
+            </Modal.Header>
+            </Modal>
+
+
                         <div id="bannerqr" className={toggleState === 1 ? "cardqr  active-cardqr" : "cardqr"} >
                             {
                                 show ?
