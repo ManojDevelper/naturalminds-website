@@ -176,7 +176,11 @@ function Doctor() {
                           key.gender.toLowerCase() === "m" ? (
                             <img src={male} alt="male" />
                           ) : (
-                            <img src={female} alt="female" />
+                            <>
+                            {key.gender.toLowerCase() === "female" || key.gender.toLowerCase() === "f" ? (
+                              <img src={female} alt="female" />
+                            ): (<img src={female} alt="female" />)}
+                            </>
                           )}
                         </>
                       )}
