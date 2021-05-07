@@ -117,8 +117,9 @@ function Banner() {
     return (
         <>
             <div className="banner">
-                <Top />
+                
                 <div className="banner_content_wrapper">
+                <Top />
                     <div className="banner_container">
                         <h1 id="banner_h1">{data.banner.childMarkdownRemark.frontmatter.title}</h1>
                         <p id="banner_p">{data.banner.childMarkdownRemark.frontmatter.description}</p>

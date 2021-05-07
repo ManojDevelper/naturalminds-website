@@ -63,7 +63,6 @@ function Register() {
       toast.error("Please Enter Your Name", {
         position: "top-right", hideProgressBar: true,
       })
-
     } else if (!email) {
       toast.error("Please Enter Your Email", {
         position: "top-right", hideProgressBar: true,
@@ -409,7 +408,7 @@ function Register() {
               <p>By signing up, I accept NaturalMinds’s <span>Terms and conditions</span></p>
             </div>
             <div id="register_button">
-              {(!name || !email || !gender || !phone || !licenseNo || !docType || !orgName || !orgPhone || !address || !city || !state || !pincode || !refferalCode || !tnc_id) ? (
+              {(!name || !email || (!/\S+@\S+\.\S+/.test(email)) || !gender || !phone || !licenseNo || !docType || !orgName || !orgPhone || !address || !city || !state || !pincode || !tnc_id) ? (
                 <button type="submit" onClick={signUp} disabled style={{ background: `gray` }}>SignUp</button>
               ) : (
                 <>
