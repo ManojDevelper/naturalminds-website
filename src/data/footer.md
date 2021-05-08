@@ -40,7 +40,7 @@ footer:
       {
           id: 4,
           title: "Contact us",
-          list1: "Call +91-9886709026",
+          list1: "Call +91-9650777225, +91-7702503636, +91-8884406335",
           list2: "contact@naturalminds.co.in",
       },
   ]
