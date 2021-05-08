@@ -11,8 +11,7 @@ import Ourcustomers from "./ourcustomers"
 import Patners from "./patners"
 import Contact from "./contact";
 import Footer from "./footer";
-import "../styles/index.scss"
-
+import "../styles/index.scss";
 
 const Landing = () => {
   return (

@@ -1,14 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { graphql, useStaticQuery } from "gatsby";
+import { graphql, navigate, useStaticQuery } from "gatsby";
 import "../styles/Login.scss";
-import close from "../data/assets/close.svg";
 import Top from "./nav";
 import Footer from "./footer";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { API_ROOT } from "gatsby-env-variables"
-import TextArea from "antd/lib/input/TextArea";
-import { Link } from "gatsby";
+import { API_ROOT } from "gatsby-env-variables";
 
 function Register() {
   const data = useStaticQuery(graphql`
@@ -35,10 +30,6 @@ function Register() {
       }
     }
   `)
-  const closeDisp = () => {
-    seTStyle({ display: 'none' });
-  };
-  const [dispImgStyle, seTStyle] = useState({ display: 'none' });
   /*-------------------------------------------------------------------------*/
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
@@ -55,90 +46,19 @@ function Register() {
   const [refferalCode, setRefferalcode] = useState("")
   const [tnc_id, setTnc] = useState(false)
   const [showData, setShowData] = useState([])
-  const [signUpErrors, setSignUpErrors] = useState({});
-  const signUservalidation = () => {
 
-    let errors = {};
-    if (!name) {
-      toast.error("Please Enter Your Name", {
-        position: "top-right", hideProgressBar: true,
-      })
-    } else if (!email) {
-      toast.error("Please Enter Your Email", {
-        position: "top-right", hideProgressBar: true,
-      })
-    } else if (!/\S+@\S+\.\S+/.test(email)) {
-      toast.error("Please Valid Email", {
-        position: "top-right", hideProgressBar: true,
-      })
-    } else if (!gender) {
-      toast.error("Select Gender", {
-        position: "top-right", hideProgressBar: true,
-      })
-    } else if (!phone) {
-      toast.error("Enter Your Mobile Number", {
-        position: "top-right", hideProgressBar: true,
-      })
-    } else if (!licenseNo) {
-      toast.error("Enter Your LicenseNo", {
-        position: "top-right", hideProgressBar: true,
-      })
-    } else if (!docType) {
-      toast.error("Select Doctor Type", {
-        position: "top-right", hideProgressBar: true,
-      })
-    }
-    else if (!orgName) {
-      toast.error("Enter Your orgName", {
-        position: "top-right", hideProgressBar: true,
-      })
-    } else if (!orgPhone) {
-      toast.error("Enter Your orgPhone", {
-        position: "top-right", hideProgressBar: true,
-      })
-    } else if (!address) {
-      toast.error("Enter Your address", {
-        position: "top-right", hideProgressBar: true,
-      })
-    } else if (!city) {
-      toast.error("Enter Your city", {
-        position: "top-right", hideProgressBar: true,
-      })
-    } else if (!state) {
-      toast.error("Enter Your state", {
-        position: "top-right", hideProgressBar: true,
-      })
-    } else if (!pincode) {
-      toast.error("Enter Your pincode", {
-        position: "top-right", hideProgressBar: true,
-      })
-    } if (showData === true || "") {
-      toast.success(showData.msg, {
-        position: "top-right", hideProgressBar: true,
-      })
-    } else {
-      toast.error(showData.msg, {
-        position: "top-right", hideProgressBar: true,
-      })
-    }
-    return errors;
-  }
-  async function signUp() {
+  function signUp() {
     let item = { name, email, phone, licenseNo, gender, orgName, orgPhone, docType, address, pincode, state, city, refferalCode, tnc_id }
-
-    let result = await fetch(API_ROOT + "/api/SpotCare/signup", {
-      method: "POST",
-      body: JSON.stringify(item),
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
+    // console.log(item)
+    // localStorage.setItem("UserDetaisl" , JSON.stringify(item))
+    navigate("/spotPay/", {
+      state: {
+        item: item
+      }
     })
-    result = await result.json()
-    console.log(signUpErrors)
-    setSignUpErrors(signUservalidation())
-    setShowData(result)
   }
+
+
   /*================to clear up all the results in the register form================*/
   const [docResult, setDocResult] = useState("")
   function signUps() {
@@ -182,15 +102,14 @@ function Register() {
     // eslint-disable-next-line
   }, [])
   /*================calling Api for Terms and conditions================*/
-  const [posts, setPosts] = useState([]);
-  useEffect(() => {
-    fetch(API_ROOT + "/api/tou/termsofuse.html").then((result) => {
-      result.json().then((resp) => {
-        setPosts(resp)
-      })
-    })
-  }, [])
-  console.warn(posts)
+  // const [posts, setPosts] = useState([]);
+  // useEffect(() => {
+  //   fetch(API_ROOT + "/api/tou/termsofuse.html").then((result) => {
+  //     result.json().then((resp) => {
+  //       setPosts(resp)
+  //     })
+  //   })
+  // }, [])
   return (
     <>
       <div id="login_main">
@@ -199,7 +118,7 @@ function Register() {
           <div id="register_container">
             <div id="register_container_head">
               <div id="register_container_head_block1">
-                <h1 dangerouslySetInnerHTML={{ __html: posts.tnc }} ></h1>
+                {/* <h1 dangerouslySetInnerHTML={{ __html: posts.tnc }} ></h1> */}
                 <h1>
                   {data.login.childMarkdownRemark.frontmatter.registertitle}
                 </h1>
@@ -216,7 +135,8 @@ function Register() {
             <div id="register_inputs">
               <div className="register_input_block1">
                 <div id="register_input_block_input1">
-                  <h1>Full Name*</h1>
+                {(name <= 3) ? (<h1 style={{color: `orange`}}>Full Name**</h1>) : 
+                (<h1>Full Name**</h1>)}
                   <input
                     type="text"
                     placeholder="name"
@@ -229,7 +149,8 @@ function Register() {
               </div>
               <div className="register_input_block1">
                 <div id="register_input_block_input1">
-                  <h1>Email ID**</h1>
+                {(!email) || !/\S+@\S+\.\S+/.test(email) ? (<h1 style={{color: `orange`}}>Email ID**</h1>) : 
+                (<h1>Email ID**</h1>)}
                   <input
                     type="Email"
                     placeholder="mail"
@@ -240,7 +161,8 @@ function Register() {
                 </div>
               </div>
               <div id="docselectorbox">
-                <h1>Gender*</h1>
+              {(!gender) ? (<h1 style={{color: `orange`}}>Gender*</h1>) : 
+                (<h1>Gender*</h1>)}
                 <select
                   className="custom-select"
                   value={gender}
@@ -257,7 +179,8 @@ function Register() {
               </div>
               <div className="register_input_block1">
                 <div id="register_input_block_input1">
-                  <h1>Contact Number*</h1>
+                {(!phone) || (phone.length < 10 ) ? (<h1 style={{color: `orange`}}>Contact Number*</h1>) : 
+                (<h1>Contact Number*</h1>)}
                   <input
                     type="text"
                     placeholder="+ 91"
@@ -276,6 +199,8 @@ function Register() {
               </div>
               <div className="register_input_block1">
                 <div id="register_input_block_input1">
+                {(!licenseNo) ? (<h1 style={{color: `orange`}}>License Number*</h1>) : 
+                (<h1>License Number*</h1>)}
                   <h1>License Number*</h1>
                   <input
                     type="text"
@@ -287,7 +212,8 @@ function Register() {
                 </div>
               </div>
               <div id="docselectorbox">
-                <h1>Speciality</h1>
+              {(!docType) ? (<h1 style={{color: `orange`}}>Speciality</h1>) : 
+                (<h1>Speciality</h1>)}
                 <select
                   className="custom-select"
                   value={docType}
@@ -310,7 +236,8 @@ function Register() {
               </div>
               <div className="register_input_block1">
                 <div id="register_input_block_input1">
-                  <h1>Provider Organization*</h1>
+                {(!orgName) ? (<h1 style={{color: `orange`}}>Provider Organization*</h1>) : 
+                (<h1>Provider Organization*</h1>)}
                   <input
                     type="text"
                     placeholder="provider organization"
@@ -322,7 +249,8 @@ function Register() {
               </div>
               <div className="register_input_block1">
                 <div id="register_input_block_input1">
-                  <h1>Provider Organization Phone Number*</h1>
+                {(!orgPhone) ? (<h1 style={{color: `orange`}}>Provider Organization Phone Number*</h1>) : 
+                (<h1>Provider Organization Phone Number*</h1>)}
                   <input
                     type="text"
                     placeholder="provider organization phone number"
@@ -343,7 +271,8 @@ function Register() {
               </div>
               <div className="register_input_block1">
                 <div id="register_input_block_input1">
-                  <h1>Provider Address*</h1>
+                {(!address) ? (<h1 style={{color: `orange`}}>Provider Address*</h1>) : 
+                (<h1>Provider Address*</h1>)}
                   <input
                     type="text"
                     placeholder="provider address"
@@ -355,7 +284,8 @@ function Register() {
               </div>
               <div className="register_input_block1">
                 <div id="register_input_block_input1">
-                  <h1>City*</h1>
+                {(!city) ? (<h1 style={{color: `orange`}}>City*</h1>) : 
+                (<h1>City*</h1>)}
                   <input
                     type="text"
                     placeholder="city"
@@ -367,7 +297,8 @@ function Register() {
               </div>
               <div className="register_input_block1">
                 <div id="register_input_block_input1">
-                  <h1>State</h1>
+                {(!state) ? (<h1 style={{color: `orange`}}>State</h1>) : 
+                (<h1>State</h1>)}
                   <input
                     type="text"
                     placeholder="state"
@@ -380,7 +311,8 @@ function Register() {
               </div>
               <div className="register_input_block1">
                 <div id="register_input_block_input1">
-                  <h1>PinCode</h1>
+                {(!pincode) ? (<h1 style={{color: `orange`}}>PinCode</h1>) : 
+                (<h1>PinCode</h1>)}
                   <input
                     type="text"
                     placeholder="pincode"
@@ -412,7 +344,7 @@ function Register() {
                 <button type="submit" onClick={signUp} disabled style={{ background: `gray` }}>SignUp</button>
               ) : (
                 <>
-                  <Link to="/spotPay"><button type="submit" onClick={signUp}>SignUp</button></Link>
+                  <button type="submit" onClick={signUp}>SignUp</button>
                 </>
               )}
               <button type="submit" onClick={signUps} style={{ background: `transparent`, color: `blue` }}>clear</button>
@@ -420,13 +352,6 @@ function Register() {
           </div>
         </div>
         <Footer />
-        <ToastContainer />
-        <div id="tnc_popup_container_main" style={dispImgStyle}>
-          <div id="tnc_popup_container">
-            <img src={close} alt="close" onClick={closeDisp} role="presentation" id="closeimg" />
-            <TextArea value={posts.tnc} id="termsandCo" />
-          </div>
-        </div>
       </div>
     </>
   )

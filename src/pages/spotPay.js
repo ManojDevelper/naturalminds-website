@@ -1,13 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/Pay.scss";
 import Top from "./nav";
 import Footer from "./footer";
 
-function Spotpay() {
+function Spotpay({location}) {
+        const [toggleState, setToggleState] = useState(0);
+
+    const toggleTab = (index) => {
+        setToggleState(index);
+    };
+    // const getItems = () => {
+    //     let userDetails = localStorage.getItem("UserDetaisl" );
+    //     console.log(userDetails)
+    //   }
+    //   useEffect(() => {
+    //     getItems();
+    //     // eslint-disable-next-line
+    //   }, [])
+    let name = location.state.item
+    console.log(name)
     return (
         <>
         <div id="login_main">
-          <Top />
+        <Top/>
             <div id="pay">
                 <div id="pay_container_main">
                     <div id="pay_container">
@@ -16,14 +31,16 @@ function Spotpay() {
                         </div>
                         <div id="pay_block2">
                         <div id="pay_block2_container1_wrapper">
-                            <div id="pay_block2_container1" activeClassName="pay_block2_container1">
+                            <div className={toggleState === 1 ? "pay_block2_container1 pay_block2_container2" : "pay_block2_container1"}
+                                onClick={() => toggleTab(1)} role="presentation">
                                 <div id="pay_block2_container1_block1">
                                     <p id="plantype">MONTHLY</p>
                                     <p id="amount">₹ 550</p>
                                     <p id="permonth">Per Month</p>
                                 </div>
                             </div>
-                            <div id="pay_block2_container1" activeClassName="pay_block2_container1">
+                            <div className={toggleState === 2 ? "pay_block2_container1 pay_block2_container2" : "pay_block2_container1"}
+                                onClick={() => toggleTab(2)} role="presentation">
                                 <div id="pay_block2_container1_block1">
                                     <p id="plantype">ANNUAL</p>
                                     <p id="amount">₹ 6600</p>
@@ -76,7 +93,7 @@ function Spotpay() {
                 </div>
 
             </div>
-            <Footer />
+            <Footer/>
             </div>
         </>
     );

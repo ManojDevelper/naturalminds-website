@@ -117,7 +117,6 @@ function Banner() {
     return (
         <>
             <div className="banner">
-                
                 <div className="banner_content_wrapper">
                 <Top />
                     <div className="banner_container">
