@@ -106,6 +106,7 @@ function Banner() {
               frontmatter {
                 title
                 description
+                decription2
                 button1
                 button2
                 video
@@ -121,7 +122,9 @@ function Banner() {
                 <Top />
                     <div className="banner_container">
                         <h1 id="banner_h1">{data.banner.childMarkdownRemark.frontmatter.title}</h1>
+                        <p id="banner_p" style={{color: `#800000`, fontWeight: `bold` }}>{data.banner.childMarkdownRemark.frontmatter.decription2}</p>
                         <p id="banner_p">{data.banner.childMarkdownRemark.frontmatter.description}</p>
+                        
                         <div className="banner_buttons">
                             <bannerbtn key="1" className={toggleState === 1 ? "show_btn active-show_btn" : "show_btn"}
                                 onClick={() => toggleTab(1)}><button className="banner_buttons1">{data.banner.childMarkdownRemark.frontmatter.button1}</button></bannerbtn>
