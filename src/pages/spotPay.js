@@ -17,8 +17,8 @@ function Spotpay({location}) {
     //     getItems();
     //     // eslint-disable-next-line
     //   }, [])
-    let name = location.state.item
-    console.log(name)
+    //let name = location.state.item
+   // console.log(name)
     return (
         <>
         <div id="login_main">
