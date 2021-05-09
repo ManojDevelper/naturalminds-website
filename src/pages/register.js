@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { graphql, navigate, useStaticQuery } from "gatsby";
-import axios from "axios";
 import "../styles/Login.scss";
 import Top from "./nav";
 import Footer from "./footer";
 import { API_ROOT } from "gatsby-env-variables";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import axios from "axios";
 
 function Register() {
   const data = useStaticQuery(graphql`
@@ -70,30 +70,30 @@ function Register() {
     console.log(result)
     setShowData(result)
     {
-      let status ={}
-    if(showData.status === true){
-      toast.success("Registered")
-      navigate("/spotPay/", {
-        state: {
-          item: item
-        }
-      })
-    }else{
-      toast.error(showData.status)
+      if (showData.status === true) {
+        toast.success("Registered")
+        navigate("/spotPay/", {
+          state: {
+            item: item
+          }
+        })
+      } else {
+        toast.error(showData.status)
+      }
     }
   }
-  }
-    /*================calling Api for Terms and conditions================*/
-  // const [posts, setPosts] = useState();
+  /*================calling Api for Terms and conditions================*/
+  const [posts, setPosts] = useState();
 
-  // useEffect(() => {
-  //   const loadPosts = async () => {
-  //     const response = await axios.get("https://stag.spotcare.in/api/tou/termsofuse.html");
-  //     setPosts(response);
-  //     console.log(posts)
-  //   }
-  //   loadPosts();
-  // }, []);
+  useEffect(() => {
+    const loadPosts = async () => {
+      const response = await axios.get("https://stag.spotcare.in/api/tou/termsofuse.html");
+      setPosts(response);
+      console.log(posts)
+    }
+    loadPosts();
+     // eslint-disable-next-line
+  }, []);
   /*================to clear up all the results in the register form================*/
   const [docResult, setDocResult] = useState("")
   function signUps() {
@@ -145,6 +145,14 @@ function Register() {
   //     })
   //   })
   // }, [])
+//   useEffect(() => {
+//   const term = async () => {
+//     const response = await fetch("https://stag.spotcare.in/api/tou/termsofuse.html");
+//     const data = await response.json();
+//     console.log(data);
+//   }
+//   term()
+// }, [])
   return (
     <>
       <div id="login_main">
@@ -170,8 +178,8 @@ function Register() {
             <div id="register_inputs">
               <div className="register_input_block1">
                 <div id="register_input_block_input1">
-                {(name <= 3) ? (<h1 style={{color: `orange`}}>Full Name**</h1>) : 
-                (<h1>Full Name**</h1>)}
+                  {(name <= 3) ? (<h1 style={{ color: `orange` }}>Full Name**</h1>) :
+                    (<h1>Full Name**</h1>)}
                   <input
                     type="text"
                     placeholder="name"
@@ -184,8 +192,8 @@ function Register() {
               </div>
               <div className="register_input_block1">
                 <div id="register_input_block_input1">
-                {(!email) || !/\S+@\S+\.\S+/.test(email) ? (<h1 style={{color: `orange`}}>Email ID**</h1>) : 
-                (<h1>Email ID**</h1>)}
+                  {(!email) || !/\S+@\S+\.\S+/.test(email) ? (<h1 style={{ color: `orange` }}>Email ID**</h1>) :
+                    (<h1>Email ID**</h1>)}
                   <input
                     type="Email"
                     placeholder="mail"
@@ -196,8 +204,8 @@ function Register() {
                 </div>
               </div>
               <div id="docselectorbox">
-              {(!gender) ? (<h1 style={{color: `orange`}}>Gender*</h1>) : 
-                (<h1>Gender*</h1>)}
+                {(!gender) ? (<h1 style={{ color: `orange` }}>Gender*</h1>) :
+                  (<h1>Gender*</h1>)}
                 <select
                   className="custom-select"
                   value={gender}
@@ -214,8 +222,8 @@ function Register() {
               </div>
               <div className="register_input_block1">
                 <div id="register_input_block_input1">
-                {(!phone) || (phone.length < 10 ) ? (<h1 style={{color: `orange`}}>Contact Number*</h1>) : 
-                (<h1>Contact Number*</h1>)}
+                  {(!phone) || (phone.length < 10) ? (<h1 style={{ color: `orange` }}>Contact Number*</h1>) :
+                    (<h1>Contact Number*</h1>)}
                   <input
                     type="text"
                     placeholder="+ 91"
@@ -234,8 +242,8 @@ function Register() {
               </div>
               <div className="register_input_block1">
                 <div id="register_input_block_input1">
-                {(!licenseNo) ? (<h1 style={{color: `orange`}}>License Number*</h1>) : 
-                (<h1>License Number*</h1>)}
+                  {(!licenseNo) ? (<h1 style={{ color: `orange` }}>License Number*</h1>) :
+                    (<h1>License Number*</h1>)}
                   <h1>License Number*</h1>
                   <input
                     type="text"
@@ -247,8 +255,8 @@ function Register() {
                 </div>
               </div>
               <div id="docselectorbox">
-              {(!docType) ? (<h1 style={{color: `orange`}}>Speciality</h1>) : 
-                (<h1>Speciality</h1>)}
+                {(!docType) ? (<h1 style={{ color: `orange` }}>Speciality</h1>) :
+                  (<h1>Speciality</h1>)}
                 <select
                   className="custom-select"
                   value={docType}
@@ -271,8 +279,8 @@ function Register() {
               </div>
               <div className="register_input_block1">
                 <div id="register_input_block_input1">
-                {(!orgName) ? (<h1 style={{color: `orange`}}>Provider Organization*</h1>) : 
-                (<h1>Provider Organization*</h1>)}
+                  {(!orgName) ? (<h1 style={{ color: `orange` }}>Provider Organization*</h1>) :
+                    (<h1>Provider Organization*</h1>)}
                   <input
                     type="text"
                     placeholder="provider organization"
@@ -284,8 +292,8 @@ function Register() {
               </div>
               <div className="register_input_block1">
                 <div id="register_input_block_input1">
-                {(!orgPhone) ? (<h1 style={{color: `orange`}}>Provider Organization Phone Number*</h1>) : 
-                (<h1>Provider Organization Phone Number*</h1>)}
+                  {(!orgPhone) ? (<h1 style={{ color: `orange` }}>Provider Organization Phone Number*</h1>) :
+                    (<h1>Provider Organization Phone Number*</h1>)}
                   <input
                     type="text"
                     placeholder="provider organization phone number"
@@ -306,8 +314,8 @@ function Register() {
               </div>
               <div className="register_input_block1">
                 <div id="register_input_block_input1">
-                {(!address) ? (<h1 style={{color: `orange`}}>Provider Address*</h1>) : 
-                (<h1>Provider Address*</h1>)}
+                  {(!address) ? (<h1 style={{ color: `orange` }}>Provider Address*</h1>) :
+                    (<h1>Provider Address*</h1>)}
                   <input
                     type="text"
                     placeholder="provider address"
@@ -319,8 +327,8 @@ function Register() {
               </div>
               <div className="register_input_block1">
                 <div id="register_input_block_input1">
-                {(!city) ? (<h1 style={{color: `orange`}}>City*</h1>) : 
-                (<h1>City*</h1>)}
+                  {(!city) ? (<h1 style={{ color: `orange` }}>City*</h1>) :
+                    (<h1>City*</h1>)}
                   <input
                     type="text"
                     placeholder="city"
@@ -332,8 +340,8 @@ function Register() {
               </div>
               <div className="register_input_block1">
                 <div id="register_input_block_input1">
-                {(!state) ? (<h1 style={{color: `orange`}}>State</h1>) : 
-                (<h1>State</h1>)}
+                  {(!state) ? (<h1 style={{ color: `orange` }}>State</h1>) :
+                    (<h1>State</h1>)}
                   <input
                     type="text"
                     placeholder="state"
@@ -346,8 +354,8 @@ function Register() {
               </div>
               <div className="register_input_block1">
                 <div id="register_input_block_input1">
-                {(!pincode) ? (<h1 style={{color: `orange`}}>PinCode</h1>) : 
-                (<h1>PinCode</h1>)}
+                  {(!pincode) ? (<h1 style={{ color: `orange` }}>PinCode</h1>) :
+                    (<h1>PinCode</h1>)}
                   <input
                     type="text"
                     placeholder="pincode"

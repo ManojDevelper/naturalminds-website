@@ -2,7 +2,7 @@
 /*========Banner========*/
 .banner {
   width: 100%;
-  height: 49vw;
+  height: 100vh;
   background-image: url("../data/assets/banner.png");
   background-repeat: no-repeat;
   background-size: 42vw auto;
@@ -379,6 +379,16 @@
   .watchvideo {
     margin: auto;
     margin-top: 1vw;
+  }
+}
+@media (max-width:13500px){
+  .banner {
+    width: 100%;
+    height: 49vw;
+    background-image: url("../data/assets/banner.png");
+    background-repeat: no-repeat;
+    background-size: 42vw auto;
+    background-position: bottom 0 right 5.5vw;
   }
 }
 @media (max-width: 450px) {
