@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect } from "react";
 // import { navigate } from "gatsby"
-import "../styles/Pay.scss"
-import Top from "./nav"
-import Footer from "./footer"
+import "../styles/Pay.scss";
+import Top from "./nav";
+import Footer from "./footer";
+import { API_ROOT } from "gatsby-env-variables";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 // import axios from "axios"
 
 function Spotpay({ location }) {
@@ -13,7 +16,7 @@ function Spotpay({ location }) {
     const orderid = paymap.PLAN_ID
     ;(async () => {
       const response2 = await fetch(
-        "https://stag.spotcare.in/api/spotcare/paymentKey"
+        API_ROOT + "/api/spotcare/paymentKey"
       )
       const data2 = await response2.json()
       console.log(data2)
@@ -24,7 +27,7 @@ function Spotpay({ location }) {
           order_id: orderid,
           name: name,
         }
-        let result = await fetch("https://stag.spotcare.in/api/payment/order", {
+        let result = await fetch( API_ROOT + "/api/payment/order", {
           method: "POST",
           body: JSON.stringify(options),
           headers: {
@@ -34,6 +37,11 @@ function Spotpay({ location }) {
         })
         result = await result.json()
         console.log(result)
+        if(result.status === true){
+        toast.success("Your Order Is Success")
+        }else{
+          toast.success("Please Try Again")
+        }
       } else {
         return null
       }
@@ -44,7 +52,7 @@ function Spotpay({ location }) {
     const payments = async () => {
       try {
         const response = await fetch(
-          "https://stag.spotcare.in/api/plans/registration"
+           API_ROOT + "/api/plans/registration"
         )
         const data = await response.json()
         setPayment(data)
@@ -95,7 +103,7 @@ function Spotpay({ location }) {
                         role="presentation"
                       >
                         <div id="success">
-                          <p>success</p>
+                          <p>SELECTED</p>
                         </div>
                         <div id="pay_block2_container1_block1">
                           <p id="plantype">{paymap.PLAN_NAME}</p>
@@ -167,6 +175,7 @@ function Spotpay({ location }) {
           </div>
         </div>
         <Footer />
+        <ToastContainer />
       </div>
     </>
   )
