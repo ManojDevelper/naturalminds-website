@@ -4,7 +4,7 @@
 }
 #pay {
     position: relative;
-    top:10vw;
+    top: 10vw;
 }
 #pay_container_main {
     width: 100%;
@@ -36,12 +36,12 @@
 #pay_block2 {
     width: 100%;
     height: 100%;
-    margin-top:1.5625vw;
+    margin-top: 1.5625vw;
     display: grid;
     grid-template-columns: 45% 45%;
     gap: 10%;
 }
-#pay_block2_container1_wrapper{
+#pay_block2_container1_wrapper {
     display: grid;
     grid-template-rows: 10.5625vw 10.5625vw;
     gap: 1.6875vw;
@@ -60,6 +60,7 @@
     transition: 1s ease;
     background: #ffffff;
     border-radius: 0.5vw;
+    position: relative;
 }
 .pay_block2_container2 {
     color: white;
@@ -68,6 +69,27 @@
     box-shadow: 0px 0px 0.75vw rgba(15, 36, 44, 0.15);
     border-radius: 0.5vw;
     transition: 1s ease-in-out;
+}
+.pay_block2_container1 #success {
+    display: none;
+}
+.pay_block2_container2 #success {
+    position: absolute;
+    background: #ffffff;
+    border-radius: 4px;
+    top: 0;
+    right: 0;
+    width: 78px;
+    height: 24px;
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    align-items: center;
+    text-align: center;
+    color: #ff4081;
+    display:block;
 }
 #pay_block2_container1_block1 {
     width: fit-content;
@@ -84,6 +106,7 @@
 #permonth {
     font-size: 1vw;
     margin: 0;
+    line-height: 0;
 }
 /*===================paymentblock===================*/
 #pay_block2_container2 {
@@ -104,7 +127,7 @@
     padding: 0 0.75vw;
     height: 100%;
 }
-#pay_block2_mini_main{
+#pay_block2_mini_main {
     display: grid;
     grid-template-rows: auto auto;
 }
@@ -186,7 +209,7 @@
     position: absolute;
     width: fit-content;
     right: 0.625vw;
-    top:0.375vw;
+    top: 0.375vw;
 }
 #pay_block2_container2_block1_btn button {
     background: #ff4081;
@@ -201,6 +224,6 @@
     font-size: 1.125vw;
     color: white;
 }
-#login_main .footer{
+#login_main .footer {
     margin-top: 10vw;
 }

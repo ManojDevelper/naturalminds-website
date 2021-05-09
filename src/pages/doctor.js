@@ -17,7 +17,7 @@ import { graphql, useStaticQuery } from "gatsby";
 import Top from "./nav";
 import { API_ROOT } from "gatsby-env-variables";
 import Footer from "./footer";
-import _ from "lodash"
+import _ from "lodash";
 
 
 function Doctor() {
