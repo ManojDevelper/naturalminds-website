@@ -69,18 +69,16 @@ function Register() {
     result = await result.json()
     console.log(result)
     setShowData(result)
-    {
       if (showData.status === true) {
-        toast.success("Registered")
         navigate("/spotPay/", {
           state: {
             item: item
           }
         })
+        toast.success("Registered")
       } else {
         toast.error(showData.status)
       }
-    }
   }
   /*================calling Api for Terms and conditions================*/
   const [posts, setPosts] = useState();
