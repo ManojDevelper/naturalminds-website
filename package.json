@@ -65,7 +65,8 @@
   "scripts": {
     "build_dev": "BUILD_ENV=development gatsby build",
     "build_stag": "BUILD_ENV=staging gatsby build",
-    "build_prod": "gatsby build",
+    "build_prod": "BUILD_ENV=production gatsby build",
+    "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
