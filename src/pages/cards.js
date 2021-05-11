@@ -23,9 +23,9 @@ function Cards() {
     } else {
       errors.mobile_no = ""
     } if (patFinal.status === true) {
-      toast.success(patFinal.msg)
+      toast.success("Registered")
     } else {
-      toast.error(patFinal.msg)
+      toast.error("Please try again")
     }
     return errors;
   }
@@ -58,9 +58,9 @@ function Cards() {
     } else {
       errors2.mobile_no2 = ""
     } if (docFinal.status === true) {
-      toast.success(docFinal.msg)
+      toast.success("Registered")
     } else {
-      toast.error(docFinal.msg)
+      toast.error("Please try again")
     }
     return errors2;
   }

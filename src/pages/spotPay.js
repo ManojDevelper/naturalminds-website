@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-// import { navigate } from "gatsby"
+// import { navigate } from "gatsby";
 import "../styles/Pay.scss";
 import Top from "./nav";
 import Footer from "./footer";
 import { API_ROOT } from "gatsby-env-variables";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import axios from "axios"
+// import axios from "axios";
 
 function Spotpay({ location }) {
   const [payment, setPayment] = useState(null)

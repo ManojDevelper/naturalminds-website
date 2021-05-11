@@ -31,9 +31,9 @@ function Doctor() {
     } else {
       errors.mobile_no = ""
     } if (patFinal.status === true) {
-      toast.success(patFinal.msg)
+      toast.success("Registered")
     } else {
-      toast.error(patFinal.msg)
+      toast.error("Please try again")
     }
     return errors;
   }

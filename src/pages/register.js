@@ -6,7 +6,7 @@ import Footer from "./footer";
 import { API_ROOT } from "gatsby-env-variables";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import axios from "axios";
+// import axios from "axios";
 
 function Register() {
   const data = useStaticQuery(graphql`
@@ -47,11 +47,12 @@ function Register() {
   const [state, setState] = useState("")
   const [pincode, setPincode] = useState("")
   const [refferalCode, setRefferalcode] = useState("")
+  const [selectedUserType, setSelectedUserType] = useState("")
   const [tnc_id, setTnc] = useState(false)
   const [showData, setShowData] = useState([])
 
   async function signUp() {
-    let item = { name, email, phone, licenseNo, gender, orgName, orgPhone, docType, address, pincode, state, city, refferalCode, tnc_id }
+    let item = { name, email, phone, licenseNo, gender, orgName, orgPhone, docType, address, pincode, state, city, refferalCode, tnc_id, selectedUserType }
     // console.log(item)
     // localStorage.setItem("UserDetaisl" , JSON.stringify(item))
 
@@ -69,29 +70,42 @@ function Register() {
     result = await result.json()
     console.log(result)
     setShowData(result)
-      if (showData.status === true) {
-        navigate("/spotPay/", {
-          state: {
-            item: item
-          }
-        })
-        toast.success("Registered")
-      } else {
-        toast.error(showData.status)
-      }
+    if (showData.status === true) {
+      toast.success("Registered")
+      navigate("/spotPay/", {
+        state: {
+          item: item
+        }
+      })
+    } else {
+      toast.error("Please try again")
+    }
   }
   /*================calling Api for Terms and conditions================*/
-  const [posts, setPosts] = useState();
+  // const [posts, setPosts] = useState();
 
-  useEffect(() => {
-    const loadPosts = async () => {
-      const response = await axios.get("https://stag.spotcare.in/api/tou/termsofuse.html");
-      setPosts(response);
-      console.log(posts)
-    }
-    loadPosts();
-     // eslint-disable-next-line
-  }, []);
+  // useEffect(() => {
+  //   const loadPosts = async () => {
+  //     const response = await axios.get("https://stag.spotcare.in/api/tou/termsofuse.html");
+  //     setPosts(response);
+  //     console.log(posts)
+  //   }
+  //   loadPosts();
+  //    // eslint-disable-next-line
+  // }, []);
+  // useEffect(() => {
+  //   const loadPosts = async () => {
+  //     try {
+  //       const response = await fetch(
+  //          API_ROOT + "/api/tou/termsofuse.html"
+  //       )
+  //       const data = await response.json()
+  //       console.log(data)
+  //     } catch (err) {}
+  //   }
+  //   loadPosts()
+  // }, [])
+
   /*================to clear up all the results in the register form================*/
   const [docResult, setDocResult] = useState("")
   function signUps() {
@@ -143,14 +157,14 @@ function Register() {
   //     })
   //   })
   // }, [])
-//   useEffect(() => {
-//   const term = async () => {
-//     const response = await fetch("https://stag.spotcare.in/api/tou/termsofuse.html");
-//     const data = await response.json();
-//     console.log(data);
-//   }
-//   term()
-// }, [])
+  //   useEffect(() => {
+  //   const term = async () => {
+  //     const response = await fetch("https://stag.spotcare.in/api/tou/termsofuse.html");
+  //     const data = await response.json();
+  //     console.log(data);
+  //   }
+  //   term()
+  // }, [])
   return (
     <>
       <div id="login_main">
@@ -220,7 +234,7 @@ function Register() {
               </div>
               <div className="register_input_block1">
                 <div id="register_input_block_input1">
-                  {(!phone) || (phone.length < 10) ? (<h1 style={{ color: `orange` }}>Contact Number*</h1>) :
+                  {(!phone) ? (<h1 style={{ color: `orange` }}>Contact Number*</h1>) :
                     (<h1>Contact Number*</h1>)}
                   <input
                     type="text"
@@ -228,7 +242,7 @@ function Register() {
                     value={phone}
                     onBlur={""}
                     onChange={e => setPhone(parseInt(e.target.value) || "")}
-                    maxLength={10}
+                    maxLength={12}
                     minLength={10}
                     onKeyPress={event => {
                       if (!/[0-9]/.test(event.key)) {
@@ -240,15 +254,21 @@ function Register() {
               </div>
               <div className="register_input_block1">
                 <div id="register_input_block_input1">
-                  {(!licenseNo) ? (<h1 style={{ color: `orange` }}>License Number*</h1>) :
+                  {(licenseNo.length < 6) ? (<h1 style={{ color: `orange` }}>License Number*</h1>) :
                     (<h1>License Number*</h1>)}
-                  <h1>License Number*</h1>
                   <input
                     type="text"
                     placeholder="license number"
                     value={licenseNo}
                     onBlur={""}
                     onChange={e => setLicenseno(e.target.value)}
+                    maxLength={15}
+                    minLength={8}
+                    onKeyPress={event => {
+                      if (!/[0-9]/.test(event.key)) {
+                        event.preventDefault()
+                      }
+                    }}
                   />
                 </div>
               </div>
@@ -347,12 +367,11 @@ function Register() {
                     onBlur={""}
                     onChange={e => setState(e.target.value)}
                   />
-
                 </div>
               </div>
               <div className="register_input_block1">
                 <div id="register_input_block_input1">
-                  {(!pincode) ? (<h1 style={{ color: `orange` }}>PinCode</h1>) :
+                  {(pincode.length < 6) ? (<h1 style={{ color: `orange` }}>PinCode</h1>) :
                     (<h1>PinCode</h1>)}
                   <input
                     type="text"
@@ -360,6 +379,13 @@ function Register() {
                     value={pincode}
                     onBlur={""}
                     onChange={e => setPincode(e.target.value)}
+                    maxLength={7}
+                    minLength={6}
+                    onKeyPress={event => {
+                      if (!/[0-9]/.test(event.key)) {
+                        event.preventDefault()
+                      }
+                    }}
                   />
                 </div>
               </div>
@@ -375,13 +401,29 @@ function Register() {
                   />
                 </div>
               </div>
+              <div id="docselectorbox">
+                {(!selectedUserType) ? (<h1 style={{ color: `orange` }}>User Type**</h1>) :
+                  (<h1>User Type**</h1>)}
+                <select
+                  className="custom-select"
+                  value={selectedUserType}
+                  onBlur={""}
+                  onChange={e => {
+                    const selectedDoctor = e.target.value
+                    setSelectedUserType(selectedDoctor)
+                  }}
+                ><option value="">User Type**</option>
+                  <option value="Doctor">Doctor</option>
+                  <option value="Patent">Patent</option>
+                </select>
+              </div>
             </div>
             <div id="register_checkbox">
               <input type="checkbox" value={showData.tnc_id} onChange={e => setTnc(e.target.checked)} />
               <p>By signing up, I accept NaturalMinds’s <span>Terms and conditions</span></p>
             </div>
             <div id="register_button">
-              {(!name || !email || (!/\S+@\S+\.\S+/.test(email)) || !gender || !phone || !licenseNo || !docType || !orgName || !orgPhone || !address || !city || !state || !pincode || !tnc_id) ? (
+              {(!name || !email || (!/\S+@\S+\.\S+/.test(email)) || !gender || !phone || !licenseNo || !docType || !orgName || !orgPhone || !address || !city || !state || !pincode || !tnc_id || !selectedUserType) ? (
                 <button type="submit" onClick={signUp} disabled style={{ background: `gray` }}>SignUp</button>
               ) : (
                 <>

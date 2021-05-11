@@ -19,16 +19,16 @@ function Banner() {
     /*==================Api calling for patient form====================*/
     const [errors, setErrors] = useState({});
     const Patentvalidation = () => {
-
         let errors = {};
         if (!mobile_no) {
             errors.mobile_no = "**Enter your Mobile Number"
         } else {
             errors.mobile_no = ""
         } if (patFinal.status === true) {
-            toast.success(patFinal.msg)
+            toast.success("Registered")
+            setMobile_no("")
         } else {
-            toast.error(patFinal.msg)
+            toast.error("Please try again")
         }
         return errors;
     }
@@ -49,7 +49,6 @@ function Banner() {
         setErrors(Patentvalidation())
         setPatFinal(patResult)
         console.log(patFinal)
-        setMobile_no()
     }
     /*=================================================================*/
     /*==================Api calling for doctor form====================*/
@@ -62,9 +61,10 @@ function Banner() {
         } else{
             errors2.mobile_no2 = ""
         } if (docFinal.status === true) {
-            toast.success(docFinal.msg)
+            toast.success("Registered")
+            setMobile_no2("")
         } else {
-            toast.error(docFinal.msg)
+            toast.error("Please try again")
         }
         return errors2;
     }
@@ -122,9 +122,10 @@ function Banner() {
                 <Top />
                     <div className="banner_container">
                         <h1 id="banner_h1">{data.banner.childMarkdownRemark.frontmatter.title}</h1>
-                        <p id="banner_p" style={{color: `#800000`, fontWeight: `bold` }}>{data.banner.childMarkdownRemark.frontmatter.decription2}</p>
                         <p id="banner_p">{data.banner.childMarkdownRemark.frontmatter.description}</p>
-                        
+                        <div id="newaddDescription">
+                            <p>Our product save patient lives through continuous monitoring of COVID+ Home Quarantined Patients</p>
+                        </div>
                         <div className="banner_buttons">
                             <bannerbtn key="1" className={toggleState === 1 ? "show_btn active-show_btn" : "show_btn"}
                                 onClick={() => toggleTab(1)}><button className="banner_buttons1">{data.banner.childMarkdownRemark.frontmatter.button1}</button></bannerbtn>
