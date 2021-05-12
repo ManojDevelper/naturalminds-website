@@ -18,6 +18,8 @@ import Top from "./nav";
 import { API_ROOT } from "gatsby-env-variables";
 import Footer from "./footer";
 import _ from "lodash";
+import { Link } from "gatsby";
+import takebtn from "../data/assets/taketop.svg";
 
 
 function Doctor() {
@@ -156,9 +158,8 @@ function Doctor() {
                 </p>
               </div>
               <div id="doc_footer_block2">
-                <img
-                  src={data.doctors.childMarkdownRemark.frontmatter.playstore.childImageSharp.fluid.src} alt="image1" id="doc_store1" />
-                <img src={data.doctors.childMarkdownRemark.frontmatter.appstore.childImageSharp.fluid.src} alt="image2" />
+                <a href="https://play.google.com/store/apps/details?id=com.carereceiver" rel="noopener noreferrer" style={{ cursor: `pointer` }} target="_blank"><img src={data.doctors.childMarkdownRemark.frontmatter.playstore.childImageSharp.fluid.src} alt="image1" id="doc_store1" /></a>
+                <a href="https://apps.apple.com/in/app/spotcare-patients-public/id1535914517" rel="noopener noreferrer" style={{ cursor: `pointer`, listStyleType: `none`, textDecoration: `none` }} target="_blank"><img src={data.doctors.childMarkdownRemark.frontmatter.appstore.childImageSharp.fluid.src} alt="image2" /></a>
               </div>
             </div>
             <div id="doc_all_cards">
@@ -167,23 +168,23 @@ function Doctor() {
                   <div id="doc_card1" key={i}>
                     <div id="doc_card1_block1">
                       <div id="doc_card1_block1_image_container">
-                      
-                      {!_.isEmpty(key.profile_image) ? (
-                        <img src={key.profile_image} alt={key.name} />
-                      ) : (
-                        <>
-                          {(!key.gender) || key.gender.toLowerCase() === "male" ||
-                          key.gender.toLowerCase() === "m" ? (
-                            <img src={male} alt="male" />
-                          ) : (
-                            <>
-                            {key.gender.toLowerCase() === "female" || key.gender.toLowerCase() === "f" ? (
-                              <img src={female} alt="female" />
-                            ): (<img src={female} alt="female" />)}
-                            </>
-                          )}
-                        </>
-                      )}
+
+                        {!_.isEmpty(key.profile_image) ? (
+                          <img src={key.profile_image} alt={key.name} />
+                        ) : (
+                          <>
+                            {(!key.gender) || key.gender.toLowerCase() === "male" ||
+                              key.gender.toLowerCase() === "m" ? (
+                              <img src={male} alt="male" />
+                            ) : (
+                              <>
+                                {key.gender.toLowerCase() === "female" || key.gender.toLowerCase() === "f" ? (
+                                  <img src={female} alt="female" />
+                                ) : (<img src={female} alt="female" />)}
+                              </>
+                            )}
+                          </>
+                        )}
                       </div>
                       <div id="doc_card1_block1_matter_container">
                         <p id="doc_card_title">{key.name}</p>
@@ -233,7 +234,7 @@ function Doctor() {
                       <div>
                         <button id="doc_btn1">View Full Profile</button>
                       </div>
-                      <div  onClick={showImage} role="presentation">
+                      <div onClick={showImage} role="presentation">
                         <button id="doc_btn2">GetApp</button>
                       </div>
                     </div>
@@ -258,10 +259,10 @@ function Doctor() {
                         <p>+91</p>
                         <input type="text" placeholder="Enter Mobile Number" value={mobile_no} onChange={(e) => setMobile_no(e.target.value || "")} maxLength={10} minLength={10} onKeyPress={event => { if (!/[0-9]/.test(event.key)) { event.preventDefault() } }} />
                       </div>
-                      {(!mobile_no || mobile_no.length < 10 ) ? (
-                                                            <button disabled style={{background: `gray`}}>Get App Link</button> ) :(
-                                                                <button onClick={sendPat}>Get App Link</button>
-                                                        )}
+                      {(!mobile_no || mobile_no.length < 10) ? (
+                        <button disabled style={{ background: `gray` }}>Get App Link</button>) : (
+                        <button onClick={sendPat}>Get App Link</button>
+                      )}
                     </div>
                     {errors.mobile_no && <p className="errors" style={{ fontSize: `1vw`, color: `orange`, position: `absolute`, margin: `0`, transition: `0.5s ease` }}>{errors.mobile_no}</p>}
                   </div>
@@ -282,6 +283,9 @@ function Doctor() {
           </div>
           <Footer />
           <ToastContainer />
+          <div id="image_taketop">
+                    <Link to="/doctor/"><img src={takebtn} alt="taketop"/></Link>
+                </div>
         </div>
       </div>
     </>

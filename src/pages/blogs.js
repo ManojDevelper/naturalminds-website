@@ -38,9 +38,9 @@ function Blogs() {
                 <img src={blogs.image.childImageSharp.fluid.src} alt="img1" />
               </div>
               <div className="blog_card_matter">
-                <p id="blog_card_title">{blogs.title}</p>
-                <p id="blog_card_description">{blogs.description}</p>
-                <p id="blog_card_date">{blogs.date}</p>
+                <p id="blog_card_title" key={blogs.id}>{blogs.title}</p>
+                <p id="blog_card_description" key={blogs.id}>{blogs.description}</p>
+                <p id="blog_card_date" key={blogs.id}>{blogs.date}</p>
               </div>
             </div>
           )}

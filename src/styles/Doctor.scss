@@ -110,11 +110,15 @@
 #doc_footer_block2 {
   display: flex;
 }
-#doc_footer_block2 img {
+#doc_footer_block2 a{
   width: 12.8vw;
   cursor: pointer;
   margin: 0;
   margin-right: 2.4375vw;
+}
+#doc_footer_block2 img {
+  width: 100%;
+  margin: 0;
 }
 #doc_footer_block2 img:last-child {
   margin-right: 0;

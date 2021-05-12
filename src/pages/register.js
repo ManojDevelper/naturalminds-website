@@ -6,7 +6,6 @@ import Footer from "./footer";
 import { API_ROOT } from "gatsby-env-variables";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import axios from "axios";
 
 function Register() {
   const data = useStaticQuery(graphql`
@@ -37,11 +36,11 @@ function Register() {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [gender, setGender] = useState("")
-  const [phone, setPhone] = useState()
+  const [phone, setPhone] = useState("")
   const [licenseNo, setLicenseno] = useState("")
   const [docType, setDocType] = useState("")
   const [orgName, setOrgname] = useState("")
-  const [orgPhone, setOrgphone] = useState()
+  const [orgPhone, setOrgphone] = useState("")
   const [address, setAddress] = useState("")
   const [city, setCity] = useState("")
   const [state, setState] = useState("")
@@ -53,8 +52,6 @@ function Register() {
 
   async function signUp() {
     let item = { name, email, phone, licenseNo, gender, orgName, orgPhone, docType, address, pincode, state, city, refferalCode, tnc_id, selectedUserType }
-    // console.log(item)
-    // localStorage.setItem("UserDetaisl" , JSON.stringify(item))
 
     let result = await fetch(
       API_ROOT + "/api/SpotCare/signup",
@@ -81,31 +78,6 @@ function Register() {
       toast.error("Please try again")
     }
   }
-  /*================calling Api for Terms and conditions================*/
-  // const [posts, setPosts] = useState();
-
-  // useEffect(() => {
-  //   const loadPosts = async () => {
-  //     const response = await axios.get("https://stag.spotcare.in/api/tou/termsofuse.html");
-  //     setPosts(response);
-  //     console.log(posts)
-  //   }
-  //   loadPosts();
-  //    // eslint-disable-next-line
-  // }, []);
-  // useEffect(() => {
-  //   const loadPosts = async () => {
-  //     try {
-  //       const response = await fetch(
-  //          API_ROOT + "/api/tou/termsofuse.html"
-  //       )
-  //       const data = await response.json()
-  //       console.log(data)
-  //     } catch (err) {}
-  //   }
-  //   loadPosts()
-  // }, [])
-
   /*================to clear up all the results in the register form================*/
   const [docResult, setDocResult] = useState("")
   function signUps() {
@@ -148,23 +120,6 @@ function Register() {
     getDoctor();
     // eslint-disable-next-line
   }, [])
-  /*================calling Api for Terms and conditions================*/
-  // const [posts, setPosts] = useState([]);
-  // useEffect(() => {
-  //   fetch(API_ROOT + "/api/tou/termsofuse.html").then((result) => {
-  //     result.json().then((resp) => {
-  //       console.log(resp)
-  //     })
-  //   })
-  // }, [])
-  //   useEffect(() => {
-  //   const term = async () => {
-  //     const response = await fetch("https://stag.spotcare.in/api/tou/termsofuse.html");
-  //     const data = await response.json();
-  //     console.log(data);
-  //   }
-  //   term()
-  // }, [])
   return (
     <>
       <div id="login_main">
@@ -173,7 +128,7 @@ function Register() {
           <div id="register_container">
             <div id="register_container_head">
               <div id="register_container_head_block1">
-                {/* <h1 dangerouslySetInnerHTML={{ __html: posts.tnc }} ></h1> */}
+                {/* <h1 dangerouslySetInnerHTML={{ __html: posts }} ></h1> */}
                 <h1>
                   {data.login.childMarkdownRemark.frontmatter.registertitle}
                 </h1>
@@ -232,9 +187,10 @@ function Register() {
                   <option value="other">Other</option>
                 </select>
               </div>
+
               <div className="register_input_block1">
                 <div id="register_input_block_input1">
-                  {(!phone) ? (<h1 style={{ color: `orange` }}>Contact Number*</h1>) :
+                  {(phone.length < 10) ? (<h1 style={{ color: `orange` }}>Contact Number*</h1>) :
                     (<h1>Contact Number*</h1>)}
                   <input
                     type="text"
@@ -295,9 +251,25 @@ function Register() {
                     ))}
                 </select>
               </div>
+              <div id="docselectorbox">
+                {(!selectedUserType) ? (<h1 style={{ color: `orange` }}>User Type**</h1>) :
+                  (<h1>User Type**</h1>)}
+                <select
+                  className="custom-select"
+                  value={selectedUserType}
+                  onBlur={""}
+                  onChange={e => {
+                    const selectedDoctor = e.target.value
+                    setSelectedUserType(selectedDoctor)
+                  }}
+                ><option value="">User Type</option>
+                  <option value="Doctor">Doctor</option>
+                  <option value="Patent">Patent</option>
+                </select>
+              </div>
               <div className="register_input_block1">
                 <div id="register_input_block_input1">
-                  {(!orgName) ? (<h1 style={{ color: `orange` }}>Provider Organization*</h1>) :
+                  {(orgName.length < 3) ? (<h1 style={{ color: `orange` }}>Provider Organization*</h1>) :
                     (<h1>Provider Organization*</h1>)}
                   <input
                     type="text"
@@ -310,17 +282,15 @@ function Register() {
               </div>
               <div className="register_input_block1">
                 <div id="register_input_block_input1">
-                  {(!orgPhone) ? (<h1 style={{ color: `orange` }}>Provider Organization Phone Number*</h1>) :
+                  {(orgPhone.length < 10) ? (<h1 style={{ color: `orange` }}>Provider Organization Phone Number*</h1>) :
                     (<h1>Provider Organization Phone Number*</h1>)}
                   <input
                     type="text"
-                    placeholder="provider organization phone number"
+                    placeholder="orgPhone"
                     value={orgPhone}
                     onBlur={""}
-                    onChange={e =>
-                      setOrgphone(parseInt(e.target.value) || "")
-                    }
-                    maxLength={10}
+                    onChange={e => setOrgphone(parseInt(e.target.value) || "")}
+                    maxLength={12}
                     minLength={10}
                     onKeyPress={event => {
                       if (!/[0-9]/.test(event.key)) {
@@ -332,7 +302,7 @@ function Register() {
               </div>
               <div className="register_input_block1">
                 <div id="register_input_block_input1">
-                  {(!address) ? (<h1 style={{ color: `orange` }}>Provider Address*</h1>) :
+                  {(address.length < 5) ? (<h1 style={{ color: `orange` }}>Provider Address*</h1>) :
                     (<h1>Provider Address*</h1>)}
                   <input
                     type="text"
@@ -345,7 +315,7 @@ function Register() {
               </div>
               <div className="register_input_block1">
                 <div id="register_input_block_input1">
-                  {(!city) ? (<h1 style={{ color: `orange` }}>City*</h1>) :
+                  {(city.length < 2) ? (<h1 style={{ color: `orange` }}>City*</h1>) :
                     (<h1>City*</h1>)}
                   <input
                     type="text"
@@ -358,7 +328,7 @@ function Register() {
               </div>
               <div className="register_input_block1">
                 <div id="register_input_block_input1">
-                  {(!state) ? (<h1 style={{ color: `orange` }}>State</h1>) :
+                  {(state.length < 3) ? (<h1 style={{ color: `orange` }}>State</h1>) :
                     (<h1>State</h1>)}
                   <input
                     type="text"
@@ -401,36 +371,20 @@ function Register() {
                   />
                 </div>
               </div>
-              <div id="docselectorbox">
-                {(!selectedUserType) ? (<h1 style={{ color: `orange` }}>User Type**</h1>) :
-                  (<h1>User Type**</h1>)}
-                <select
-                  className="custom-select"
-                  value={selectedUserType}
-                  onBlur={""}
-                  onChange={e => {
-                    const selectedDoctor = e.target.value
-                    setSelectedUserType(selectedDoctor)
-                  }}
-                ><option value="">User Type**</option>
-                  <option value="Doctor">Doctor</option>
-                  <option value="Patent">Patent</option>
-                </select>
-              </div>
             </div>
             <div id="register_checkbox">
               <input type="checkbox" value={showData.tnc_id} onChange={e => setTnc(e.target.checked)} />
               <p>By signing up, I accept NaturalMinds’s <span>Terms and conditions</span></p>
             </div>
             <div id="register_button">
-              {(!name || !email || (!/\S+@\S+\.\S+/.test(email)) || !gender || !phone || !licenseNo || !docType || !orgName || !orgPhone || !address || !city || !state || !pincode || !tnc_id || !selectedUserType) ? (
+              {(!name || !email || (!/\S+@\S+\.\S+/.test(email)) || !gender || (!phone || phone.length < 9) || !licenseNo || !docType || !orgName || (!orgPhone || orgPhone.length < 9) || !address || !city || !state || !pincode || !tnc_id || !selectedUserType) ? (
                 <button type="submit" onClick={signUp} disabled style={{ background: `gray` }}>SignUp</button>
               ) : (
                 <>
                   <button type="submit" onClick={signUp}>SignUp</button>
                 </>
               )}
-              <button type="submit" onClick={signUps} style={{ background: `transparent`, color: `blue` }}>clear</button>
+              <button type="submit" onClick={signUps} style={{ background: `transparent`, color: `blue`, width: `fit-content`, marginLeft: `1vw` }}>clear</button>
             </div>
           </div>
         </div>

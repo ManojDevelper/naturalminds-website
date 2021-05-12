@@ -13,6 +13,8 @@ import { API_ROOT } from "gatsby-env-variables"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Modal } from 'react-bootstrap';
+import { Link } from "gatsby";
+import takebtn from "../data/assets/taketop.svg";
 
 function Banner() {
     const [lgShow, setLgShow] = useState(false);
@@ -58,7 +60,7 @@ function Banner() {
         let errors2 = {};
         if (!mobile_no2) {
             errors2.mobile_no2 = "**Enter your Mobile Number"
-        } else{
+        } else {
             errors2.mobile_no2 = ""
         } if (docFinal.status === true) {
             toast.success("Registered")
@@ -119,36 +121,38 @@ function Banner() {
         <>
             <div className="banner">
                 <div className="banner_content_wrapper">
-                <Top />
+                    <Top />
                     <div className="banner_container">
-                        <h1 id="banner_h1">{data.banner.childMarkdownRemark.frontmatter.title}</h1>
-                        <p id="banner_p">{data.banner.childMarkdownRemark.frontmatter.description}</p>
+                        <div id="banner_container_container">
+                            <h1 id="banner_h1">{data.banner.childMarkdownRemark.frontmatter.title}</h1>
+                            <p id="banner_p">{data.banner.childMarkdownRemark.frontmatter.description}</p>
+                            <div className="banner_buttons">
+                                <bannerbtn key="1" className={toggleState === 1 ? "show_btn active-show_btn" : "show_btn"}
+                                    onClick={() => toggleTab(1)}><button className="banner_buttons1">{data.banner.childMarkdownRemark.frontmatter.button1}</button></bannerbtn>
+                                <bannerbtn key="2" className={toggleState === 2 ? "show_btn active-show_btn" : "show_btn"}
+                                    onClick={() => toggleTab(2)}><button className="banner_buttons2">{data.banner.childMarkdownRemark.frontmatter.button2}</button></bannerbtn>
+                            </div>
+                            <div className="watchvideo">
+                                <div id="videodiv">
+                                    <img src={playbutton} alt="playbutton" className="playbutton" />
+                                </div>
+                                <div id="videodiv">
+                                    <span onClick={() => setLgShow(true)} role="presentation">{data.banner.childMarkdownRemark.frontmatter.video}</span>
+                                </div>
+                            </div>
+                            <Modal show={lgShow} onHide={() => setLgShow(false)} centered enforceFocus keyboard size="xl" bsPrefix={"modal"} id="videomodal">
+                                <Modal.Header closeButton>
+                                    <div id="banner_pop_video">
+                                        <video autoPlay controls>
+                                            <source src={video} type="video/mp4" />
+                                        </video>
+                                    </div>
+                                </Modal.Header>
+                            </Modal>
+                        </div>
                         <div id="newaddDescription">
                             <p>Our product save patient lives through continuous monitoring of COVID+ Home Quarantined Patients</p>
                         </div>
-                        <div className="banner_buttons">
-                            <bannerbtn key="1" className={toggleState === 1 ? "show_btn active-show_btn" : "show_btn"}
-                                onClick={() => toggleTab(1)}><button className="banner_buttons1">{data.banner.childMarkdownRemark.frontmatter.button1}</button></bannerbtn>
-                            <bannerbtn key="2" className={toggleState === 2 ? "show_btn active-show_btn" : "show_btn"}
-                                onClick={() => toggleTab(2)}><button className="banner_buttons2">{data.banner.childMarkdownRemark.frontmatter.button2}</button></bannerbtn>
-                        </div>
-                        <div className="watchvideo">
-                            <div id="videodiv">
-                                <img src={playbutton} alt="playbutton" className="playbutton" />
-                            </div>
-                            <div id="videodiv">
-                                <span onClick={() => setLgShow(true)} role="presentation">{data.banner.childMarkdownRemark.frontmatter.video}</span>
-                            </div>
-                        </div>
-                        <Modal show={lgShow} onHide={() => setLgShow(false)} centered enforceFocus keyboard size="xl" bsPrefix={"modal"} id="videomodal">
-                            <Modal.Header closeButton>
-                                <div id="banner_pop_video">
-                                    <video autoPlay controls>
-                                        <source src={video} type="video/mp4" />
-                                    </video>
-                                </div>
-                            </Modal.Header>
-                        </Modal>
                         <div id="bannerqr" className={toggleState === 1 ? "cardqr  active-cardqr" : "cardqr"} >
                             {
                                 show ?
@@ -168,9 +172,9 @@ function Banner() {
                                                             <p>+91</p>
                                                             <input type="text" placeholder="Enter Mobile Number" value={mobile_no} onChange={(e) => setMobile_no(e.target.value || "")} maxLength={10} minLength={10} onKeyPress={event => { if (!/[0-9]/.test(event.key)) { event.preventDefault() } }} />
                                                         </div>
-                                                        {(!mobile_no || mobile_no.length < 10 ) ? (
-                                                            <button disabled style={{background: `gray`}}>Get App Link</button> ) :(
-                                                                <button onClick={sendPat}>Get App Link</button>
+                                                        {(!mobile_no || mobile_no.length < 10) ? (
+                                                            <button disabled style={{ background: `gray` }}>Get App Link</button>) : (
+                                                            <button onClick={sendPat}>Get App Link</button>
                                                         )}
                                                     </div>
                                                     {errors.mobile_no && <p className="errors" style={{ fontSize: `1vw`, color: `orange`, position: `absolute`, margin: `0`, transition: `0.5s ease` }}>{errors.mobile_no}</p>}
@@ -211,9 +215,9 @@ function Banner() {
                                                             <p>+91</p>
                                                             <input type="text" placeholder="Enter Mobile Number" value={mobile_no2} onChange={(e) => setMobile_no2(e.target.value || "")} maxLength={10} minLength={10} onKeyPress={event => { if (!/[0-9]/.test(event.key)) { event.preventDefault() } }} />
                                                         </div>
-                                                        {(!mobile_no2 || mobile_no2.length < 10 ) ? (
-                                                            <button disabled style={{background: `gray`}}>Get App Link</button> ) :(
-                                                                <button onClick={sendDoc}>Get App Link</button>
+                                                        {(!mobile_no2 || mobile_no2.length < 10) ? (
+                                                            <button disabled style={{ background: `gray` }}>Get App Link</button>) : (
+                                                            <button onClick={sendDoc}>Get App Link</button>
                                                         )}
                                                     </div>
                                                     {errors2.mobile_no2 && <p className="errors" style={{ fontSize: `1vw`, color: `orange`, position: `absolute`, margin: `0`, transition: `0.5s ease` }}>{errors2.mobile_no2}</p>}
@@ -238,6 +242,9 @@ function Banner() {
                     </div>
                 </div>
                 <ToastContainer />
+                <div id="image_taketop">
+                    <Link to="/landing/"><img src={takebtn} alt="taketop" /></Link>
+                </div>
             </div>
         </>
     );
