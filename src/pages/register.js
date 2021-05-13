@@ -363,7 +363,7 @@ function Register() {
                   {docResult &&
                     docResult.data.map((Specelist, i) => (
                       <>
-                      {(Specelist.name === "Doctor" || Specelist.name === "Nurse" || Specelist.name === "Chemist" || Specelist.name === "Laboratory") ? (<></>) : (                        <option value={Specelist.id} key={Specelist.id}>
+                        {(Specelist.name === "Doctor" || Specelist.name === "Nurse" || Specelist.name === "Chemist" || Specelist.name === "Laboratory") ? (<></>) : (<option value={Specelist.id} key={Specelist.id}>
                           {Specelist.name}
                         </option>)}
 
@@ -499,7 +499,7 @@ function Register() {
         aria-labelledby="scroll-dialog-title"
         aria-describedby="scroll-dialog-description"
       >
-        <DialogTitle id="scroll-dialog-title" style={{ textAlign: `center`, fontWeight: `bold` }}>Terms & Conditions</DialogTitle>
+        <DialogTitle id="scroll-dialog-title" style={{ textAlign: `center`, fontWeight: `bold`, color: "#00bde1" }}>Terms & Conditions</DialogTitle>
         <DialogContent dividers={scroll === 'paper'}>
           <DialogContentText
             id="scroll-dialog-description"
