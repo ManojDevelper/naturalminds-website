@@ -34,35 +34,56 @@ function Register() {
   `)
   /*=================form validation=======================================*/
   const [errors, setErrors] = useState("");
-  const valiadtion = () => {
+  const validation = () => {
     let errors = {};
-    if (name.length < 3) {
-      errors.name = "***Enter valid name"
+    if (!name) {
+      errors.name = "**Name is Required"
+      errors.color = "red"
     } else {
       errors.name = ""
     } if (!email) {
-      errors.email = "**E-mail need to contain @"
-    } if (!gender) {
-      errors.gender = "**Select gender"
-    } if (!phone) {
-      errors.phone = "**Number should be 10"
-    } if (!licenseNo) {
-      errors.licenseNo = "**Enter your licenseNo"
-    } if (!orgName) {
-      errors.orgName = "**Enter your orgName"
-    } if (!orgPhone) {
-      errors.orgPhone = "**Enter your orgPhone number"
-    } if (!address) {
-      errors.address = "**Enter your address"
+      errors.email = "**Please enter your Email"
+      errors.color = "red"
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
+      errors.email = "**Email is invalid"
+      errors.color = "red"
+    }
+    if (!phone) {
+      errors.phone = "**Please enter your mobile number"
+      errors.color = "red"
+    }
+    if (!licenseNo) {
+      errors.licenseNo = "**Please enter your licenseNo"
+      errors.color = "red"
+    }
+    if (!docType) {
+      errors.docType = "**Please select docType"
+      errors.color = "red"
+    }
+    if (!orgName) {
+      errors.orgName = "**Please enter your organisation name"
+      errors.color = "red"
+    }
+    if (!orgPhone) {
+      errors.orgPhone = "**Please enter your organisation number"
+      errors.color = "red"
+    }
+    if (!address) {
+      errors.address = "**Please enter your address"
+      errors.color = "red"
     } if (!city) {
-      errors.city = "**Enter your city"
+      errors.city = "**Please enter your city"
+      errors.color = "red"
     } if (!state) {
-      errors.state = "**Enter your state"
+      errors.state = "**Please enter your state"
+      errors.color = "red"
     } if (!pincode) {
-      errors.pincode = "**Enter your pincode"
+      errors.pincode = "**Please enter your pincode"
+      errors.color = "red"
     }
     return errors;
   }
+
   /*-------------------------------------------------------------------------*/
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
@@ -99,16 +120,18 @@ function Register() {
     console.log(result)
     setShowData(result)
     if (result.status === true) {
-      toast.success("Registered")
+      toast.success(result.msg)
       navigate("/spotPay/", {
         state: {
           item: item
         }
       })
     } else {
-      setErrors(valiadtion())
-      toast.error("Please try again")
+      toast.error(result.msg)
     }
+  }
+  function signUpp() {
+    setErrors(validation())
   }
   /*================to clear up all the results in the register form================*/
   const [docResult, setDocResult] = useState("")
@@ -146,6 +169,7 @@ function Register() {
       }
     )
     DocTypeResult = await DocTypeResult.json()
+    console.log(DocTypeResult)
     setDocResult(DocTypeResult)
   }
   useEffect(() => {
@@ -177,8 +201,7 @@ function Register() {
             <div id="register_inputs">
               <div className="register_input_block1">
                 <div id="register_input_block_input1">
-                  {(name <= 3) ? (<h1 style={{ color: `orange` }}>Full Name**</h1>) :
-                    (<h1>Full Name**</h1>)}
+                  {(name.length < 3) ? (<h1 style={{ color: (errors.color) }}>Full Name**</h1>) : (<h1>Full Name**</h1>)}
                   <input
                     type="text"
                     placeholder="name"
@@ -187,13 +210,12 @@ function Register() {
                     onChange={e => setName(e.target.value)}
                     required
                   />
-                  <p style={{ fontSize: `0.7vw`, position: `absolute`, top: `2.6vw`, color: `red`, opacity: `0.7` }}>{errors.licenseNo}</p>
+                  {(name.length < 3) ? (<p style={{ fontSize: `0.7vw`, position: `absolute`, top: `2.6vw`, color: `red`, opacity: `0.7` }}>{errors.name}</p>) : (<></>)}
                 </div>
               </div>
               <div className="register_input_block1">
                 <div id="register_input_block_input1">
-                  {(!email) || !/\S+@\S+\.\S+/.test(email) ? (<h1 style={{ color: `orange` }}>Email ID**</h1>) :
-                    (<h1>Email ID**</h1>)}
+                  {(!email) || (!/\S+@\S+\.\S+/.test(email)) ? (<h1 style={{ color: (errors.color) }}>Email ID**</h1>) : (<h1>Email ID**</h1>)}
                   <input
                     type="Email"
                     placeholder="mail"
@@ -201,12 +223,11 @@ function Register() {
                     onBlur={""}
                     onChange={e => setEmail(e.target.value)}
                   />
-                  <p style={{ fontSize: `0.7vw`, position: `absolute`, top: `2.6vw`, color: `red`, opacity: `0.7` }}>{errors.licenseNo}</p>
+                  {(!email) || (!/\S+@\S+\.\S+/.test(email)) ? (<p style={{ fontSize: `0.7vw`, position: `absolute`, top: `2.6vw`, color: `red`, opacity: `0.7` }}>{errors.email}</p>) : (<></>)}
                 </div>
               </div>
               <div id="docselectorbox">
-                {(!gender) ? (<h1 style={{ color: `orange` }}>Gender*</h1>) :
-                  (<h1>Gender*</h1>)}
+                {(!gender) ? (<h1 style={{ color: (errors.color) }}>Gender*</h1>) : (<h1>Gender*</h1>)}
                 <select
                   className="custom-select"
                   value={gender}
@@ -215,17 +236,15 @@ function Register() {
                     const selectedDoctor = e.target.value
                     setGender(selectedDoctor)
                   }}
-                ><option value="gender">Gender</option>
+                >
                   <option value="male">Male</option>
                   <option value="female">Female</option>
                   <option value="other">Other</option>
                 </select>
               </div>
-
               <div className="register_input_block1">
                 <div id="register_input_block_input1">
-                  {(phone.length < 10) ? (<h1 style={{ color: `orange` }}>Contact Number*</h1>) :
-                    (<h1>Contact Number*</h1>)}
+                  {(!phone) ? (<h1 style={{ color: (errors.color) }}>Contact Number*</h1>) : (<h1>Contact Number*</h1>)}
                   <input
                     type="text"
                     placeholder="+ 91"
@@ -240,13 +259,12 @@ function Register() {
                       }
                     }}
                   />
-                  <p style={{ fontSize: `0.7vw`, position: `absolute`, top: `2.6vw`, color: `red`, opacity: `0.7` }}>{errors.licenseNo}</p>
+                  {(!phone) ? (<p style={{ fontSize: `0.7vw`, position: `absolute`, top: `2.6vw`, color: `red`, opacity: `0.7` }}>{errors.phone}</p>) : (<></>)}
                 </div>
               </div>
               <div className="register_input_block1">
                 <div id="register_input_block_input1">
-                  {(licenseNo.length < 6) ? (<h1 style={{ color: `orange` }}>License Number*</h1>) :
-                    (<h1>License Number*</h1>)}
+                  {(!licenseNo) ? (<h1 style={{ color: (errors.color) }}>License Number*</h1>) : (<h1>License Number*</h1>)}
                   <input
                     type="text"
                     placeholder="license number"
@@ -261,12 +279,11 @@ function Register() {
                       }
                     }}
                   />
-                  <p style={{ fontSize: `0.7vw`, position: `absolute`, top: `2.6vw`, color: `red`, opacity: `0.7` }}>{errors.licenseNo}</p>
+                  {(licenseNo.length < 3) ? (<p style={{ fontSize: `0.7vw`, position: `absolute`, top: `2.6vw`, color: `red`, opacity: `0.7` }}>{errors.licenseNo}</p>) : (<></>)}
                 </div>
               </div>
               <div id="docselectorbox">
-                {(!selectedUserType) ? (<h1 style={{ color: `orange` }}>User Type**</h1>) :
-                  (<h1>User Type**</h1>)}
+                {(!selectedUserType) ? (<h1 style={{ color: (errors.color) }}>User Type**</h1>) : (<h1>User Type**</h1>)}
                 <select
                   className="custom-select"
                   value={selectedUserType}
@@ -282,9 +299,9 @@ function Register() {
                   <option value="Laboratory">Laboratory</option>
                 </select>
               </div>
-              {(selectedUserType === "Doctor") ? ( <div id="docselectorbox">
-                {(!docType) ? (<h1 style={{ color: `orange` }}>Speciality</h1>) :
-                  (<h1>Speciality</h1>)}
+              {(selectedUserType === "Doctor") ? (<div id="docselectorbox">
+                {(!docType) ? (<h1 style={{ color: (errors.color) }}>Speciality</h1>) : (<h1>Speciality</h1>)}
+                <h1>Speciality</h1>
                 <select
                   className="custom-select"
                   value={docType}
@@ -305,12 +322,11 @@ function Register() {
                     ))}
                 </select>
               </div>) :
-                    (<>
-                    </>)}
+                (<>
+                </>)}
               <div className="register_input_block1">
                 <div id="register_input_block_input1">
-                  {(orgName.length < 3) ? (<h1 style={{ color: `orange` }}>Provider Organization*</h1>) :
-                    (<h1>Provider Organization*</h1>)}
+                  {(!orgName) ? (<h1 style={{ color: (errors.color) }}>Provider Organization*</h1>) : (<h1>Provider Organization*</h1>)}
                   <input
                     type="text"
                     placeholder="provider organization"
@@ -318,13 +334,12 @@ function Register() {
                     onBlur={""}
                     onChange={e => setOrgname(e.target.value)}
                   />
-                  <p style={{ fontSize: `0.7vw`, position: `absolute`, top: `2.6vw`, color: `red`, opacity: `0.7` }}>{errors.licenseNo}</p>
+                  {(orgName.length < 3) ? (<p style={{ fontSize: `0.7vw`, position: `absolute`, top: `2.6vw`, color: `red`, opacity: `0.7` }}>{errors.orgName}</p>) : (<></>)}
                 </div>
               </div>
               <div className="register_input_block1">
                 <div id="register_input_block_input1">
-                  {(orgPhone.length < 10) ? (<h1 style={{ color: `orange` }}>Provider Organization Phone Number*</h1>) :
-                    (<h1>Provider Organization Phone Number*</h1>)}
+                  {(!orgPhone) ? (<h1 style={{ color: (errors.color) }}>Provider Organization Phone Number*</h1>) : (<h1>Provider Organization Phone Number*</h1>)}
                   <input
                     type="text"
                     placeholder="orgPhone"
@@ -339,13 +354,12 @@ function Register() {
                       }
                     }}
                   />
-                  <p style={{ fontSize: `0.7vw`, position: `absolute`, top: `2.6vw`, color: `red`, opacity: `0.7` }}>{errors.licenseNo}</p>
+                  {(orgPhone.length < 3) ? (<p style={{ fontSize: `0.7vw`, position: `absolute`, top: `2.6vw`, color: `red`, opacity: `0.7` }}>{errors.orgPhone}</p>) : (<></>)}
                 </div>
               </div>
               <div className="register_input_block1">
                 <div id="register_input_block_input1">
-                  {(address.length < 5) ? (<h1 style={{ color: `orange` }}>Provider Address*</h1>) :
-                    (<h1>Provider Address*</h1>)}
+                  {(!address) ? (<h1 style={{ color: (errors.color) }}>Provider Address*</h1>) : (<h1>Provider Address*</h1>)}
                   <input
                     type="text"
                     placeholder="provider address"
@@ -353,13 +367,12 @@ function Register() {
                     onBlur={""}
                     onChange={e => setAddress(e.target.value)}
                   />
-                  <p style={{ fontSize: `0.7vw`, position: `absolute`, top: `2.6vw`, color: `red`, opacity: `0.7` }}>{errors.licenseNo}</p>
+                  {(address.length < 3) ? (<p style={{ fontSize: `0.7vw`, position: `absolute`, top: `2.6vw`, color: `red`, opacity: `0.7` }}>{errors.address}</p>) : (<></>)}
                 </div>
               </div>
               <div className="register_input_block1">
                 <div id="register_input_block_input1">
-                  {(city.length < 2) ? (<h1 style={{ color: `orange` }}>City*</h1>) :
-                    (<h1>City*</h1>)}
+                  {(city.length < 3) ? (<h1 style={{ color: (errors.color) }}>City*</h1>) : (<h1>City*</h1>)}
                   <input
                     type="text"
                     placeholder="city"
@@ -367,13 +380,12 @@ function Register() {
                     onBlur={""}
                     onChange={e => setCity(e.target.value)}
                   />
-                  <p style={{ fontSize: `0.7vw`, position: `absolute`, top: `2.6vw`, color: `red`, opacity: `0.7` }}>{errors.licenseNo}</p>
+                  {(city.length < 3) ? (<p style={{ fontSize: `0.7vw`, position: `absolute`, top: `2.6vw`, color: `red`, opacity: `0.7` }}>{errors.city}</p>) : (<></>)}
                 </div>
               </div>
               <div className="register_input_block1">
                 <div id="register_input_block_input1">
-                  {(state.length < 3) ? (<h1 style={{ color: `orange` }}>State</h1>) :
-                    (<h1>State</h1>)}
+                  {(state.length < 3) ? (<h1 style={{ color: (errors.color) }}>State</h1>) : (<h1>State</h1>)}
                   <input
                     type="text"
                     placeholder="state"
@@ -381,13 +393,12 @@ function Register() {
                     onBlur={""}
                     onChange={e => setState(e.target.value)}
                   />
-                  <p style={{ fontSize: `0.7vw`, position: `absolute`, top: `2.6vw`, color: `red`, opacity: `0.7` }}>{errors.licenseNo}</p>
+                  {(state.length < 3) ? (<p style={{ fontSize: `0.7vw`, position: `absolute`, top: `2.6vw`, color: `red`, opacity: `0.7` }}>{errors.state}</p>) : (<></>)}
                 </div>
               </div>
               <div className="register_input_block1">
                 <div id="register_input_block_input1">
-                  {(pincode.length < 6) ? (<h1 style={{ color: `orange` }}>PinCode</h1>) :
-                    (<h1>PinCode</h1>)}
+                  {(pincode.length < 3) ? (<h1 style={{ color: (errors.color) }}>PinCode</h1>) : (<h1>PinCode</h1>)}
                   <input
                     type="text"
                     placeholder="pincode"
@@ -402,7 +413,7 @@ function Register() {
                       }
                     }}
                   />
-                  <p style={{ fontSize: `0.7vw`, position: `absolute`, top: `2.6vw`, color: `red`, opacity: `0.7` }}>{errors.licenseNo}</p>
+                  {(pincode.length < 3) ? (<p style={{ fontSize: `0.7vw`, position: `absolute`, top: `2.6vw`, color: `red`, opacity: `0.7` }}>{errors.pincode}</p>) : (<></>)}
                 </div>
               </div>
               <div className="register_input_block1">
@@ -415,7 +426,6 @@ function Register() {
                     onBlur={""}
                     onChange={e => setRefferalcode(e.target.value)}
                   />
-                  <p style={{ fontSize: `0.7vw`, position: `absolute`, top: `2.6vw`, color: `red`, opacity: `0.7` }}>{errors.licenseNo}</p>
                 </div>
               </div>
             </div>
@@ -424,8 +434,8 @@ function Register() {
               <p>By signing up, I accept NaturalMinds’s <span>Terms and conditions</span></p>
             </div>
             <div id="register_button">
-              {(!name || !email || (!/\S+@\S+\.\S+/.test(email)) || !gender || !selectedUserType || (!phone || phone.length < 9) || !licenseNo || !orgName || (!orgPhone || orgPhone.length < 9) || !address || !city || !state || !pincode || !tnc_id ) ? (
-                <button type="submit" onClick={signUp} disabled style={{ background: `gray` }}>SignUp</button>
+              {(!name || !email || (!/\S+@\S+\.\S+/.test(email)) || !gender || !selectedUserType || (!phone || phone.length < 9) || !licenseNo || !orgName || (!orgPhone || orgPhone.length < 9) || !address || !city || !state || !pincode || !tnc_id) ? (
+                <button type="submit" onClick={signUpp} style={{ background: `gray` }}>SignUp</button>
               ) : (
                 <>
                   <button type="submit" onClick={signUp}>SignUp</button>
