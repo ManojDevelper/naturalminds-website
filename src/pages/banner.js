@@ -174,7 +174,7 @@ function Banner() {
                                     <span onClick={() => setLgShow(true)} role="presentation">{data.banner.childMarkdownRemark.frontmatter.video}</span>
                                 </div>
                             </div>
-                            <Modal show={lgShow} onHide={() => setLgShow(false)} centered enforceFocus keyboard size="xl" bsPrefix={"modal"} id="videomodal">
+                            <Modal show={lgShow} onHide={() => setLgShow(false)} centered enforceFocus keyboard size="xl" bsPrefix={"modal"} id="videomodal" backdrop="static">
                                 <Modal.Header closeButton>
                                     <div id="banner_pop_video">
                                         <video autoPlay controls>

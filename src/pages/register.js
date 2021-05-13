@@ -6,6 +6,13 @@ import Footer from "./footer";
 import { API_ROOT } from "gatsby-env-variables";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+// import axios from "axios";
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 
 function Register() {
   const data = useStaticQuery(graphql`
@@ -32,6 +39,28 @@ function Register() {
       }
     }
   `)
+  /*=======================tnc modal======================================*/
+  const [open, setOpen] = React.useState(false);
+  const [scroll, setScroll] = React.useState('paper');
+
+  const handleClickOpen = (scrollType) => () => {
+    setOpen(true);
+    setScroll(scrollType);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const descriptionElementRef = React.useRef(null);
+  React.useEffect(() => {
+    if (open) {
+      const { current: descriptionElement } = descriptionElementRef;
+      if (descriptionElement !== null) {
+        descriptionElement.focus();
+      }
+    }
+  }, [open]);
   /*=================form validation=======================================*/
   const [errors, setErrors] = useState("");
   const validation = () => {
@@ -132,6 +161,7 @@ function Register() {
   }
   function signUpp() {
     setErrors(validation())
+    navigate("/register/")
   }
   /*================to clear up all the results in the register form================*/
   const [docResult, setDocResult] = useState("")
@@ -153,6 +183,29 @@ function Register() {
     setShowData("")
     setShowData("")
   }
+  // const [posts, setPosts] = useState();
+
+  // useEffect(() => {
+  //   const loadPosts = async () => {
+  //     const response = await axios.get("https://stag.spotcare.in/api/tou/termsofuse.html");
+  //     setPosts(response);
+  //     console.log(response)
+  //   }
+  //   loadPosts();
+  //    // eslint-disable-next-line
+  // }, []);
+
+  useEffect(() => {
+    const loadPosts = async () => {
+      const response2 = await fetch(
+        "https://stag.spotcare.in/api/tou/termsofuse.html"
+      )
+      const data2 = await response2.json()
+      console.log(data2)
+
+    }
+    loadPosts()
+  }, [])
   /*====================for Specelist======================*/
   async function getDoctor() {
     let docitem = { name }
@@ -210,7 +263,6 @@ function Register() {
                     onChange={e => setName(e.target.value)}
                     required
                   />
-                  {(name.length < 3) ? (<p style={{ fontSize: `0.7vw`, position: `absolute`, top: `2.6vw`, color: `red`, opacity: `0.7` }}>{errors.name}</p>) : (<></>)}
                 </div>
               </div>
               <div className="register_input_block1">
@@ -223,7 +275,6 @@ function Register() {
                     onBlur={""}
                     onChange={e => setEmail(e.target.value)}
                   />
-                  {(!email) || (!/\S+@\S+\.\S+/.test(email)) ? (<p style={{ fontSize: `0.7vw`, position: `absolute`, top: `2.6vw`, color: `red`, opacity: `0.7` }}>{errors.email}</p>) : (<></>)}
                 </div>
               </div>
               <div id="docselectorbox">
@@ -236,7 +287,7 @@ function Register() {
                     const selectedDoctor = e.target.value
                     setGender(selectedDoctor)
                   }}
-                >
+                ><option value="">Gender</option>
                   <option value="male">Male</option>
                   <option value="female">Female</option>
                   <option value="other">Other</option>
@@ -259,12 +310,11 @@ function Register() {
                       }
                     }}
                   />
-                  {(!phone) ? (<p style={{ fontSize: `0.7vw`, position: `absolute`, top: `2.6vw`, color: `red`, opacity: `0.7` }}>{errors.phone}</p>) : (<></>)}
                 </div>
               </div>
               <div className="register_input_block1">
                 <div id="register_input_block_input1">
-                  {(!licenseNo) ? (<h1 style={{ color: (errors.color) }}>License Number*</h1>) : (<h1>License Number*</h1>)}
+                  {(licenseNo.length < 5) ? (<h1 style={{ color: (errors.color) }}>License Number*</h1>) : (<h1>License Number*</h1>)}
                   <input
                     type="text"
                     placeholder="license number"
@@ -279,7 +329,6 @@ function Register() {
                       }
                     }}
                   />
-                  {(licenseNo.length < 3) ? (<p style={{ fontSize: `0.7vw`, position: `absolute`, top: `2.6vw`, color: `red`, opacity: `0.7` }}>{errors.licenseNo}</p>) : (<></>)}
                 </div>
               </div>
               <div id="docselectorbox">
@@ -301,7 +350,6 @@ function Register() {
               </div>
               {(selectedUserType === "Doctor") ? (<div id="docselectorbox">
                 {(!docType) ? (<h1 style={{ color: (errors.color) }}>Speciality</h1>) : (<h1>Speciality</h1>)}
-                <h1>Speciality</h1>
                 <select
                   className="custom-select"
                   value={docType}
@@ -315,9 +363,10 @@ function Register() {
                   {docResult &&
                     docResult.data.map((Specelist, i) => (
                       <>
-                        <option value={Specelist.id} key={Specelist.id}>
+                      {(Specelist.name === "Doctor" || Specelist.name === "Nurse" || Specelist.name === "Chemist" || Specelist.name === "Laboratory") ? (<></>) : (                        <option value={Specelist.id} key={Specelist.id}>
                           {Specelist.name}
-                        </option>
+                        </option>)}
+
                       </>
                     ))}
                 </select>
@@ -326,7 +375,7 @@ function Register() {
                 </>)}
               <div className="register_input_block1">
                 <div id="register_input_block_input1">
-                  {(!orgName) ? (<h1 style={{ color: (errors.color) }}>Provider Organization*</h1>) : (<h1>Provider Organization*</h1>)}
+                  {(orgName < 3) ? (<h1 style={{ color: (errors.color) }}>Provider Organization*</h1>) : (<h1>Provider Organization*</h1>)}
                   <input
                     type="text"
                     placeholder="provider organization"
@@ -334,12 +383,11 @@ function Register() {
                     onBlur={""}
                     onChange={e => setOrgname(e.target.value)}
                   />
-                  {(orgName.length < 3) ? (<p style={{ fontSize: `0.7vw`, position: `absolute`, top: `2.6vw`, color: `red`, opacity: `0.7` }}>{errors.orgName}</p>) : (<></>)}
                 </div>
               </div>
               <div className="register_input_block1">
                 <div id="register_input_block_input1">
-                  {(!orgPhone) ? (<h1 style={{ color: (errors.color) }}>Provider Organization Phone Number*</h1>) : (<h1>Provider Organization Phone Number*</h1>)}
+                  {(orgPhone < 3) ? (<h1 style={{ color: (errors.color) }}>Provider Organization Phone Number*</h1>) : (<h1>Provider Organization Phone Number*</h1>)}
                   <input
                     type="text"
                     placeholder="orgPhone"
@@ -354,12 +402,11 @@ function Register() {
                       }
                     }}
                   />
-                  {(orgPhone.length < 3) ? (<p style={{ fontSize: `0.7vw`, position: `absolute`, top: `2.6vw`, color: `red`, opacity: `0.7` }}>{errors.orgPhone}</p>) : (<></>)}
                 </div>
               </div>
               <div className="register_input_block1">
                 <div id="register_input_block_input1">
-                  {(!address) ? (<h1 style={{ color: (errors.color) }}>Provider Address*</h1>) : (<h1>Provider Address*</h1>)}
+                  {(address < 3) ? (<h1 style={{ color: (errors.color) }}>Provider Address*</h1>) : (<h1>Provider Address*</h1>)}
                   <input
                     type="text"
                     placeholder="provider address"
@@ -367,7 +414,6 @@ function Register() {
                     onBlur={""}
                     onChange={e => setAddress(e.target.value)}
                   />
-                  {(address.length < 3) ? (<p style={{ fontSize: `0.7vw`, position: `absolute`, top: `2.6vw`, color: `red`, opacity: `0.7` }}>{errors.address}</p>) : (<></>)}
                 </div>
               </div>
               <div className="register_input_block1">
@@ -380,7 +426,6 @@ function Register() {
                     onBlur={""}
                     onChange={e => setCity(e.target.value)}
                   />
-                  {(city.length < 3) ? (<p style={{ fontSize: `0.7vw`, position: `absolute`, top: `2.6vw`, color: `red`, opacity: `0.7` }}>{errors.city}</p>) : (<></>)}
                 </div>
               </div>
               <div className="register_input_block1">
@@ -393,7 +438,6 @@ function Register() {
                     onBlur={""}
                     onChange={e => setState(e.target.value)}
                   />
-                  {(state.length < 3) ? (<p style={{ fontSize: `0.7vw`, position: `absolute`, top: `2.6vw`, color: `red`, opacity: `0.7` }}>{errors.state}</p>) : (<></>)}
                 </div>
               </div>
               <div className="register_input_block1">
@@ -413,7 +457,6 @@ function Register() {
                       }
                     }}
                   />
-                  {(pincode.length < 3) ? (<p style={{ fontSize: `0.7vw`, position: `absolute`, top: `2.6vw`, color: `red`, opacity: `0.7` }}>{errors.pincode}</p>) : (<></>)}
                 </div>
               </div>
               <div className="register_input_block1">
@@ -431,7 +474,7 @@ function Register() {
             </div>
             <div id="register_checkbox">
               <input type="checkbox" value={showData.tnc_id} onChange={e => setTnc(e.target.checked)} />
-              <p>By signing up, I accept NaturalMinds’s <span>Terms and conditions</span></p>
+              <p>By signing up, I accept NaturalMinds’s <span onClick={handleClickOpen('paper')}>Terms and conditions</span></p>
             </div>
             <div id="register_button">
               {(!name || !email || (!/\S+@\S+\.\S+/.test(email)) || !gender || !selectedUserType || (!phone || phone.length < 9) || !licenseNo || !orgName || (!orgPhone || orgPhone.length < 9) || !address || !city || !state || !pincode || !tnc_id) ? (
@@ -448,6 +491,37 @@ function Register() {
         <Footer />
         <ToastContainer />
       </div>
+      {/* ===================================Terms and conditions Dialouge modal============================================== */}
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        scroll={scroll}
+        aria-labelledby="scroll-dialog-title"
+        aria-describedby="scroll-dialog-description"
+      >
+        <DialogTitle id="scroll-dialog-title" style={{ textAlign: `center`, fontWeight: `bold` }}>Terms & Conditions</DialogTitle>
+        <DialogContent dividers={scroll === 'paper'}>
+          <DialogContentText
+            id="scroll-dialog-description"
+            ref={descriptionElementRef}
+            tabIndex={-1}
+          >
+            {[...new Array(50)]
+              .map(
+                () => `Cras mattis consectetur purus sit amet fermentum.
+Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`,
+              )
+              .join('\n')}
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} color="primary">
+            Close
+          </Button>
+        </DialogActions>
+      </Dialog>
     </>
   )
 }
