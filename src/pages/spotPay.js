@@ -52,11 +52,10 @@ function Spotpay({ location }) {
           result = await result.json()
           console.log(result.data)
           if (result.status === true) {
-            toast.success("Your Order Is Success")
             const res = await loadscript("https://checkout.razorpay.com/v1/checkout.js")
 
             if (!res) {
-              alert('Razorpay SDK failed to load')
+              toast.alert("Razorpay SDK failed to load")
               return
             }
             const options = {
@@ -78,6 +77,7 @@ function Spotpay({ location }) {
             };
             const paymentObject = new window.Razorpay(options);
             paymentObject.open()
+            console.log(paymentObject)
 
           } else {
             toast.success("Please Try Again")

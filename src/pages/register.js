@@ -282,7 +282,7 @@ function Register() {
                   <option value="Laboratory">Laboratory</option>
                 </select>
               </div>
-              {(selectedUserType === "Doctor") ? (             <div id="docselectorbox">
+              {(selectedUserType === "Doctor") ? ( <div id="docselectorbox">
                 {(!docType) ? (<h1 style={{ color: `orange` }}>Speciality</h1>) :
                   (<h1>Speciality</h1>)}
                 <select
@@ -307,8 +307,6 @@ function Register() {
               </div>) :
                     (<>
                     </>)}
-              
- 
               <div className="register_input_block1">
                 <div id="register_input_block_input1">
                   {(orgName.length < 3) ? (<h1 style={{ color: `orange` }}>Provider Organization*</h1>) :
@@ -426,7 +424,7 @@ function Register() {
               <p>By signing up, I accept NaturalMinds’s <span>Terms and conditions</span></p>
             </div>
             <div id="register_button">
-              {(!name || !email || (!/\S+@\S+\.\S+/.test(email)) || !gender || (!phone || phone.length < 9) || !licenseNo || !docType || !orgName || (!orgPhone || orgPhone.length > 9) || !address || !city || !state || !pincode || !tnc_id || !selectedUserType) ? (
+              {(!name || !email || (!/\S+@\S+\.\S+/.test(email)) || !gender || !selectedUserType || (!phone || phone.length < 9) || !licenseNo || !orgName || (!orgPhone || orgPhone.length < 9) || !address || !city || !state || !pincode || !tnc_id ) ? (
                 <button type="submit" onClick={signUp} disabled style={{ background: `gray` }}>SignUp</button>
               ) : (
                 <>
