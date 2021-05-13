@@ -24,7 +24,7 @@ function loadscript(src) {
 function Spotpay({ location }) {
   const [payment, setPayment] = useState(null)
   const proceedtopay = paymap => {
-    const amount = paymap.AMOUNT
+    const amount = paymap.AMOUNT + paymap.AMOUNT /100 * 18
     const name = paymap.PLAN_NAME
     const orderid = paymap.PLAN_ID
       ; (async () => {
@@ -68,9 +68,12 @@ function Spotpay({ location }) {
               image: { logo },
               order_id: result.data,
               handler: function (response) {
-                alert(response.razorpay_payment_id);
-                alert(response.razorpay_order_id);
-                alert(response.razorpay_signature)
+                console.log(response.razorpay_payment_id);
+                console.log(response.razorpay_order_id);
+                console.log(response.razorpay_signature)
+              },
+              theme: {
+                color: 'linear-gradient(135deg, #00bde1 0%, #0093c6 100%)'
               },
             };
             const paymentObject = new window.Razorpay(options);
@@ -163,7 +166,7 @@ function Spotpay({ location }) {
                                   <p id="prize_title">GST</p>
                                 </div>
                                 <div id="pay_block2_mini_container">
-                                  <p id="pay_prize">₹ 90</p>
+                                  <p id="pay_prize">₹ {paymap.AMOUNT * 0.18}</p>
                                 </div>
                               </div>
                             </div>
@@ -179,7 +182,7 @@ function Spotpay({ location }) {
                                 <p id="prize_title">Total</p>
                               </div>
                               <div id="pay_block2_mini_container">
-                                <p id="pay_prize">₹ {paymap.AMOUNT + 90}</p>
+                                <p id="pay_prize">₹ {paymap.AMOUNT + paymap.AMOUNT / 100 * 18}</p>
                               </div>
                             </div>
                           </div>
