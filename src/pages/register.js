@@ -67,7 +67,7 @@ function Register() {
     result = await result.json()
     console.log(result)
     setShowData(result)
-    if (showData.status === true) {
+    if (result.status === true) {
       toast.success("Registered")
       navigate("/spotPay/", {
         state: {
@@ -95,7 +95,6 @@ function Register() {
     setState("")
     setPincode("")
     setRefferalcode("")
-    setShowData("")
     setShowData("")
   }
   /*====================for Specelist======================*/
