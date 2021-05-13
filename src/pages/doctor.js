@@ -23,6 +23,42 @@ import takebtn from "../data/assets/taketop.svg";
 
 
 function Doctor() {
+      /*==================taketop======================*/
+      useEffect(() => {
+        window.addEventListener('resize', showButton);
+    
+        window.addEventListener('scroll', changeBackground);
+        return () => {
+          window.removeEventListener('resize', showButton);
+    
+          window.removeEventListener('scroll', changeBackground);
+        }
+      }, [])
+    
+    
+      const [navbar, setNavbar] = useState(false);
+      const [button, setButton] = useState();
+      const showButton = () => {
+        if (window.innerWidth <= 960) {
+          setButton(false);
+        } else {
+          setButton(true);
+        }
+      };
+      useEffect(() => {
+        showButton();
+        // eslint-disable-next-line
+      }, [])
+    
+      const changeBackground = () => {
+        if (window.scrollY >= 80) {
+          setNavbar(true)
+        } else {
+          setNavbar(false);
+        }
+      };
+    
+    /*================================================*/
   /*==================Api calling for patient form====================*/
   const [errors, setErrors] = useState({});
   const Patentvalidation = () => {
@@ -283,8 +319,8 @@ function Doctor() {
           </div>
           <Footer />
           <ToastContainer />
-          <div id="image_taketop">
-                    <Link to="/doctor/"><img src={takebtn} alt="taketop"/></Link>
+          <div id={navbar ? 'image_taketop' : 'image_taketop2'}>
+                    <Link to="/doctor/"><img src={takebtn} alt="taketop" /></Link>
                 </div>
         </div>
       </div>

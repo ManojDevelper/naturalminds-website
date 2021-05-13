@@ -4,7 +4,7 @@
 }
 #pay {
     position: relative;
-    top: 10vw;
+    top: 5vw;
 }
 #pay_container_main {
     width: 100%;
@@ -80,7 +80,7 @@
     top: 0;
     right: 0;
     width: 78px;
-    height: 24px;
+    padding: 3px 0;
     font-family: Source Sans Pro;
     font-style: normal;
     font-weight: 600;
@@ -90,6 +90,10 @@
     text-align: center;
     color: #ff4081;
     display:block;
+    margin: 8px 8px 0 0 ;
+}
+.pay_block2_container2 #success p{
+    margin: 0;
 }
 #pay_block2_container1_block1 {
     width: fit-content;

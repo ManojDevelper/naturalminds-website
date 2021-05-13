@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import qr1 from "../data/assets/patentqr.png"
 import qr2 from "../data/assets/docqr.png"
 import playstorebtn from "../data/assets/playstore_btn.svg"
@@ -17,6 +17,42 @@ import { Link } from "gatsby";
 import takebtn from "../data/assets/taketop.svg";
 
 function Banner() {
+    /*==================taketop======================*/
+    useEffect(() => {
+        window.addEventListener('resize', showButton);
+    
+        window.addEventListener('scroll', changeBackground);
+        return () => {
+          window.removeEventListener('resize', showButton);
+    
+          window.removeEventListener('scroll', changeBackground);
+        }
+      }, [])
+    
+    
+      const [navbar, setNavbar] = useState(false);
+      const [button, setButton] = useState();
+      const showButton = () => {
+        if (window.innerWidth <= 960) {
+          setButton(false);
+        } else {
+          setButton(true);
+        }
+      };
+      useEffect(() => {
+        showButton();
+        // eslint-disable-next-line
+      }, [])
+    
+      const changeBackground = () => {
+        if (window.scrollY >= 80) {
+          setNavbar(true)
+        } else {
+          setNavbar(false);
+        }
+      };
+    
+    /*================================================*/
     const [lgShow, setLgShow] = useState(false);
     /*==================Api calling for patient form====================*/
     const [errors, setErrors] = useState({});
@@ -118,10 +154,8 @@ function Banner() {
          }
     `)
     return (
-        <>
+        <>                    <Top />
             <div className="banner">
-                <div className="banner_content_wrapper">
-                    <Top />
                     <div className="banner_container">
                         <div id="banner_container_container">
                             <h1 id="banner_h1">{data.banner.childMarkdownRemark.frontmatter.title}</h1>
@@ -242,10 +276,9 @@ function Banner() {
                     </div>
                 </div>
                 <ToastContainer />
-                <div id="image_taketop">
+                <div id={navbar ? 'image_taketop' : 'image_taketop2'}>
                     <Link to="/landing/"><img src={takebtn} alt="taketop" /></Link>
                 </div>
-            </div>
         </>
     );
 };
