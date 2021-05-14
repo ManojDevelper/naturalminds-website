@@ -166,12 +166,12 @@ function Banner() {
                                 <bannerbtn key="2" className={toggleState === 2 ? "show_btn active-show_btn" : "show_btn"}
                                     onClick={() => toggleTab(2)}><button className="banner_buttons2">{data.banner.childMarkdownRemark.frontmatter.button2}</button></bannerbtn>
                             </div>
-                            <div className="watchvideo">
+                            <div className="watchvideo" onClick={() => setLgShow(true)} role="presentation">
                                 <div id="videodiv">
                                     <img src={playbutton} alt="playbutton" className="playbutton" />
                                 </div>
                                 <div id="videodiv">
-                                    <span onClick={() => setLgShow(true)} role="presentation">{data.banner.childMarkdownRemark.frontmatter.video}</span>
+                                    <span>{data.banner.childMarkdownRemark.frontmatter.video}</span>
                                 </div>
                             </div>
                             <Modal show={lgShow} onHide={() => setLgShow(false)} centered enforceFocus keyboard size="xl" bsPrefix={"modal"} id="videomodal" backdrop="static">

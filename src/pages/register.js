@@ -474,7 +474,7 @@ function Register() {
             </div>
             <div id="register_checkbox">
               <input type="checkbox" value={showData.tnc_id} onChange={e => setTnc(e.target.checked)} />
-              <p>By signing up, I accept NaturalMinds’s <span onClick={handleClickOpen('paper')}>Terms and conditions</span></p>
+              <p>By signing up, I accept NaturalMinds’s <span onClick={handleClickOpen('paper')} role="presentation">Terms and conditions</span></p>
             </div>
             <div id="register_button">
               {(!name || !email || (!/\S+@\S+\.\S+/.test(email)) || !gender || !selectedUserType || (!phone || phone.length < 9) || !licenseNo || !orgName || (!orgPhone || orgPhone.length < 9) || !address || !city || !state || !pincode || !tnc_id) ? (
@@ -498,7 +498,7 @@ function Register() {
         scroll={scroll}
         aria-labelledby="scroll-dialog-title"
         aria-describedby="scroll-dialog-description"
-      >
+        role="presentation">
         <DialogTitle id="scroll-dialog-title" style={{ textAlign: `center`, fontWeight: `bold`, color: "#00bde1" }}>Terms & Conditions</DialogTitle>
         <DialogContent dividers={scroll === 'paper'}>
           <DialogContentText

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { navigate } from "gatsby";
 import "../styles/Pay.scss";
 import Top from "./nav";
 import Footer from "./footer";
@@ -6,6 +7,7 @@ import { API_ROOT } from "gatsby-env-variables";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import logo from "../images/logo.png";
+import axios from "axios";
 
 function loadscript(src) {
   return new Promise((resolve) => {
@@ -22,9 +24,13 @@ function loadscript(src) {
   })
 }
 function Spotpay({ location }) {
+  /*===================getting data from registation==========================================*/
+  let registerDetails = location.state.item
+  console.log(registerDetails)
+  /*=========================================================================================*/
   const [payment, setPayment] = useState(null)
   const proceedtopay = paymap => {
-    const amount = paymap.AMOUNT + paymap.AMOUNT /100 * 18
+    const amount = paymap.AMOUNT + paymap.AMOUNT / 100 * 18
     const name = paymap.PLAN_NAME
     const orderid = paymap.PLAN_ID
       ; (async () => {
@@ -60,16 +66,35 @@ function Spotpay({ location }) {
             }
             const options = {
               key: data2.key,
+              doctor_id: registerDetails.docType,
+              selectedUserType: registerDetails.selectedUserType,
+              code: '',
+              paymentMode: 'online',
+              planId: orderid,
+              paymentFor: 'Registration',
               amount: amount,
               currency: "INR",
               name: "Natural Minds",
               description: "Adding value to the lives",
               image: { logo },
               order_id: result.data,
-              handler: function (response) {
-                console.log(response.razorpay_payment_id);
-                console.log(response.razorpay_order_id);
-                console.log(response.razorpay_signature)
+              handler: async function (response) {
+                const handlerData = {
+                  orgId: 1,
+                  doctor_id: registerDetails.docType,
+                  selectedUserType: registerDetails.selectedUserType,
+                  code: '',
+                  paymentMode: 'online',
+                  planId: orderid,
+                  paymentFor: 'Registration',
+                  order_id: result.data,
+                  amount: amount,
+                };
+                Object.assign(handlerData, response)
+                console.log(handlerData);
+                const handlerResult = await axios.post(API_ROOT + "/api/payment", handlerData);
+                console.log(handlerResult.msg)
+
               },
               theme: {
                 color: 'linear-gradient(135deg, #00bde1 0%, #0093c6 100%)'
@@ -78,7 +103,6 @@ function Spotpay({ location }) {
             const paymentObject = new window.Razorpay(options);
             paymentObject.open()
             console.log(paymentObject)
-
           } else {
             toast.success("Please Try Again")
           }
