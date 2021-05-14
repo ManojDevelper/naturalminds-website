@@ -132,7 +132,8 @@ function Register() {
   const [showData, setShowData] = useState([])
 
   async function signUp() {
-    let item = { name, email, phone, licenseNo, gender, orgName, orgPhone, docType, address, pincode, state, city, refferalCode, tnc_id, selectedUserType }
+    const orgId = 0;
+    let item = { name, email, phone, licenseNo, gender, orgName, orgPhone, docType, address, pincode, state, city, refferalCode, tnc_id, selectedUserType, orgId }
 
     let result = await fetch(
       API_ROOT + "/api/SpotCare/signup",
@@ -149,14 +150,15 @@ function Register() {
     console.log(result)
     setShowData(result)
     if (result.status === true) {
-      toast.success(result.msg)
+      toast.success("Registation Success")
       navigate("/spotPay/", {
         state: {
-          item: item
+          item: item,
+          item2: result
         }
       })
     } else {
-      toast.error(result.msg)
+      toast.error(result.message)
     }
   }
   function signUpp() {

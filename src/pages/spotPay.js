@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { navigate } from "gatsby";
+// import { navigate } from "gatsby";
 import "../styles/Pay.scss";
 import Top from "./nav";
 import Footer from "./footer";
@@ -26,12 +26,13 @@ function loadscript(src) {
 function Spotpay({ location }) {
   /*===================getting data from registation==========================================*/
   let registerDetails = location.state.item
-  console.log(registerDetails)
+  let registerSuccessDetails = location.state.item2
+  console.log(registerSuccessDetails)
   /*=========================================================================================*/
   const [payment, setPayment] = useState(null)
   const proceedtopay = paymap => {
-    const amount = paymap.AMOUNT + paymap.AMOUNT / 100 * 18
-    const name = paymap.PLAN_NAME
+    const amount = paymap.AMOUNT + paymap.AMOUNT /100 * 18
+    const planname = paymap.PLAN_NAME
     const orderid = paymap.PLAN_ID
       ; (async () => {
         const response2 = await fetch(
@@ -40,16 +41,16 @@ function Spotpay({ location }) {
         const data2 = await response2.json()
         console.log(data2)
         if (data2.status === true) {
-          let options = {
+          let optionss = {
             key: data2.key,
             amount: amount,
             order_id: orderid,
-            name: name,
+            name: planname,
           }
-          console.log(options)
+          console.log(optionss)
           let result = await fetch(API_ROOT + "/api/payment/order", {
             method: "POST",
-            body: JSON.stringify(options),
+            body: JSON.stringify(optionss),
             headers: {
               "Content-Type": "application/json",
               Accept: "application/json",
@@ -59,7 +60,6 @@ function Spotpay({ location }) {
           console.log(result.data)
           if (result.status === true) {
             const res = await loadscript("https://checkout.razorpay.com/v1/checkout.js")
-
             if (!res) {
               toast.alert("Razorpay SDK failed to load")
               return
@@ -80,8 +80,8 @@ function Spotpay({ location }) {
               order_id: result.data,
               handler: async function (response) {
                 const handlerData = {
-                  orgId: 1,
-                  doctor_id: registerDetails.docType,
+                  orgId: registerSuccessDetails.orgId,
+                  doctor_id: registerSuccessDetails.userId,
                   selectedUserType: registerDetails.selectedUserType,
                   code: '',
                   paymentMode: 'online',
@@ -89,12 +89,18 @@ function Spotpay({ location }) {
                   paymentFor: 'Registration',
                   order_id: result.data,
                   amount: amount,
-                };
-                Object.assign(handlerData, response)
-                console.log(handlerData);
-                const handlerResult = await axios.post(API_ROOT + "/api/payment", handlerData);
-                console.log(handlerResult.msg)
-
+              };
+              Object.assign(handlerData,response)
+              console.log(handlerData);
+              const handlerResult = await axios.post(API_ROOT + "/api/payment", handlerData);
+              console.log(handlerResult)
+              if (handlerResult.data.status === true){
+                toast.success("Registration Successful")
+                if (toast.msg === "Registration Successful"){
+              }
+              }else {
+                toast.error("Please try again")
+              }
               },
               theme: {
                 color: 'linear-gradient(135deg, #00bde1 0%, #0093c6 100%)'
@@ -104,7 +110,7 @@ function Spotpay({ location }) {
             paymentObject.open()
             console.log(paymentObject)
           } else {
-            toast.success("Please Try Again")
+            toast.Error("Please Try Again")
           }
         } else {
           return null
