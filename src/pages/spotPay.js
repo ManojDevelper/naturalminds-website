@@ -137,6 +137,9 @@ function Spotpay({ location }) {
           return null
         }
       })()
+      if (!coupon){
+        setFinal("")
+      }
   }
 
   useEffect(() => {
@@ -163,7 +166,7 @@ function Spotpay({ location }) {
     let couponitem = { refferalCode, coupon, planId }
     console.log(couponitem)
     let couponResult = await fetch(
-      API_ROOT +"/api/payment/coupon",
+      API_ROOT + "/api/payment/coupon",
       {
         method: "POST",
         body: JSON.stringify(couponitem),
@@ -177,9 +180,9 @@ function Spotpay({ location }) {
     console.log(couponResult)
     setFinal(couponResult)
     console.log(final)
-    if (couponResult.status === true){
+    if (couponResult.status === true) {
       toast.success("Coupon Applied Successfully")
-    }else{
+    } else {
       toast.error(couponResult.msg)
     }
   }
