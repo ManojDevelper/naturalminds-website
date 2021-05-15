@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import { navigate } from "gatsby";
+import { navigate } from "gatsby";
 import "../styles/Pay.scss";
 import Top from "./nav";
 import Footer from "./footer";
@@ -8,6 +8,14 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import logo from "../images/logo.png";
 import axios from "axios";
+import "../styles/Success.scss";
+import tick from "../images/tick.gif";
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+
 
 function loadscript(src) {
   return new Promise((resolve) => {
@@ -24,14 +32,29 @@ function loadscript(src) {
   })
 }
 function Spotpay({ location }) {
+  /*===========================successpop====================*/
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+  function handleClickclose() {
+    navigate("/landing/")
+  }
   /*===================getting data from registation==========================================*/
   let registerDetails = location.state.item
   let registerSuccessDetails = location.state.item2
+  console.log(registerDetails)
   console.log(registerSuccessDetails)
   /*=========================================================================================*/
   const [payment, setPayment] = useState(null)
+  // if (final.status === true) {
+  //   const actualamount = final.finalAmount
+  // } else {
+  //   const actualamount = paymap.AMOUNT + paymap.AMOUNT / 100 * 18
+  // }
   const proceedtopay = paymap => {
-    const amount = paymap.AMOUNT + paymap.AMOUNT /100 * 18
+    const amount = final.status === true ? final.data.finalAmount : paymap.AMOUNT + paymap.AMOUNT / 100 * 18
     const planname = paymap.PLAN_NAME
     const orderid = paymap.PLAN_ID
       ; (async () => {
@@ -89,18 +112,16 @@ function Spotpay({ location }) {
                   paymentFor: 'Registration',
                   order_id: result.data,
                   amount: amount,
-              };
-              Object.assign(handlerData,response)
-              console.log(handlerData);
-              const handlerResult = await axios.post(API_ROOT + "/api/payment", handlerData);
-              console.log(handlerResult)
-              if (handlerResult.data.status === true){
-                toast.success("Registration Successful")
-                if (toast.msg === "Registration Successful"){
-              }
-              }else {
-                toast.error("Please try again")
-              }
+                };
+                Object.assign(handlerData, response)
+                console.log(handlerData);
+                const handlerResult = await axios.post(API_ROOT + "/api/payment", handlerData);
+                console.log(handlerResult)
+                if (handlerResult.data.status === true) {
+                  handleClickOpen()
+                } else {
+                  toast.error("Please try again")
+                }
               },
               theme: {
                 color: 'linear-gradient(135deg, #00bde1 0%, #0093c6 100%)'
@@ -110,7 +131,7 @@ function Spotpay({ location }) {
             paymentObject.open()
             console.log(paymentObject)
           } else {
-            toast.Error("Please Try Again")
+            toast.error("Please Try Again")
           }
         } else {
           return null
@@ -126,12 +147,42 @@ function Spotpay({ location }) {
         )
         const data = await response.json()
         setPayment(data)
+        console.log(data)
       } catch (err) { }
     }
 
     payments()
   }, [])
+  /*=======================coupon code=======================*/
+  const [coupon, setCoupon] = useState(null)
+  const [final, setFinal] = useState("")
+  const refferalCode = registerDetails.refferalCode;
 
+  async function couponapply(paymap) {
+    const planId = paymap.PLAN_ID
+    let couponitem = { refferalCode, coupon, planId }
+    console.log(couponitem)
+    let couponResult = await fetch(
+      API_ROOT +"/api/payment/coupon",
+      {
+        method: "POST",
+        body: JSON.stringify(couponitem),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      }
+    )
+    couponResult = await couponResult.json()
+    console.log(couponResult)
+    setFinal(couponResult)
+    console.log(final)
+    if (couponResult.status === true){
+      toast.success("Coupon Applied Successfully")
+    }else{
+      toast.error(couponResult.msg)
+    }
+  }
 
   const [toggleState, setToggleState] = useState(0)
 
@@ -203,20 +254,21 @@ function Spotpay({ location }) {
                             <div id="pay_block2_cupon">
                               <input
                                 type="text"
+                                value={coupon}
                                 placeholder="Enter Promocode"
+                                onChange={e => setCoupon(e.target.value)}
                               />
-                              <p id="applybtn">APPLY</p>
+                              <p id="applybtn" onClick={() => { couponapply(paymap) }}>APPLY</p>
                             </div>
                             <div id="pay_block2_mini">
                               <div id="pay_block2_mini_container">
                                 <p id="prize_title">Total</p>
                               </div>
                               <div id="pay_block2_mini_container">
-                                <p id="pay_prize">₹ {paymap.AMOUNT + paymap.AMOUNT / 100 * 18}</p>
+                                {final.status === true ? <p id="pay_prize">₹ {final.data.finalAmount}</p> : <p id="pay_prize">₹ {paymap.AMOUNT + paymap.AMOUNT / 100 * 18}</p>}
                               </div>
                             </div>
                           </div>
-
                           <div id="pay_block2_container2_block1_btn">
                             <button
                               onClick={() => {
@@ -237,6 +289,28 @@ function Spotpay({ location }) {
         <Footer />
         <ToastContainer />
       </div>
+      <Dialog
+        open={open}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description">
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            <div id="tick">
+              <div id="popuptitle">
+                <h1>Registration Successful</h1>
+                <p>Please check your registered email for your login credentials!</p>
+              </div>
+              <img src={tick} alt="img" />
+            </div>
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button style={{ background: `#00b3db`, color: `white` }} onClick={handleClickclose}>
+            ok
+          </Button>
+        </DialogActions>
+      </Dialog>
+
     </>
   )
 }

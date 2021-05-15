@@ -73,9 +73,16 @@ function Contact() {
         result = await result.json()
         setStatus(result)
         setErrors(validation());
-        toast.success(status.msg, {
-            position: `top-center`
-        })
+        if (result.status === true) {
+            toast.success(result.msg, {
+                position: `top-center`
+            })
+        }else {
+            toast.error("Please Try Again", {
+                position: `top-center`
+            })
+        }
+
     }
     return (
         <>

@@ -1,0 +1,29 @@
+#tick{
+    width: 100%;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3vw 0;
+}
+#popuptitle{
+    width: fit-content;
+    height: fit-content;
+    text-align: center;
+}
+#tick img{
+    width: 10vw;
+}
+#tick h1{
+    font-family: Source Sans Pro;
+    color: #54e346;
+    font-size: 3vw;
+    margin: 0;
+    font-weight: bold;
+}
+#tick p{
+    color: #00b3db;
+    margin: 0;
+    font-weight: bold;
+}
