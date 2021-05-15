@@ -25,6 +25,8 @@ function loadscript(src) {
 }
 function Spotpay({ location }) {
   /*===================getting data from registation==========================================*/
+if(location.state)
+{
   let registerDetails = location.state.item
   let registerSuccessDetails = location.state.item2
   console.log(registerSuccessDetails)
@@ -116,6 +118,7 @@ function Spotpay({ location }) {
           return null
         }
       })()
+    }
   }
 
   useEffect(() => {
