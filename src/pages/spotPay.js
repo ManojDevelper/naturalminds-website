@@ -265,7 +265,7 @@ function Spotpay({ location }) {
                                 placeholder="Enter Promocode"
                                 onChange={e => setCoupon(e.target.value)}
                               />
-                              <p id="applybtn" onClick={() => { couponapply(paymap) }}>APPLY</p>
+                              <p id="applybtn" onClick={() => { couponapply(paymap) }} role="presentation">APPLY</p>
                             </div>
                             <div id="pay_block2_mini">
                               <div id="pay_block2_mini_container">

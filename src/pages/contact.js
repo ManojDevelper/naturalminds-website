@@ -72,6 +72,7 @@ function Contact() {
         })
         result = await result.json()
         setStatus(result)
+        console.log(status)
         setErrors(validation());
         if (result.status === true) {
             toast.success(result.msg, {
