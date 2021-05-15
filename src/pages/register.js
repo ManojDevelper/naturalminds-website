@@ -158,7 +158,7 @@ function Register() {
         }
       })
     } else {
-      toast.error(result.message)
+      toast.error(result.msg || result.message)
     }
   }
   function signUpp() {
