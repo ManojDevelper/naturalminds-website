@@ -42,9 +42,13 @@ function Spotpay({ location }) {
     navigate("/landing/")
   }
   /*===================getting data from registation==========================================*/
-  let registerDetails = location.state.item
-  let registerSuccessDetails = location.state.item2
-  console.log(registerDetails)
+  let registerDetails =''
+  let registerSuccessDetails =''
+  if(location.state)
+{
+   registerDetails = location.state.item
+   registerSuccessDetails = location.state.item2
+}
   console.log(registerSuccessDetails)
   /*=========================================================================================*/
   const [payment, setPayment] = useState(null)
