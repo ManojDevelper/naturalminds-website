@@ -9,6 +9,9 @@
   background-position: bottom right 5.5vw;
   padding-top: 17vw;
 }
+#modal-header {
+  padding: 0;
+}
 #image_taketop {
   width: fit-content;
   height: fit-content;
@@ -342,13 +345,14 @@
   cursor: pointer;
 }
 #bannerqr #qr_conatiner_block2 {
-  text-align: right;
+  text-align: center;
 }
 #bannerqr #qrs {
   display: flex;
   flex-direction: column;
   width: fit-content;
-  margin-left: auto;
+  margin: auto;
+  height: 100%;
 }
 #bannerqr #qu_image_container img {
   margin: 0;
@@ -357,6 +361,11 @@
 #bannerqr #qr_image_button {
   display: flex;
   flex-direction: row;
+  margin-top: auto;
+}
+#bannerqr #qr_image_button a{
+  text-decoration: none;
+  color: white;
 }
 #bannerqr #qr_image_button button {
   width: 10.125vw;
@@ -374,6 +383,10 @@
   border: none;
   outline: none;
   cursor: pointer;
+  margin-left: 2vw;
+}
+#bannerqr #qr_image_button button:first-child {
+  margin-left: 0;
 }
 #bannerqr #qr_image_button button img {
   margin: 0;

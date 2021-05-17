@@ -176,13 +176,12 @@ function Banner() {
                             </div>
                         </div>
                         <Modal show={lgShow} onHide={() => setLgShow(false)} centered enforceFocus keyboard size="xl" bsPrefix={"modal"} id="videomodal" backdrop="static">
-                            <Modal.Header closeButton>
+                            <Modal.Header closeButton  backdrop="static" id="modal-header"/>
                                 <div id="banner_pop_video">
                                     <video autoPlay controls>
                                         <source src={video} type="video/mp4" />
                                     </video>
                                 </div>
-                            </Modal.Header>
                         </Modal>
                     </div>
                     <div id="newaddDescription">

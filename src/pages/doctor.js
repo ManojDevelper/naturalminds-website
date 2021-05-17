@@ -161,7 +161,7 @@ function Doctor() {
   }, [])
 
   return (
-    <>
+    <>      
       <div id="doctors">
       <Top />
         <div id="doctor_container_main">
@@ -270,14 +270,16 @@ function Doctor() {
                       <div>
                         <button id="doc_btn1">View Full Profile</button>
                       </div>
-                      <div onClick={showImage} role="presentation">
-                        <button id="doc_btn2">GetApp</button>
+                      <div>
+                        <button id="doc_btn2" onClick={showImage} role="presentation">GetApp</button>
                       </div>
                     </div>
                   </div>
                 ))}
             </div>
           </div>
+
+
           <div id="finddr_qr_container" style={dispImgStyle}>
             <div id="qr_conatiner">
               <img src={close} alt="close" id="close2" onClick={closeDisp} role="presentation" />
