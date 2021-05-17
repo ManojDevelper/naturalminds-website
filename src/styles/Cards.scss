@@ -452,6 +452,9 @@
     gap: 3vw;
     margin:7vw auto auto auto;
 }
+#slide_cards_card1{
+  padding: 1vw;
+}
 #slide_cards_card1 {
   grid-template-rows: 50% 50%;
   border-radius: 3vw;
@@ -460,12 +463,12 @@
   width: 10vw;
 }
 #slide_cards_matter_container h6 {
-  font-size: 3.5vw;
+  font-size: 3vw;
   line-height: 3vw;
 }
 #slide_cards_matter_container p {
-  font-size: 3vw;
-  line-height: 3.9vw;
+  font-size: 2.8vw;
+  line-height: 3vw;
   margin-top: 1vw;
 }
 #card_btns {
@@ -484,5 +487,11 @@
   height: 100%;
   border-radius: 1.8vw;
   font-size: 3vw;
+}
+#rate {
+  width: 3vw;
+  margin: 0;
+  position: absolute;
+  top: 0.5vw;
 }
 }

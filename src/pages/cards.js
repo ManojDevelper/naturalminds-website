@@ -5,6 +5,7 @@ import qr1 from "../data/assets/patentqr.png"
 import qr2 from "../data/assets/docqr.png"
 import playstorebtn from "../data/assets/playstore_btn.svg";
 import appstorebtn from "../data/assets/appstore_btn.svg";
+import rate from "../data/assets/rate.svg";
 import "../styles/Cards.scss";
 import { useState } from "react";
 import { API_ROOT } from "gatsby-env-variables";
@@ -166,7 +167,7 @@ function Cards() {
                     </div>
                     <div className="slidecards_matter">
                       <div className="slicards_matter_container">
-                        <h2>{cards.title}</h2>
+                        <h2>{cards.title}<img src={rate} alt="img1" id="rate" /></h2>
                         <p>{cards.content}</p>
                         <div id="slide_cards_container">
                           {cards.minicards.map(minicards =>
@@ -229,8 +230,8 @@ function Cards() {
                         <img src={qr2} alt="qr" />
                       </div>
                       <div id="qr_image_button">
-                        <button><a href="https://play.google.com/store/apps/details?id=com.naturalminds" target="_blank" rel="noopener noreferrer" ><img src={playstorebtn} alt="btn" />Google Play</a></button>
-                        <button><a href="https://apps.apple.com/in/app/spotcare-care-provider/id1528551730" target="_blank" rel="noopener noreferrer" ><img src={appstorebtn} alt="btn" />App Store</a></button>
+                        <a href="https://play.google.com/store/apps/details?id=com.naturalminds" target="_blank" rel="noopener noreferrer" ><button><img src={playstorebtn} alt="btn" />Google Play</button></a>
+                        <a href="https://apps.apple.com/in/app/spotcare-care-provider/id1528551730" target="_blank" rel="noopener noreferrer" ><button><img src={appstorebtn} alt="btn" />App Store</button></a>
                       </div>
                     </div>
                   </div>

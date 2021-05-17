@@ -5,7 +5,7 @@ cards:
     {
       id: 1,
       cardid: "SpotCarelink",
-      title: "SpotCare®",
+      title: "SpotCare",
       class1: "slidecards",
       class2: "slidecards_content",
       content: "SpotCare is a state-of-the-art EMR product that allows doctors to keep electronic records of their patients in a safe and secure way. SpotCare is an omni-channel system that can be interchangeably accessed from multiple devices. SpotCare offers dedicated Apps, one for doctors & their network, and another for patients & general public. These Apps work magical together. They bring in convenience and quality to every doctor's consultation.",
@@ -42,7 +42,7 @@ cards:
     {
       id: 2,
       cardid: "eleCarelink",
-      title: "TeleCare®",
+      title: "TeleCare",
       class1: "slidecards slidecards2",
       class2: "slidecards_content slidecards_content2",
       content: "TeleCare is a world-class, High-definition TeleHealth offering from NaturalMinds. It enables doctors to provide high-quality, real-time teleconsultation to their patients while working on their EMR. TeleCare provides flexibility in consultation timing. It also allows doctors and patients to consult without fear of time-out.",
@@ -79,7 +79,7 @@ cards:
     {
       id: 3,
       cardid: "Kliniclink",
-      title: "Virtual Klinik®",
+      title: "Virtual Klinik",
       class1: "slidecards",
       class2: "slidecards_content",
       content: "SpotCare Virtual Klinik is primarily designed to provide neighbourhood solutions to an enclosed entity. It can also be setup for Schools, that helps management to bring a doctor consultation in the presence of their parents and school staff, all virtually and instantly.",
@@ -116,7 +116,7 @@ cards:
     {
       id: 4,
       cardid: "Klinik",
-      title: "Klinik in a Kiosk®",
+      title: "Klinik in a Kiosk",
       class1: "slidecards slidecards2",
       class2: "slidecards_content slidecards_content2",
       content: "SpotCare Klinik-in-a-Kiosk is an affordable and accessible solution to good quality healthcare. It can also be set up by Hospitals, to rapidly expand across geo-locations. It is a perfect solution for Rural, Apartments, Hospitals, Colleges, Factories, Hotels, IT Parks and many others.",

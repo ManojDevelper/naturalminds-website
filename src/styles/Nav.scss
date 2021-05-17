@@ -197,9 +197,8 @@
     .navbtn1 {
         width: fit-content;
         height: fit-content;
-        left: 0;
         top: 30px;
-        border: 0px solid black;
+        border: 0px solid rgb(161, 157, 157);
         font-family: Poppins;
         font-style: normal;
         font-weight: normal;
@@ -207,14 +206,13 @@
         color: #212e34;
         margin: 0;
         margin-top: 5vw;
-        margin-right: 76vw;
     }
     .navbtn2{
         width: fit-content;
         height: fit-content;
         left: 0;
         top: 30px;
-        border: 0px solid transparent;
+        border: 0px solid red;
         font-family: Poppins;
         font-style: normal;
         font-weight: normal;
@@ -223,12 +221,10 @@
         margin: 0;
         background: transparent;
         margin-top: 5vw;
-        margin-right: 81vw;
     }
     #nav_items {
         display: flex;
         flex-direction: column;
-        border: 0px solid transparent;
         padding-left: 6vw;
         margin-top: 80px;
     }
@@ -263,5 +259,8 @@
     .navbtn2:hover {
         color: #212e34;
         background: transparent;
+    }
+    #reglink{
+        width: 100%;
     }
 }

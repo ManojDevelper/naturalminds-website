@@ -101,8 +101,8 @@ function Top() {
                 <Link to="/landing/#ourproducts" id="navbtn2" activeclassname="nav_active">PRODUCTS</Link>
                 <Link to="/doctor" id="navbtn2" activeclassname="nav_active">FIND DOCTOR</Link>
                 <Link to="/landing/#contact" id="navbtn2" activeclassname="nav_active">CONTACT US</Link>
-                <Link to="/register"><button activeclassname="nav_active2" className="navbtn1">REGISTER</button></Link>
-                <a href="https://www.spotcare.in/auth/login" target="_blank" without rel="noreferrer"><button activeclassname="nav_active2" className="navbtn2">LOGIN</button></a>
+                <Link to="/register" id="reglink"><button activeclassname="nav_active2" className="navbtn1">REGISTER</button></Link>
+                <a href="https://www.spotcare.in/auth/login" target="_blank" without rel="noreferrer" id="reglink"><button activeclassname="nav_active2" className="navbtn2">LOGIN</button></a>
                 <div id="nav_icons">
                 <div id="nav_icon_cont">
                   <a href="https://www.facebook.com/NaturalMindsInd/" target="_blank" rel="noopener noreferrer"><img src={fb} alt="img" /></a>

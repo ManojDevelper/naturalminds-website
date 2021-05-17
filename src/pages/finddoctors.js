@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import search from "../data/assets/search.svg";
 import { graphql, useStaticQuery } from "gatsby";
 import "../styles/Finddoctors.scss";
