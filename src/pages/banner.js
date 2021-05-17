@@ -20,38 +20,38 @@ function Banner() {
     /*==================taketop======================*/
     useEffect(() => {
         window.addEventListener('resize', showButton);
-    
+
         window.addEventListener('scroll', changeBackground);
         return () => {
-          window.removeEventListener('resize', showButton);
-    
-          window.removeEventListener('scroll', changeBackground);
+            window.removeEventListener('resize', showButton);
+
+            window.removeEventListener('scroll', changeBackground);
         }
-      }, [])
-    
-    
-      const [navbar, setNavbar] = useState(false);
-      const [button, setButton] = useState();
-      const showButton = () => {
+    }, [])
+
+
+    const [navbar, setNavbar] = useState(false);
+    const [button, setButton] = useState();
+    const showButton = () => {
         if (window.innerWidth <= 960) {
-          setButton(false);
+            setButton(false);
         } else {
-          setButton(true);
+            setButton(true);
         }
-      };
-      useEffect(() => {
+    };
+    useEffect(() => {
         showButton();
         // eslint-disable-next-line
-      }, [])
-    
-      const changeBackground = () => {
+    }, [])
+
+    const changeBackground = () => {
         if (window.scrollY >= 80) {
-          setNavbar(true)
+            setNavbar(true)
         } else {
-          setNavbar(false);
+            setNavbar(false);
         }
-      };
-    
+    };
+
     /*================================================*/
     const [lgShow, setLgShow] = useState(false);
     /*==================Api calling for patient form====================*/
@@ -154,131 +154,132 @@ function Banner() {
          }
     `)
     return (
-        <>                    <Top />
+        <>
+            <Top />
             <div className="banner">
-                    <div className="banner_container">
-                        <div id="banner_container_container">
-                            <h1 id="banner_h1">{data.banner.childMarkdownRemark.frontmatter.title}</h1>
-                            <p id="banner_p">{data.banner.childMarkdownRemark.frontmatter.description}</p>
-                            <div className="banner_buttons">
-                                <bannerbtn key="1" className={toggleState === 1 ? "show_btn active-show_btn" : "show_btn"}
-                                    onClick={() => toggleTab(1)}><button className="banner_buttons1">{data.banner.childMarkdownRemark.frontmatter.button1}</button></bannerbtn>
-                                <bannerbtn key="2" className={toggleState === 2 ? "show_btn active-show_btn" : "show_btn"}
-                                    onClick={() => toggleTab(2)}><button className="banner_buttons2">{data.banner.childMarkdownRemark.frontmatter.button2}</button></bannerbtn>
+                <div className="banner_container">
+                    <div id="banner_container_container">
+                        <h1 id="banner_h1">{data.banner.childMarkdownRemark.frontmatter.title}</h1>
+                        <p id="banner_p">{data.banner.childMarkdownRemark.frontmatter.description}</p>
+                        <div className="banner_buttons">
+                            <bannerbtn key="1" className={toggleState === 1 ? "show_btn active-show_btn" : "show_btn"}
+                                onClick={() => toggleTab(1)}><button className="banner_buttons1">{data.banner.childMarkdownRemark.frontmatter.button1}</button></bannerbtn>
+                            <bannerbtn key="2" className={toggleState === 2 ? "show_btn active-show_btn" : "show_btn"}
+                                onClick={() => toggleTab(2)}><button className="banner_buttons2">{data.banner.childMarkdownRemark.frontmatter.button2}</button></bannerbtn>
+                        </div>
+                        <div className="watchvideo" onClick={() => setLgShow(true)} role="presentation">
+                            <div id="videodiv">
+                                <img src={playbutton} alt="playbutton" className="playbutton" />
                             </div>
-                            <div className="watchvideo" onClick={() => setLgShow(true)} role="presentation">
-                                <div id="videodiv">
-                                    <img src={playbutton} alt="playbutton" className="playbutton" />
-                                </div>
-                                <div id="videodiv">
-                                    <span>{data.banner.childMarkdownRemark.frontmatter.video}</span>
-                                </div>
+                            <div id="videodiv">
+                                <span>{data.banner.childMarkdownRemark.frontmatter.video}</span>
                             </div>
-                            <Modal show={lgShow} onHide={() => setLgShow(false)} centered enforceFocus keyboard size="xl" bsPrefix={"modal"} id="videomodal" backdrop="static">
-                                <Modal.Header closeButton>
-                                    <div id="banner_pop_video">
-                                        <video autoPlay controls>
-                                            <source src={video} type="video/mp4" />
-                                        </video>
-                                    </div>
-                                </Modal.Header>
-                            </Modal>
                         </div>
-                        <div id="newaddDescription">
-                            <p>Our product save patient lives through continuous monitoring of COVID+ Home Quarantined Patients</p>
-                        </div>
-                        <div id="bannerqr" className={toggleState === 1 ? "cardqr  active-cardqr" : "cardqr"} >
-                            {
-                                show ?
-                                    <div id="qr_conatiner">
-                                        <img src={close} alt="close" id="close2" onClick={() => toggleTab(setShow)} role="presentation" />
-                                        <div id="qr_conatiner_block1">
-                                            <div id="ql_container_matter_container">
-                                                <div id="ql_container_matter">
-                                                    <h1>SpotCare® For Patients & General Public</h1>
-                                                    <p>Adding value to the lives of patients, doctors, health workers, pharmacies, diagnostics and healthcare institutions with the help of new-age technology</p>
-                                                </div>
-                                                <div id="qr_container_input_block" style={{ position: `relative` }}>
-                                                    <h1>Get the link to Download the App</h1>
-                                                    <div id="qr_container_input_block_container">
+                        <Modal show={lgShow} onHide={() => setLgShow(false)} centered enforceFocus keyboard size="xl" bsPrefix={"modal"} id="videomodal" backdrop="static">
+                            <Modal.Header closeButton>
+                                <div id="banner_pop_video">
+                                    <video autoPlay controls>
+                                        <source src={video} type="video/mp4" />
+                                    </video>
+                                </div>
+                            </Modal.Header>
+                        </Modal>
+                    </div>
+                    <div id="newaddDescription">
+                        <p>Our product save patient lives through continuous monitoring of COVID+ Home Quarantined Patients</p>
+                    </div>
+                    <div id="bannerqr" className={toggleState === 1 ? "cardqr  active-cardqr" : "cardqr"} >
+                        {
+                            show ?
+                                <div id="qr_conatiner">
+                                    <img src={close} alt="close" id="close2" onClick={() => toggleTab(setShow)} role="presentation" />
+                                    <div id="qr_conatiner_block1">
+                                        <div id="ql_container_matter_container">
+                                            <div id="ql_container_matter">
+                                                <h1>SpotCare® For Patients & General Public</h1>
+                                                <p>Adding value to the lives of patients, doctors, health workers, pharmacies, diagnostics and healthcare institutions with the help of new-age technology</p>
+                                            </div>
+                                            <div id="qr_container_input_block" style={{ position: `relative` }}>
+                                                <h1>Get the link to Download the App</h1>
+                                                <div id="qr_container_input_block_container">
 
-                                                        <div id="qr_container_input_block_container_container">
-                                                            <p>+91</p>
-                                                            <input type="text" placeholder="Enter Mobile Number" value={mobile_no} onChange={(e) => setMobile_no(e.target.value || "")} maxLength={10} minLength={10} onKeyPress={event => { if (!/[0-9]/.test(event.key)) { event.preventDefault() } }} />
-                                                        </div>
-                                                        {(!mobile_no || mobile_no.length < 10) ? (
-                                                            <button disabled style={{ background: `gray` }}>Get App Link</button>) : (
-                                                            <button onClick={sendPat}>Get App Link</button>
-                                                        )}
+                                                    <div id="qr_container_input_block_container_container">
+                                                        <p>+91</p>
+                                                        <input type="text" placeholder="Enter Mobile Number" value={mobile_no} onChange={(e) => setMobile_no(e.target.value || "")} maxLength={10} minLength={10} onKeyPress={event => { if (!/[0-9]/.test(event.key)) { event.preventDefault() } }} />
                                                     </div>
-                                                    {errors.mobile_no && <p className="errors" style={{ fontSize: `1vw`, color: `orange`, position: `absolute`, margin: `0`, transition: `0.5s ease` }}>{errors.mobile_no}</p>}
+                                                    {(!mobile_no || mobile_no.length < 10) ? (
+                                                        <button disabled style={{ background: `gray` }}>Get App Link</button>) : (
+                                                        <button onClick={sendPat}>Get App Link</button>
+                                                    )}
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div id="qr_conatiner_block2">
-                                            <div id="qrs">
-                                                <div id="qu_image_container">
-                                                    <img src={qr1} alt="qr" />
-                                                </div>
-                                                <div id="qr_image_button">
-                                                    <a href="https://play.google.com/store/apps/details?id=com.carereceiver" target="_blank" rel="noopener noreferrer" key="3"><button><img src={playstorebtn} alt="btn" />Google Play</button></a>
-                                                    <a href=" https://apps.apple.com/in/app/spotcare-patients-public/id1535914517" target="_blank" rel="noopener noreferrer" key="4"><button><img src={appstorebtn} alt="btn" />App Store</button></a>
-                                                </div>
+                                                {errors.mobile_no && <p className="errors" style={{ fontSize: `1vw`, color: `orange`, position: `absolute`, margin: `0`, transition: `0.5s ease` }}>{errors.mobile_no}</p>}
                                             </div>
                                         </div>
                                     </div>
-                                    : null
-                            }
-                        </div>
+                                    <div id="qr_conatiner_block2">
+                                        <div id="qrs">
+                                            <div id="qu_image_container">
+                                                <img src={qr1} alt="qr" />
+                                            </div>
+                                            <div id="qr_image_button">
+                                                <button><a href="https://play.google.com/store/apps/details?id=com.carereceiver" target="_blank" rel="noopener noreferrer"><img src={playstorebtn} alt="btn" />Google Play</a></button>
+                                                <button><a href=" https://apps.apple.com/in/app/spotcare-patients-public/id1535914517" target="_blank" rel="noopener noreferrer"><img src={appstorebtn} alt="btn" />App Store</a></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                : null
+                        }
+                    </div>
 
-                        <div id="bannerqr" className={toggleState === 2 ? "cardqr  active-cardqr" : "cardqr"} >
-                            {
-                                show ?
-                                    <div id="qr_conatiner">
-                                        <img src={close} alt="close" id="close2" onClick={() => toggleTab(setShow)} role="presentation" />
-                                        <div id="qr_conatiner_block1">
-                                            <div id="ql_container_matter_container">
-                                                <div id="ql_container_matter">
-                                                    <h1>SpotCare® For Doctors & Health Service Providers</h1>
-                                                    <p>Adding value to the lives of patients, doctors, health workers, pharmacies, diagnostics and healthcare institutions with the help of new-age technology</p>
-                                                </div>
-                                                <div id="qr_container_input_block" style={{ position: `relative` }}>
-                                                    <h1>Get the link to Download the App</h1>
-                                                    <div id="qr_container_input_block_container">
-                                                        <div id="qr_container_input_block_container_container">
-                                                            <p>+91</p>
-                                                            <input type="text" placeholder="Enter Mobile Number" value={mobile_no2} onChange={(e) => setMobile_no2(e.target.value || "")} maxLength={10} minLength={10} onKeyPress={event => { if (!/[0-9]/.test(event.key)) { event.preventDefault() } }} />
-                                                        </div>
-                                                        {(!mobile_no2 || mobile_no2.length < 10) ? (
-                                                            <button disabled style={{ background: `gray` }}>Get App Link</button>) : (
-                                                            <button onClick={sendDoc}>Get App Link</button>
-                                                        )}
-                                                    </div>
-                                                    {errors2.mobile_no2 && <p className="errors" style={{ fontSize: `1vw`, color: `orange`, position: `absolute`, margin: `0`, transition: `0.5s ease` }}>{errors2.mobile_no2}</p>}
-                                                </div>
+                    <div id="bannerqr" className={toggleState === 2 ? "cardqr  active-cardqr" : "cardqr"} >
+                        {
+                            show ?
+                                <div id="qr_conatiner">
+                                    <img src={close} alt="close" id="close2" onClick={() => toggleTab(setShow)} role="presentation" />
+                                    <div id="qr_conatiner_block1">
+                                        <div id="ql_container_matter_container">
+                                            <div id="ql_container_matter">
+                                                <h1>SpotCare® For Doctors & Health Service Providers</h1>
+                                                <p>Adding value to the lives of patients, doctors, health workers, pharmacies, diagnostics and healthcare institutions with the help of new-age technology</p>
                                             </div>
-                                        </div>
-                                        <div id="qr_conatiner_block2">
-                                            <div id="qrs">
-                                                <div id="qu_image_container">
-                                                    <img src={qr2} alt="qr" />
+                                            <div id="qr_container_input_block" style={{ position: `relative` }}>
+                                                <h1>Get the link to Download the App</h1>
+                                                <div id="qr_container_input_block_container">
+                                                    <div id="qr_container_input_block_container_container">
+                                                        <p>+91</p>
+                                                        <input type="text" placeholder="Enter Mobile Number" value={mobile_no2} onChange={(e) => setMobile_no2(e.target.value || "")} maxLength={10} minLength={10} onKeyPress={event => { if (!/[0-9]/.test(event.key)) { event.preventDefault() } }} />
+                                                    </div>
+                                                    {(!mobile_no2 || mobile_no2.length < 10) ? (
+                                                        <button disabled style={{ background: `gray` }}>Get App Link</button>) : (
+                                                        <button onClick={sendDoc}>Get App Link</button>
+                                                    )}
                                                 </div>
-                                                <div id="qr_image_button">
-                                                    <a href="https://play.google.com/store/apps/details?id=com.naturalminds" target="_blank" rel="noopener noreferrer" ><button><img src={playstorebtn} alt="btn" />Google Play</button></a>
-                                                    <a href="https://apps.apple.com/in/app/spotcare-care-provider/id1528551730" target="_blank" rel="noopener noreferrer" ><button><img src={appstorebtn} alt="btn" />App Store</button></a>
-                                                </div>
+                                                {errors2.mobile_no2 && <p className="errors" style={{ fontSize: `1vw`, color: `orange`, position: `absolute`, margin: `0`, transition: `0.5s ease` }}>{errors2.mobile_no2}</p>}
                                             </div>
                                         </div>
                                     </div>
-                                    : null
-                            }
-                        </div>
+                                    <div id="qr_conatiner_block2">
+                                        <div id="qrs">
+                                            <div id="qu_image_container">
+                                                <img src={qr2} alt="qr" />
+                                            </div>
+                                            <div id="qr_image_button">
+                                                <button><a href="https://play.google.com/store/apps/details?id=com.naturalminds" target="_blank" rel="noopener noreferrer" ><img src={playstorebtn} alt="btn" />Google Play</a></button>
+                                                <button><a href="https://apps.apple.com/in/app/spotcare-care-provider/id1528551730" target="_blank" rel="noopener noreferrer" ><img src={appstorebtn} alt="btn" />App Store</a></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                : null
+                        }
                     </div>
                 </div>
-                <ToastContainer />
-                <div id={navbar ? 'image_taketop' : 'image_taketop2'}>
-                    <Link to="/landing/"><img src={takebtn} alt="taketop" /></Link>
-                </div>
+            </div>
+            <ToastContainer />
+            <div id={navbar ? 'image_taketop' : 'image_taketop2'}>
+                <Link to="/landing/"><img src={takebtn} alt="taketop" /></Link>
+            </div>
         </>
     );
 };

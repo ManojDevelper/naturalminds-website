@@ -231,3 +231,67 @@
 #login_main .footer {
     margin-top: 10vw;
 }
+@media(max-width:650px){
+    #pay_container {
+        width: 90%;
+        height: 60vw;
+        border-radius: 1vw;
+        padding: 4vw;
+    }
+    #pay_block2_container1_wrapper {
+        grid-template-rows: auto;
+    }
+    .pay_block2_container2 #success {
+        width: 15vw;
+        padding: 1vw 0;
+        font-size: 1.5vw;
+        border-radius: 0.5vw;
+    }
+    #plantype {
+        font-size: 3vw;
+    }
+    #pay_block1 h1 {
+        font-size: 4vw;
+    }
+    #pay_block2_container2_block1_title h1 {
+        font-size: 3vw;
+    }
+    #pay_block2_container2_block1_title{
+        height: 5vw;
+    }
+    #prize_title {
+        font-size: 2.5vw;
+        padding: 1vw 0;
+    }
+    #pay_prize {
+        font-size: 2.2vw;
+    }
+    #pay_block2_mini{
+        height: fit-content;
+    }
+    #pay_block2_cupon {
+        height: 6.5vw;
+    }
+    #applybtn {
+        font-size: 1.5vw;
+        top:2.4vw;
+        right: 1vw;
+    }
+    #pay_block2_cupon input {
+        font-size: 2vw;
+    }
+    #pay_block2_container2_block1_btn button {
+        border-radius: 0.9vw;
+        height: 7vw;
+        font-size: 2vw;
+    }
+    #amount {
+        font-size: 3.5vw;
+    }
+    #permonth {
+        font-size: 2vw;
+    }
+    #pay_container_main {
+        height:60vh;
+    }
+}

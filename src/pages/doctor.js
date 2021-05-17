@@ -161,9 +161,8 @@ function Doctor() {
   }, [])
 
   return (
-    <>
+    <>      <Top />
       <div id="doctors">
-        <Top />
         <div id="doctor_container_main">
           <div id="doctor_container">
             <div id="doctor_search">
@@ -310,8 +309,8 @@ function Doctor() {
                     <img src={qr1} alt="qr" />
                   </div>
                   <div id="qr_image_button">
-                    <a href="https://play.google.com/store/apps/details?id=com.carereceiver" target="_blank" rel="noopener noreferrer" key="3"><button><img src={playstorebtn} alt="btn" />Google Play</button></a>
-                    <a href=" https://apps.apple.com/in/app/spotcare-patients-public/id1535914517" target="_blank" rel="noopener noreferrer" key="4"><button><img src={appstorebtn} alt="btn" />App Store</button></a>
+                    <button><a href="https://play.google.com/store/apps/details?id=com.carereceiver" target="_blank" rel="noopener noreferrer"><img src={playstorebtn} alt="btn" />Google Play</a></button>
+                    <button><a href=" https://apps.apple.com/in/app/spotcare-patients-public/id1535914517" target="_blank" rel="noopener noreferrer"><img src={appstorebtn} alt="btn" />App Store</a></button>
                   </div>
                 </div>
               </div>

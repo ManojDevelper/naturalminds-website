@@ -64,7 +64,7 @@ function Coreteam() {
                       <p id="coreteam_h1">{coreteam.name}</p>
                       <p id="coreteam_h2">{coreteam.designation}</p>
                       <p id="coreteam_h3">{coreteam.qualification1}</p>
-                      <p id="coreteam_h3">{coreteam.qualification2}</p>
+                      <p id="coreteam_h4">{coreteam.qualification2}</p>
                       <tabbtn className={toggleState === (coreteam.id) ? "tabs active-tabs" : "tabs"}
                         onClick={() => toggleTab(coreteam.id)} role="presentation"><button id="coreteam_button">{coreteam.button}<img src={arrow} alt="img1" id="cbutton_img" /></button></tabbtn>
                     </div>
@@ -74,7 +74,6 @@ function Coreteam() {
             </div>
           </div>
         </div>
-
         {data.coreteam.childMarkdownRemark.frontmatter.coreteam.map(coreteam =>
           <div id="coreteam_info_main_container" className={toggleState === (coreteam.id) ? "content  active-content" : "content"} key={coreteam.id}>
             {

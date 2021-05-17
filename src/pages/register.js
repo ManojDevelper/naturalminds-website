@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { graphql, navigate, useStaticQuery } from "gatsby";
-import "../styles/Login.scss";
+import "../styles/Register.scss";
 import Top from "./nav";
 import Footer from "./footer";
 import { API_ROOT } from "gatsby-env-variables";

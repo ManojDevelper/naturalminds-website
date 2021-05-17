@@ -55,7 +55,7 @@
 }
 .banner_container #newaddDescription {
   background: #e9f6fb;
-  border: 6px solid rgba(0, 179, 219, 0.4);
+  border: 0.375vw solid rgba(0, 179, 219, 0.4);
   border-radius: 8px;
   padding: 1.2vw 1vw;
   box-shadow: 0px 4px 4px 1px #00000008;
@@ -223,7 +223,6 @@
   justify-content: space-between;
   position: relative;
   padding: 7.1875vw 3.5vw;
-  border: 1px solid red;
 }
 #bannerqr #close2 {
   position: absolute;
@@ -387,39 +386,57 @@
 
 /*=========mediaquaries========*/
 @media (max-width: 650px) {
+  #image_taketop {
+    width: 10vw;
+    bottom: 2vw;
+    right: 2vw;
+  }
+  #image_taketop2 {
+    width: 10vw;
+    bottom: 2vw;
+    right: 2vw;
+  }
   .banner {
     background-position: center bottom;
-    background-position: center bottom -7vw;
     background-size: 70vw auto;
     padding: 1vw 0;
-    height: 97vh;
-  }
-  .banner_content_wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+    height: 100vh;
   }
   .banner_container {
     text-align: center;
-    height: fit-content;
+    height: 100%;
     width: fit-content;
     padding-top: 0;
-    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  #banner_container_container{
+    margin: auto auto 50vw auto;
   }
   .banner_container #banner_h1 {
-    font-size: 6vw;
+    font-size: 8vw;
+    margin: 0;
   }
   .banner_container #banner_p {
     width: 100%;
+    max-width: 90%;
     margin: auto;
-    font-size: 2vw;
-    margin-top: 4vw;
-    max-width: 70%;
+    font-size: 3vw;
+    margin-top: 1vw;
   }
   .banner_buttons {
     width: 100%;
     justify-content: center;
+    margin-top: 2vw;
+  }
+  .banner_buttons bannerbtn{
+    width: 25vw;
+  }
+  .banner_buttons button{
+    width: 100%;
+    height: 8vw;
+    font-size: 2.8vw;
+    border-radius: 0.9vw;
   }
   .watchvideo .playbutton {
     margin: 0;
@@ -437,9 +454,16 @@
     margin: auto;
     margin-top: 1vw;
   }
-}
-@media (max-width: 450px) {
-  .banner {
-    background-size: 70vw auto;
+  .banner_container #newaddDescription{
+    display:block;
+    width: fit-content;
+    margin-left: 25vw;
+    margin-bottom: 7vw;
+    border: 0.7vw solid rgba(0, 179, 219, 0.4);
+  }
+  .banner_container #newaddDescription p {
+    width: 34vw;
+    font-size: 2vw;
+    line-height: unset;
   }
 }

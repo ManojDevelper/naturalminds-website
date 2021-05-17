@@ -9,6 +9,9 @@
     transition: 0.1s ease;
     padding: 1vw 6vw 1vw 6vw;
 }
+#nav_icons{
+    display: none;
+}
 .navbar-light .navbar-toggler {
     border: none;
 }
@@ -121,6 +124,9 @@
     border: none;
 }
 @media (max-width: 1202px) {
+    #nav_items {
+        margin-top: 100px;
+    }
     #nav_main_div {
         padding: 0;
     }
@@ -135,6 +141,7 @@
         margin: 0;
         position: relative;
         left: 2vw;
+        z-index: 20;
     }
     .nav-co {
         padding: 0;
@@ -178,13 +185,83 @@
         margin-top: 30px;
     }
 }
-@media (max-width: 600px) {
+@media (max-width: 650px) {
     #nav_img img {
-        width: 60px;
+        width: 80px;
     }
     .toggle {
         position: relative;
         border: none;
         outline: none;
+    }
+    .navbtn1 {
+        width: fit-content;
+        height: fit-content;
+        left: 0;
+        top: 30px;
+        border: 0px solid black;
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        color: #212e34;
+        margin: 0;
+        margin-top: 5vw;
+        margin-right: 76vw;
+    }
+    .navbtn2{
+        width: fit-content;
+        height: fit-content;
+        left: 0;
+        top: 30px;
+        border: 0px solid transparent;
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        color: #212e34;
+        margin: 0;
+        background: transparent;
+        margin-top: 5vw;
+        margin-right: 81vw;
+    }
+    #nav_items {
+        display: flex;
+        flex-direction: column;
+        border: 0px solid transparent;
+        padding-left: 6vw;
+        margin-top: 80px;
+    }
+    #navbtn2{
+        margin-right: auto;
+    }
+    #nav_icons{
+        display: flex;
+        justify-content: space-around;
+        width: fit-content;
+        margin: auto;
+        z-index: 20;
+        margin-top: 40px;
+    }
+    #nav_icon_cont:first-child{
+        margin-left: 0;
+    }
+    #nav_icon_cont{
+        width: fit-content;
+        height: fit-content;
+        margin-left: 6vw;
+        cursor: pointer;
+    }
+    #nav_icon_cont img{
+        margin: 0;
+        width: 7vw;
+    }
+    .navbtn1:hover {
+        color: #212e34;
+        background:transparent;
+    }
+    .navbtn2:hover {
+        color: #212e34;
+        background: transparent;
     }
 }

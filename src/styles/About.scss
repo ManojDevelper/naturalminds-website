@@ -1,50 +1,90 @@
 #about h1 {
-    font-family: Source Sans Pro;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 2.8vw;
-    color: #eb2c7d;
-    border: none;
-    width: fit-content;
-    margin: 0;
+  font-family: Source Sans Pro;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 2.8vw;
+  color: #eb2c7d;
+  border: none;
+  width: fit-content;
+  margin: 0;
+}
+#about h1::after {
+  content: "";
+  display: block;
+  width: 8vw;
+  height: 0.4vw;
+  background: #1481ba;
+  position: relative;
+  left: 0;
+  top: 0.8vw;
+}
+#about {
+  width: calc(100% - 11.444%);
+  margin: auto;
+  background-image: url("../data/assets/about.png");
+  height: 50vw;
+  background-repeat: no-repeat;
+  background-size: 26.372vw 29.4375vw;
+  background-position: center right 4.25vw;
+}
+#about_conatiner_matter {
+  position: relative;
+  top: 12vw;
+}
+#about_container {
+  width: fit-content;
+  height: fit-content;
+}
+#about_conatiner_matter p {
+  font-family: Source Sans Pro;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.1vw;
+  line-height: 1.75vw;
+  color: #000000;
+  opacity: 0.8;
+  margin: 0;
+  margin-top: 5.5vw;
+  width: 40vw;
+  text-align: justify;
+}
+@media (max-width: 650px) {
+  #about {
+    width: calc(100% - 8%);
+    margin: auto;
+    background-image: url("../data/assets/about.png");
+    height: fit-content;
+    background-repeat: no-repeat;
+    background-size: 55vw;
+    background-position: top 35vw center;
+    padding: 20vw 0;
+  }
+  #about_conatiner_matter {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: unset;
+  }
+  #about h1 {
+    font-size: 6vw;
   }
   #about h1::after {
     content: "";
     display: block;
-    width:8vw;
-    height: 0.4vw;
+    width: 18vw;
+    height: 1vw;
     background: #1481ba;
     position: relative;
     left: 0;
     top: 0.8vw;
   }
-  #about{
-    width: calc(100% - 11.444%);
-    margin: auto;
-    background-image: url("../data/assets/about.png");
-    height: 50vw;
-    background-repeat: no-repeat;
-    background-size: 26.372vw 29.4375vw;
-    background-position:center right 4.25vw;
-  }
-  #about_conatiner_matter{
-    position: relative;
-    top:12vw;
-  }
-  #about_container {
-    width: fit-content;
-    height: fit-content;
-  }
   #about_conatiner_matter p {
     font-family: Source Sans Pro;
     font-style: normal;
     font-weight: normal;
-    font-size: 1.1vw;
-    line-height: 1.75vw;
-    color: #000000;
-    opacity: 0.8;
-    margin: 0;
-    margin-top: 5.5vw;
-    width: 40vw;
-    text-align: justify;
+    font-size: 3.5vw;
+    line-height: unset;
+    width: 100%;
+    margin-top: 75vw;
   }
+}

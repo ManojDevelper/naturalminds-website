@@ -57,3 +57,33 @@
     width: 5.2vw;
   }
 }
+@media (max-width:650px){
+  #patners h1 {
+    font-size: 7vw;
+  }
+  #patners {
+    padding: 9.5vw 4vw;
+    background: white;
+  }
+  #patners_container {
+    width: calc(100% - 8%);
+    margin: auto;
+    margin-top: 4.625vw;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4vw;
+    grid-template-rows: 25vw 25vw;
+    width: 100%;
+  }
+  #patners_container{
+    margin-top: 10vw;
+  }
+  #patners_image_card{
+    border-radius: 2.8vw;
+  }
+  #patners_image_container img {
+    margin: 0;
+    width: auto;
+    max-width: 15vw;
+  }
+}

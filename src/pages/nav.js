@@ -4,6 +4,10 @@ import '../styles/Nav.scss'
 import { Navbar, Nav } from "react-bootstrap"
 import { Link } from "gatsby";
 import { graphql, useStaticQuery } from "gatsby"
+import fb from "../images/navfb.svg";
+import insta from "../images/navinsta.svg";
+import twitter from "../images/navtwitter.svg";
+import pintrest from "../images/navpintrest.svg";
 
 function Top() {
 
@@ -99,6 +103,20 @@ function Top() {
                 <Link to="/landing/#contact" id="navbtn2" activeclassname="nav_active">CONTACT US</Link>
                 <Link to="/register"><button activeclassname="nav_active2" className="navbtn1">REGISTER</button></Link>
                 <a href="https://www.spotcare.in/auth/login" target="_blank" without rel="noreferrer"><button activeclassname="nav_active2" className="navbtn2">LOGIN</button></a>
+                <div id="nav_icons">
+                <div id="nav_icon_cont">
+                  <a href="https://www.facebook.com/NaturalMindsInd/" target="_blank" rel="noopener noreferrer"><img src={fb} alt="img" /></a>
+                </div>
+                <div id="nav_icon_cont">
+                  <a href="https://www.instagram.com/naturalminds_in/?hl=en" target="_blank" rel="noopener noreferrer"><img src={insta} alt="img" /></a>
+                </div>
+                <div id="nav_icon_cont">
+                  <a href="https://twitter.com/naturalminds_in" target="_blank" rel="noopener noreferrer"><img src={twitter} alt="img" /></a>
+                </div>
+                <div id="nav_icon_cont">
+                  <a href="" target="_blank" rel="noopener noreferrer"><img src={pintrest} alt="img" /></a>
+                </div>
+              </div>
               </Nav>
             </Navbar.Collapse>
           </Navbar>

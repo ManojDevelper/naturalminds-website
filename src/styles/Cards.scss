@@ -123,7 +123,7 @@
   grid-template-rows: 3.125vw 4.5vw;
   background: #ffffff;
   border: 1px solid #5fd4ff;
-  box-shadow: 0px 0px 2vw rgba(8, 40, 67, 0.1);
+  box-shadow: 0px 0px 10px rgba(8, 40, 67, 0.15);
   border-radius: 0.75vw;
   padding: 0.2vw;
   transition: 0.5s ease;
@@ -334,15 +334,12 @@
   column-gap: 1vw;
 }
 #qr_image_button a {
-  width: fit-content;
-  height: fit-content;
-  padding: 0;
-  width: 10.125vw;
-  height: 3vw;
+  color: white;
+  text-decoration: none;
 }
 #qr_image_button button {
-  width: 100%;
-  height: 100%;
+  width: 10.125vw;
+  height: 3vw;
   background: #212e34;
   border-radius: 0.5vw;
   margin: 0;
@@ -382,4 +379,110 @@
     margin: 0;
     height: auto;
   }
+}
+@media (max-width: 650px){
+  .cards h1 {
+    font-size: 8vw;
+    position: unset;
+    margin-top: 10vw;
+  }
+  .card_container{
+    display: grid;
+    grid-template-columns: auto;
+    gap: 4vw;
+  }
+  .slidecards {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5vw;
+    padding: 15vw 0;
+  }
+  .slidecards_content {
+    width: fit-content;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+    margin: auto;
+    gap: 12vw;
+  }
+  .slidecards_svg{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .slidecards_svg_container{
+    width: fit-content;
+  }
+  .slidecards_svg_container #lap1{
+    width: 82vw;
+  }
+  .slidecards_content2 .slidecards_svg {
+    grid-column: auto;
+    grid-row: auto;
+  }
+  .slidecards_content2 .slidecards_svg_container #lap1{
+    width: 50vw;
+  }
+  .slidecards_matter{
+    width: 100%;
+  }
+  .slicards_matter_container{
+    width: 100%;
+    padding: 0 4vw;
+  }
+  .slicards_matter_container h2 {
+    font-size: 6vw;
+    line-height: 8vw;
+  }
+  .slicards_matter_container p {
+    font-size: 3.5vw;
+    line-height: 4vw;
+    margin-top: 2vw;
+  }
+  #slide_cards_container {
+    width:80%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 32vw 32vw;
+    gap: 3vw;
+    margin:7vw auto auto auto;
+}
+#slide_cards_card1 {
+  grid-template-rows: 50% 50%;
+  border-radius: 3vw;
+}
+#slide_cards_logo_container {
+  width: 10vw;
+}
+#slide_cards_matter_container h6 {
+  font-size: 3.5vw;
+  line-height: 3vw;
+}
+#slide_cards_matter_container p {
+  font-size: 3vw;
+  line-height: 3.9vw;
+  margin-top: 1vw;
+}
+#card_btns {
+  justify-content: center;
+  margin-top: 10vw;
+}
+#card_btns tab{
+  width: 30vw;
+  height: 10vw;
+}
+#card_btns tab:last-child{
+  margin-left: 3vw;
+}
+#card_btns button{
+  width: 100%;
+  height: 100%;
+  border-radius: 1.8vw;
+  font-size: 3vw;
+}
 }

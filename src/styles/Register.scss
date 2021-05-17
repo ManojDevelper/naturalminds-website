@@ -4,7 +4,6 @@
 }
 #login_main #nav_main_div2 {
     background: #ffffff;
-    box-shadow: 0px 4px 10px rgba(10, 48, 61, 0.06);
 }
 #login {
     width: 100%;
@@ -467,4 +466,90 @@
 #closeimg{
     position: absolute;
     right: 0;
+}
+@media (max-width:650px){
+    .nav-co .navbar {
+        padding:1.5vw;
+    }
+    #login {
+    margin: 0 0 25vw 0;
+}
+    #register_container {
+        width: 57vw;
+        height: 56.5vw;
+        background: #ffffff;
+        box-sizing: border-box;
+        box-shadow: 0px 0px 0 white;
+        border-radius: 1vw;
+        padding: 3.125vw 5.0625vw;
+        margin: auto;
+        border: 0.5px solid transparent;
+    }
+    #register_container_head_block1 h1 {
+        font-size: 4vw;
+    }
+    #register_container_head_block2 p {
+        font-size: 3vw;
+    }
+    #register_container_head_block2 span {
+        font-size: 3vw;
+    }
+    #register_container {
+        width: 90%;
+        height: fit-content;
+    }
+    #register_inputs {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap:5vw;
+        margin-top: 10vw;
+    }
+    #register_input_block_input1 {
+        height: 8vw;
+    }
+    #docselectorbox{
+        height: 8vw;
+    }
+    #register_input_block_input1 input {
+        font-size: 2.5vw;
+        padding-left: 3vw;
+    }
+    #register_input_block_input1 h1 {
+        font-size: 2vw;
+        left: 2vw;
+        top: -1vw;
+    }
+    #login #docselectorbox h1 {
+        font-size: 2vw;
+        left: 2vw;
+        top: -1vw;
+    }
+    #login .custom-select {
+        font-size: 2vw;
+        padding-left: 3vw;
+        background-size: 1.5vw;
+    }
+    #register_checkbox{
+        margin-top: 5vw;
+    }
+    #register_checkbox p {
+        font-size: 2vw;
+        margin-top: 1vw;
+        margin-left: 2vw;
+    }
+    #register_checkbox input {
+        width: 3vw;
+        height: 3vw;
+    }
+    #register_button {
+        margin-top: 5vw;
+    }
+    #register_button button {
+        width: 25vw;
+        height: 6vw;
+        font-size: 3vw;
+    }
+    #login_main .footer {
+        margin-top: 0;
+    }
 }
