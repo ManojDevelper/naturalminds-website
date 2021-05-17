@@ -52,6 +52,10 @@
     color: #212e34;
     margin: 0;
 }
+#navlinks{
+    color: #212e34;
+    text-decoration: none;
+}
 #navbtn2 {
     list-style-type: none;
     text-decoration: none;
@@ -123,9 +127,25 @@
 .nav-co .navbar-light .navbar-toggler {
     border: none;
 }
+#toggle2{
+    display: none;
+}
+.toggle img{
+    margin-bottom: 0;
+    width: 40px;
+}
 @media (max-width: 1202px) {
+    #toggle2{
+        display: block;
+        z-index: 20;
+        margin-left: auto;
+        margin: 3 0 auto auto;
+    }
+    #toggle2 img{
+        width: 8vw;
+    }
     #nav_items {
-        margin-top: 100px;
+        margin-top: 0;
     }
     #nav_main_div {
         padding: 0;
@@ -137,14 +157,14 @@
         padding: 0;
     }
     #nav_img {
-        width: 30px;
+        width: 50px;
         margin: 0;
         position: relative;
         left: 2vw;
         z-index: 20;
     }
     .nav-co {
-        padding: 0;
+        padding: 2vw 0;
     }
     #navbarResponsive {
         height: 100vh;
@@ -155,44 +175,35 @@
         width: 100%;
         left: 0;
     }
-
     #nav_items {
         display: flex;
         flex-direction: column;
-        margin-top: 150px;
+        margin-top: 0;
     }
     #navbarResponsive #nav_img {
         z-index: 15;
         position: absolute;
         display: block;
     }
-    #navbarResponsive .toggle {
-        z-index: 15;
-        position: absolute;
-        right: 0;
-        display: block;
-        border: none;
-        outline: none;
-    }
     #navbtn2 {
         font-size: 20px;
-        margin-top: 30px;
+        margin-top: 20px;
     }
     .navbtn2 {
-        margin-top: 30px;
+        margin-top: 20px;
     }
     .navbtn1 {
-        margin-top: 30px;
+        margin-top: 20px;
     }
 }
 @media (max-width: 650px) {
+    #toggle2 img{
+        width: 40px;
+        margin-top: 1vw;
+        margin-bottom: 0;
+    }
     #nav_img img {
         width: 80px;
-    }
-    .toggle {
-        position: relative;
-        border: none;
-        outline: none;
     }
     .navbtn1 {
         width: fit-content;
@@ -226,7 +237,7 @@
         display: flex;
         flex-direction: column;
         padding-left: 6vw;
-        margin-top: 80px;
+        margin-top: 40px;
     }
     #navbtn2{
         margin-right: auto;

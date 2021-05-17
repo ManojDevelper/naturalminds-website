@@ -23,7 +23,7 @@
   display: flex;
   flex-direction: row;
 }
-#card_btns tab:last-child {
+#cardbtn2 {
   margin-left: 2vw;
 }
 .card_container {
@@ -166,201 +166,6 @@
   opacity: 0.85;
   margin: 0;
 }
-/*========qrpopup============*/
-#qr {
-  width: 100%;
-  height: 100vh;
-  background: rgba(0, 0, 0, 1);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  z-index: 20;
-}
-#cards_main_container .cardqr {
-  display: none;
-}
-#cards_main_container .active-cardqr {
-  display: flex;
-}
-#qr_conatiner {
-  width: 64.875vw;
-  background: #ffffff;
-  border-radius: 1vw;
-  margin: auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  position: relative;
-  padding: 7.1875vw 3.5vw;
-}
-#cards_main_container #qr_conatiner #qr_conatiner_block2 {
-  margin-left: 7.5vw;
-}
-#close2 {
-  position: absolute;
-  right: 0;
-  width: 2.1875vw;
-  top: 1.25vw;
-  right: 1.25vw;
-  cursor: pointer;
-}
-#qr_conatiner_block1 {
-  width: 27.6875vw;
-  display: flex;
-  height: fit-content;
-}
-#ql_container_matter_container {
-  height: fit-content;
-  margin-top: auto;
-}
-#ql_container_matter h1 {
-  font-family: Source Sans Pro;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 2.5vw;
-  line-height: 3.3125vw;
-  color: #ff4081;
-  margin: 0;
-  position: relative;
-}
-#rate2 {
-  width: 1vw;
-  margin: 0;
-  position: absolute;
-  top: 0.5vw;
-}
-#ql_container_matter p {
-  font-family: Source Sans Pro;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 0.9375vw;
-  line-height: 1.5vw;
-  text-align: justify;
-  color: rgba(0, 0, 0, 0.7);
-  margin: 0;
-  margin-top: 1.1875vw;
-  width: 25.375vw;
-}
-#qr_container_input_block {
-  margin-top: 3.75vw;
-}
-#qr_container_input_block h1 {
-  font-family: Source Sans Pro;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 1.25vw;
-  line-height: 1.5vw;
-  color: #000000;
-  margin: 0;
-}
-#qr_container_input_block_container {
-  display: grid;
-  grid-template-columns: 16.6875vw 10vw;
-  gap: 0.9375vw;
-  grid-template-rows: 3vw;
-  margin-top: 1.625vw;
-}
-#qr_container_input_block_container_container {
-  border: 1px solid #999999;
-  box-sizing: border-box;
-  border-radius: 0.5vw;
-  position: relative;
-  overflow: hidden;
-}
-#qr_container_input_block_container_container input {
-  width: 12.8125vw;
-  height: 100%;
-  position: absolute;
-  right: 0;
-  border: none;
-  outline: none;
-  background: transparent;
-  font-family: Source Sans Pro;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 1vw;
-  color: rgba(33, 46, 52);
-  padding-right: 0.625vw;
-}
-#qr_container_input_block_container_container p {
-  margin: 0;
-  font-family: Source Sans Pro;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 1vw;
-  line-height: 0;
-  color: #000000;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 6%;
-}
-#qr_container_input_block button {
-  left: 21.1875vw;
-  top: 21.125vw;
-  background: #ff4081;
-  border-radius: 0.5vw;
-  border: none;
-  outline: none;
-  font-family: Source Sans Pro;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 1vw;
-  color: #ffffff;
-  cursor: pointer;
-}
-#qr_conatiner_block2 {
-  width: 100%;
-  display: flex;
-}
-#qrs {
-  display: flex;
-  flex-direction: column;
-  row-gap: 5vw;
-  justify-content: center;
-  align-items: center;
-  width: fit-content;
-  margin-top: auto;
-}
-#qu_image_container img {
-  margin: 0;
-  width: 12vw;
-}
-#qr_image_button {
-  display: flex;
-  flex-direction: row;
-  column-gap: 1vw;
-}
-#qr_image_button a {
-  color: white;
-  text-decoration: none;
-}
-#qr_image_button button {
-  width: 10.125vw;
-  height: 3vw;
-  background: #212e34;
-  border-radius: 0.5vw;
-  margin: 0;
-  font-family: Source Sans Pro;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 1.125vw;
-  color: #ffffff;
-  position: relative;
-  padding-left: 1.875vw;
-  border: none;
-  outline: none;
-}
-#qr_image_button button img {
-  margin: 0;
-  width: 1.5vw;
-  position: absolute;
-  left: 0.9375vw;
-  top: 50%;
-  transform: translateY(-50%);
-}
 @media (max-width: 1083px) {
   .slidecards_content2 #lap1 {
     width: 20vw;
@@ -475,11 +280,7 @@
   justify-content: center;
   margin-top: 10vw;
 }
-#card_btns tab{
-  width: 30vw;
-  height: 10vw;
-}
-#card_btns tab:last-child{
+#card_btns button:last-child{
   margin-left: 3vw;
 }
 #card_btns button{
@@ -487,6 +288,8 @@
   height: 100%;
   border-radius: 1.8vw;
   font-size: 3vw;
+  width: 30vw;
+  height: 10vw;
 }
 #rate {
   width: 3vw;

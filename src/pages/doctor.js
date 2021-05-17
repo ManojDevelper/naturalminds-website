@@ -161,8 +161,9 @@ function Doctor() {
   }, [])
 
   return (
-    <>      <Top />
+    <>
       <div id="doctors">
+      <Top />
         <div id="doctor_container_main">
           <div id="doctor_container">
             <div id="doctor_search">

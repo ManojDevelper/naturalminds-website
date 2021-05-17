@@ -197,17 +197,17 @@ function Register() {
   //    // eslint-disable-next-line
   // }, []);
 
-  useEffect(() => {
-    const loadPosts = async () => {
-      const response2 = await fetch(
-        "https://stag.spotcare.in/api/tou/termsofuse.html"
-      )
-      const data2 = await response2.json()
-      console.log(data2)
+  // useEffect(() => {
+  //   const loadPosts = async () => {
+  //     const response2 = await fetch(
+  //       "https://stag.spotcare.in/api/tou/termsofuse.html"
+  //     )
+  //     const data2 = await response2.json()
+  //     console.log(data2)
 
-    }
-    loadPosts()
-  }, [])
+  //   }
+  //   loadPosts()
+  // }, [])
   /*====================for Specelist======================*/
   async function getDoctor() {
     let docitem = { name }

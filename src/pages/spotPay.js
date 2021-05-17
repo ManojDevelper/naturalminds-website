@@ -85,7 +85,7 @@ function Spotpay({ location }) {
           })
           result = await result.json()
           console.log(result.data)
-          if (result.status === true) {
+          if (result.status === true || final.status === true) {
             const res = await loadscript("https://checkout.razorpay.com/v1/checkout.js")
             if (!res) {
               toast.alert("Razorpay SDK failed to load")
