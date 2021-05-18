@@ -9,7 +9,7 @@
     transition: 0.1s ease;
     padding: 1vw 6vw 1vw 6vw;
 }
-#nav_icons{
+#nav_icons {
     display: none;
 }
 .navbar-light .navbar-toggler {
@@ -52,7 +52,7 @@
     color: #212e34;
     margin: 0;
 }
-#navlinks{
+#navlinks {
     color: #212e34;
     text-decoration: none;
 }
@@ -127,22 +127,22 @@
 .nav-co .navbar-light .navbar-toggler {
     border: none;
 }
-#toggle2{
+#toggle2 {
     display: none;
 }
-.toggle img{
+.toggle img {
     margin-bottom: 0;
     width: 40px;
 }
 @media (max-width: 1202px) {
-    #toggle2{
+    #toggle2 {
         display: block;
         z-index: 20;
-        margin-left: auto;
-        margin: 3 0 auto auto;
+        margin: 7px 0 0 auto;
+        border: 1px solid green;
     }
-    #toggle2 img{
-        width: 8vw;
+    #toggle2 img {
+        width: 50px;
     }
     #nav_items {
         margin-top: 0;
@@ -190,17 +190,42 @@
         margin-top: 20px;
     }
     .navbtn2 {
+        width: fit-content;
+        height: fit-content;
+        top: 30px;
+        border: 0px solid rgb(161, 157, 157);
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        color: #212e34;
+        margin: 0;
         margin-top: 20px;
+        background: unset;
     }
     .navbtn1 {
         margin-top: 20px;
+        width: fit-content;
+        height: fit-content;
+        top: 30px;
+        border: 0px solid rgb(161, 157, 157);
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        color: #212e34;
+        margin: 0;
+        margin-top: 5vw;
+        background: unset;
+
     }
 }
 @media (max-width: 650px) {
-    #toggle2 img{
+    #toggle2 img {
         width: 40px;
         margin-top: 1vw;
         margin-bottom: 0;
+        margin-left: auto;
     }
     #nav_img img {
         width: 80px;
@@ -218,7 +243,7 @@
         margin: 0;
         margin-top: 5vw;
     }
-    .navbtn2{
+    .navbtn2 {
         width: fit-content;
         height: fit-content;
         left: 0;
@@ -239,10 +264,10 @@
         padding-left: 6vw;
         margin-top: 40px;
     }
-    #navbtn2{
+    #navbtn2 {
         margin-right: auto;
     }
-    #nav_icons{
+    #nav_icons {
         display: flex;
         justify-content: space-around;
         width: fit-content;
@@ -250,28 +275,28 @@
         z-index: 20;
         margin-top: 40px;
     }
-    #nav_icon_cont:first-child{
+    #nav_icon_cont:first-child {
         margin-left: 0;
     }
-    #nav_icon_cont{
+    #nav_icon_cont {
         width: fit-content;
         height: fit-content;
         margin-left: 6vw;
         cursor: pointer;
     }
-    #nav_icon_cont img{
+    #nav_icon_cont img {
         margin: 0;
         width: 7vw;
     }
     .navbtn1:hover {
         color: #212e34;
-        background:transparent;
+        background: transparent;
     }
     .navbtn2:hover {
         color: #212e34;
         background: transparent;
     }
-    #reglink{
+    #reglink {
         width: 100%;
     }
 }

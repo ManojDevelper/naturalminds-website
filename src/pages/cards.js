@@ -2,10 +2,6 @@ import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import rate from "../data/assets/rate.svg";
 import "../styles/Cards.scss";
-import { useState } from "react";
-import { API_ROOT } from "gatsby-env-variables";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 function Cards() {
   const data = useStaticQuery(graphql`
@@ -109,7 +105,6 @@ function Cards() {
             </div>
           </div>
         </div>
-        <ToastContainer />
       </div>
 
     </>

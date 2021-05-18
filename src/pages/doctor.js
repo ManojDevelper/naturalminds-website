@@ -270,8 +270,8 @@ function Doctor() {
                       <div>
                         <button id="doc_btn1">View Full Profile</button>
                       </div>
-                      <div>
-                        <button id="doc_btn2" onClick={showImage} role="presentation">GetApp</button>
+                      <div onClick={showImage} role="presentation">
+                        <button id="doc_btn2">GetApp</button>
                       </div>
                     </div>
                   </div>

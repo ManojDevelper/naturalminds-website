@@ -2,7 +2,6 @@
 .status {
     background: linear-gradient(135deg, #00bde1 0%, #0093c6 100%);
     padding: 11.25vw 0;
-    height: 100vh;
 }
 .status_container {
     display: grid;
@@ -59,7 +58,7 @@
 /*==========mediaquaries=========*/
 @media (max-width: 650px) {
     .status {
-        padding: 3vw 0;
+        padding: 20vw 0;
         display: flex;
     }
     .card_svg {
@@ -81,7 +80,7 @@
         padding: 0;
         height: 100%;
     }
-    .card_content_img .card_svg{
+    .card_content_img .card_svg {
         width: 12vw;
     }
     .card_matter {
