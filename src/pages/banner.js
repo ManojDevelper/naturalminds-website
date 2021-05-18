@@ -162,10 +162,10 @@ function Banner() {
                         <h1 id="banner_h1">{data.banner.childMarkdownRemark.frontmatter.title}</h1>
                         <p id="banner_p">{data.banner.childMarkdownRemark.frontmatter.description}</p>
                         <div className="banner_buttons">
-                            <bannerbtn key="1" className={toggleState === 1 ? "show_btn active-show_btn" : "show_btn"}
-                                onClick={() => toggleTab(1)}><button className="banner_buttons1">{data.banner.childMarkdownRemark.frontmatter.button1}</button></bannerbtn>
-                            <bannerbtn key="2" className={toggleState === 2 ? "show_btn active-show_btn" : "show_btn"}
-                                onClick={() => toggleTab(2)}><button className="banner_buttons2">{data.banner.childMarkdownRemark.frontmatter.button2}</button></bannerbtn>
+                            <bannerbtn className={toggleState === 1 ? "show_btn active-show_btn" : "show_btn"}
+                                onClick={() => toggleTab(1)} role="presentation"><button className="banner_buttons1">{data.banner.childMarkdownRemark.frontmatter.button1}</button></bannerbtn>
+                            <bannerbtn className={toggleState === 2 ? "show_btn active-show_btn" : "show_btn"}
+                                onClick={() => toggleTab(2)} role="presentation"><button className="banner_buttons2">{data.banner.childMarkdownRemark.frontmatter.button2}</button></bannerbtn>
                         </div>
                         <div className="watchvideo" onClick={() => setLgShow(true)} role="presentation">
                             <div id="videodiv">
