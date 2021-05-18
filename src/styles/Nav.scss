@@ -162,9 +162,6 @@
         left: 2vw;
         z-index: 20;
     }
-    .nav-co {
-        padding: 2vw 0;
-    }
     #navbarResponsive {
         height: 100vh;
         background-color: white;
@@ -227,7 +224,20 @@
         margin-left: auto;
     }
     #nav_img img {
-        width: 80px;
+        width: 50px;
+    }
+    #nav_main_div {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 15;
+        background: #ffffff;
+        box-shadow: 0px 4px 10px rgba(10, 48, 61, 0.06);
+        transition: 0.1s ease;
+        padding: 1.5vw 2vw;
+    }
+    #nav_main_div2 {
+        padding: 1.5vw 2vw;
     }
     .navbtn1 {
         width: fit-content;

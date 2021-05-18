@@ -414,20 +414,20 @@
   }
   .banner {
     background-position: center bottom;
-    background-size: 80vw auto;
+    background-size: 86vw auto;
     padding: 1vw 0;
     height: fit-content;
   }
   .banner_container {
     text-align: center;
-    height: 150vw;
+    height: 160vw;
     width: fit-content;
     padding-top: 0;
     display: flex;
     flex-direction: column;
   }
   #banner_container_container {
-    margin: 14vh auto auto auto;
+    margin: 18vh auto auto auto;
   }
   .banner_container #banner_h1 {
     font-size: 8.3vw;
@@ -437,7 +437,7 @@
     width: 100%;
     max-width: 100%;
     margin: auto;
-    font-size: 3.5vw;
+    font-size: 3.6vw;
     margin-top: 5px;
   }
   .banner_buttons {
@@ -468,7 +468,7 @@
   }
   .watchvideo {
     margin: auto;
-    margin-top: 1vw;
+    margin-top: 4vw;
   }
   .banner_container #newaddDescription {
     display: block;
@@ -485,4 +485,12 @@
     font-size: 10px;
     line-height: unset;
   }
+}
+@media (max-width:383px){
+  .banner {
+    background-size: 82vw auto;
+  }
+  .banner_container {
+    height: 170vw;
+}
 }

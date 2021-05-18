@@ -65,8 +65,8 @@
 .pay_block2_container2 {
     color: white;
     background: linear-gradient(135deg, #12c5e7 0%, #0385b1 100%);
-    border: 0.375vw solid rgba(0, 179, 219, 0.3);
-    box-shadow: 0px 0px 0.75vw rgba(15, 36, 44, 0.15);
+    border: 5px solid rgba(0, 179, 219, 0.3);
+    box-shadow: 0px 0px 12px rgba(15, 36, 44, 0.15);
     border-radius: 0.5vw;
     transition: 1s ease-in-out;
 }
@@ -89,10 +89,10 @@
     align-items: center;
     text-align: center;
     color: #ff4081;
-    display:block;
-    margin: 0.5vw 0.5vw 0 0 ;
+    display: block;
+    margin: 0.5vw 0.5vw 0 0;
 }
-.pay_block2_container2 #success p{
+.pay_block2_container2 #success p {
     margin: 0;
 }
 #pay_block2_container1_block1 {
@@ -100,17 +100,42 @@
     height: fit-content;
 }
 #plantype {
-    font-size: 1.25vw;
+    font-size: 1.5vw;
     margin: 0;
+    color: rgba(33, 46, 52, 0.8);
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: bold;
+    text-align: center;
 }
 #amount {
-    font-size: 2.25vw;
+    font-size: 2vw;
     margin: 0;
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: bold;
+    text-align: center;
+    opacity: 0.8;
+    line-height: 2vw;
+    margin-top: 0.5vw;
 }
 #permonth {
     font-size: 1vw;
     margin: 0;
-    line-height: 0;
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: normal;
+    text-align: center;
+    color: rgba(33, 46, 52, 0.6);
+}
+.pay_block2_container2 #plantype {
+    color: white;
+}
+.pay_block2_container2 #amount {
+    color: white;
+}
+.pay_block2_container2 #permonth {
+    color: white;
 }
 /*===================paymentblock===================*/
 #pay_block2_container2 {
@@ -199,7 +224,7 @@
     line-height: 1.5vw;
     background: transparent;
     position: absolute;
-    padding: 0.625vw 3.2vw  0.625vw  0.625vw ;
+    padding: 0.625vw 3.2vw 0.625vw 0.625vw;
     outline: none;
 }
 #applybtn {
@@ -231,73 +256,104 @@
 #login_main .footer {
     margin-top: 10vw;
 }
-@media(max-width:650px){
+@media (max-width: 650px) {
+    #pay_container_main {
+        height: 100%;
+    }
     #login_main .footer {
         margin-top: 30vw;
     }
-    #pay{
-        top: 20vw;
+    #pay {
+        position: unset;
+        padding-top: 20vw;
     }
     #pay_container {
         width: 90%;
-        height: 60vw;
+        height: fit-content;
         border-radius: 1vw;
         padding: 4vw;
     }
+    #pay_block2 {
+        width: 100%;
+        height: 100%;
+        margin-top: 1.5625vw;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: auto auto;
+        gap: 0;
+    }
+    #pay_container {
+        border: unset;
+        box-shadow: unset;
+    }
+    .pay_block2_container1 {
+        padding: 7vw 0;
+        border-radius: 3vw;
+    }
+    #pay_block2_container2 {
+        height: 90vw;
+        margin-top: 10vw;
+        border-radius: 3vw;
+        padding: 5vw;
+    }
     #pay_block2_container1_wrapper {
         grid-template-rows: auto;
+        gap: 5vw;
+        margin-top: 5vw;
     }
     .pay_block2_container2 #success {
-        width: 15vw;
-        padding: 1vw 0;
-        font-size: 1.5vw;
-        border-radius: 0.5vw;
+        width: 25vw;
+        padding: 2.5vw 0;
+        font-size: 3vw;
+        border-radius: 1vw;
+        margin: 1.5vw;
     }
     #plantype {
-        font-size: 3vw;
+        font-size: 6vw;
     }
     #pay_block1 h1 {
-        font-size: 4vw;
+        font-size: 6vw;
     }
     #pay_block2_container2_block1_title h1 {
-        font-size: 3vw;
+        font-size: 5vw;
     }
-    #pay_block2_container2_block1_title{
-        height: 5vw;
+    #pay_block2_container2_block1_title {
+        height: 10vw;
     }
     #prize_title {
-        font-size: 2.5vw;
+        font-size: 4vw;
         padding: 1vw 0;
     }
     #pay_prize {
-        font-size: 2.2vw;
+        font-size: 4vw;
     }
-    #pay_block2_mini{
+    #pay_block2_mini {
         height: fit-content;
     }
     #pay_block2_cupon {
-        height: 6.5vw;
+        height: 10vw;
     }
     #applybtn {
-        font-size: 1.5vw;
-        top:2.4vw;
-        right: 1vw;
+        font-size: 3.8vw;
+        top: 50%;
+        right: 1%;
+        transform: translateY(-50%);
     }
     #pay_block2_cupon input {
-        font-size: 2vw;
+        font-size: 5vw;
+        padding: 0 0 0 1.5vw;
     }
     #pay_block2_container2_block1_btn button {
-        border-radius: 0.9vw;
-        height: 7vw;
-        font-size: 2vw;
+        border-radius: 1.2vw;
+        height: 11vw;
+        font-size: 4vw;
     }
     #amount {
-        font-size: 3.5vw;
+        font-size: 9vw;
+        line-height: 8vw;
+        margin-top: 3vw;
     }
     #permonth {
-        font-size: 2vw;
-    }
-    #pay_container_main {
-        height:60vh;
+        font-size: 4vw;
     }
 }

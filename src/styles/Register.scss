@@ -19,180 +19,6 @@
 #login_main {
     background-color: white;
 }
-#login_container_container {
-    display: flex;
-    flex-direction: row;
-    width: 56.125vw;
-    position: relative;
-    column-gap: 7.9375vw;
-    margin-left: auto;
-    margin-right: 8vw;
-}
-#login_container {
-    width: 32.625vw;
-    height: 28.75vw;
-    background: #ffffff;
-    box-sizing: border-box;
-    box-shadow: 0px 0px 0.75vw rgba(15, 36, 44, 0.15);
-    border-radius: 1vw;
-    padding: 3.125vw 5.0625vw;
-    margin: auto;
-    border: 0.5px solid #00b3db;
-}
-#login_block1 {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-#login_block1_block1 {
-    width: fit-content;
-    height: fit-content;
-}
-#login_block1_block1 h1 {
-    margin: 0;
-    font-family: Noto Sans;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 2.25vw;
-    color: #ff4081;
-}
-#login_block1_block2 {
-    width: fit-content;
-    height: fit-content;
-    margin: auto 0 0 0;
-}
-#login_block1_block2 p {
-    font-family: Source Sans Pro;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 1vw;
-    line-height: 1.375vw;
-    color: #333333;
-    margin: 0;
-}
-#login_block1_block2 p span {
-    color: #4285f4;
-    font-family: Source Sans Pro;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 1vw;
-    line-height: 1.375vw;
-    text-decoration: underline;
-    cursor: pointer;
-}
-#inputs {
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: auto auto;
-    gap: 1.75vw;
-    margin-top: 2.5vw;
-}
-#input_block_input1 {
-    background: white;
-    border-radius: 0.1875vw;
-    height: 3.5vw;
-    position: relative;
-    border: 0.125vw solid rgba(170, 170, 170, 0.3);
-    border-radius: 0.3125vw;
-    transition: 0.5s ease-in-out;
-    position: relative;
-}
-#input_block_input1:hover {
-    border: 0.125vw solid rgba(255, 64, 129, 1);
-}
-#input_block_input1 h1 {
-    font-family: Source Sans Pro;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 0.75vw;
-    margin: 0;
-    letter-spacing: 0.025vw;
-    color: rgba(0, 0, 0, 0.6);
-    position: absolute;
-    background: white;
-    transform: translateY(-0.625vw);
-    left: 0.625vw;
-}
-#input_block_input1 input {
-    height: 100%;
-    width: 100%;
-    font-family: Source Sans Pro;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 1vw;
-    line-height: 1.3125vw;
-    letter-spacing: 0.0125vw;
-    color: rgba(0, 0, 0, 0.87);
-    padding: 0 1.875vw 0 0.625vw;
-    border: none;
-    outline: none;
-    background: transparent;
-    position: absolute;
-}
-#input_block3 button {
-    width: 100%;
-    height: 3.5vw;
-    background: #ff4081;
-    border-radius: 0.5vw;
-    border: none;
-    outline: none;
-    font-family: Source Sans Pro;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 1.125vw;
-    color: #ffffff;
-    cursor: pointer;
-}
-#login_note {
-    width: 15.5625vw;
-    height: 7.8125vw;
-    background: #ffffff;
-    border: 0.03125vw solid #00b3db;
-    box-sizing: border-box;
-    box-shadow: 0px 0px 0.75vw rgba(15, 36, 44, 0.15);
-    border-radius: 0.5vw;
-    padding: 0.875vw 1.125vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-#login_note1 {
-    font-family: Source Sans Pro;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 0.875vw;
-    line-height: 1.1875vw;
-    margin: 0;
-    letter-spacing: 0.0125vw;
-    color: rgba(0, 0, 0, 0.87);
-}
-#login_note1 img {
-    margin: 0;
-    padding-right: 0.375vw;
-    width: 1.25vw;
-    margin-bottom: 0.3125vw;
-}
-#login_note2 {
-    font-family: Source Sans Pro;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 0.875vw;
-    line-height: 1.1875vw;
-    letter-spacing: 0.0125vw;
-    color: rgba(0, 0, 0, 0.87);
-    margin: 0;
-}
-#login_note3 {
-    font-family: Source Sans Pro;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 0.875vw;
-    line-height: 1.375vw;
-    text-decoration-line: underline;
-    color: #4285f4;
-    cursor: pointer;
-    margin: 0;
-}
 /*=====register=========*/
 #register {
     width: 100%;
@@ -472,15 +298,15 @@
     margin: 0 0 25vw 0;
 }
     #register_container {
-        width: 57vw;
-        height: 56.5vw;
+        width: 90%;
+        height: fit-content;
         background: #ffffff;
         box-sizing: border-box;
         box-shadow: 0px 0px 0 white;
         border-radius: 1vw;
-        padding: 3.125vw 5.0625vw;
-        margin: auto;
+        margin: 15vw auto auto auto;
         border: 0.5px solid transparent;
+        padding: 0;
     }
     #register_container_head_block1 h1 {
         font-size: 4vw;
@@ -490,11 +316,6 @@
     }
     #register_container_head_block2 span {
         font-size: 3vw;
-    }
-    #register_container {
-        width: 90%;
-        height: fit-content;
-        margin-top: 5vw;
     }
     #register_inputs {
         display: grid;

@@ -94,8 +94,8 @@ function Cards() {
                           )}
                         </div>
                         <div id="card_btns">
-                          <button><a href="https://qrs.ly/9bcj0lp" target="_blank" rel="noopener noreferrer" style={{textDecoration: `none`, color: `white`, width: `100%`, height: `100%`}}>Doctor App</a></button>
-                          <button id="cardbtn2"><a href="https://qrs.ly/r3cj0mt" target="_blank" rel="noopener noreferrer" style={{textDecoration: `none`, color: `white`}} >Patient App</a></button>
+                        <a href="https://qrs.ly/9bcj0lp" target="_blank" rel="noopener noreferrer" style={{ textDecoration: `none`, color: `white` }}><button>Doctor App</button></a>
+                        <a href="https://qrs.ly/r3cj0mt" target="_blank" rel="noopener noreferrer" style={{ textDecoration: `none`, color: `white` }} ><button id="cardbtn2">Patient App</button></a>
                         </div>
                       </div>
                     </div>
