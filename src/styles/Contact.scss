@@ -193,10 +193,9 @@
         font-size: 3vw;
     }
     .contact_name input {
-        height: vw;
         padding-left: 1vw;
         padding-bottom: 0.5vw;
-        height: 10vw;
+        height: 8vw;
         font-size: 3.5vw;
     }
     .contact_info_block input {
@@ -213,5 +212,8 @@
     }
     #patners {
         padding: 20vw 4vw;
+    }
+    .button {
+        margin-top: 13vw;
     }
 }
