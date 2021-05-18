@@ -574,7 +574,7 @@
     line-height: unset;
   }
 }
-@media (max-width: 493px) {
+@media (max-width: 496px) {
   .banner {
     background-position: center bottom;
     background-size: 350px auto;
@@ -594,9 +594,9 @@
     width: 20px;
   }
 }
-@media (max-width: 443px) {
+@media (max-width: 467px) {
   .banner {
-    height: calc(var(--vh, 1vh) * 90);
+    height: calc(var(--vh, 1vh) * 95);
   }
 }
 @media (max-width: 370px) {
@@ -610,6 +610,9 @@
     margin: 0;
     width: 20px;
   }
+  #banner_container_container {
+    margin: 14.5vh auto auto auto;
+}
 }
 @media (max-width:356px) {
   .banner {
