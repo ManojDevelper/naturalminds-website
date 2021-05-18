@@ -398,7 +398,7 @@
 }
 
 /*=========mediaquaries========*/
-@media (max-width: 650px) {
+@media only screen and  (max-width: 650px) {
   .banner_buttons bannerbtn:last-child {
     margin-left: 0vw;
 }
@@ -486,7 +486,7 @@
     line-height: unset;
   }
 }
-@media (max-width: 500px) {
+@media only screen and  (max-width: 500px) {
   .banner_buttons bannerbtn:last-child {
     margin-left: 0vw;
 }
@@ -570,5 +570,10 @@
     width: 200px;
     font-size: 10px;
     line-height: unset;
+  }
+}
+@media only screen and  (max-width: 360px) {
+  #banner_container_container {
+    margin: 18vh auto auto auto;
   }
 }
