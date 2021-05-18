@@ -44,17 +44,17 @@ function Contact() {
 
         let errors = {};
         if (!name) {
-            errors.name = "**Name is Required"
+            errors.name = "red"
         } else if (name < 3) {
-            errors.name = "**Name should be more then 3"
+            errors.name = "red"
         } if (!subject) {
-            errors.subject = "**Please enter your subject"
+            errors.subject = "red"
         } if (!email) {
-            errors.email = "**Please enter your Email"
+            errors.email = "red"
         } else if (!/\S+@\S+\.\S+/.test(email)) {
-            errors.email = "*Email is invalid"
+            errors.email = "red"
         } if (!query) {
-            errors.query = "**Please enter your query"
+            errors.query = "red"
         }
         return errors;
     }
@@ -62,7 +62,7 @@ function Contact() {
     async function contactSubmit() {
         let item = { name, subject, email, query }
 
-        let result = await fetch(API_ROOT+"/api/contactUs", {
+        let result = await fetch(API_ROOT + "/api/contactUs", {
             method: "POST",
             body: JSON.stringify(item),
             headers: {
@@ -73,58 +73,56 @@ function Contact() {
         result = await result.json()
         setStatus(result)
         console.log(status)
-        setErrors(validation());
         if (result.status === true) {
             toast.success(result.msg, {
                 position: `top-center`
             })
-        }else {
+        } else {
             toast.error("Please Try Again", {
                 position: `top-center`
             })
         }
 
     }
+    function signup2(){
+        setErrors(validation())
+    }
     return (
         <>
             <div className="contact" id="contact">
                 <h1>{data.contact.childMarkdownRemark.frontmatter.title}</h1>
                 <div className="contact_contrainer">
-                    <div className="contact_img_block" key="11">
+                    <div className="contact_img_block">
                         <img src={data.contact.childMarkdownRemark.frontmatter.background_image.childImageSharp.fluid.src} alt="img1" />
                     </div>
                     <div className="contact_info_block">
                         <div className="contact_info_top">
                             <div className="contact_name" style={{ position: `relative` }}>
-                                <span key="12">{data.contact.childMarkdownRemark.frontmatter.name}</span>
+                                {(!name) || (name.length < 3) ? (<span style={{ color: (errors.name) }}>{data.contact.childMarkdownRemark.frontmatter.name}</span>) : (<span>{data.contact.childMarkdownRemark.frontmatter.name}</span>)}
                                 <input type="text" placeholder="Name" value={name} onChange={e => setName(e.target.value)} />
-                                <p className="errors" style={{ fontSize: `1vw`, color: `orange`, position: `absolute`, bottom: `-3vw` }}>{errors.name}</p>
                             </div>
                             <div className="contact_name" style={{ position: `relative` }}>
-                                <span key="14">{data.contact.childMarkdownRemark.frontmatter.mobile}</span>
-                                <input type="text" placeholder="Number" value={subject} onChange={e => setSubject(e.target.value)} />
-                             <p className="errors" style={{ fontSize: `1vw`, color: `orange`, position: `absolute`, bottom: `-3vw` }}>{errors.subject}</p>
+                            {(!subject) ? (<span style={{ color: (errors.subject) }}>{data.contact.childMarkdownRemark.frontmatter.mobile}</span>) : (<span>{data.contact.childMarkdownRemark.frontmatter.mobile}</span>)}
+                                <input type="text" placeholder="Subject" value={subject} onChange={e => setSubject(e.target.value)} />
                             </div>
                         </div>
                         <div className="contact_mail" style={{ position: `relative` }}>
-                            <span key="16">{data.contact.childMarkdownRemark.frontmatter.mail}</span>
+                        {(!email || (!/\S+@\S+\.\S+/.test(email))) ? (<span style={{ color: (errors.email) }}>{data.contact.childMarkdownRemark.frontmatter.mail}</span>) : (<span>{data.contact.childMarkdownRemark.frontmatter.mail}</span>)}
                             <input type="mail" placeholder="chrisdo@gmail.com" type="text" value={email} onChange={e => setEmail(e.target.value)} />
-                            <p className="errors" style={{ fontSize: `1vw`, color: `orange`, position: `absolute`, bottom: `-3vw` }}>{errors.email}</p>
                         </div>
                         <div className="contact_message" style={{ position: `relative` }}>
-                            <span>Message</span>
+                        {(!query) || (query.length < 10) ? (<span style={{ color: (errors.query) }}>Message</span>) : (<span>Message</span>)}
                             <textarea type="mail" placeholder="Please Type Your Response" type="text" value={query} onChange={e => setQuery(e.target.value)} />
-                            <p className="errors" style={{ fontSize: `1vw`, color: `orange`, position: `absolute`, bottom: `-3vw` }}>{errors.query}</p>
                         </div>
                         <div className="button">
-                        {(!name || !subject || !email || !/\S+@\S+\.\S+/.test(email) || !query) ? (
-                            <button onClick={contactSubmit} disabled style={{background: `gray`}}>{data.contact.childMarkdownRemark.frontmatter.button}</button>
-                      ) : (
-                        <>
-                        <button onClick={contactSubmit}>{data.contact.childMarkdownRemark.frontmatter.button}</button>
-                        </>
-                      )}
-                            
+                            {(!name || !subject || !email || !/\S+@\S+\.\S+/.test(email) || !query || query.length < 10) ? (
+                                <button onClick={signup2} style={{ background: `gray` }}>{data.contact.childMarkdownRemark.frontmatter.button}</button>
+                            ) : (
+                                <>
+                                    <button onClick={contactSubmit}>{data.contact.childMarkdownRemark.frontmatter.button}</button>
+                                </>
+                            )}
+
                         </div>
                     </div>
                 </div>

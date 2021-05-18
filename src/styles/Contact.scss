@@ -1,4 +1,4 @@
-.contact{
+.contact {
     padding: 151px 0;
 }
 .contact h1 {
@@ -18,7 +18,7 @@
 .contact_img_block {
     width: 35%;
 }
-.contact_img_block img{
+.contact_img_block img {
     width: 100%;
     height: 100%;
     margin: 0;
@@ -92,7 +92,7 @@
     font-family: Source Sans Pro;
     outline: none;
 }
-.button{
+.button {
     text-align: right;
     margin-top: 4vw;
 }
@@ -110,29 +110,29 @@
     border: none;
     margin: auto;
 }
-@media (max-width:1000px){
-    .contact_contrainer{
+@media (max-width: 1000px) {
+    .contact_contrainer {
         max-width: calc(100% - 8%);
         margin-top: 7.3vw;
     }
-    .contact{
+    .contact {
         padding: 10vw 0;
     }
     .contact h1 {
         font-size: 4vw;
     }
-    .contact_img_block{
+    .contact_img_block {
         display: none;
     }
     .contact_info_top {
         gap: 6vw;
     }
-    .contact_info_block{
+    .contact_info_block {
         width: 100%;
     }
     .contact_info_block {
         padding: 5vw 4vw;
-        row-gap:0;
+        row-gap: 0;
     }
     .contact_info_block input {
         font-size: 2vw;
@@ -154,7 +154,7 @@
         padding-left: 1vw;
         padding-bottom: 0.5vw;
     }
-    .contact_mail{
+    .contact_mail {
         margin-top: 6vw;
     }
     .contact_mail input {
@@ -171,19 +171,47 @@
     .contact_message {
         margin-top: 6vw;
     }
-    .button{
+    .button {
         margin-top: 6vw;
     }
 }
-@media (max-width:600px){
-    .contact{
-        padding:10vw 0;
+@media (max-width: 650px) {
+    .contact {
+        padding: 20vw 0;
         background: white;
     }
-    .button{
+    .button {
         text-align: center;
     }
     .contact_info_top {
         grid-template-columns: auto;
+    }
+    .contact h1 {
+        font-size: 6vw;
+    }
+    .contact_info_block span {
+        font-size: 3vw;
+    }
+    .contact_name input {
+        height: vw;
+        padding-left: 1vw;
+        padding-bottom: 0.5vw;
+        height: 10vw;
+        font-size: 3.5vw;
+    }
+    .contact_info_block input {
+        font-size: 3.5vw;
+    }
+    .contact_message textarea {
+        font-size: 3.5vw;
+    }
+    .contact_info_block .button button {
+        font-size: 2.8vw;
+        width: 50vw;
+        height: 8vw;
+        border-radius: 1vw;
+    }
+    #patners {
+        padding: 20vw 4vw;
     }
 }

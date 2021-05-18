@@ -232,6 +232,12 @@
     margin-top: 10vw;
 }
 @media(max-width:650px){
+    #login_main .footer {
+        margin-top: 30vw;
+    }
+    #pay{
+        top: 20vw;
+    }
     #pay_container {
         width: 90%;
         height: 60vw;

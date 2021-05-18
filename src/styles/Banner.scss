@@ -399,6 +399,9 @@
 
 /*=========mediaquaries========*/
 @media (max-width: 650px) {
+  .banner_buttons bannerbtn:last-child {
+    margin-left: 0vw;
+}
   #image_taketop {
     width: 10vw;
     bottom: 2vw;
@@ -411,7 +414,7 @@
   }
   .banner {
     background-position: center bottom;
-    background-size: 50vw auto;
+    background-size: 370px auto;
     padding: 1vw 0;
     height: 95vh;
   }
@@ -424,18 +427,18 @@
     flex-direction: column;
   }
   #banner_container_container {
-    margin: auto auto 30vw auto;
+    margin: 100px auto auto auto;
   }
   .banner_container #banner_h1 {
-    font-size: 6vw;
+    font-size: 40px;
     margin: 0;
   }
   .banner_container #banner_p {
     width: 100%;
-    max-width: 90%;
+    max-width: 100%;
     margin: auto;
-    font-size: 3vw;
-    margin-top: 1vw;
+    font-size: 20px;
+    margin-top: 5px;
   }
   .banner_buttons {
     width: 100%;
@@ -443,21 +446,21 @@
     margin-top: 2vw;
   }
   .banner_buttons bannerbtn {
-    width: 20vw;
+    width: 30%;
   }
   .banner_buttons button {
-    width: 100%;
-    height: 6vw;
-    font-size: 2.8vw;
+    width: 90%;
+    height: 40px;
+    font-size: 10px;
     border-radius: 0.9vw;
   }
   .watchvideo .playbutton {
     margin: 0;
-    width: 3vw;
+    width: 20px;
   }
   .watchvideo span {
     margin: 0;
-    font-size: 3.3vw;
+    font-size: 20px;
   }
   .watchvideo div {
     width: fit-content;
@@ -469,18 +472,24 @@
   }
   .banner_container #newaddDescription {
     display: block;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
-    margin-left: 28vw;
+    margin-left: 50%;
     margin-bottom: 7vw;
     border: 0.7vw solid rgba(0, 179, 219, 0.4);
+    transform: translate(-50%);
   }
   .banner_container #newaddDescription p {
-    width: 28vw;
-    font-size: 1.5vw;
+    width: 200px;
+    font-size: 10px;
     line-height: unset;
   }
 }
-@media (max-width: 450px) {
+@media (max-width: 500px) {
+  .banner_buttons bannerbtn:last-child {
+    margin-left: 0vw;
+}
   #image_taketop {
     width: 10vw;
     bottom: 2vw;
@@ -493,7 +502,7 @@
   }
   .banner {
     background-position: center bottom;
-    background-size: 70vw auto;
+    background-size: 370px auto;
     padding: 1vw 0;
     height: 95vh;
   }
@@ -506,18 +515,18 @@
     flex-direction: column;
   }
   #banner_container_container {
-    margin: auto auto 63vw auto;
+    margin: 100px auto auto auto;
   }
   .banner_container #banner_h1 {
-    font-size: 8vw;
+    font-size: 9.2vw;
     margin: 0;
   }
   .banner_container #banner_p {
     width: 100%;
     max-width: 90%;
     margin: auto;
-    font-size: 3vw;
-    margin-top: 1vw;
+    font-size: 3.5vw;
+    margin-top: 5px;
   }
   .banner_buttons {
     width: 100%;
@@ -525,21 +534,21 @@
     margin-top: 2vw;
   }
   .banner_buttons bannerbtn {
-    width: 25vw;
+    width:45%;
   }
   .banner_buttons button {
-    width: 100%;
-    height: 8vw;
-    font-size: 2.8vw;
+    width: 90%;
+    height: 30px;
+    font-size: 10px;
     border-radius: 0.9vw;
   }
   .watchvideo .playbutton {
     margin: 0;
-    width: 4vw;
+    width: 20px;
   }
   .watchvideo span {
     margin: 0;
-    font-size: 3.8vw;
+    font-size: 20px;
   }
   .watchvideo div {
     width: fit-content;
@@ -551,40 +560,41 @@
   }
   .banner_container #newaddDescription {
     display: block;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
-    margin-left: 25vw;
+    margin-left: 50%;
     margin-bottom: 7vw;
     border: 0.7vw solid rgba(0, 179, 219, 0.4);
+    transform: translate(-50%);
   }
   .banner_container #newaddDescription p {
-    width: 34vw;
-    font-size: 2vw;
+    width: 200px;
+    font-size: 10px;
     line-height: unset;
+  }
+}
+@media (max-width: 470px) {
+  .banner {
+    background-position: center bottom;
+    background-size: 350px auto;
+    padding: 1vw 0;
+    height: 95vh;
+  }
+  .watchvideo .playbutton {
+    margin: 0;
+    width: 20px;
   }
 }
 @media (max-width: 370px) {
-  #banner_container_container {
-    margin: auto auto 60vw auto;
-  }
   .banner {
     background-position: center bottom;
-    background-size: 100vw auto;
+    background-size: 300px auto;
     padding: 1vw 0;
     height: 95vh;
   }
-  .banner_container #banner_p {
-    font-size: 3.8vw;
-    max-width: 100%;
+  .watchvideo .playbutton {
+    margin: 0;
+    width: 20px;
   }
-  .banner_container #banner_h1 {
-    font-size: 9vw;
-  }
-  .banner_container #newaddDescription {
-    margin-bottom: 20vw;
-    margin-left: 11vw;
-}
-.banner_container #newaddDescription p {
-  width: 60vw;
-  font-size: 3.5vw;
-}
 }
