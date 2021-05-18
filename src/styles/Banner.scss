@@ -416,7 +416,7 @@
     background-position: center bottom;
     background-size: 370px auto;
     padding: 1vw 0;
-    height: 95vh;
+    height: 100vh;
   }
   .banner_container {
     text-align: center;
@@ -427,7 +427,7 @@
     flex-direction: column;
   }
   #banner_container_container {
-    margin: 100px auto auto auto;
+    margin: 10vh auto auto auto;
   }
   .banner_container #banner_h1 {
     font-size: 40px;
@@ -504,7 +504,7 @@
     background-position: center bottom;
     background-size: 370px auto;
     padding: 1vw 0;
-    height: 95vh;
+    height: calc(var(--vh, 1vh) * 100);
   }
   .banner_container {
     text-align: center;
@@ -515,7 +515,7 @@
     flex-direction: column;
   }
   #banner_container_container {
-    margin: 100px auto auto auto;
+    margin: 13vh auto auto auto;
   }
   .banner_container #banner_h1 {
     font-size: 9.2vw;
@@ -579,7 +579,7 @@
     background-position: center bottom;
     background-size: 350px auto;
     padding: 1vw 0;
-    height: 95vh;
+    height: calc(var(--vh, 1vh) * 95);
   }
   .watchvideo .playbutton {
     margin: 0;
@@ -591,7 +591,7 @@
     background-position: center bottom;
     background-size: 300px auto;
     padding: 1vw 0;
-    height: 95vh;
+    height: calc(var(--vh, 1vh) * 90);
   }
   .watchvideo .playbutton {
     margin: 0;
