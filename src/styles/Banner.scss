@@ -404,40 +404,41 @@
 }
   #image_taketop {
     width: 10vw;
-    bottom: 2vw;
-    right: 2vw;
+    bottom: 8vw;
+    right: 5vw;
   }
   #image_taketop2 {
     width: 10vw;
-    bottom: 2vw;
-    right: 2vw;
+    bottom: 8vw;
+    right: 5vw;
   }
   .banner {
     background-position: center bottom;
     background-size: 370px auto;
-    padding: 1vw 0;
-    height: 100vh;
+    height: fit-content;
   }
   .banner_container {
     text-align: center;
-    height: 100%;
     width: fit-content;
     padding-top: 0;
     display: flex;
     flex-direction: column;
+    height: fit-content;
+    justify-content: space-between;
+    height: 88vh;
   }
   #banner_container_container {
-    margin: 10vh auto auto auto;
+    margin: 0 auto auto auto;
   }
   .banner_container #banner_h1 {
-    font-size: 40px;
+    font-size: 8.5vw;
     margin: 0;
   }
   .banner_container #banner_p {
     width: 100%;
     max-width: 100%;
     margin: auto;
-    font-size: 20px;
+    font-size: 3.8vw;
     margin-top: 5px;
   }
   .banner_buttons {
@@ -486,136 +487,141 @@
     line-height: unset;
   }
 }
-@media (max-width: 500px) {
-  .banner_buttons bannerbtn:last-child {
-    margin-left: 0vw;
-}
-  #image_taketop {
-    width: 10vw;
-    bottom: 2vw;
-    right: 2vw;
-  }
-  #image_taketop2 {
-    width: 10vw;
-    bottom: 2vw;
-    right: 2vw;
-  }
-  .banner {
-    background-position: center bottom;
-    background-size: 370px auto;
-    padding: 1vw 0;
-    height: calc(var(--vh, 1vh) * 90);
-  }
-  .banner_container {
-    text-align: center;
-    height: 100%;
-    width: fit-content;
-    padding-top: 0;
-    display: flex;
-    flex-direction: column;
-  }
-  #banner_container_container {
-    margin: 13vh auto auto auto;
-  }
-  .banner_container #banner_h1 {
-    font-size: 9.2vw;
-    margin: 0;
-  }
-  .banner_container #banner_p {
-    width: 100%;
-    max-width: 90%;
-    margin: auto;
-    font-size: 3.5vw;
-    margin-top: 5px;
-  }
-  .banner_buttons {
-    width: 100%;
-    justify-content: center;
-    margin-top: 2vw;
-  }
-  .banner_buttons bannerbtn {
-    width:45%;
-  }
+// @media (max-width: 500px) {
+//   .banner_buttons bannerbtn:last-child {
+//     margin-left: 0vw;
+// }
+//   #image_taketop {
+//     width: 10vw;
+//   }
+//   #image_taketop2 {
+//     width: 10vw;
+//   }
+//   .banner {
+//     background-position: center bottom;
+//     background-size: 370px auto;
+//     padding: 1vw 0;
+//     height: calc(var(--vh, 1vh) * 90);
+//   }
+//   .banner_container {
+//     text-align: center;
+//     height: 100%;
+//     width: fit-content;
+//     padding-top: 0;
+//     display: flex;
+//     flex-direction: column;
+//   }
+//   #banner_container_container {
+//     margin: 13vh auto auto auto;
+//   }
+//   .banner_container #banner_h1 {
+//     font-size: 9.2vw;
+//     margin: 0;
+//   }
+//   .banner_container #banner_p {
+//     width: 100%;
+//     max-width: 90%;
+//     margin: auto;
+//     font-size: 3.5vw;
+//     margin-top: 5px;
+//   }
+//   .banner_buttons {
+//     width: 100%;
+//     justify-content: center;
+//     margin-top: 2vw;
+//   }
+//   .banner_buttons bannerbtn {
+//     width:45%;
+//   }
+//   .banner_buttons button {
+//     width: 90%;
+//     height: 40px;
+//     font-size: 13px;
+//     border-radius: 0.9vw;
+// }
+//   .watchvideo .playbutton {
+//     margin: 0;
+//     width: 20px;
+//   }
+//   .watchvideo span {
+//     margin: 0;
+//     font-size: 20px;
+//   }
+//   .watchvideo div {
+//     width: fit-content;
+//     height: fit-content;
+//   }
+//   .watchvideo {
+//     margin: auto;
+//     margin-top: 1vw;
+//   }
+//   .banner_container #newaddDescription {
+//     display: block;
+//     width: -webkit-fit-content;
+//     width: -moz-fit-content;
+//     width: fit-content;
+//     margin-left: 50%;
+//     margin-bottom: 7vw;
+//     border: 0.7vw solid rgba(0, 179, 219, 0.4);
+//     transform: translate(-50%);
+//   }
+//   .banner_container #newaddDescription p {
+//     width: 200px;
+//     font-size: 10px;
+//     line-height: unset;
+//   }
+// }
+// @media (max-width: 496px) {
+//   .banner {
+//     background-position: center bottom;
+//     background-size: 350px auto;
+//     padding: 1vw 0;
+//     height: calc(var(--vh, 1vh) * 95);
+//   }
+// }
+// @media (max-width: 470px) {
+//   .banner {
+//     background-position: center bottom;
+//     background-size: 350px auto;
+//     padding: 1vw 0;
+//     height: calc(var(--vh, 1vh) * 90);
+//   }
+//   .watchvideo .playbutton {
+//     margin: 0;
+//     width: 20px;
+//   }
+// }
+// @media (max-width: 467px) {
+//   .banner {
+//     height: calc(var(--vh, 1vh) * 95);
+//   }
+// }
+@media (max-width: 391px) {
   .banner_buttons button {
     width: 90%;
-    height: 40px;
-    font-size: 13px;
+    height: 30px;
+    font-size: 12px;
     border-radius: 0.9vw;
-}
-  .watchvideo .playbutton {
-    margin: 0;
-    width: 20px;
   }
-  .watchvideo span {
-    margin: 0;
-    font-size: 20px;
-  }
-  .watchvideo div {
-    width: fit-content;
-    height: fit-content;
-  }
-  .watchvideo {
-    margin: auto;
-    margin-top: 1vw;
-  }
-  .banner_container #newaddDescription {
-    display: block;
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    width: fit-content;
-    margin-left: 50%;
-    margin-bottom: 7vw;
-    border: 0.7vw solid rgba(0, 179, 219, 0.4);
-    transform: translate(-50%);
-  }
-  .banner_container #newaddDescription p {
-    width: 200px;
-    font-size: 10px;
-    line-height: unset;
-  }
-}
-@media (max-width: 496px) {
-  .banner {
-    background-position: center bottom;
-    background-size: 350px auto;
-    padding: 1vw 0;
-    height: calc(var(--vh, 1vh) * 95);
-  }
-}
-@media (max-width: 470px) {
-  .banner {
-    background-position: center bottom;
-    background-size: 350px auto;
-    padding: 1vw 0;
-    height: calc(var(--vh, 1vh) * 90);
-  }
-  .watchvideo .playbutton {
-    margin: 0;
-    width: 20px;
-  }
-}
-@media (max-width: 467px) {
-  .banner {
-    height: calc(var(--vh, 1vh) * 95);
-  }
-}
-@media (max-width: 370px) {
   .banner {
     background-position: center bottom;
     background-size: 300px auto;
     padding: 1vw 0;
-    height: calc(var(--vh, 1vh) * 90);
   }
   .watchvideo .playbutton {
     margin: 0;
     width: 20px;
   }
   #banner_container_container {
-    margin: 14.5vh auto auto auto;
+    margin: 15vh auto auto auto;
+}
+.watchvideo span {
+  margin: 0;
+  font-size: 10px;
 }
 }
-@media (max-width:356px) {
-  .banner {
-    height: calc(var(--vh, 1vh) * 88);
-  }
-}
+// @media (max-width:356px) {
+//   .banner {
+//     height: calc(var(--vh, 1vh) * 88);
+//   }
+// }
