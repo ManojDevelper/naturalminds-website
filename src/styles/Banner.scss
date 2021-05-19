@@ -438,12 +438,12 @@
     max-width: 100%;
     margin: auto;
     font-size: 3.6vw;
-    margin-top: 5px;
+    margin-top: 2vw;
   }
   .banner_buttons {
     width: 100%;
     justify-content: center;
-    margin-top: 2vw;
+    margin-top: 2.5vw;
   }
   .banner_buttons bannerbtn {
     width: 45%;
@@ -489,7 +489,7 @@
     line-height: unset;
   }
 }
-@media (max-width: 403px) {
+@media (max-width: 500px) {
   .banner_container {
     text-align: center;
     height: 170vw;
@@ -504,10 +504,6 @@
   }
 }
 @media (max-width: 320px) {
-  .banner_container {
-    text-align: center;
-    height: 170vw;
-  }
   .watchvideo span {
     margin: 0;
     font-size: 4vw;
