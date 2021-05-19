@@ -162,10 +162,10 @@ function Banner() {
                         <h1 id="banner_h1">{data.banner.childMarkdownRemark.frontmatter.title}</h1>
                         <p id="banner_p">{data.banner.childMarkdownRemark.frontmatter.description}</p>
                         <div className="banner_buttons">
-                            <bannerbtn className={toggleState === 1 ? "show_btn active-show_btn" : "show_btn"}
-                                onClick={() => toggleTab(1)} role="presentation"><button className="banner_buttons1">{data.banner.childMarkdownRemark.frontmatter.button1}</button></bannerbtn>
-                            <bannerbtn className={toggleState === 2 ? "show_btn active-show_btn" : "show_btn"}
-                                onClick={() => toggleTab(2)} role="presentation"><button className="banner_buttons2">{data.banner.childMarkdownRemark.frontmatter.button2}</button></bannerbtn>
+                            <div id="bannerbtn" className={toggleState === 1 ? "show_btn active-show_btn" : "show_btn"}
+                                onClick={() => toggleTab(1)} role="presentation"><button className="banner_buttons1">{data.banner.childMarkdownRemark.frontmatter.button1}</button></div>
+                            <div id="bannerbtn" className={toggleState === 2 ? "show_btn active-show_btn" : "show_btn"}
+                                onClick={() => toggleTab(2)} role="presentation"><button className="banner_buttons2">{data.banner.childMarkdownRemark.frontmatter.button2}</button></div>
                         </div>
                         <div className="watchvideo" onClick={() => setLgShow(true)} role="presentation">
                             <div id="videodiv">
@@ -180,6 +180,7 @@ function Banner() {
                                 <div id="banner_pop_video">
                                     <video autoPlay controls>
                                         <source src={video} type="video/mp4" />
+                                        <track src="" kind="captions" srclang="en" label="english_captions"></track>
                                     </video>
                                 </div>
                         </Modal>

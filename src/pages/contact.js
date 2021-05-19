@@ -112,7 +112,7 @@ function Contact() {
                         </div>
                         <div className="contact_message" style={{ position: `relative` }}>
                         {(!query) || (query.length < 10) ? (<span style={{ color: (errors.query) }}>Message</span>) : (<span>Message</span>)}
-                            <textarea type="mail" placeholder="Please Type Your Response" type="text" value={query} onChange={e => setQuery(e.target.value)} />
+                            <textarea type="mail" placeholder="Please Type Your Message" type="text" value={query} onChange={e => setQuery(e.target.value)} />
                         </div>
                         <div className="button">
                             {(!name || !subject || !email || !/\S+@\S+\.\S+/.test(email) || !query || query.length < 10) ? (

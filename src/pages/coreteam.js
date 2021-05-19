@@ -65,8 +65,8 @@ function Coreteam() {
                       <p id="coreteam_h2">{coreteam.designation}</p>
                       <p id="coreteam_h3">{coreteam.qualification1}</p>
                       <p id="coreteam_h4">{coreteam.qualification2}</p>
-                      <tabbtn className={toggleState === (coreteam.id) ? "tabs active-tabs" : "tabs"}
-                        onClick={() => toggleTab(coreteam.id)} role="presentation"><button id="coreteam_button">{coreteam.button}<img src={arrow} alt="img1" id="cbutton_img" /></button></tabbtn>
+                      <div id="tabbtn" className={toggleState === (coreteam.id) ? "tabs active-tabs" : "tabs"}
+                        onClick={() => toggleTab(coreteam.id)} role="presentation"><button id="coreteam_button">{coreteam.button}<img src={arrow} alt="img1" id="cbutton_img" /></button></div>
                     </div>
                   </div>
                 </div>
@@ -79,7 +79,7 @@ function Coreteam() {
             {
               show ?
                 <div id="coreteam_info">
-                  <tag onClick={() => toggleTab(setShow)} role="presentation"><img src={close} alt="close" id="close" /></tag>
+                  <div id="tag" onClick={() => toggleTab(setShow)} role="presentation"><img src={close} alt="close" id="close" /></div>
                   <div id="coreteam_info_container">
                     <div id="coreteam_info_card">
                       <div id="core_team_info_image">

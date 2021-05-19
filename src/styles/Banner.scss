@@ -100,13 +100,13 @@
   flex-direction: row;
   margin-top: 1vw;
 }
-.banner_buttons bannerbtn {
+.banner_buttons #bannerbtn {
   width: fit-content;
   height: fit-content;
   padding: 0;
   margin: 0;
 }
-.banner_buttons bannerbtn:last-child {
+.banner_buttons #bannerbtn:last-child {
   margin-left: 2vw;
 }
 .banner_buttons button {
@@ -399,7 +399,7 @@
 
 /*=========mediaquaries========*/
 @media only screen and (max-width: 650px) {
-  .banner_buttons bannerbtn:last-child {
+  .banner_buttons #bannerbtn:last-child {
     margin-left: 0vw;
   }
   #image_taketop {
@@ -445,7 +445,7 @@
     justify-content: center;
     margin-top: 2.5vw;
   }
-  .banner_buttons bannerbtn {
+  .banner_buttons #bannerbtn {
     width: 45%;
   }
   .banner_buttons button {

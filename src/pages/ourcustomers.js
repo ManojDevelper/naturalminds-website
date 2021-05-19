@@ -36,6 +36,7 @@ function Ourcustomers() {
                 <div className="ourcustomers_video">
                   <video controls id="video_img">
                     <source src={video} type="video/mp4" />
+                    <track src="" kind="captions" srclang="en" label="english_captions"></track>
                   </video>
                 </div>
                 <div className="ourcustomers_matter">
