@@ -363,7 +363,7 @@
   flex-direction: row;
   margin-top: auto;
 }
-#bannerqr #qr_image_button a{
+#bannerqr #qr_image_button a {
   text-decoration: none;
   color: white;
 }
@@ -398,10 +398,10 @@
 }
 
 /*=========mediaquaries========*/
-@media only screen and  (max-width: 650px) {
+@media only screen and (max-width: 650px) {
   .banner_buttons bannerbtn:last-child {
     margin-left: 0vw;
-}
+  }
   #image_taketop {
     width: 10vw;
     bottom: 4vw;
@@ -427,7 +427,7 @@
     flex-direction: column;
   }
   #banner_container_container {
-    margin: 18vh auto auto auto;
+    margin: 15vh auto auto auto;
   }
   .banner_container #banner_h1 {
     font-size: 8.3vw;
@@ -457,10 +457,12 @@
   .watchvideo .playbutton {
     margin: 0;
     width: 7vw;
+    opacity: 0.8;
   }
   .watchvideo span {
     margin: 0;
-    font-size: 5vw;
+    font-size: 4.5vw;
+    opacity: 0.8;
   }
   .watchvideo div {
     width: fit-content;
@@ -486,11 +488,11 @@
     line-height: unset;
   }
 }
-@media (max-width:383px){
-  .banner {
-    background-size: 82vw auto;
+@media (max-width: 300px) {
+  #banner_container_container {
+    margin: 12vh auto auto auto;
   }
-  .banner_container {
-    height: 170vw;
-}
+  .watchvideo {
+    margin-top: 3vw;
+  }
 }
