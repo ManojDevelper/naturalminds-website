@@ -34,7 +34,7 @@ function Cards() {
                 }
                 image {
                   childImageSharp {
-                    fluid(quality: 1) {
+                    fluid(quality: 30) {
                       src
                     }
                   }
