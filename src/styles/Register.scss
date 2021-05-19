@@ -180,6 +180,12 @@
     color: #ffffff;
     cursor: pointer;
 }
+#register_button button:last-child {
+    width: fit-content;
+    background: transparent;
+    color: blue;
+    margin-left: 1vw;
+}
 #register_inputs .register_input_block1 #gender_options {
     display: none;
 }
@@ -360,15 +366,22 @@
     }
     #register_checkbox input {
         width: 5vw;
-    height: 5vw;
+        height: 5vw;
     }
     #register_button {
         margin-top: 5vw;
     }
     #register_button button {
-        width: 30vw;
-        height: 6vw;
+        width: 35vw;
+        height: 8vw;
         font-size: 2.5vw;
+        border-radius: 1.3vw;
+    }
+    #register_button button:last-child {
+        width: 10vw;
+        background: transparent;
+        color: blue;
+        margin-left: 1vw;
     }
     #login_main .footer {
         margin-top: 0;

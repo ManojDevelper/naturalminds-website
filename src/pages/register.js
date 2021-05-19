@@ -486,7 +486,7 @@ function Register() {
                   <button type="submit" onClick={signUp}>SignUp</button>
                 </>
               )}
-              <button type="submit" onClick={signUps} style={{ background: `transparent`, color: `blue`, width: `fit-content`, marginLeft: `1vw` }}>clear</button>
+              <button type="submit" onClick={signUps}>clear</button>
             </div>
           </div>
         </div>
