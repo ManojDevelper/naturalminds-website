@@ -17,7 +17,7 @@
   margin: auto;
   margin-top: 4.625vw;
 }
-#patner_container_main{
+#patner_container_main {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -47,17 +47,42 @@
   width: fit-content;
   height: fit-content;
 }
-#patners_image_container img {
+#patners_image_card:nth-child(1) #patners_image_container img {
   margin: 0;
-  width: auto;
-  max-width: 6vw;
+  width: 8.920625vw;
+  height: 3.955vw;
+}
+#patners_image_card:nth-child(2) #patners_image_container img {
+  margin: 0;
+  width: 4.9975vw;
+  height: 6.14vw;
+}
+#patners_image_card:nth-child(3) #patners_image_container img {
+  margin: 0;
+  width: 7.625vw;
+  height: 3.5vw;
+}
+#patners_image_card:nth-child(4) #patners_image_container img {
+  margin: 0;
+  width: 6.656875vw;
+  height: 7.97625vw;
+}
+#patners_image_card:nth-child(5) #patners_image_container img {
+  margin: 0;
+  width: 10.1vw;
+  height: 6.599375vw;
+}
+#patners_image_card:nth-child(6) #patners_image_container img {
+  margin: 0;
+  width: 8.5vw;
+  height: 3.1875vw;
 }
 @media (max-width: 1237px) {
   #patners_image_container img {
     width: 5.2vw;
   }
 }
-@media (max-width:650px){
+@media (max-width: 650px) {
   #patners h1 {
     font-size: 7vw;
   }
@@ -75,15 +100,40 @@
     grid-template-rows: 25vw 25vw;
     width: 100%;
   }
-  #patners_container{
+  #patners_container {
     margin-top: 10vw;
   }
-  #patners_image_card{
+  #patners_image_card {
     border-radius: 2.8vw;
   }
-  #patners_image_container img {
+  #patners_image_card:nth-child(1) #patners_image_container img {
     margin: 0;
-    width: auto;
-    max-width: 15vw;
+    width: 22vw;
+    height: 10vw;
+  }
+  #patners_image_card:nth-child(2) #patners_image_container img {
+    margin: 0;
+    width: 14vw;
+    height: 15vw;
+  }
+  #patners_image_card:nth-child(3) #patners_image_container img {
+    margin: 0;
+    width: 18vw;
+    height: 8vw;
+  }
+  #patners_image_card:nth-child(4) #patners_image_container img {
+    margin: 0;
+    width: 22vw;
+    height: 20vw;
+  }
+  #patners_image_card:nth-child(5) #patners_image_container img {
+    margin: 0;
+    width: 24vw;
+    height: 18vw;
+  }
+  #patners_image_card:nth-child(6) #patners_image_container img {
+    margin: 0;
+    width: 20vw;
+    height: 9vw;
   }
 }

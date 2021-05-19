@@ -36,7 +36,7 @@ function Coreteam() {
                   id
                   image {
                     childImageSharp {
-                      fluid(quality: 1) {
+                      fluid {
                         src
                       }
                     }

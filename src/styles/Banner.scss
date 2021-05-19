@@ -135,9 +135,20 @@
 }
 .watchvideo .playbutton {
   margin: 0;
+  width: 21px;
+  height: 21px;
+  opacity: 0.8;
 }
 .watchvideo span {
   margin: 0;
+  font-family: Source Sans Pro;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  color: #585858;
+  position: relative;
+  top: 0.3vw;
+  opacity: 0.8;
 }
 .watchvideo #videodiv {
   width: fit-content;
@@ -404,13 +415,13 @@
   }
   #image_taketop {
     width: 10vw;
-    bottom: 4vw;
-    right: 4vw;
+    bottom: 6vw;
+    right: 6vw;
   }
   #image_taketop2 {
     width: 10vw;
-    bottom: 2vw;
-    right: 2vw;
+    bottom: 6vw;
+    right: 6vw;
   }
   .banner {
     background-position: center bottom;

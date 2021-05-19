@@ -12,19 +12,19 @@ ourpatners:
       },
       {
           id: 3,
-          image: "./assets/patner6.png"
-      },
-      {
-          id: 4,
           image: "./assets/patner3.png"
       },
       {
-          id: 5,
+          id: 4,
           image: "./assets/patner4.png"
+      },
+      {
+          id: 5,
+          image: "./assets/patner5.png"
       },
             {
           id: 6,
-          image: "./assets/patner5.png"
+          image: "./assets/patner6.png"
       },
   ]
 ---
