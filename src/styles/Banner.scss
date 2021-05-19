@@ -489,6 +489,12 @@
     line-height: unset;
   }
 }
+@media (max-width: 403px) {
+  .banner_container {
+    text-align: center;
+    height: 170vw;
+  }
+}
 @media (max-width: 360px) {
   #banner_container_container {
     margin: 12vh auto auto auto;
