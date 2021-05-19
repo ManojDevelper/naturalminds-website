@@ -253,6 +253,9 @@
     width: fit-content;
     margin: auto;
   }
+  #close {
+    width: 7vw;
+  }
   #coreteam_card_svg {
     margin: auto;
     width: 30vw;
@@ -295,14 +298,15 @@
 #coreteam_info {
   border-radius: 2vw;
   margin: 3vw auto;
-  padding: 2vw 3vw;
+  padding: 2.5vw 3vw;
 }
 #coreteam_info_container {
-  width: 70vw;
+  width: 90vw;
   height: fit-content;
+  margin-top: 2vw;
 }
 #core_team_info_matter_container p {
-  font-size: 3vw;
+  font-size: 3.6vw;
   line-height: unset;
 }
 #core_team_info_matter_border_container {
@@ -310,23 +314,24 @@
   height: 1.5vw;
 }
 #core_team_info_image img {
-  width: 15vw;
+  width: 23vw;
+  height: 25vw;
 }
 #core_team_about_doc #doc_name {
-  font-size: 3vw;
+  font-size: 3.9vw;
   line-height: unset;
   margin: 0;
 }
 #doc_designation {
-  font-size: 2.5vw;
+  font-size: 3.5vw;
   line-height: unset;
 }
 #doc_qualification {
-  font-size: 2vw;
+  font-size: 2.5vw;
   line-height: unset;
 }
 #doc_qualification2 {
-  font-size: 2vw;
+  font-size: 2.5vw;
   line-height: unset;
 }
 }

@@ -132,7 +132,7 @@
 }
 .toggle img {
     margin-bottom: 0;
-    width: 40px;
+    width: 30px;
 }
 @media (max-width: 1202px) {
     #toggle2 {
@@ -183,7 +183,7 @@
     }
     #navbtn2 {
         font-size: 20px;
-        margin-top: 20px;
+        margin-top: 0;
     }
     .navbtn2 {
         width: fit-content;
@@ -225,6 +225,7 @@
     }
     #nav_img img {
         width: 50px;
+        margin-top: 2vw;
     }
     #nav_main_div {
         position: fixed;
@@ -239,6 +240,22 @@
     #nav_main_div2 {
         padding: 1.5vw 2vw;
     }
+    #navlinks {
+        font-weight: 600;
+        color: #222222;
+        opacity: 0.8;
+        font-size: 20px;
+        padding: 0;
+        margin-top: 20px;
+    }
+    .nav_active {
+        border-bottom: 2px solid #00B3DB;
+        transition: 0.5s ease;
+    }
+    #navlinks:hover {
+        border-bottom: 2px solid #00B3DB;
+        transition: 0.5s ease;
+    }
     .navbtn1 {
         width: fit-content;
         height: fit-content;
@@ -248,9 +265,21 @@
         font-style: normal;
         font-weight: normal;
         font-size: 20px;
-        color: #212e34;
+        color: #222222;
         margin: 0;
-        margin-top: 5vw;
+        margin-top: 20px;
+        font-weight: 600;
+        opacity: 0.8;
+    }
+    .navbtn1:hover {
+        border-bottom: 2px solid #00B3DB;
+        transition: 0.5s ease;
+        border-radius: unset;
+    }
+    #navbtn2 .nav_active2 {
+        border-bottom: 2px solid #00B3DB;
+        transition: 0.5s ease;
+        border-radius: unset;
     }
     .navbtn2 {
         width: fit-content;
@@ -262,16 +291,28 @@
         font-style: normal;
         font-weight: normal;
         font-size: 20px;
-        color: #212e34;
+        color: #222222;
         margin: 0;
         background: transparent;
-        margin-top: 5vw;
+        margin-top: 20px;
+        font-weight: 600;
+        opacity: 0.8;
+    }
+    .navbtn2:hover {
+        border-bottom: 2px solid #00B3DB;
+        transition: 0.5s ease;
+        border-radius: unset;
+    }
+    #navbtn2 .nav_active2 {
+        border-bottom: 2px solid #00B3DB;
+        transition: 0.5s ease;
+        border-radius: unset;
     }
     #nav_items {
         display: flex;
         flex-direction: column;
         padding-left: 6vw;
-        margin-top: 40px;
+        margin-top: 70px;
     }
     #navbtn2 {
         margin-right: auto;
@@ -282,7 +323,7 @@
         width: fit-content;
         margin: auto;
         z-index: 20;
-        margin-top: 40px;
+        margin-top: 100px;
     }
     #nav_icon_cont:first-child {
         margin-left: 0;

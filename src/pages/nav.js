@@ -91,11 +91,11 @@ function Top() {
               </div>
             </Navbar.Toggle>
               <Nav id="nav_items">
-                <p id="navbtn2" activeclassname="nav_active"><Nav.Link href="/landing" id="navlinks">HOME</Nav.Link></p>
-                <p id="navbtn2" activeclassname="nav_active"><Nav.Link href="/landing/#about" id="navlinks">ABOUT</Nav.Link></p>
-                <p id="navbtn2" activeclassname="nav_active"><Nav.Link href="/landing/#ourproducts" id="navlinks">PRODUCTS</Nav.Link></p>
-                <p id="navbtn2" activeclassname="nav_active"><Nav.Link href="/doctor" id="navlinks">FIND DOCTOR</Nav.Link></p>
-                <p id="navbtn2" activeclassname="nav_active"><Nav.Link href="/landing/#contact" id="navlinks">CONTACT US</Nav.Link></p>
+                <p id="navbtn2"><Nav.Link href="/landing" id="navlinks" activeclassname="nav_active">HOME</Nav.Link></p>
+                <p id="navbtn2"><Nav.Link href="/landing/#about" id="navlinks" activeclassname="nav_active">ABOUT</Nav.Link></p>
+                <p id="navbtn2"><Nav.Link href="/landing/#ourproducts" id="navlinks" activeclassname="nav_active">PRODUCTS</Nav.Link></p>
+                <p id="navbtn2"><Nav.Link href="/doctor" id="navlinks" activeclassname="nav_active">FIND DOCTOR</Nav.Link></p>
+                <p id="navbtn2"><Nav.Link href="/landing/#contact" id="navlinks" activeclassname="nav_active">CONTACT US</Nav.Link></p>
                 <Link to="/register" id="reglink"><button activeclassname="nav_active2" className="navbtn1">REGISTER</button></Link>
                 <a href="https://www.spotcare.in/auth/login" target="_blank" without rel="noreferrer" id="reglink"><button activeclassname="nav_active2" className="navbtn2">LOGIN</button></a>
                 <div id="nav_icons">

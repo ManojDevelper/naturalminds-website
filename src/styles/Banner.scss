@@ -488,7 +488,10 @@
     line-height: unset;
   }
 }
-@media (max-width: 300px) {
+@media (max-width: 310px) {
+  .banner_container {
+    height: 170vw;
+  }
   #banner_container_container {
     margin: 12vh auto auto auto;
   }

@@ -267,7 +267,7 @@
     align-items: center;
     z-index: 20;
     position: fixed;
-    top:0;
+    top: 0;
 }
 #login_main #tnc_popup_container {
     width: fit-content;
@@ -289,14 +289,14 @@
     font-style: normal;
     font-weight: normal;
 }
-#closeimg{
+#closeimg {
     position: absolute;
     right: 0;
 }
-@media (max-width:650px){
+@media (max-width: 650px) {
     #login {
-    margin: 0 0 25vw 0;
-}
+        margin: 0 0 25vw 0;
+    }
     #register_container {
         width: 90%;
         height: fit-content;
@@ -304,15 +304,16 @@
         box-sizing: border-box;
         box-shadow: 0px 0px 0 white;
         border-radius: 1vw;
-        margin: 15vw auto auto auto;
+        margin: 11vw auto auto auto;
         border: 0.5px solid transparent;
         padding: 0;
     }
     #register_container_head_block1 h1 {
-        font-size: 4vw;
+        font-size: 5vw;
     }
     #register_container_head_block2 p {
         font-size: 3vw;
+        line-height: 5vw;
     }
     #register_container_head_block2 span {
         font-size: 3vw;
@@ -320,39 +321,40 @@
     #register_inputs {
         display: grid;
         grid-template-columns: 1fr;
-        gap:5vw;
-        margin-top: 10vw;
+        gap: 5vw;
+        margin-top: 9vw;
     }
     #register_input_block_input1 {
-        height: 8vw;
+        height: 12vw;
     }
-    #docselectorbox{
-        height: 8vw;
+    #docselectorbox {
+        height: 12vw;
     }
     #register_input_block_input1 input {
-        font-size: 2.5vw;
+        font-size: 3.5vw;
         padding-left: 3vw;
+        font-weight: 600;
     }
     #register_input_block_input1 h1 {
-        font-size: 2vw;
+        font-size: 3.5vw;
         left: 2vw;
-        top: -1vw;
+        top: -1.5vw;
     }
     #login #docselectorbox h1 {
-        font-size: 2vw;
+        font-size: 3.5vw;
         left: 2vw;
-        top: -1vw;
+        top: -1.5vw;
     }
     #login .custom-select {
-        font-size: 2vw;
+        font-size: 3vw;
         padding-left: 3vw;
-        background-size: 1.5vw;
+        background-size: 2.5vw;
     }
-    #register_checkbox{
+    #register_checkbox {
         margin-top: 5vw;
     }
     #register_checkbox p {
-        font-size: 2vw;
+        font-size: 2.2vw;
         margin-top: 1vw;
         margin-left: 2vw;
     }
