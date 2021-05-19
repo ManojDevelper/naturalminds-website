@@ -39,7 +39,7 @@ function Top() {
               }
               nav_logo {
                 childImageSharp {
-                  fluid(quality: 10) {
+                  fluid(quality: 1) {
                     src
                   }
                 }
