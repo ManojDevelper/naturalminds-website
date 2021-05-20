@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "../styles/Doctor.scss";
 import qr1 from "../data/assets/patentqr.png"
 import playstorebtn from "../data/assets/playstore_btn.svg"
@@ -23,42 +23,66 @@ import takebtn from "../data/assets/taketop.svg";
 
 
 function Doctor() {
-      /*==================taketop======================*/
-      useEffect(() => {
-        window.addEventListener('resize', showButton);
-    
-        window.addEventListener('scroll', changeBackground);
-        return () => {
-          window.removeEventListener('resize', showButton);
-    
-          window.removeEventListener('scroll', changeBackground);
+  /*==================taketop======================*/
+  useEffect(() => {
+    window.addEventListener('resize', showButton);
+
+    window.addEventListener('scroll', changeBackground);
+    return () => {
+      window.removeEventListener('resize', showButton);
+
+      window.removeEventListener('scroll', changeBackground);
+    }
+  }, [])
+
+
+  const [navbar, setNavbar] = useState(false);
+  const [button, setButton] = useState();
+  const showButton = () => {
+    if (window.innerWidth <= 960) {
+      setButton(false);
+    } else {
+      setButton(true);
+    }
+  };
+  useEffect(() => {
+    showButton();
+    // eslint-disable-next-line
+  }, [])
+
+  const changeBackground = () => {
+    if (window.scrollY >= 80) {
+      setNavbar(true)
+    } else {
+      setNavbar(false);
+    }
+  };
+
+  /*================================================*/
+  /*===================Enter Keypress event=======================*/
+  function useKey(key, cb) {
+    const callbackRef = useRef(cb);
+
+    useEffect(() => {
+      callbackRef.current = cb;
+    })
+
+    useEffect(() => {
+      function handle(event) {
+        if (event.code === key) {
+          callbackRef.current(event);
         }
-      }, [])
-    
-    
-      const [navbar, setNavbar] = useState(false);
-      const [button, setButton] = useState();
-      const showButton = () => {
-        if (window.innerWidth <= 960) {
-          setButton(false);
-        } else {
-          setButton(true);
-        }
-      };
-      useEffect(() => {
-        showButton();
-        // eslint-disable-next-line
-      }, [])
-    
-      const changeBackground = () => {
-        if (window.scrollY >= 80) {
-          setNavbar(true)
-        } else {
-          setNavbar(false);
-        }
-      };
-    
-    /*================================================*/
+      }
+      document.addEventListener("keypress", handle);
+      return () => document.removeEventListener("keypress")
+    }, [key]);
+  }
+  
+  function handleEnter() {
+    console.log("Enter key is pressed")
+    search()
+  }
+  useKey("Enter", handleEnter)
   /*==================Api calling for patient form====================*/
   const [errors, setErrors] = useState({});
   const Patentvalidation = () => {
@@ -161,9 +185,9 @@ function Doctor() {
   }, [])
 
   return (
-    <>      
+    <>
       <div id="doctors">
-      <Top />
+        <Top />
         <div id="doctor_container_main">
           <div id="doctor_container">
             <div id="doctor_search">
@@ -322,8 +346,8 @@ function Doctor() {
           <Footer />
           <ToastContainer />
           <div id={navbar ? 'image_taketop' : 'image_taketop2'}>
-                    <Link to="/doctor/"><img src={takebtn} alt="taketop" /></Link>
-                </div>
+            <Link to="/doctor/"><img src={takebtn} alt="taketop" /></Link>
+          </div>
         </div>
       </div>
     </>
