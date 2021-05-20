@@ -189,7 +189,7 @@ function Register() {
 
   // useEffect(() => {
   //   const loadPosts = async () => {
-  //     const response = await axios.get("https://stag.spotcare.in/api/tou/termsofuse.html");
+  //     const response = await axios.get( API_ROOT +"/api/tou/termsofuse.html");
   //     setPosts(response);
   //     console.log(response)
   //   }
@@ -200,7 +200,7 @@ function Register() {
   // useEffect(() => {
   //   const loadPosts = async () => {
   //     const response2 = await fetch(
-  //       "https://stag.spotcare.in/api/tou/termsofuse.html"
+  //        API_ROOT +"/api/tou/termsofuse.html"
   //     )
   //     const data2 = await response2.json()
   //     console.log(data2)
@@ -508,14 +508,14 @@ function Register() {
             ref={descriptionElementRef}
             tabIndex={-1}
           >
-            {[...new Array(50)]
-              .map(
-                () => `Cras mattis consectetur purus sit amet fermentum.
-Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`,
-              )
-              .join('\n')}
+            <p>NMDS reserves the right to modify this Agreement at any time without giving the Subscriber any prior
+            notice. The Subscriber’s use of the Software following any such modification constitutes the
+            Subscriber’s
+            agreement to follow and be bound by this Agreement as modified. Any additional terms and conditions,
+            disclaimers, privacy policies and other policies applicable to general and specific areas of the
+            Software or
+            to particular subscription services are also considered as part of this Agreement. By agreeing to these
+				terms, Customer also agrees to the Terms of Use, which are available at</p>
           </DialogContentText>
         </DialogContent>
         <DialogActions>

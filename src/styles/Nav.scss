@@ -213,11 +213,8 @@
         margin: 0;
         margin-top: 5vw;
         background: unset;
-
     }
-}
-@media (max-width: 650px) {
-    #toggle2 img {
+     #toggle2 img {
         width: 40px;
         margin-top: 1vw;
         margin-bottom: 0;
@@ -249,11 +246,11 @@
         margin-top: 20px;
     }
     .nav_active {
-        border-bottom: 2px solid #00B3DB;
+        border-bottom: 2px solid #00b3db;
         transition: 0.5s ease;
     }
     #navlinks:hover {
-        border-bottom: 2px solid #00B3DB;
+        border-bottom: 2px solid #00b3db;
         transition: 0.5s ease;
     }
     .navbtn1 {
@@ -272,12 +269,12 @@
         opacity: 0.8;
     }
     .navbtn1:hover {
-        border-bottom: 2px solid #00B3DB;
+        border-bottom: 2px solid #00b3db;
         transition: 0.5s ease;
         border-radius: unset;
     }
     #navbtn2 .nav_active2 {
-        border-bottom: 2px solid #00B3DB;
+        border-bottom: 2px solid #00b3db;
         transition: 0.5s ease;
         border-radius: unset;
     }
@@ -299,12 +296,12 @@
         opacity: 0.8;
     }
     .navbtn2:hover {
-        border-bottom: 2px solid #00B3DB;
+        border-bottom: 2px solid #00b3db;
         transition: 0.5s ease;
         border-radius: unset;
     }
     #navbtn2 .nav_active2 {
-        border-bottom: 2px solid #00B3DB;
+        border-bottom: 2px solid #00b3db;
         transition: 0.5s ease;
         border-radius: unset;
     }
@@ -336,7 +333,7 @@
     }
     #nav_icon_cont img {
         margin: 0;
-        width: 7vw;
+        width: 40px;
     }
     .navbtn1:hover {
         color: #212e34;
@@ -350,7 +347,13 @@
         width: 100%;
     }
 }
-@media (max-width){
+@media (max-width: 650px){
+    #nav_icon_cont img {
+        margin: 0;
+        width: 7vw;
+    }
+}
+@media (max-width: 300px) {
     #nav_img img {
         width: 40px;
     }
