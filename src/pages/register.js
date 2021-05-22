@@ -344,10 +344,15 @@ function Register() {
                     setSelectedUserType(selectedDoctor)
                   }}
                 ><option value="">User Type</option>
-                  <option value="Doctor">Doctor</option>
-                  <option value="Nurse">Nurse</option>
-                  <option value="Chemist">Chemist</option>
-                  <option value="Laboratory">Laboratory</option>
+                  {docResult &&
+                    docResult.data.map((user, i) => (
+                      <>
+                        {(user.user_type === "Doctor", i === 1 || user.user_type === "Nurse" || user.user_type === "Chemist" || user.user_type === "Laboratory") ? (<option value={user.user_type} key={user.id}>
+                          {user.user_type}
+                        </option>) : (<></>)}
+
+                      </>
+                    ))}
                 </select>
               </div>
               {(selectedUserType === "Doctor") ? (<div id="docselectorbox">
